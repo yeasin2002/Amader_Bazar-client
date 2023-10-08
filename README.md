@@ -24,6 +24,10 @@ authentication to access the dashboard pages.
 | ![Main ](./public/fontEnd1.png) | ![Main ](./public/fontEnd2.png) | ![Main ](./public/fontEnd3.png) |
 | ------------------------------- | ------------------------------- | ------------------------------- |
 
+### UI Inspiration
+
+- [Front End](https://angular.pixelstrap.com/multikart/home/fashion)
+
 ### Technology
 
 | Packages             | Description                  |
