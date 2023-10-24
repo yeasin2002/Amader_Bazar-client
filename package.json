@@ -6,10 +6,12 @@
     "scripts": {
         "dev": "vite",
         "build": "tsc && vite build",
-        "lint:old": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-        "lint": "npx eslint ./src --ext .js,.jsx,.ts,.tsx",
         "preview": "vite preview",
-        "prepare": "husky install"
+        "lint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+        "lint:fix": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
+        "format:fix": "prettier --write \"src/**/*.{ts,tsx,css}\"",
+        "type-check": "tsc --noEmit",
+        "pre-commit": "pnpm run lint && pnpm run format:fix && pnpm run type-check"
     },
     "dependencies": {
         "@radix-ui/react-slot": "^1.0.2",
@@ -46,5 +48,10 @@
         "husky": "^8.0.0",
         "prettier": "^3.0.3",
         "tailwindcss-animated": "^1.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pnpm  pre-commit  "
+        }
     }
 }
