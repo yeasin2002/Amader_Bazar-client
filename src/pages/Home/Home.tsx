@@ -1,12 +1,13 @@
-import Nav from "../../layout/Nav/Nav";
-import { Container } from "@radix-ui/themes";
+import Nav from "$layout/Nav/Nav";
 
-const Home = () => {
-  return (
-    <Container>
-      <Nav />
-    </Container>
-  );
+export const Home = () => {
+    return (
+        <div>
+            <Nav />
+        </div>
+    );
 };
 
-export default Home;
+/*
+ 
+*/

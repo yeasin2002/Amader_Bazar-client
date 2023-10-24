@@ -7,6 +7,10 @@
 
  </div>
 
+#### [Figma UI](https://www.figma.com/file/Douo9VLnXKBXb6B2cweSQs/Amader-Bazar?type=design&node-id=605%3A344&mode=design&t=Mne6rFKVXNd21MHM-1)
+
+<img src="./public/showcase/design.svg">
+
 ### Dashboard
 
 This code is part of the dashboard for my e-commerce project. The project is an online store that sells a variety of products
