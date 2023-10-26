@@ -1,10 +1,12 @@
 import image from "$assets/temp/category/book.svg";
 import Image from "$ui/Image";
+import { HTMLAttributes } from "react";
+interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {}
 
-export const CategoryItem = () => {
+export const CategoryItem = ({ ...rest }: CategoryItemProps) => {
     return (
-        <div className=" flex-col into-center py-4">
-            <span className="rounded-full bg-blue-400 w-28 h-28 into-center ">
+        <div className=" flex-col into-center py-4" {...rest}>
+            <span className="rounded-full bg-blue-300 w-28 h-28 into-center ">
                 <Image src={image} alt={""} className="w-full h-full p-4" />
             </span>
             <h2 className="font-bold text-xl text-slate-900 mt-4 mb-2">

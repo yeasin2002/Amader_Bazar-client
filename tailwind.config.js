@@ -28,6 +28,7 @@ module.exports = {
                     800: "#633a0c",
                     900: "#f8921e",
                 },
+                chai: "hsl (209, 1,1)",
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
                 ring: "hsl(var(--ring))",

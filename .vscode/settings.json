@@ -1,6 +1,6 @@
 {
     "css.validate": false,
-    "cSpell.words": ["tanstack"],
+    "cSpell.words": ["lucide", "tanstack"],
     "editor.formatOnSave": true,
     "[javascript]": {
         "editor.formatOnSave": true
