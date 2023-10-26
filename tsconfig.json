@@ -29,6 +29,8 @@
             "$store": ["src/store"],
             "$components/*": ["src/components/*"],
             "$components": ["src/components"],
+            "$lib/*": ["src/lib/*"],
+            "$lib": ["src/lib"],
             "$utils/*": ["src/utils/*"],
             "$utils": ["src/utils"],
             "$pages/*": ["src/pages/*"],
