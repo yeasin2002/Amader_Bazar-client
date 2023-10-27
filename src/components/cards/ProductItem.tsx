@@ -1,8 +1,8 @@
+import { Heart, Star } from "lucide-react";
+import { FC } from "react";
+
 import Image from "$ui/Image";
 import { Button } from "$ui/button";
-
-import { Eye, Heart, ShoppingCart, Star } from "lucide-react";
-import { FC } from "react";
 
 interface productsPros {
     img: string;
@@ -25,18 +25,14 @@ export const ProductItem: FC<productsPros> = ({
     return (
         <div
             {...rest}
-            className="border border-gray-500/40 rounded-lg   shadow-lg group"
+            className="border border-gray-500/30 rounded-lg   shadow-lg group"
         >
-            <div className="w-full max-w-sm overflow-hidden bg-white relative  ">
+            <div className="w-full max-w-sm overflow-hidden bg-white   ">
                 <Image
                     src={img}
                     alt="product image"
-                    className="object-cover object-center w-full  h-60 "
+                    className="object-cover object-center w-full  h-60 rounded-t-md "
                 />
-                <div className="absolute bottom-0 right-0 p-2 h-16 bg-gray-400 flex flex-col gap-2 items-center justify-center text-white  group-hover:opacity-100 opacity-0 transition-all duration-500">
-                    <Heart className="cursor-pointer" />
-                    <Eye className="cursor-pointer" />
-                </div>
             </div>
             <div className="p-4 ">
                 <p className="text-xs font-semibold text-gray-500 ">
@@ -62,8 +58,8 @@ export const ProductItem: FC<productsPros> = ({
                     <Button size={"sm"} className="w-full    flex-1">
                         Add to cart
                     </Button>
-                    <Button size={"sm"} className="bg-blue-800">
-                        <ShoppingCart />
+                    <Button size={"sm"} className="bg-blue-800 ">
+                        <Heart className="text-lg" />
                     </Button>
                 </div>
             </div>
