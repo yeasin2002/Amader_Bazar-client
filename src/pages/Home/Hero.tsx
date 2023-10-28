@@ -2,6 +2,7 @@ import bg from "$assets/temp/products/apparel5.jpg";
 import Nav from "$layout/Nav/Nav";
 import Image from "$ui/Image";
 
+
 const Hero = () => {
     return (
         <>
