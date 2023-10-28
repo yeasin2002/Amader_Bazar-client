@@ -3,6 +3,7 @@ import { FC } from "react";
 
 import Image from "$ui/Image";
 import { Button } from "$ui/button";
+import { Link } from "react-router-dom";
 
 interface productsPros {
     img: string;
@@ -27,13 +28,15 @@ export const ProductItem: FC<productsPros> = ({
             {...rest}
             className="border border-gray-500/30 rounded-lg   shadow-lg group"
         >
-            <div className="w-full max-w-sm overflow-hidden bg-white   ">
-                <Image
-                    src={img}
-                    alt="product image"
-                    className="object-cover object-center w-full  h-60 rounded-t-md "
-                />
-            </div>
+            <Link to="/product-details">
+                <div className="w-full max-w-sm overflow-hidden bg-white   ">
+                    <Image
+                        src={img}
+                        alt="product image"
+                        className="object-cover object-center w-full  h-60 rounded-t-md "
+                    />
+                </div>
+            </Link>
             <div className="p-4 ">
                 <p className="text-xs font-semibold text-gray-500 ">
                     {category}
@@ -54,6 +57,7 @@ export const ProductItem: FC<productsPros> = ({
                         $ {price}
                     </p>
                 </span>
+
                 <div className="flex items-center mt-4 gap-x-1">
                     <Button size={"sm"} className="w-full    flex-1">
                         Add to cart
