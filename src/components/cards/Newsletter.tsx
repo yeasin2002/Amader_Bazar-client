@@ -19,9 +19,9 @@ const Newsletter = () => {
                 <span className="bg-yellow-400 p-2 rounded-full">
                     <MailOpen />
                 </span>
-                <p>Newsletter</p>
+                <p className="text-xl font-bold font-serif">Newsletter</p>
             </div>
-            <div>
+            <div className="text-lg font-light  ">
                 <p>Get weekly update</p>
             </div>
 

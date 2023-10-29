@@ -7,8 +7,8 @@ const DisplayCategory = () => {
             <section className="space-y-3 px-4 py-6">
                 <div>
                     <div className="flex items-center gap-x-2">
-                        <span className="bg-pink-800 p-2 inline-block  text-white rounded-full">
-                            <Tag />
+                        <span className="bg-yellow-400 p-2   text-white rounded-full grid  place-items-center">
+                            <Tag color="black" />
                         </span>
                         <p className="text-xl font-bold text-gray-800">
                             Categories

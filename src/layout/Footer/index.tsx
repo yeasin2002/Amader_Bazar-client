@@ -35,6 +35,7 @@ export const Footer = () => {
                                                     <a
                                                         className="text-gray-600 hover:text-gray-800"
                                                         href={item.link}
+                                                        target="_blank"
                                                     >
                                                         {item.title}
                                                     </a>
@@ -60,6 +61,7 @@ export const Footer = () => {
                                         className="text-gray-500"
                                         href={item.link}
                                         key={item.link + index}
+                                        target="_blank"
                                     >
                                         <item.icon />
                                     </a>

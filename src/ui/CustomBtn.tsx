@@ -38,7 +38,7 @@ export interface ButtonProps
     href?: string;
 }
 
-const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+const CustomBtn = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, children, href, variant, size, ...props }, ref) => {
         if (href) {
             return (
@@ -62,6 +62,6 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         );
     }
 );
-Button.displayName = "Button";
+CustomBtn.displayName = "Button";
 
-export { Button, buttonVariants };
+export { CustomBtn, buttonVariants };
