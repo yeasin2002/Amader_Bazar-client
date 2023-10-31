@@ -8,7 +8,13 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 const Image = ({ src, alt = "", className }: ImageProps) => {
     return (
-        <img src={src} alt={alt} loading="lazy" className={cn("", className)} />
+        <img
+            src={src}
+            alt={alt}
+            loading="lazy"
+            key={alt}
+            className={cn("", className)}
+        />
     );
 };
 
