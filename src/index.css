@@ -6,6 +6,9 @@
     .into-center {
         @apply flex items-center justify-center;
     }
+    .single-product-info {
+        @apply h-60
+    }
 }
 
 

@@ -6,5 +6,9 @@ interface AdditionalInformationProps
 export const AdditionalInformation: FC<AdditionalInformationProps> = ({
     ...rest
 }) => {
-    return <div {...rest}>index</div>;
+    return (
+        <div className="single-product-info" {...rest}>
+            AdditionalInformation
+        </div>
+    );
 };

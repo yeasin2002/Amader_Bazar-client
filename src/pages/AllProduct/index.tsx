@@ -1,3 +1,9 @@
+import { FilterArea } from "$components";
+
 export const AllProduct = () => {
-    return <div>AllProduct</div>;
+    return (
+        <div>
+            <FilterArea />
+        </div>
+    );
 };

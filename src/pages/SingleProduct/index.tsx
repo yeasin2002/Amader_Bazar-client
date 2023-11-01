@@ -3,7 +3,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
 import headphone from "$assets/temp/products/shoe1-2.jpg";
 import Image from "$ui/Image";
-import { Facebook, Star, Twitter } from "lucide-react";
+import { ChevronDown, Star } from "lucide-react";
 
 import { AdditionalInformation } from "./AdditionalInformation";
 import { Description } from "./Description";
@@ -31,19 +31,16 @@ export const SingleProduct: FC<SingleProductProps> = ({ ...rest }) => {
                                 The Catcher in the Rye
                             </h1>
                             <div className="flex mb-4">
-                                <span className="flex items-center">
-                                    <Star />
-                                    <span className="text-gray-600 ml-3">
-                                        4 Reviews
+                                <span className="flex items-center gap-x-3">
+                                    <span className="px-2 py-1 bg-blue-100 text-blue-700 font-normal rounded-lg   ">
+                                        In stock
                                     </span>
-                                </span>
-                                <span className="flex ml-3 pl-3 py-2 border-l-2 border-gray-200 space-x-2s">
-                                    <a className="text-gray-500">
-                                        <Facebook />
-                                    </a>
-                                    <a className="text-gray-500">
-                                        <Twitter />
-                                    </a>
+                                    <div className="flex items-center gap-x-1">
+                                        <Star />
+                                        <span className="text-gray-600 ">
+                                            4 Reviews
+                                        </span>
+                                    </div>
                                 </span>
                             </div>
                             <p className="leading-relaxed">
@@ -73,17 +70,7 @@ export const SingleProduct: FC<SingleProductProps> = ({ ...rest }) => {
                                             <option>XL</option>
                                         </select>
                                         <span className="absolute right-0 top-0 h-full w-10 text-center text-gray-600 pointer-events-none flex items-center justify-center">
-                                            <svg
-                                                fill="none"
-                                                stroke="currentColor"
-                                                strokeLinecap="round"
-                                                strokeLinejoin="round"
-                                                strokeWidth="2"
-                                                className="w-4 h-4"
-                                                viewBox="0 0 24 24"
-                                            >
-                                                <path d="M6 9l6 6 6-6"></path>
-                                            </svg>
+                                            <ChevronDown size={20} />
                                         </span>
                                     </div>
                                 </div>
@@ -115,7 +102,7 @@ export const SingleProduct: FC<SingleProductProps> = ({ ...rest }) => {
 
             <div className="">
                 <Tabs defaultValue="description">
-                    <TabsList className=" !bg-transparent flex items-center justify-center ">
+                    <TabsList className="   flex items-center justify-center ">
                         <TabsTrigger value="description">
                             Description
                         </TabsTrigger>

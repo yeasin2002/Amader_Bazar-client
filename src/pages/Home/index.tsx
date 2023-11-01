@@ -2,6 +2,7 @@ import shoe from "$assets/temp/products/shoe1-1.jpg";
 import Newsletter from "$components/cards/Newsletter";
 import { ProductItem } from "$components/cards/ProductItem";
 import { Footer } from "$layout/Footer";
+import Nav from "$layout/Nav/Nav";
 
 // import { ShowCase } from "$components/cards/Showcase";
 // import Nav from "$layout/Nav/Nav";
@@ -11,6 +12,7 @@ import Hero from "./Hero";
 export const Home = () => {
     return (
         <div className="w-full h-full max-h-full bg-chai ">
+            <Nav />
             <Hero />
 
             <DisplayCategory />

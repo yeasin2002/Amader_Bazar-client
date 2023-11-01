@@ -1,8 +1,4 @@
 {
     "css.validate": false,
-    "cSpell.words": ["lucide", "tanstack"],
-    "editor.formatOnSave": true,
-    "[javascript]": {
-        "editor.formatOnSave": true
-    }
+    "cSpell.words": ["lucide", "tanstack"]
 }

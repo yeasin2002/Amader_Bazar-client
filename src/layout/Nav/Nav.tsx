@@ -26,9 +26,14 @@ const Nav = () => {
     ];
     return (
         <nav
-            className="w-10/12 mx-auto flex  items-center justify-between bg-gray-200 px-6 py-4 rounded-lg
-          top-4 
-        "
+            className="w-10/12 mx-auto flex  items-center justify-between  px-6 py-4 rounded-lg fixed top-3 left-0 right-0 z-10"
+            //  glass effect
+            style={{
+                background: `rgba(255, 255, 255, 0.2)`,
+                boxShadow: `0 4px 30px rgba(0, 0, 0, 0.1)`,
+                backdropFilter: `blur(5px)`,
+                border: `1px solid rgba(255, 255, 255, 0.3)`,
+            }}
         >
             <Logo className="w-10 h-10 " />
             <div className="flex gap-x-6  ">
