@@ -1,8 +1,13 @@
 import { CategoryItem } from "$components/cards/CategoryItem";
+import { CategoriesData } from "$data/CategoryData";
 import { Tag } from "lucide-react";
 
-// import { useId } from "react";
-// import { Swiper, SwiperSlide } from "swiper/react";
+// Import Swiper
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { FreeMode, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 const DisplayCategory = () => {
     return (
@@ -17,15 +22,29 @@ const DisplayCategory = () => {
                     </p>
                 </div>
             </div>
-            <div
-            className="grid grid-cols-4 "
-            >
-                <CategoryItem />
-                <CategoryItem />
-                <CategoryItem />
-                <CategoryItem />
+            <div>
+                <Swiper
+                    slidesPerView={3}
+                    spaceBetween={30}
+                    freeMode={true}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    modules={[FreeMode, Pagination]}
+                    className="mySwiper"
+                >
+                    {CategoriesData.map((val) => {
+                        return (
+                            <SwiperSlide key={val.name}>
+                                <CategoryItem
+                                    categoryName={val.name}
+                                    icon={val.url}
+                                />
+                            </SwiperSlide>
+                        );
+                    })}
+                </Swiper>
             </div>
-          
         </section>
     );
 };

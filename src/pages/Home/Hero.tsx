@@ -1,9 +1,10 @@
 import { Image } from "$ui";
 
 import "swiper/css";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import bg from "$assets/temp/products/shoe5.jpg";
+import { HeroItems } from "$data";
 import { useId } from "react";
 
 const Hero = () => {
@@ -29,8 +30,21 @@ const Hero = () => {
                     </div>
 
                     <div className="">
-                        <Swiper className="mySwiper" autoplay>
-                            {[1, 3, 5, 6].map(() => {
+                        <Swiper
+                            className="mySwiper"
+                            spaceBetween={30}
+                            centeredSlides={true}
+                            autoplay={{
+                                delay: 2500,
+                                disableOnInteraction: false,
+                            }}
+                            pagination={{
+                                clickable: true,
+                            }}
+                            navigation={true}
+                            modules={[Autoplay, Pagination, Navigation]}
+                        >
+                            {HeroItems.map((items) => {
                                 // eslint-disable-next-line react-hooks/rules-of-hooks
                                 const id = useId();
                                 return (
@@ -40,7 +54,7 @@ const Hero = () => {
                                     >
                                         <Image
                                             className="object-cover w-full   h-96  rounded-md "
-                                            src={bg}
+                                            src={items.img}
                                             alt="apple watch photo"
                                         />
                                     </SwiperSlide>

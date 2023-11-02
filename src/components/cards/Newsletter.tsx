@@ -1,4 +1,4 @@
-import bg from "$assets/temp/slider/slider0.jpg";
+import bg from "$assets/img/parker-byrd-gxD8hCmi0IQ-unsplash.jpg";
 import { Button } from "$ui/button";
 import { Input } from "$ui/input";
 import { MailOpen } from "lucide-react";
@@ -19,7 +19,9 @@ const Newsletter = () => {
                 <span className="bg-brand-900 p-2 rounded-full">
                     <MailOpen />
                 </span>
-                <p className="text-xl font-bold font-serif">Newsletter</p>
+                <p className="text-xl font-bold text-white font-serif">
+                    Newsletter
+                </p>
             </div>
             <div className="text-lg font-light  ">
                 <p>Get weekly update</p>
