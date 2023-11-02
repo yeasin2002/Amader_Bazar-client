@@ -1,7 +1,7 @@
 import { Heart, Star } from "lucide-react";
 import { FC } from "react";
 
-import Image from "$ui/Image";
+import { Image } from "$ui";
 import { Button } from "$ui/button";
 import { Link } from "react-router-dom";
 
@@ -28,12 +28,12 @@ export const ProductItem: FC<productsPros> = ({
             {...rest}
             className="border border-gray-500/30 rounded-lg   shadow-lg group"
         >
-            <Link to="/product-details">
-                <div className="w-full max-w-sm overflow-hidden bg-white   ">
+            <Link to="/shop/1">
+                <div className="w-full   bg-white   ">
                     <Image
                         src={img}
                         alt="product image"
-                        className="object-cover object-center w-full  h-60 rounded-t-md "
+                        className="object-cover object-center w-full  aspect-video md:aspect-square  rounded-t-md "
                     />
                 </div>
             </Link>
@@ -43,7 +43,10 @@ export const ProductItem: FC<productsPros> = ({
                 </p>
                 <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
                 <span className="flex items-center gap-x-2 my-3">
-                    <Star className="w-4 h-4 text-yellow-500" />
+                    <Star
+                        className="w-4 h-4 text-brand-900"
+                        fill="rgb(248 146 30)"
+                    />
                     <span className="flex items-center text-gray-600 gap-x-2">
                         <p>{review}</p>
                         <p> (7 reviews)</p>
@@ -63,7 +66,7 @@ export const ProductItem: FC<productsPros> = ({
                         Add to cart
                     </Button>
                     <Button size={"sm"} className="bg-blue-800 ">
-                        <Heart className="text-lg" />
+                        <Heart className="text-lg " fill="red" color="red" />
                     </Button>
                 </div>
             </div>

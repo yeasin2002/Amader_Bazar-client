@@ -16,7 +16,7 @@ const Newsletter = () => {
             }}
         >
             <div className="flex items-center gap-x-2">
-                <span className="bg-yellow-400 p-2 rounded-full">
+                <span className="bg-brand-900 p-2 rounded-full">
                     <MailOpen />
                 </span>
                 <p className="text-xl font-bold font-serif">Newsletter</p>

@@ -1,11 +1,11 @@
 import { useId } from "react";
 import { NavLink } from "react-router-dom";
 
+import { FavoriteList, SelectedShopping } from "$components/index";
 import { Logo } from "$layout";
-import { Heart, ShoppingCart, User2 } from "lucide-react";
+import { User2 } from "lucide-react";
 
 const Nav = () => {
-    
     const navItems = [
         {
             title: "Home",
@@ -36,11 +36,10 @@ const Nav = () => {
             }}
         >
             <Logo className="w-10 h-10 " />
-            <div className="flex gap-x-6  ">
+            <div className="md:flex gap-x-6  hidden ">
                 {navItems.map((item) => {
                     // eslint-disable-next-line react-hooks/rules-of-hooks
                     const uuId = useId();
-
                     return (
                         <NavLink
                             to={item.url}
@@ -57,8 +56,8 @@ const Nav = () => {
                 })}
             </div>
             <div className="flex  items-center gap-x-2">
-                <Heart />
-                <ShoppingCart />
+                <FavoriteList />
+                <SelectedShopping />
                 <User2 className="ml-4" />
             </div>
         </nav>

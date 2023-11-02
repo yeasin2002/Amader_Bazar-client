@@ -1,6 +1,4 @@
-import shoe from "$assets/temp/products/shoe1-1.jpg";
 import Newsletter from "$components/cards/Newsletter";
-import { ProductItem } from "$components/cards/ProductItem";
 import { Footer } from "$layout/Footer";
 import Nav from "$layout/Nav/Nav";
 
@@ -8,6 +6,7 @@ import Nav from "$layout/Nav/Nav";
 // import Nav from "$layout/Nav/Nav";
 import DisplayCategory from "./DisplayCategory";
 import Hero from "./Hero";
+import { ProductContainer } from "./ProductContainer";
 
 export const Home = () => {
     return (
@@ -16,21 +15,8 @@ export const Home = () => {
             <Hero />
 
             <DisplayCategory />
-            <div className="grid grid-cols-4 gap-x-5 px-4 my-8">
-                {[1, 2, 3, 4].map((val) => {
-                    return (
-                        <ProductItem
-                            key={val}
-                            title="shoe"
-                            category="shoe"
-                            img={shoe}
-                            price="100"
-                            discountPrice="90"
-                            review="4"
-                        />
-                    );
-                })}
-            </div>
+            <ProductContainer heading="Feature Products" />
+            <ProductContainer heading="Deal Of The Day" />
             <Newsletter />
 
             <Footer />

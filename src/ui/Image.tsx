@@ -6,7 +6,7 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
     className?: string;
 }
 
-const Image = ({ src, alt = "", className }: ImageProps) => {
+export const Image = ({ src, alt = "", className }: ImageProps) => {
     return (
         <img
             src={src}
@@ -18,4 +18,4 @@ const Image = ({ src, alt = "", className }: ImageProps) => {
     );
 };
 
-export default Image;
+
