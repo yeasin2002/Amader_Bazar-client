@@ -10,10 +10,10 @@ import { useId } from "react";
 const Hero = () => {
     return (
         <>
-            <section className="text-gray-600 body-font mt-32 eachSection">
-                <div className="grid md:grid-cols-2 grid-cols-1 ">
+            <section className="body-font eachSection mt-32 text-gray-600">
+                <div className="grid grid-cols-1 md:grid-cols-2 ">
                     <div className="space-y-5">
-                        <h1 className="text-5xl font-bold text-gray-900 mb-6">
+                        <h1 className="mb-6 text-5xl font-bold text-gray-900">
                             Amder Bazar
                         </h1>
                         <p>
@@ -53,7 +53,7 @@ const Hero = () => {
                                         key={id}
                                     >
                                         <Image
-                                            className="object-cover w-full   h-96  rounded-md "
+                                            className="h-96 w-full   rounded-md  object-cover "
                                             src={items.img}
                                             alt="apple watch photo"
                                         />

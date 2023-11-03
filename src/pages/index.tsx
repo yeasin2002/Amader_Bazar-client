@@ -6,4 +6,3 @@ export * from "./contact";
 export * from "./login";
 export * from "./notFound";
 export * from "./register";
-

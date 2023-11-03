@@ -10,7 +10,7 @@ import { ProductContainer } from "./ProductContainer";
 
 export const Home = () => {
     return (
-        <div className="w-full h-full max-h-full bg-chai ">
+        <div className="h-full max-h-full w-full bg-chai ">
             <Nav />
             <Hero />
 

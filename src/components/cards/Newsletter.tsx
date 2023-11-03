@@ -1,12 +1,17 @@
-import bg from "$assets/img/parker-byrd-gxD8hCmi0IQ-unsplash.jpg";
+import bg from "$assets/img/main.jpg";
+// import { useToast } from "$ui";
 import { Button } from "$ui/button";
 import { Input } from "$ui/input";
 import { MailOpen } from "lucide-react";
+import { FormEventHandler } from "react";
 
 const Newsletter = () => {
+    const sendMailIntoUs: FormEventHandler = async (e) => {
+        e.preventDefault();
+    };
     return (
         <div
-            className="w-full h-full py-32 px-24  space-y-4"
+            className="h-full w-full space-y-4 px-24  py-32"
             style={{
                 backgroundImage: `url(${bg})`,
                 objectFit: "cover",
@@ -16,10 +21,10 @@ const Newsletter = () => {
             }}
         >
             <div className="flex items-center gap-x-2">
-                <span className="bg-brand-900 p-2 rounded-full">
+                <span className="rounded-full bg-brand-900 p-2 ">
                     <MailOpen />
                 </span>
-                <p className="text-xl font-bold text-white font-serif">
+                <p className="font-serif text-xl font-bold text-white">
                     Newsletter
                 </p>
             </div>
@@ -27,8 +32,8 @@ const Newsletter = () => {
                 <p>Get weekly update</p>
             </div>
 
-            <div className="flex w-2/4 gap-x-2">
-                <div className="flex lg:w-2/3 w-full sm:flex-row flex-col  sm:space-x-4 sm:space-y-0 space-y-4 sm:px-0 items-end">
+            <form className="flex w-2/4 gap-x-2" onSubmit={sendMailIntoUs}>
+                <div className="flex w-full flex-col items-end space-y-4  sm:flex-row sm:space-x-4 sm:space-y-0 sm:px-0 lg:w-2/3">
                     <Input
                         type="text"
                         id="full-name"
@@ -36,11 +41,11 @@ const Newsletter = () => {
                         placeholder="example@gmail.com "
                         className=""
                     />
-                    <Button className="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">
-                        Button
+                    <Button type="submit" variant={"secondary"}>
+                        Send
                     </Button>
                 </div>
-            </div>
+            </form>
         </div>
     );
 };

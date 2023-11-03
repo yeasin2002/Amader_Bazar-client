@@ -26,14 +26,14 @@ export const ProductItem: FC<productsPros> = ({
     return (
         <div
             {...rest}
-            className="border border-gray-500/30 rounded-lg   shadow-lg group"
+            className="group rounded-lg border   border-gray-500/30 shadow-lg"
         >
             <Link to="/shop/1">
                 <div className="w-full   bg-white   ">
                     <Image
                         src={img}
                         alt="product image"
-                        className="object-cover object-center w-full  aspect-video md:aspect-square  rounded-t-md "
+                        className="aspect-video w-full rounded-t-md  object-cover object-center  md:aspect-square "
                     />
                 </div>
             </Link>
@@ -42,17 +42,17 @@ export const ProductItem: FC<productsPros> = ({
                     {category}
                 </p>
                 <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
-                <span className="flex items-center gap-x-2 my-3">
+                <span className="my-3 flex items-center gap-x-2">
                     <Star
-                        className="w-4 h-4 text-brand-900"
+                        className="h-4 w-4 text-brand-900"
                         fill="rgb(248 146 30)"
                     />
-                    <span className="flex items-center text-gray-600 gap-x-2">
+                    <span className="flex items-center gap-x-2 text-gray-600">
                         <p>{review}</p>
                         <p> (7 reviews)</p>
                     </span>
                 </span>
-                <span className="flex  gap-x-1  items-end ">
+                <span className="flex  items-end  gap-x-1 ">
                     <p className="text-xs  font-normal text-blue-600 line-through">
                         ${discountPrice}
                     </p>
@@ -61,7 +61,7 @@ export const ProductItem: FC<productsPros> = ({
                     </p>
                 </span>
 
-                <div className="flex items-center mt-4 gap-x-1">
+                <div className="mt-4 flex items-center gap-x-1">
                     <Button size={"sm"} className="w-full    flex-1">
                         Add to cart
                     </Button>

@@ -15,20 +15,20 @@ export const CategoryItem = ({
 }: CategoryItemProps) => {
     return (
         <div
-            className=" flex-col into-center aspect-square group cursor-pointer "
+            className=" into-center group aspect-square cursor-pointer flex-col "
             {...rest}
         >
-            <span className="rounded-full bg-gray-300/50 w-28 h-28 into-center ">
+            <span className="into-center h-28 w-28 rounded-full bg-gray-300/50 ">
                 <Image
                     src={icon}
                     alt={categoryName}
-                    className="w-full h-full p-4 group-hover:scale-105 transition-all"
+                    className="h-full w-full p-4 transition-all group-hover:scale-105"
                 />
             </span>
-            <h2 className="font-bold    text-xl text-slate-900 mt-4 mb-2 font-serif">
+            <h2 className="mb-2    mt-4 font-serif text-xl font-bold text-slate-900">
                 {categoryName}
             </h2>
-            <p className="font-medium text-base text-slate-600">{desc}</p>
+            <p className="text-base font-medium text-slate-600">{desc}</p>
         </div>
     );
 };

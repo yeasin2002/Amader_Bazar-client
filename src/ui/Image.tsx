@@ -17,5 +17,3 @@ export const Image = ({ src, alt = "", className }: ImageProps) => {
         />
     );
 };
-
-

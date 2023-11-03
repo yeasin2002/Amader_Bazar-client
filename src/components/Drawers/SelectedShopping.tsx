@@ -23,7 +23,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
                     <ShoppingCart />
                 </SheetTrigger>
                 <SheetContent>
-                    <SheetHeader className="w-full h-screen ">
+                    <SheetHeader className="h-screen w-full ">
                         <SheetTitle>Selected shopping Item</SheetTitle>
                         <SheetDescription className=" ">
                             <div className="">
@@ -32,7 +32,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
                                     alt="empty card"
                                     className="mt-32"
                                 />
-                                <p className="text-2xl font-bold text-center mt-10">
+                                <p className="mt-10 text-center text-2xl font-bold">
                                     No Item Selected{" "}
                                 </p>
                             </div>

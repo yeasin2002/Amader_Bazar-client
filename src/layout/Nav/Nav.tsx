@@ -26,7 +26,7 @@ const Nav = () => {
     ];
     return (
         <nav
-            className="w-10/12 mx-auto flex  items-center justify-between  px-6 py-4 rounded-lg fixed top-3 left-0 right-0 z-10"
+            className="fixed left-0 right-0  top-3 z-10  mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4"
             //  glass effect
             style={{
                 background: `rgba(255, 255, 255, 0.2)`,
@@ -35,8 +35,8 @@ const Nav = () => {
                 border: `1px solid rgba(255, 255, 255, 0.3)`,
             }}
         >
-            <Logo className="w-10 h-10 " />
-            <div className="md:flex gap-x-6  hidden ">
+            <Logo className="h-10 w-10 " />
+            <div className="hidden gap-x-6  md:flex ">
                 {navItems.map((item) => {
                     // eslint-disable-next-line react-hooks/rules-of-hooks
                     const uuId = useId();
@@ -45,12 +45,12 @@ const Nav = () => {
                             to={item.url}
                             defaultValue={"/"}
                             key={uuId}
-                            className="flex items-center relative group"
+                            className="group relative flex items-center"
                         >
-                            <p className="font-semibold text-lg text-gray-700 hover:text-gray-900 cursor-pointer">
+                            <p className="cursor-pointer text-lg font-semibold text-gray-700 hover:text-gray-900">
                                 {item.title}
                             </p>
-                            <span className="w-0 duration-300  transition-all h-1 group-hover:w-full bg-teal-900 absolute -bottom-1 left-0"></span>
+                            <span className="absolute -bottom-1  left-0 h-1 w-0 bg-teal-900 transition-all duration-300 group-hover:w-full"></span>
                         </NavLink>
                     );
                 })}

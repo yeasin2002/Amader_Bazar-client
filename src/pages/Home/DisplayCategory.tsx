@@ -11,13 +11,13 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 const DisplayCategory = () => {
     return (
-        <section className="space-y-3 px-4 py-6 eachSection">
+        <section className="eachSection space-y-3 px-4 py-6">
             <div>
                 <div className="flex items-center gap-x-2">
-                    <span className="bg-brand-900 p-2   text-white rounded-full grid  place-items-center">
+                    <span className="grid place-items-center   rounded-full bg-brand-900 p-2  text-white">
                         <Tag className="text-gray-700" />
                     </span>
-                    <p className="text-xl font-bold font-serif text-gray-800">
+                    <p className="font-serif text-xl font-bold text-gray-800">
                         Categories
                     </p>
                 </div>
