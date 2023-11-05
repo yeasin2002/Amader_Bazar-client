@@ -1,8 +1,5 @@
-import { Route, Routes } from "react-router-dom";
-
-
 import { About, AllProduct, Contact, Home, Login, NotFound, Register, SingleProduct } from "$pages";
-
+import { Route, Routes } from "react-router-dom";
 
 const App = () => {
   return (

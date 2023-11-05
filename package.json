@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "npx mightymeld",
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -41,13 +42,14 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@mightymeld/runtime": "^0.1.37",
     "@tanstack/eslint-plugin-query": "^4.36.0",
     "@types/node": "^20.8.8",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "@vitejs/plugin-react-swc": "^3.3.2",
+    "@vitejs/plugin-react-swc": "^3.4.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8.45.0",
     "eslint-plugin-perfectionist": "^2.2.0",
