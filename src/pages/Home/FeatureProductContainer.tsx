@@ -1,4 +1,4 @@
-import { ProductAtaGlance } from "$components/cards/ProductAtaGlance";
+import { FeatureProduct } from "$components/cards/FeatureProduct";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
 interface MicroProductContainerProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -10,10 +10,9 @@ export const FeatureProductContainer: FC<MicroProductContainerProps> = ({ headin
     <div {...rest}>
       <h4 className="mb-10 text-xl font-bold ">{heading}</h4>
       <div className="w-full space-y-10">
-        <ProductAtaGlance />
-        <ProductAtaGlance />
-        <ProductAtaGlance />
-        <ProductAtaGlance />
+        <FeatureProduct />
+        <FeatureProduct />
+        <FeatureProduct />
       </div>
     </div>
   );

@@ -1,7 +1,8 @@
 import Newsletter from "$components/cards/Newsletter";
 import { Footer } from "$layout/Footer";
 import Nav from "$layout/Nav/Nav";
-import { Toaster } from "$ui/toaster";
+
+import { Toaster } from "sonner";
 
 // import { ShowCase } from "$components/cards/Showcase";
 // import Nav from "$layout/Nav/Nav";
@@ -24,7 +25,7 @@ export const Home = () => {
       <Newsletter />
 
       <Footer />
-      <Toaster />
+      <Toaster richColors />
     </div>
   );
 };

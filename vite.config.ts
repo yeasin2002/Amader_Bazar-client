@@ -20,6 +20,7 @@ export default defineConfig({
       $components: `${path.resolve(__dirname, "./src/components/")}`,
       $ui: `${path.resolve(__dirname, "./src/ui/")}`,
       $lib: `${path.resolve(__dirname, "./src/lib/")}`,
+      $types: `${path.resolve(__dirname, "./src/interface/")}`,
     },
   },
 });

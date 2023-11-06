@@ -1,17 +1,22 @@
-import { useToast } from "$ui/use-toast";
+import { useFavoriteProductStore } from "$store/favoriteProduct.store";
 import { Star } from "lucide-react";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { toast } from "sonner";
 
-interface ProductAtaGlanceProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const ProductAtaGlance: FC<ProductAtaGlanceProps> = ({ ...rest }) => {
-  const { toast } = useToast();
+export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
+  const { favoriteProduct, addFavoriteProduct } = useFavoriteProductStore();
   const clickHandler = () => {
-    toast({
-      title: "Success",
-      description: "Added To Card",
+    addFavoriteProduct({
+      name: "Backpack",
+    });
+    toast.success("Added to cart", {
+      position: "top-left",
     });
   };
+
+  console.log(favoriteProduct)
   return (
     <div {...rest}>
       <div className="flex w-full overflow-hidden rounded-lg bg-white shadow-lg ">
