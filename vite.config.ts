@@ -1,17 +1,10 @@
-import { pluginoptions } from "@mightymeld/runtime";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { defineConfig } from "vite";
 
-const conditionalPlugins = [];
-
-if (process.env.MIGHTYMELD) {
-  conditionalPlugins.push(["@mightymeld/runtime/swc-plugin-mightymeld", pluginoptions()]);
-}
-
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [...conditionalPlugins],
+  plugins: [react()],
   resolve: {
     alias: {
       $: path.resolve(__dirname, "./"),

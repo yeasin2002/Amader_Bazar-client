@@ -1,21 +1,21 @@
 import { FacebookIcon, GithubIcon, LinkedinIcon } from "lucide-react";
 
 export const footerContact = [
-    {
-        name: "Facebook",
-        link: "",
-        icon: FacebookIcon,
-    },
-    {
-        name: "Github",
-        link: "",
-        icon: GithubIcon,
-    },
-    {
-        name: "Linkedin",
-        link: "",
-        icon: LinkedinIcon,
-    },
+  {
+    name: "Facebook",
+    link: "https://www.facebook.com/yeasin2002.dev/",
+    icon: FacebookIcon,
+  },
+  {
+    name: "Github",
+    link: "https://github.com/yeasin-2002",
+    icon: GithubIcon,
+  },
+  {
+    name: "Linkedin",
+    link: "https://www.linkedin.com/in/yeasin2002/",
+    icon: LinkedinIcon,
+  },
 ];
 
 export const footerItems = [

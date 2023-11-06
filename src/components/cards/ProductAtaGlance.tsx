@@ -1,19 +1,20 @@
 import { useToast } from "$ui/use-toast";
+import { Star } from "lucide-react";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 
 interface ProductAtaGlanceProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 export const ProductAtaGlance: FC<ProductAtaGlanceProps> = ({ ...rest }) => {
   const { toast } = useToast();
-const clickHandler = () => { 
+  const clickHandler = () => {
     toast({
-        title: "Scheduled: Catch up",
-        description: "Friday, February 10, 2023 at 5:57 PM",
-      })
- }
+      title: "Success",
+      description: "Added To Card",
+    });
+  };
   return (
     <div {...rest}>
-      <div className="flex max-w-md overflow-hidden rounded-lg bg-white shadow-lg dark:bg-gray-800">
+      <div className="flex w-full overflow-hidden rounded-lg bg-white shadow-lg ">
         <div
           className="w-1/3 bg-cover"
           style={{
@@ -29,10 +30,8 @@ const clickHandler = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
           </p>
 
-          <div className="item-center mt-2 flex">
-            <svg className="h-5 w-5 fill-current text-gray-500" viewBox="0 0 24 24">
-              <path d="M12 17.27L18.18 21L16.54 13.97L22 9.24L14.81 8.63L12 2L9.19 8.63L2 9.24L7.46 13.97L5.82 21L12 17.27Z" />
-            </svg>
+          <div className="item-center mt-2 flex ">
+            <Star fill="rgb(248 146 30)" color="rgb(248 146 30" />
           </div>
 
           <div className="item-center mt-3 flex justify-between">

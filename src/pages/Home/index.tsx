@@ -7,7 +7,8 @@ import { Toaster } from "$ui/toaster";
 // import Nav from "$layout/Nav/Nav";
 import DisplayCategory from "./DisplayCategory";
 import Hero from "./Hero";
-import { MicroProductContainer } from "./MicroProductContainer";
+
+import { FeatureProductWrapper } from "./FeatureProductWrapper";
 import { ProductContainer } from "./ProductContainer";
 
 export const Home = () => {
@@ -18,7 +19,7 @@ export const Home = () => {
 
       <DisplayCategory />
       <ProductContainer heading="Feature Products" />
-      <MicroProductContainer />
+      <FeatureProductWrapper />
       <ProductContainer heading="Deal Of The Day" />
       <Newsletter />
 

@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "npx mightymeld",
+    "start": "vite ",
     "dev": "vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
@@ -42,7 +42,6 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
-    "@mightymeld/runtime": "^0.1.37",
     "@tanstack/eslint-plugin-query": "^4.36.0",
     "@types/node": "^20.8.8",
     "@types/react": "^18.2.15",
