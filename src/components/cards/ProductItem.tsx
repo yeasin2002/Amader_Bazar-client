@@ -54,8 +54,8 @@ export const ProductItem: FC<productsPros> = ({
             <Button size={"sm"} className="w-full    flex-1">
               Add to cart
             </Button>
-            <Button size={"sm"} className="bg-blue-800 ">
-              <Heart className="text-lg " fill="white" color="" />
+            <Button size={"sm"} variant={"brandOutline"}>
+              <Heart className="text-lg " fill="rgb(248 146 30)" color="" />
             </Button>
           </div>
         </div>

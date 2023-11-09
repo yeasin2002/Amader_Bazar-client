@@ -1,4 +1,5 @@
 import { useFavoriteProductStore } from "$store/favoriteProduct.store";
+import { Button } from "$ui";
 import { Star } from "lucide-react";
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import { toast } from "sonner";
@@ -16,7 +17,7 @@ export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
     });
   };
 
-  console.log(favoriteProduct)
+  console.log(favoriteProduct);
   return (
     <div {...rest}>
       <div className="flex w-full overflow-hidden rounded-lg bg-white shadow-lg ">
@@ -41,12 +42,7 @@ export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
 
           <div className="item-center mt-3 flex justify-between">
             <h1 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">$220</h1>
-            <button
-              onClick={clickHandler}
-              className="transform rounded bg-gray-800 px-2 py-1 text-xs font-bold uppercase text-white transition-colors duration-300 hover:bg-gray-700 focus:bg-gray-700 focus:outline-none dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:bg-gray-600"
-            >
-              Add to Cart
-            </button>
+            <Button onClick={clickHandler}>Add to Cart</Button>
           </div>
         </div>
       </div>

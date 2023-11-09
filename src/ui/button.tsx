@@ -19,7 +19,9 @@ const buttonVariants = cva(
         sm: "h-9 rounded-md px-3",
       },
       variant: {
-        default: "bg-blue-700 text-gray-100  hover:bg-blue-700/90 ",
+        default: "bg-brand-900 text-black  hover:bg-brand-500/80 ",
+        brandOutline: "border border-brand-900 hover:text-accent-foreground",
+        sky: "bg-blue-700 text-gray-100  hover:bg-blue-700/90 ",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",

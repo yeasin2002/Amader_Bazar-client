@@ -14,4 +14,22 @@ export const category = [
   {
     name: "gift",
   },
+  {
+    name: "child",
+  },
+  {
+    name: "food",
+  },
+  {
+    name: "computer",
+  },
+  {
+    name: "groceries",
+  },
+  {
+    name: "electronics",
+  },
+  {
+    name: "cloths",
+  },
 ];

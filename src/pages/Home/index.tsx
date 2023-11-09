@@ -1,6 +1,6 @@
 import Newsletter from "$components/cards/Newsletter";
 import { Footer } from "$layout/Footer";
-import Nav from "$layout/Nav";
+import { Nav } from "$layout";
 
 import { Toaster } from "sonner";
 

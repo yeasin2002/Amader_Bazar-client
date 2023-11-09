@@ -17,10 +17,9 @@ export const useFilterProduct = create(
               if (!state.selectedCategory.includes(ct)) {
                 state.selectedCategory.push(ct);
               } else {
-                state.selectedCategory.filter((category) => {
-                  category == ct;
-                });
-              }
+                const theIndex = state.selectedCategory.findIndex((index) => ct === index);
+                theIndex != -1 && state.selectedCategory.splice(theIndex)
+              } 
             });
           },
           setPriceRange: (price: number) => {

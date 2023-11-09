@@ -5,8 +5,8 @@ interface ReviewsProps
 
 export const Reviews: FC<ReviewsProps> = ({ ...rest }) => {
     return (
-        <div className="single-product-info" {...rest}>
-            Reviews
-        </div>
+      <div className="rounded-sm border border-teal-600 px-4 py-2" {...rest}>
+        Reviews
+      </div>
     );
 };
