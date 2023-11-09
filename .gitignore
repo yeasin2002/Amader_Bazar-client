@@ -8,6 +8,9 @@ pnpm-debug.log*
 lerna-debug.log*
 pnpm.lok.yaml*
 
+.env
+.env/*
+
 
 node_modules
 dist

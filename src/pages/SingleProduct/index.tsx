@@ -4,8 +4,11 @@ import headphone from "$assets/temp/products/shoe1-2.jpg";
 import { Button, Image } from "$ui";
 import { ChevronDown, DollarSign, Heart, Star } from "lucide-react";
 
+import shoe from "$assets/temp/products/electronic3.jpg"
+import { ProductItem } from "$components/index"
 import { Nav } from "$layout";
-import { Reviews } from "./Reviews";
+import { RatingGraph } from "./RatingGraph"
+import { Reviews } from "./ReviewCard"
 
 interface SingleProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
@@ -84,15 +87,34 @@ export const SingleProduct: FC<SingleProductProps> = ({ ...rest }) => {
             </div>
           </div>
         </div>
-        <div>
+        <div className="space-y-10">
           <h4 className="mt-20 text-lg font-bold">Reviews </h4>
-          <div className="grid grid-cols-3 gap-4">
+          <RatingGraph />
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
             {[1, 2, 3, 4, 5, 6, 7, 8].map((rating) => {
-              return <Reviews key={rating} />;
+              return <Reviews key={rating} />
             })}
           </div>
         </div>
       </section>
+      <div className="px-10">
+        <p className="my-10 text-2xl  font-bold">Related Products</p>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4   ">
+          {[1, 2, 3, 4, 5, 6, 7, 8].map((val) => {
+            return (
+              <ProductItem
+                key={val}
+                title="shoe"
+                category="shoe"
+                img={shoe}
+                price="100"
+                discountPrice="90"
+                review="4"
+              />
+            )
+          })}
+        </div>
+      </div>
     </Fragment>
-  );
-};
+  )
+}
