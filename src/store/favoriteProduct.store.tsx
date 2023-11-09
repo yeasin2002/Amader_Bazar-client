@@ -2,7 +2,7 @@ import { Product } from "$types";
 import { create } from "zustand";
 import { combine, persist } from "zustand/middleware";
 import { immer } from "zustand/middleware/immer";
-// import { immer } from "zustand/middleware/immer";
+
 
 export const useFavoriteProductStore = create(
   persist(

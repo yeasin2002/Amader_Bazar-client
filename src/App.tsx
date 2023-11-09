@@ -1,4 +1,4 @@
-import { About, AllProduct, Contact, Home, Login, NotFound, Register, SingleProduct } from "$pages";
+import { About, Contact, Home, Login, NotFound, Register, Shop, SingleProduct } from "$pages";
 import { Route, Routes } from "react-router-dom";
 
 const App = () => {
@@ -9,7 +9,7 @@ const App = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
 
-      <Route path="/shop" element={<AllProduct />} />
+      <Route path="/shop" element={<Shop />} />
       <Route path="/shop/:id" element={<SingleProduct />} />
 
       <Route path="/about" element={<About />} />

@@ -1,5 +1,5 @@
 import { footerContact, footerItems } from "$data/footerData";
-import { Logo } from "$layout/Logo";
+import { Logo } from "$layout/logo";
 
 export const Footer = () => {
     const currentYear = new Date().getFullYear();

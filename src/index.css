@@ -16,6 +16,15 @@
         @apply absolute bottom-0 left-0 right-0 top-0
         -z-10 h-0 w-0 bg-blue-800 transition-all group-hover:h-10 group-hover:w-10;
     }
+    .product-filter-heading {
+        @apply text-xl font-bold
+    }
+    .product-filter-container {
+        @apply space-y-5 ;
+    }
+    .product-filter-heading {
+        @apply text-xl font-bold
+    }
 }
 
 @layer base {
