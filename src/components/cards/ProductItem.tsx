@@ -31,7 +31,7 @@ export const ProductItem: FC<productsPros> = ({
             <Image
               src={img}
               alt="product image"
-              className="aspect-video w-full rounded-t-md  object-cover object-center  md:aspect-square "
+              className="aspect-video w-full rounded-lg  rounded-t-md object-cover  object-center  md:aspect-square"
             />
           </div>
         </Link>
@@ -60,5 +60,5 @@ export const ProductItem: FC<productsPros> = ({
           </div>
         </div>
       </div>
-    );
+    )
 };

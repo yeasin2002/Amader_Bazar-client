@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 import { FavoriteList, SelectedShopping } from "$components/index";
 import { Logo } from "$layout";
 
+import { Link } from "lucide-react"
 import { UserProfileCheck } from "./UserProfileCheck";
 
 export const Nav = () => {
@@ -36,17 +37,19 @@ export const Nav = () => {
         border: `1px solid rgba(255, 255, 255, 0.3)`,
       }}
     >
-      <Logo className="h-10 w-10 " />
+      <Link to={"/"}>
+        <Logo className="h-10 w-10 " />
+      </Link>
       <div className="hidden gap-x-6  md:flex ">
         {navItems.map((item) => {
           // eslint-disable-next-line react-hooks/rules-of-hooks
-          const uuId = useId();
+          const uuId = useId()
           return (
             <NavLink to={item.url} defaultValue={"/"} key={uuId} className="group relative flex items-center">
               <p className="cursor-pointer text-lg font-semibold text-gray-700 hover:text-gray-900">{item.title}</p>
               <span className="absolute -bottom-1  left-0 h-1 w-0 bg-teal-900 transition-all duration-300 group-hover:w-full"></span>
             </NavLink>
-          );
+          )
         })}
       </div>
       <div className="flex  items-center gap-x-2">
@@ -55,7 +58,7 @@ export const Nav = () => {
         <UserProfileCheck />
       </div>
     </nav>
-  );
+  )
 };
 
 

@@ -18,7 +18,7 @@ export const useFilterProduct = create(
                 state.selectedCategory.push(ct);
               } else {
                 const theIndex = state.selectedCategory.findIndex((index) => ct === index);
-                theIndex != -1 && state.selectedCategory.splice(theIndex)
+                theIndex != -1 && state.selectedCategory.splice(theIndex, theIndex + 1)
               } 
             });
           },
