@@ -18,7 +18,7 @@ export const Shop: FC<ShopProps> = ({ ...rest }) => {
       <div className="flex gap-x-3">
         <FilterCard className="hidden w-1/4 md:block" />
 
-        <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-2   lg:grid-cols-3 xl:grid-cols-5">
+        <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-2   lg:grid-cols-3 ">
           {allCategory.map((val) => {
             return (
               <ProductItem

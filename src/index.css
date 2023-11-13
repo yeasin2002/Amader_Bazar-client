@@ -25,6 +25,9 @@
     .product-filter-heading {
         @apply text-xl font-bold
     }
+    .btn-primary {
+        @apply xl:py-6  2xl:py-8
+    }
 }
 
 @layer base {

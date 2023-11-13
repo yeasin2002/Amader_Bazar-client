@@ -9,8 +9,8 @@ import { Image } from "$ui";
 const Hero = () => {
   return (
     <>
-      <section className="body-font eachSection mt-32 text-gray-600">
-        <div className="grid grid-cols-2 md:grid-cols-2 ">
+      <section className="body-font eachSection mt-32 text-gray-600 2xl:mt-40">
+        <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2  md:gap-y-0 ">
           <div className="space-y-5">
             <h1 className="mb-6 text-5xl font-bold text-gray-900">Amder Bazar</h1>
             <p>
@@ -36,7 +36,7 @@ const Hero = () => {
             >
               {HeroItems.map((items) => {
                 // eslint-disable-next-line react-hooks/rules-of-hooks
-                const id = useId();
+                const id = useId()
                 return (
                   <SwiperSlide className="cursor-grab" key={id}>
                     <Image
@@ -45,14 +45,14 @@ const Hero = () => {
                       alt="apple watch photo"
                     />
                   </SwiperSlide>
-                );
+                )
               })}
             </Swiper>
           </div>
         </div>
       </section>
     </>
-  );
+  )
 };
 
 export default Hero;

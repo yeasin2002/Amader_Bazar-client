@@ -1,5 +1,6 @@
 import { Popover, PopoverContent, PopoverTrigger } from "$ui";
 import { LogOutIcon, User2, User2Icon } from "lucide-react";
+import { Link } from "react-router-dom"
 
 export const UserProfileCheck = () => {
   return (
@@ -8,15 +9,15 @@ export const UserProfileCheck = () => {
         <User2 className="ml-4" />
       </PopoverTrigger>
       <PopoverContent className="space-y-6">
-        <div className="flex">
+        <Link to={"/profile"} className="flex">
           <User2Icon />
           Profile
-        </div>
+        </Link>
         <div className="flex">
           <LogOutIcon />
           Log Out
         </div>
       </PopoverContent>
     </Popover>
-  );
+  )
 };

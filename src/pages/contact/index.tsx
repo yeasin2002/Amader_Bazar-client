@@ -1,13 +1,12 @@
 import { FC, HTMLAttributes } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { SubmitHandler, useForm } from "react-hook-form"
 import { ContactInfo } from "./ContactInfo";
 
 import location from "$assets/illustration/3D/location-pin.png";
 import message from "$assets/illustration/3D/message.png";
 import { InputCombo } from "$components";
-import { Textarea } from "$ui/textarea";
-import { ChevronLeft } from "lucide-react";
+import { Back } from "$layout"
+import { Textarea } from "$ui/textarea"
 
 type Inputs = {
   title: string;
@@ -22,12 +21,12 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>()
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data);
-  };
-  const navigate = useNavigate();
+    console.log(data)
+  }
+
   return (
     <section className="container  w-full" {...rest}>
       <div className="my-24 space-y-2 [&>*]:text-center">
@@ -80,9 +79,7 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
         </div>
       </div>
 
-      <button onClick={() => navigate(-1)} className="absolute left-3 top-2 inline-block rounded-full bg-blue-800 p-2">
-        <ChevronLeft color="white" />
-      </button>
+      <Back />
     </section>
-  );
+  )
 };
