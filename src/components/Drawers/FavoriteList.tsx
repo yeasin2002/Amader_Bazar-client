@@ -1,11 +1,11 @@
-import empty from "$assets/illustration/3D/empty-cart.png";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import empty from "$assets/illustration/3D/empty-cart.png"
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-import { Image } from "$ui";
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "$ui/sheet";
-import { Heart } from "lucide-react";
+import { Image } from "$ui"
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from "$ui/sheet"
+import { Heart } from "lucide-react"
 
-interface FavoriteListProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type FavoriteListProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
   return (
@@ -28,5 +28,5 @@ export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
         </SheetContent>
       </Sheet>
     </div>
-  );
-};
+  )
+}

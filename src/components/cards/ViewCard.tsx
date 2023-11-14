@@ -2,7 +2,7 @@ import shoe from "$assets/temp/products/shoe5.jpg"
 
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-interface ViewCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type ViewCardProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const ViewCard: FC<ViewCardProps> = ({ ...rest }) => {
   return (

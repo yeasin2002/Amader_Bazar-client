@@ -1,14 +1,12 @@
-import { useId } from "react";
+import { useId } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 
 import { FavoriteList, SelectedShopping } from "$components"
 import { Logo } from "$layout"
-import { cn } from "$lib/utils"
 import { UserProfileCheck } from "./UserProfileCheck"
 
 export const Nav = () => {
   const location = useLocation()
-  console.log(location.pathname)
 
   const navItems = [
     {
@@ -46,13 +44,17 @@ export const Nav = () => {
         {navItems.map((item) => {
           // eslint-disable-next-line react-hooks/rules-of-hooks
           const uuId = useId()
-
+          const isActive = location.pathname === item.url
           return (
             <NavLink to={item.url} defaultValue={"/"} key={uuId} className={`group relative flex items-center   `}>
               <p className="cursor-pointer text-lg font-semibold text-gray-700  hover:text-gray-900 xl:text-xl 2xl:text-2xl">
                 {item.title}
               </p>
-              <span className="absolute -bottom-1  left-0 inline-block h-1 w-0 bg-teal-900 transition-all duration-300 group-hover:w-full" />
+              <span
+                className={`absolute bottom-0 left-0 h-[0.15rem] w-0 bg-gray-900 transition-all duration-300 ease-in-out group-hover:w-full ${
+                  isActive && "w-full"
+                } `}
+              />
             </NavLink>
           )
         })}
@@ -66,5 +68,3 @@ export const Nav = () => {
     </nav>
   )
 }
-
-

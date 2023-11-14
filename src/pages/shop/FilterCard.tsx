@@ -1,16 +1,16 @@
-import { category } from "$data";
-import { cn } from "$lib/utils";
-import { useFilterProduct } from "$store";
-import { Button, Checkbox, Label, Slider, buttonVariants } from "$ui";
+import { category } from "$data"
+import { cn } from "$lib/utils"
+import { useFilterProduct } from "$store"
+import { Button, Checkbox, Label, Slider, buttonVariants } from "$ui"
 
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
 interface FilterCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
-  className?: string;
+  className?: string
 }
 
 export const FilterCard: FC<FilterCardProps> = ({ className, ...rest }) => {
   const [isShowFullCategory, setIsShowFullCategory] = useState(false)
-  const filterStore = useFilterProduct();
+  const filterStore = useFilterProduct()
 
   const sowableCategory = category.slice(0, isShowFullCategory ? 10 : 5)
 
@@ -103,4 +103,4 @@ export const FilterCard: FC<FilterCardProps> = ({ className, ...rest }) => {
       </div>
     </aside>
   )
-};
+}

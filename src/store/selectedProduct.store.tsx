@@ -1,7 +1,7 @@
-import { Product } from "$types";
-import { create } from "zustand";
-import { combine, persist } from "zustand/middleware";
-import { immer } from "zustand/middleware/immer";
+import { Product } from "$types"
+import { create } from "zustand"
+import { combine, persist } from "zustand/middleware"
+import { immer } from "zustand/middleware/immer"
 
 export const useSelectedProduct = create(
   persist(
@@ -15,14 +15,14 @@ export const useSelectedProduct = create(
             return {
               addFavoriteProduct: (product: Product) => {
                 set((state) => {
-                  state.selectedProduct.push(product);
-                });
+                  state.selectedProduct.push(product)
+                })
               },
-            };
+            }
           }
         }
       )
     ),
     { name: "favoriteProduct" }
   )
-);
+)

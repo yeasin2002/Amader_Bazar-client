@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-interface indexProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type indexProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const Profile: FC<indexProps> = ({ ...rest }) => {
   return (

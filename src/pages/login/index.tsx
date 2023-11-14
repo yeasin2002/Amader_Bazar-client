@@ -11,7 +11,7 @@ import { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 
-interface LogInProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {
   email: string
   password: string
@@ -20,6 +20,8 @@ interface FormValues {
 export const Login: FC<LogInProps> = ({ ...rest }) => {
   const navigate = useNavigate()
   const { register, formState } = useForm<FormValues>()
+
+  //* Note: Need to add Captcha to prevent bot before log in and sign up
   return (
     <div
       {...rest}

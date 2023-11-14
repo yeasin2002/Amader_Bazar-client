@@ -1,5 +1,5 @@
-import { Popover, PopoverContent, PopoverTrigger } from "$ui";
-import { LogOutIcon, User2, User2Icon } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "$ui"
+import { LogOutIcon, User2, User2Icon } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export const UserProfileCheck = () => {
@@ -20,4 +20,4 @@ export const UserProfileCheck = () => {
       </PopoverContent>
     </Popover>
   )
-};
+}

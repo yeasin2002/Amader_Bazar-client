@@ -1,16 +1,16 @@
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
-import headphone from "$assets/temp/products/shoe1-2.jpg";
-import { Button, Image } from "$ui";
-import { ChevronDown, DollarSign, Heart, Star } from "lucide-react";
+import headphone from "$assets/temp/products/shoe1-2.jpg"
+import { Button, Image } from "$ui"
+import { ChevronDown, DollarSign, Heart, Star } from "lucide-react"
 
 import shoe from "$assets/temp/products/electronic3.jpg"
 import { ProductItem } from "$components/index"
-import { Nav } from "$layout";
+import { Nav } from "$layout"
 import { RatingGraph } from "./RatingGraph"
 import { Reviews } from "./ReviewCard"
 
-interface SingleProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type SingleProductProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const SingleProduct: FC<SingleProductProps> = ({ ...rest }) => {
   return (

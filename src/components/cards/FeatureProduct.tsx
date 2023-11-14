@@ -5,7 +5,7 @@ import { Star } from "lucide-react"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { toast } from "sonner"
 
-interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type FeatureProductProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
   const { addFavoriteProduct } = useFavoriteProductStore()

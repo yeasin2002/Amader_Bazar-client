@@ -3,7 +3,6 @@ import { Fragment } from "react"
 import { Route, Routes } from "react-router-dom"
 import { Nav } from "./layout"
 
-
 const App = () => {
   return (
     <Fragment>

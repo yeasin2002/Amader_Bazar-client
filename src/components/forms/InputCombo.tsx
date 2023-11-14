@@ -1,16 +1,16 @@
-import { cn } from "$lib";
-import { DetailedHTMLProps, FC } from "react";
-import { UseFormRegisterReturn } from "react-hook-form";
+import { cn } from "$lib"
+import { DetailedHTMLProps, FC } from "react"
+import { UseFormRegisterReturn } from "react-hook-form"
 
 interface InputComboProps extends DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
-  register: UseFormRegisterReturn;
-  placeholder: string;
-  label: string;
-  className?: string;
-  labelClassName?: string;
-  error: string | undefined;
-  isLabelHidden?: boolean;
-  type ?: string;
+  register: UseFormRegisterReturn
+  placeholder: string
+  label: string
+  className?: string
+  labelClassName?: string
+  error: string | undefined
+  isLabelHidden?: boolean
+  type?: string
 }
 
 export const InputCombo: FC<InputComboProps> = ({
@@ -21,7 +21,7 @@ export const InputCombo: FC<InputComboProps> = ({
   className,
   labelClassName,
   isLabelHidden,
-  type = "text", 
+  type = "text",
   ...rest
 }) => {
   return (
@@ -45,5 +45,5 @@ export const InputCombo: FC<InputComboProps> = ({
       />
       {error && <p>{error}</p>}
     </div>
-  );
-};
+  )
+}

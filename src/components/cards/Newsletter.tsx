@@ -1,19 +1,19 @@
-import { MailOpen } from "lucide-react";
-import { FormEventHandler } from "react";
-import { useForm } from "react-hook-form";
+import { MailOpen } from "lucide-react"
+import { FormEventHandler } from "react"
+import { useForm } from "react-hook-form"
 
-import bg from "$assets/cover/main.jpg";
-import { Button } from "$ui";
-import { InputCombo } from "..";
+import bg from "$assets/cover/main.jpg"
+import { Button } from "$ui"
+import { InputCombo } from ".."
 interface newsletterElements {
-  email: string;
+  email: string
 }
 
 const Newsletter = () => {
-  const { register, formState } = useForm<newsletterElements>();
-  const sendMailIntoUs: FormEventHandler = async (e) => {
-    e.preventDefault();
-  };
+  const { register, formState } = useForm<newsletterElements>()
+  const sendMailIntoUs: FormEventHandler = (e) => {
+    e.preventDefault()
+  }
   return (
     <div
       className="h-full w-full space-y-4 px-24  py-10 md:py-32"
@@ -54,7 +54,7 @@ const Newsletter = () => {
         </div>
       </form>
     </div>
-  );
-};
+  )
+}
 
-export default Newsletter;
+export default Newsletter

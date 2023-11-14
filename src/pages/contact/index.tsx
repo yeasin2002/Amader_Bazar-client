@@ -1,21 +1,22 @@
-import { FC, HTMLAttributes } from "react";
+/* eslint-disable @typescript-eslint/no-misused-promises */
+import { FC, HTMLAttributes } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
-import { ContactInfo } from "./ContactInfo";
+import { ContactInfo } from "./ContactInfo"
 
-import location from "$assets/illustration/3D/location-pin.png";
-import message from "$assets/illustration/3D/message.png";
-import { InputCombo } from "$components";
+import location from "$assets/illustration/3D/location-pin.png"
+import message from "$assets/illustration/3D/message.png"
+import { InputCombo } from "$components"
 
 import { Textarea } from "$ui/textarea"
 
-type Inputs = {
-  title: string;
-  email: string;
-  subject: string;
-  message: string;
-};
+interface Inputs {
+  title: string
+  email: string
+  subject: string
+  message: string
+}
 
-interface ContactProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
+type ContactProps = React.DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 export const Contact: FC<ContactProps> = ({ ...rest }) => {
   const {
     register,
@@ -25,6 +26,7 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data)
+    return data
   }
 
   return (
@@ -80,4 +82,4 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
       </div>
     </section>
   )
-};
+}

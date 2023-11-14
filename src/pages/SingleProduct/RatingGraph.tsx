@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-interface RatingGraphProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type RatingGraphProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const RatingGraph: FC<RatingGraphProps> = ({ ...rest }) => {
   return (

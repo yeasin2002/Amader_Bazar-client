@@ -1,6 +1,6 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-interface indexProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type indexProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const error: FC<indexProps> = ({ ...rest }) => {
   return (
@@ -8,4 +8,4 @@ export const error: FC<indexProps> = ({ ...rest }) => {
       <h1>An Error Occur</h1>
     </section>
   )
-};
+}

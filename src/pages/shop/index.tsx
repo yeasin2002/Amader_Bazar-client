@@ -1,10 +1,10 @@
-import shoe from "$assets/temp/products/headphones-100.png";
-import { ProductItem } from "$components/index";
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import shoe from "$assets/temp/products/headphones-100.png"
+import { ProductItem } from "$components/index"
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { FilterByCategoryInMobile } from "./FilterByCategoryInMobile"
 import { FilterCard } from "./FilterCard"
 
-interface ShopProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type ShopProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const Shop: FC<ShopProps> = ({ ...rest }) => {
   const allCategory = [1, 2, 3, 4, 5, 6, 7, 8, 9]

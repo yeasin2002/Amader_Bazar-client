@@ -1,7 +1,7 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
-import { FeatureProductContainer } from "./FeatureProductContainer";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { FeatureProductContainer } from "./FeatureProductContainer"
 
-interface MicroProductWrapperProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type MicroProductWrapperProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const FeatureProductWrapper: FC<MicroProductWrapperProps> = ({ ...rest }) => {
   return (
@@ -11,4 +11,4 @@ export const FeatureProductWrapper: FC<MicroProductWrapperProps> = ({ ...rest })
       <FeatureProductContainer heading="Best For you" />
     </div>
   )
-};
+}

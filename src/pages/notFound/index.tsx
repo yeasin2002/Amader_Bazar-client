@@ -1,10 +1,10 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
-import { useNavigate } from "react-router-dom";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { useNavigate } from "react-router-dom"
 
-interface NotFoundProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {}
+type NotFoundProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
 export const NotFound: FC<NotFoundProps> = ({ ...rest }) => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <section {...rest} className="bg-white dark:bg-gray-900 ">
       <div className="container mx-auto flex min-h-screen items-center px-6 py-12">
@@ -46,5 +46,5 @@ export const NotFound: FC<NotFoundProps> = ({ ...rest }) => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}

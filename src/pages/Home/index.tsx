@@ -1,15 +1,15 @@
-import Newsletter from "$components/cards/Newsletter";
+import Newsletter from "$components/cards/Newsletter"
 import { Footer } from "$layout/Footer"
 
-import { Toaster } from "sonner";
+import { Toaster } from "sonner"
 
 // import { ShowCase } from "$components/cards/Showcase";
 // import Nav from "$layout/Nav/Nav";
-import DisplayCategory from "./DisplayCategory";
-import Hero from "./Hero";
+import DisplayCategory from "./DisplayCategory"
+import Hero from "./Hero"
 
-import { FeatureProductWrapper } from "./FeatureProductWrapper";
-import { ProductContainer } from "./ProductContainer";
+import { FeatureProductWrapper } from "./FeatureProductWrapper"
+import { ProductContainer } from "./ProductContainer"
 
 export const Home = () => {
   return (
@@ -26,4 +26,4 @@ export const Home = () => {
       <Toaster richColors />
     </div>
   )
-};
+}

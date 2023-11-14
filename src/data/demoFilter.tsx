@@ -32,4 +32,4 @@ export const category = [
   {
     name: "cloths",
   },
-];
+]

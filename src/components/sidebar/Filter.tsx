@@ -1,12 +1,11 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-interface FilterAreaProps
-    extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type FilterAreaProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const FilterArea: FC<FilterAreaProps> = ({ ...rest }) => {
-    return (
-        <div {...rest}>
-            <h1>Yeasin</h1>
-        </div>
-    );
-};
+  return (
+    <div {...rest}>
+      <h1>Yeasin</h1>
+    </div>
+  )
+}

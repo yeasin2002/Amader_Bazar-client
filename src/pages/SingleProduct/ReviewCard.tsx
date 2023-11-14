@@ -1,7 +1,7 @@
 import { Star } from "lucide-react"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-interface ReviewsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+type ReviewsProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const Reviews: FC<ReviewsProps> = ({ ...rest }) => {
   return (

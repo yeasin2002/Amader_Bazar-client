@@ -1,10 +1,10 @@
-import { useId } from "react";
-import "swiper/css";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
+import { useId } from "react"
+import "swiper/css"
+import { Autoplay, Navigation, Pagination } from "swiper/modules"
+import { Swiper, SwiperSlide } from "swiper/react"
 
-import { HeroItems } from "$data";
-import { Image } from "$ui";
+import { HeroItems } from "$data"
+import { Image } from "$ui"
 
 const Hero = () => {
   return (
@@ -53,6 +53,6 @@ const Hero = () => {
       </section>
     </>
   )
-};
+}
 
-export default Hero;
+export default Hero
