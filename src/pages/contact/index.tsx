@@ -5,7 +5,7 @@ import { ContactInfo } from "./ContactInfo";
 import location from "$assets/illustration/3D/location-pin.png";
 import message from "$assets/illustration/3D/message.png";
 import { InputCombo } from "$components";
-import { Back } from "$layout"
+
 import { Textarea } from "$ui/textarea"
 
 type Inputs = {
@@ -78,8 +78,6 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
           <ContactInfo imgUrl={location} infoOne="Dhaka Cantonment" infoTwo="Dhaka-1206" />
         </div>
       </div>
-
-      <Back />
     </section>
   )
 };

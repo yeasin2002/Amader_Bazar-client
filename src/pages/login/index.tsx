@@ -3,7 +3,7 @@ import Facebook from "$assets/illustration/lottiy/facebookWave.json"
 import googleLottie from "$assets/illustration/lottiy/google.json"
 
 import { InputCombo } from "$components"
-import { Back, Logo } from "$layout"
+import { Logo } from "$layout"
 
 import { Button } from "$ui/button"
 import Lottie from "lottie-react"
@@ -114,8 +114,6 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
           </Link>
         </p>
       </div>
-
-      <Back className="bg-brand-500" />
     </div>
   )
 }

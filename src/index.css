@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer components {
-    .eachSection {
+    .eachSection {  
         @apply mx-4 my-10;
     }
     .into-center {

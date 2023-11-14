@@ -1,6 +1,5 @@
 import Newsletter from "$components/cards/Newsletter";
-import { Footer } from "$layout/Footer";
-import { Nav } from "$layout";
+import { Footer } from "$layout/Footer"
 
 import { Toaster } from "sonner";
 
@@ -15,7 +14,6 @@ import { ProductContainer } from "./ProductContainer";
 export const Home = () => {
   return (
     <div className="h-full max-h-full w-full bg-chai ">
-      <Nav />
       <Hero />
 
       <DisplayCategory />
@@ -27,5 +25,5 @@ export const Home = () => {
       <Footer />
       <Toaster richColors />
     </div>
-  );
+  )
 };
