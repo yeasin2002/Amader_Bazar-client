@@ -1,4 +1,16 @@
-import { About, Contact, Home, Login, NotFound, Profile, Protected, Register, Shop, SingleProduct } from "$pages"
+import {
+  About,
+  Contact,
+  Dashboard,
+  Home,
+  Login,
+  NotFound,
+  Profile,
+  Protected,
+  Register,
+  Shop,
+  SingleProduct,
+} from "$pages"
 import { Fragment } from "react"
 import { Route, Routes } from "react-router-dom"
 import { Nav } from "./layout"
@@ -21,6 +33,7 @@ const App = () => {
         </Route>
 
         <Route path="*" element={<NotFound />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </Fragment>
   )

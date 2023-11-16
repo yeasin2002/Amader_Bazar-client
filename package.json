@@ -1,7 +1,7 @@
 {
-  "name": "client",
+  "name": "amader-bazar",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "scripts": {
     "start": "vite ",
@@ -13,8 +13,8 @@
     "format:fix": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "type-check": "tsc --noEmit",
     "prepare": "husky install",
-    "fix:all": "pnpm run lint:fix && pnpm run format:fix && pnpm run type-check",
-    "pre-commit": "npx husky add .husky/pre-commit \"npm test\""
+    "fix:all": "npm run lint:fix && npm run format:fix && npm run type-check",
+    "pre-commit": "npx husky add .husky/pre-commit \"npm run fix:all\""
   },
   "dependencies": {
     "@radix-ui/react-checkbox": "^1.0.4",
