@@ -1,4 +1,4 @@
-import { FC, Fragment } from "react"
+import { Fragment } from "react"
 
 import headphone from "$assets/temp/products/shoe1-2.jpg"
 import { Button, Image } from "$ui"
@@ -11,7 +11,7 @@ import { Nav } from "$layout"
 import { RatingGraph } from "./RatingGraph"
 import { Reviews } from "./ReviewCard"
 
-export const SingleProduct: FC = ({ ...rest }) => {
+export const SingleProductInfo = ({ ...rest }) => {
   return (
     <Fragment>
       <Nav />

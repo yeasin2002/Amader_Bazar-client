@@ -9,7 +9,7 @@ import {
   Protected,
   Register,
   Shop,
-  SingleProduct,
+  SingleProductInfo,
 } from "$pages"
 import { Fragment } from "react"
 import { Route, Routes } from "react-router-dom"
@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/shop" element={<Shop />} />
-        <Route path="/shop/:id" element={<SingleProduct />} />
+        <Route path="/shop/:id" element={<SingleProductInfo />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
