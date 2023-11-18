@@ -17,7 +17,6 @@
     "pre-commit": "npx husky add .husky/pre-commit \"npm run fix:all\""
   },
   "dependencies": {
-    "@clerk/clerk-react": "^4.28.0",
     "@radix-ui/react-checkbox": "^1.0.4",
     "@radix-ui/react-dialog": "^1.0.5",
     "@radix-ui/react-dropdown-menu": "^2.0.6",
@@ -73,8 +72,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "prettier --write",
-      "eslint --fix",
       "git add"
     ]
   }
