@@ -1,7 +1,5 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { FC } from "react"
 
-type LoadingProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-
-export const Loading: FC<LoadingProps> = ({ ...rest }) => {
+export const Loading: FC = ({ ...rest }) => {
   return <div {...rest}>loading...............</div>
 }

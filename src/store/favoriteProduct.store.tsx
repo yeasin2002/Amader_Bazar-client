@@ -18,6 +18,13 @@ export const useFavoriteProductStore = create(
                   state.favoriteProduct.push(product)
                 })
               },
+              removeFavoriteProduct: (product: Product) => {
+                set((state) => {
+                  state.favoriteProduct.filter((val) => {
+                    return val._id !== product._id
+                  })
+                })
+              },
             }
           }
         }
@@ -26,23 +33,3 @@ export const useFavoriteProductStore = create(
     { name: "favoriteProduct" }
   )
 )
-
-// import { create } from "zustand";
-// import { combine, persist } from "zustand/middleware";
-// import { immer } from "zustand/middleware/immer";
-
-// const usePassengers = create(
-//   persist(
-//     immer(
-//       combine(
-//         {
-//           passengers: [] as BookingConfirmStore[],
-//         },
-//         (set, get) => ({})
-//       )
-//     ),
-//     {
-//       name: "passengers",
-//     }
-//   )
-// );

@@ -17,21 +17,9 @@
     "pre-commit": "npx husky add .husky/pre-commit \"npm run fix:all\""
   },
   "dependencies": {
-    "@radix-ui/react-checkbox": "^1.0.4",
-    "@radix-ui/react-dialog": "^1.0.5",
-    "@radix-ui/react-dropdown-menu": "^2.0.6",
-    "@radix-ui/react-label": "^2.0.2",
-    "@radix-ui/react-popover": "^1.0.7",
-    "@radix-ui/react-select": "^2.0.0",
-    "@radix-ui/react-slider": "^1.1.2",
-    "@radix-ui/react-slot": "^1.0.2",
-    "@radix-ui/react-switch": "^1.0.3",
-    "@radix-ui/react-tabs": "^1.0.4",
-    "@radix-ui/react-toast": "^1.1.5",
     "@tanstack/react-query": "^5.0.5",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
-    "eslint-plugin-unicorn": "^48.0.1",
     "immer": "^10.0.3",
     "lottie-react": "^2.4.0",
     "lucide-react": "^0.288.0",
@@ -44,7 +32,18 @@
     "swiper": "^11.0.3",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
-    "zustand": "^4.4.6"
+    "zustand": "^4.4.6",
+    "@radix-ui/react-checkbox": "^1.0.4",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-label": "^2.0.2",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-slider": "^1.1.2",
+    "@radix-ui/react-slot": "^1.0.2",
+    "@radix-ui/react-switch": "^1.0.3",
+    "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-toast": "^1.1.5"
   },
   "devDependencies": {
     "@tanstack/eslint-plugin-query": "^4.36.0",
@@ -61,6 +60,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "eslint-plugin-unicorn": "^48.0.1",
     "husky": "^8.0.3",
     "lint-staged": "^15.1.0",
     "postcss": "^8.4.31",
@@ -72,6 +72,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "npm run type-check",
+      " eslint ./src --ext ts,tsx ",
       "git add"
     ]
   }

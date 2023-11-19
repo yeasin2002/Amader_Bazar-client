@@ -19,7 +19,7 @@ module.exports = {
     "@tanstack/query/prefer-query-object-syntax": "error",
     "@tanstack/query/stable-query-client": "error",
     "@typescript-eslint/no-unused-vars": 1,
-    "prettier/prettier": "error",
+    "prettier/prettier": 1,
   },
   root: true,
   parserOptions: {
@@ -28,7 +28,7 @@ module.exports = {
   },
   overrides: [
     {
-      files: ["*.js"],
+      files: ["*.ts"],
       extends: ["plugin:@typescript-eslint/disable-type-checked"],
     },
   ],

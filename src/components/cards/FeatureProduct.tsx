@@ -12,6 +12,7 @@ export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
   const clickHandler = () => {
     addFavoriteProduct({
       name: "Backpack",
+      _id: "",
     })
     toast.success("Added to cart", {
       position: "top-left",

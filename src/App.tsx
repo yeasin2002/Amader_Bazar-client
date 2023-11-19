@@ -33,8 +33,8 @@ const App = () => {
           <Route path="/profile" element={<Profile />} />
         </Route>
 
-        <Route path="*" element={<NotFound />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Fragment>
   )
