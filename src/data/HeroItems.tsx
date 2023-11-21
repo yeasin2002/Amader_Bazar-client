@@ -1,28 +1,33 @@
-import shoe1 from "$assets/temp/products/shoe1.jpg"
-import shoe2 from "$assets/temp/products/shoe2.jpg"
-import shoe3 from "$assets/temp/products/shoe3.jpg"
-import shoe4 from "$assets/temp/products/shoe4.jpg"
-import shoe5 from "$assets/temp/products/shoe5.jpg"
+import product1 from "$assets/cover/Hero/1.png"
+import product2 from "$assets/cover/Hero/2.png"
+import product3 from "$assets/cover/Hero/3.png"
+import product4 from "$assets/cover/Hero/4.png"
+import product5 from "$assets/cover/Hero/5.png"
+import product6 from "$assets/cover/Hero/6.png"
 
 export const HeroItems = [
   {
     id: 1,
-    img: shoe1,
+    img: product1,
   },
   {
     id: 2,
-    img: shoe2,
+    img: product2,
   },
   {
     id: 3,
-    img: shoe3,
+    img: product3,
   },
   {
     id: 4,
-    img: shoe4,
+    img: product4,
   },
   {
     id: 5,
-    img: shoe5,
+    img: product5,
+  },
+  {
+    id: 5,
+    img: product6,
   },
 ]

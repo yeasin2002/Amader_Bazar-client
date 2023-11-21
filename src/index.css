@@ -2,10 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
+
 @layer components {
   .eachSection {
     @apply mx-4 my-10;
   }
+
   .into-center {
     @apply flex items-center justify-center;
   }

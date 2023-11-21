@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
 import { FC, HTMLAttributes } from "react"
 import { SubmitHandler, useForm } from "react-hook-form"
 import { ContactInfo } from "./ContactInfo"

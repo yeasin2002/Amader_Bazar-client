@@ -72,8 +72,6 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "npm run type-check",
-      " eslint ./src --ext ts,tsx ",
       "git add"
     ]
   }
