@@ -1,42 +1,54 @@
-// import { getAuth } from "$lib";
-// import axios from "axios";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+const defaultHeader = {
+  "Content-Type": "application/json",
+  Authorization: `Bearer ${localStorage.getItem("token")}`,
+}
 
-// export const AxiosInstance = axios.create({
-//   baseURL: import.meta.env.BACKEND_URL,
-//   transformRequest: [
-//     ...(Array.isArray(axios.defaults.transformRequest) ? axios.defaults.transformRequest : []),
-//     (data, headers) => {
-//       if (typeof document === "undefined") {
-//         headers.common["Authorization"] = `Bearer ${getAuth()}`;
-//       }
+interface Fetchers {
+  url: string
+  body?: object
+  header?: HeadersInit
+}
 
-//       return data;
-//     },
-//   ],
-// });
+export async function $GET({ url, body, header = defaultHeader }: Fetchers) {
+  const response = await fetch(url, {
+    method: "GET",
+    headers: header,
+    body: JSON.stringify(body),
+  })
+  return await response.json()
+}
 
-// export const _get = async (route: string) => {
-//   const { data } = await AxiosInstance.get(route);
-//   return data;
-// };
+export async function $POST({ url = "", body = {}, header = defaultHeader }: Fetchers) {
+  const response = await fetch(url, {
+    method: "POST",
+    headers: header,
+    body: JSON.stringify(body),
+  })
+  return await response.json()
+}
+export async function $PUT({ url = "", body = {}, header = defaultHeader }: Fetchers) {
+  const response = await fetch(url, {
+    method: "PUT",
+    headers: header,
+    body: JSON.stringify(body),
+  })
+  return await response.json()
+}
 
-// // eslint-disable-next-line @typescript-eslint/no-explicit-any
-// export const _post = async (route = "", arg: any) => {
-//   const { data } = await AxiosInstance.post(route, arg);
-//   return data;
-// };
+export async function $PATCH({ url = "", body = {}, header = defaultHeader }: Fetchers) {
+  const response = await fetch(url, {
+    method: "PATCH",
+    headers: header,
+    body: JSON.stringify(body),
+  })
+  return await response.json()
+}
 
-// export const _put = async (route = "", arg = {}) => {
-//   const { data } = await AxiosInstance.put(route, arg);
-//   return data;
-// };
-
-// export const _delete = async (route = "", arg = {}) => {
-//   const { data } = await AxiosInstance.put(route, arg);
-//   return data;
-// };
-
-// export const _patch = async (route = "", arg = {}) => {
-//   const { data } = await AxiosInstance.put(route, arg);
-//   return data;
-// };
+export async function $DELETE({ url = "", header = defaultHeader }: Fetchers) {
+  const response = await fetch(url, {
+    method: "DELETE",
+    headers: header,
+  })
+  return await response.json()
+}
