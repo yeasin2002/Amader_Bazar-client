@@ -3,8 +3,7 @@ import { Footer } from "$layout/Footer"
 
 import { Toaster } from "sonner"
 
-// import { ShowCase } from "$components/cards/Showcase";
-// import Nav from "$layout/Nav/Nav";
+
 import DisplayCategory from "./DisplayCategory"
 import Hero from "./Hero"
 

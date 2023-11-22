@@ -27,7 +27,7 @@ export const SingUp: FC<SingUpProps> = ({ ...rest }) => {
       {...rest}
       className=" flex   w-full items-center justify-evenly  bg-gradient-to-r from-brand-300 to-brand-500  px-10 "
     >
-      <div className="hidden  w-full md:block ">
+      <div className="  hidden w-full md:block  ">
         <Lottie animationData={delivery} autoPlay={true} loop={false} />
       </div>
 

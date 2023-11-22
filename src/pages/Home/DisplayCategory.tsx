@@ -1,8 +1,13 @@
-import { CategoryItem } from "$components/cards/CategoryItem"
-import { CategoriesData } from "$data/CategoryData"
+import { CategoiesResponse } from "$types"
+import { $GET } from "$utils"
+import { useQuery } from "@tanstack/react-query"
 import { Tag } from "lucide-react"
+import { CategoryItem } from "./CategoryItem"
+import { CategoryItemError } from "./CategoryItemError"
+import { CategoryItemSkeleton } from "./CategoryItemSkeleton"
 
 // Import Swiper
+import { Fragment } from "react"
 import "swiper/css"
 import "swiper/css/free-mode"
 import "swiper/css/pagination"
@@ -10,6 +15,62 @@ import { FreeMode, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 const DisplayCategory = () => {
+  let categoryDisplay
+  const {
+    data: CategoriesData,
+    isError,
+    isLoading,
+  } = useQuery({
+    queryKey: ["categories", "all"],
+    queryFn: async () => $GET({ url: "/category" }) as Promise<CategoiesResponse>,
+  })
+
+  const LoadingComponent = (
+    <Fragment>
+      {Array.from(Array(5)).map((_, index) => {
+        return (
+          <SwiperSlide key={index}>
+            <CategoryItemSkeleton />
+          </SwiperSlide>
+        )
+      })}
+    </Fragment>
+  )
+
+  const ErrorComponent = (
+    <Fragment>
+      {Array.from(Array(5)).map((_, index) => {
+        return (
+          <SwiperSlide key={index}>
+            <CategoryItemError />
+          </SwiperSlide>
+        )
+      })}
+    </Fragment>
+  )
+
+  const mainComponent = (
+    <Fragment>
+      {CategoriesData?.data?.map((val) => {
+        return (
+          <SwiperSlide key={val._id}>
+            <CategoryItem categoryName={val.name} icon={val.icon} key={val._id} />
+          </SwiperSlide>
+        )
+      })}
+    </Fragment>
+  )
+
+  if (isError) {
+    categoryDisplay = ErrorComponent
+  } else {
+    if (isLoading) {
+      categoryDisplay = LoadingComponent
+    } else {
+      categoryDisplay = mainComponent
+    }
+  }
+
   return (
     <section className="eachSection space-y-3 px-4 py-6">
       <div>
@@ -42,13 +103,7 @@ const DisplayCategory = () => {
           modules={[FreeMode, Pagination]}
           className="mySwiper !cursor-grab"
         >
-          {CategoriesData.map((val) => {
-            return (
-              <SwiperSlide key={val.name}>
-                <CategoryItem categoryName={val.name} icon={val.url} />
-              </SwiperSlide>
-            )
-          })}
+          {categoryDisplay}
         </Swiper>
       </div>
     </section>

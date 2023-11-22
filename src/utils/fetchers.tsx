@@ -1,3 +1,5 @@
+import { baseUrl } from "$lib/exportEnv"
+
 /* eslint-disable @typescript-eslint/no-explicit-any */
 const defaultHeader = {
   "Content-Type": "application/json",
@@ -11,7 +13,7 @@ interface Fetchers {
 }
 
 export async function $GET({ url, body, header = defaultHeader }: Fetchers) {
-  const response = await fetch(url, {
+  const response = await fetch(baseUrl + url, {
     method: "GET",
     headers: header,
     body: JSON.stringify(body),

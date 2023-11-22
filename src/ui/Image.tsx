@@ -1,4 +1,4 @@
-import { cn } from "$lib/utils"
+import { twMerge } from "tailwind-merge"
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   src: string
@@ -7,5 +7,5 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 }
 
 export const Image = ({ src, alt = "", className }: ImageProps) => {
-  return <img src={src} alt={alt} loading="lazy" key={alt} className={cn("", className)} />
+  return <img src={src} alt={alt} loading="lazy" key={alt} className={twMerge("", className)} crossOrigin="anonymous" />
 }
