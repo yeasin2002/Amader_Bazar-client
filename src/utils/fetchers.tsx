@@ -1,6 +1,5 @@
 import { baseUrl } from "$lib/exportEnv"
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 const defaultHeader = {
   "Content-Type": "application/json",
   Authorization: `Bearer ${localStorage.getItem("token")}`,

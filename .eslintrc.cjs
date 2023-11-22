@@ -19,6 +19,7 @@ module.exports = {
     "@tanstack/query/prefer-query-object-syntax": "error",
     "@tanstack/query/stable-query-client": "error",
     "@typescript-eslint/no-empty-interface": 0,
+    " '@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-unused-vars": 1,
     "prettier/prettier": 1,
   },
