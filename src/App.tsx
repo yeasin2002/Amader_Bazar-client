@@ -7,8 +7,8 @@ import {
   NotFound,
   Profile,
   Protected,
-  Register,
   Shop,
+  SingUp,
   SingleProductInfo,
 } from "$pages"
 import { Fragment } from "react"
@@ -23,7 +23,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        <Route path="/singup" element={<SingUp />} />
         <Route path="/shop" element={<Shop />} />
         <Route path="/shop/:id" element={<SingleProductInfo />} />
         <Route path="/about" element={<About />} />

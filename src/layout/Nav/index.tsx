@@ -25,6 +25,10 @@ export const Nav = () => {
       title: "Contact",
       url: "/contact",
     },
+    {
+      title: "singup",
+      url: "/singup",
+    },
   ]
   return (
     <nav

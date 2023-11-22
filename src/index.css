@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
-
 @layer components {
   .eachSection {
     @apply mx-4 my-10;
@@ -13,6 +9,9 @@
 
   .into-center {
     @apply flex items-center justify-center;
+  }
+  .pageHeaderArea {
+    @apply pt-32;
   }
   .single-product-info {
     @apply h-60;
