@@ -21,7 +21,7 @@ export async function $GET({ url, body, header = defaultHeader }: Fetchers) {
 }
 
 export async function $POST({ url = "", body = {}, header = defaultHeader }: Fetchers) {
-  const response = await fetch(url, {
+  const response = await fetch(baseUrl + url, {
     method: "POST",
     headers: header,
     body: JSON.stringify(body),
@@ -29,7 +29,7 @@ export async function $POST({ url = "", body = {}, header = defaultHeader }: Fet
   return await response.json()
 }
 export async function $PUT({ url = "", body = {}, header = defaultHeader }: Fetchers) {
-  const response = await fetch(url, {
+  const response = await fetch(baseUrl + url, {
     method: "PUT",
     headers: header,
     body: JSON.stringify(body),
@@ -38,7 +38,7 @@ export async function $PUT({ url = "", body = {}, header = defaultHeader }: Fetc
 }
 
 export async function $PATCH({ url = "", body = {}, header = defaultHeader }: Fetchers) {
-  const response = await fetch(url, {
+  const response = await fetch(baseUrl + url, {
     method: "PATCH",
     headers: header,
     body: JSON.stringify(body),
@@ -47,7 +47,7 @@ export async function $PATCH({ url = "", body = {}, header = defaultHeader }: Fe
 }
 
 export async function $DELETE({ url = "", header = defaultHeader }: Fetchers) {
-  const response = await fetch(url, {
+  const response = await fetch(baseUrl + url, {
     method: "DELETE",
     headers: header,
   })

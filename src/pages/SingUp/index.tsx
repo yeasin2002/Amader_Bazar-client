@@ -17,11 +17,13 @@ export const SingUp: FC<SingUpProps> = ({ ...rest }) => {
       <div className="  hidden w-full md:block  ">
         <Lottie animationData={delivery} autoPlay={true} loop={false} />
       </div>
-      {isConfirmRegistration ? (
-        <ConfirmRegistration setIsConfirmRegistration={setIsConfirmRegistration} />
-      ) : (
-        <Registration setIsConfirmRegistration={setIsConfirmRegistration} />
-      )}
+      <div className="m-auto mx-auto w-full  rounded-lg bg-white p-6 shadow-md ">
+        {isConfirmRegistration ? (
+          <ConfirmRegistration setIsConfirmRegistration={setIsConfirmRegistration} />
+        ) : (
+          <Registration setIsConfirmRegistration={setIsConfirmRegistration} />
+        )}
+      </div>
     </div>
   )
 }

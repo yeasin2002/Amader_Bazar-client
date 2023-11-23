@@ -8,7 +8,7 @@ interface InputComboProps extends DetailedHTMLProps<React.InputHTMLAttributes<HT
   label: string
   className?: string
   labelClassName?: string
-  error: string | undefined
+  error?: string | undefined
   isLabelHidden?: boolean
   type?: string
   isRequired?: boolean
@@ -48,7 +48,8 @@ export const InputCombo: FC<InputComboProps> = ({
           className
         )}
       />
-      {error && <p>{error}</p>}
+
+      {error && <p className="animate-pulse font-normal text-rose-400">{error}</p>}
     </div>
   )
 }

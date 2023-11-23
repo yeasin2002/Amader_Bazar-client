@@ -1,4 +1,4 @@
-import DefaultAvatar from "$assets/illustration/others/avatar.png"
+import DefaultAvatar from "$assets/illustration/3D/avatar.webp"
 import { Image, Label } from "$ui"
 import { PencilLine } from "lucide-react"
 import { ChangeEvent, FC, Fragment, useState } from "react"
@@ -11,7 +11,7 @@ interface AvatarProps {
 }
 
 export const Avatar: FC<AvatarProps> = ({ register }) => {
-  const { ref, onChange, ...rest } = register
+  const { ref, onChange, ...registerRest } = register
   const [selectedImage, setSelectedImage] = useState(DefaultAvatar)
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -41,7 +41,7 @@ export const Avatar: FC<AvatarProps> = ({ register }) => {
             area-label="avatar"
             className="hidden"
             id="avatar"
-            {...rest}
+            {...registerRest}
             ref={ref}
             onChange={combinedOnChange}
           />
