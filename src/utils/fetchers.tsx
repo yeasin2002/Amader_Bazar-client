@@ -1,55 +1,70 @@
 import { baseUrl } from "$lib/exportEnv"
 
-const defaultHeader = {
-  "Content-Type": "application/json",
-  Authorization: `Bearer ${localStorage.getItem("token")}`,
-}
-
 interface Fetchers {
   url: string
   body?: object
   header?: HeadersInit
 }
 
-export async function $GET({ url, body, header = defaultHeader }: Fetchers) {
+export async function $GET({ url, body, header }: Fetchers) {
   const response = await fetch(baseUrl + url, {
     method: "GET",
-    headers: header,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      ...header,
+    },
     body: JSON.stringify(body),
   })
   return await response.json()
 }
 
-export async function $POST({ url = "", body = {}, header = defaultHeader }: Fetchers) {
+export async function $POST({ url = "", body = {}, header }: Fetchers) {
   const response = await fetch(baseUrl + url, {
     method: "POST",
-    headers: header,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      ...header,
+    },
     body: JSON.stringify(body),
   })
   return await response.json()
 }
-export async function $PUT({ url = "", body = {}, header = defaultHeader }: Fetchers) {
+export async function $PUT({ url = "", body = {}, header }: Fetchers) {
   const response = await fetch(baseUrl + url, {
     method: "PUT",
-    headers: header,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      ...header,
+    },
     body: JSON.stringify(body),
   })
   return await response.json()
 }
 
-export async function $PATCH({ url = "", body = {}, header = defaultHeader }: Fetchers) {
+export async function $PATCH({ url = "", body = {}, header }: Fetchers) {
   const response = await fetch(baseUrl + url, {
     method: "PATCH",
-    headers: header,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      ...header,
+    },
     body: JSON.stringify(body),
   })
   return await response.json()
 }
 
-export async function $DELETE({ url = "", header = defaultHeader }: Fetchers) {
+export async function $DELETE({ url = "", header }: Fetchers) {
   const response = await fetch(baseUrl + url, {
     method: "DELETE",
-    headers: header,
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      ...header,
+    },
   })
   return await response.json()
 }

@@ -43,12 +43,13 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
       const postRegister = await mutateAsync(data)
       console.log(postRegister)
       console.log("Result : ", postRegister)
-      if (postRegister.success) {
-        toast.success("Registration success")
-        setIsConfirmRegistration(true)
-      } else {
-        console.log("Not success")
-        toast.error("Something went wrong, please try again")
+      if (!postRegister.success) {
+        return toast.error(postRegister.message)
+      }
+
+      if (postRegister.statusCode === 200) {
+        toast.success(" successfully Registered ")
+        return setIsConfirmRegistration(true)
       }
     } catch (error: unknown) {
       if (error instanceof Error) toast.error(error?.message)

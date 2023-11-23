@@ -1,5 +1,7 @@
 import { InputCombo } from "$components/index"
 import { Button } from "$ui/button"
+import { $POST } from "$utils"
+import { useMutation } from "@tanstack/react-query"
 import { ArrowLeft } from "lucide-react"
 import { DetailedHTMLProps, FC, Fragment } from "react"
 import { useForm } from "react-hook-form"
@@ -13,9 +15,13 @@ export interface ConfirmFormValues {
 }
 
 export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({ setIsConfirmRegistration, ...rest }) => {
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ["confirm-registration"],
+    mutationFn: (body: ConfirmFormValues) => $POST({ url: "/auth/confirm-registration", body }),
+  })
   const { register, formState, handleSubmit } = useForm<ConfirmFormValues>()
-  const onSubmit = (data: ConfirmFormValues) => {
-    console.log(data)
+  const onSubmit = async (data: ConfirmFormValues) => {
+    await mutateAsync(data)
   }
   return (
     <Fragment>
@@ -39,7 +45,7 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({ setIsConfirm
           placeholder="Enter your OTP "
         />
         <Button type="submit" className="w-full">
-          Singup
+          {isPending ? "Loading..." : "Singup"}
         </Button>
       </form>
     </Fragment>
