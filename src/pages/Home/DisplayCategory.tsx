@@ -24,6 +24,12 @@ const DisplayCategory = () => {
     queryKey: ["categories", "all"],
     queryFn: async () => $GET({ url: "/category" }) as Promise<CategoiesResponse>,
   })
+  console.table({
+    isError,
+    isLoading,
+  })
+
+  console.log(CategoriesData)
 
   const LoadingComponent = (
     <Fragment>
@@ -61,7 +67,7 @@ const DisplayCategory = () => {
     </Fragment>
   )
 
-  if (isError) {
+  if (isError || CategoriesData?.success === false) {
     categoryDisplay = ErrorComponent
   } else {
     if (isLoading) {

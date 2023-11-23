@@ -1,4 +1,5 @@
 import notFound from "$assets/illustration/others/notFound.png"
+import { baseUrl } from "$lib/exportEnv"
 import { Image } from "$ui"
 import { HTMLAttributes } from "react"
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
@@ -12,7 +13,7 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
   if (!icon) {
     imgUrl = notFound
   } else {
-    imgUrl = `http://localhost:1012/api/v1/extra/category-img/${icon}`
+    imgUrl = `${baseUrl}/extra/category-img/${icon}`
   }
   console.log(imgUrl)
   return (

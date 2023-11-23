@@ -11,6 +11,7 @@ interface InputComboProps extends DetailedHTMLProps<React.InputHTMLAttributes<HT
   error: string | undefined
   isLabelHidden?: boolean
   type?: string
+  isRequired?: boolean
 }
 
 export const InputCombo: FC<InputComboProps> = ({
@@ -21,20 +22,24 @@ export const InputCombo: FC<InputComboProps> = ({
   className,
   labelClassName,
   isLabelHidden,
+  isRequired = false,
   type = "text",
   ...rest
 }) => {
+  const { ref, ...registerRest } = register
+
   return (
     <div>
       {!isLabelHidden && (
         <label htmlFor={label} className={twMerge("mb-2   text-sm font-medium text-gray-900", labelClassName)}>
-          {label}
+          {label} <span className="text-md font-bold text-red-800">{isRequired && "*"}</span>
         </label>
       )}
 
       <input
         {...rest}
-        {...register}
+        {...registerRest}
+        ref={ref}
         type={type}
         id={label}
         placeholder={placeholder}
