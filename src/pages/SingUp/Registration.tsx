@@ -4,9 +4,9 @@ import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 
 import { InputCombo } from "$components"
+import { $POST } from "$hooks"
 import { Image } from "$ui/Image"
 import { Button } from "$ui/button"
-import { $POST } from "$utils"
 import { Avatar } from "./Avatar"
 
 import FacebookIcon from "$assets/illustration/3D/facebook.png"

@@ -1,5 +1,5 @@
+import { $GET } from "$hooks"
 import { CategoiesResponse } from "$types"
-import { $GET } from "$utils"
 import { useQuery } from "@tanstack/react-query"
 import { Tag } from "lucide-react"
 import { CategoryItem } from "./CategoryItem"
