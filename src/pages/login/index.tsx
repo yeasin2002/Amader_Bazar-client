@@ -6,10 +6,13 @@ import { InputCombo } from "$components"
 import { Logo } from "$layout"
 
 import { Button } from "$ui/button"
+import { $POST } from "$utils/fetchers"
+import { useMutation } from "@tanstack/react-query"
 import Lottie from "lottie-react"
 import { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
+import { toast } from "sonner"
 
 type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {
@@ -19,7 +22,28 @@ interface FormValues {
 
 export const Login: FC<LogInProps> = ({ ...rest }) => {
   const navigate = useNavigate()
-  const { register, formState } = useForm<FormValues>()
+  const { register, formState, handleSubmit } = useForm<FormValues>()
+
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ["login"],
+    mutationFn: (body: object) => $POST({ url: "/auth/login", body }),
+  })
+
+  const onSubmit = async (data: FormValues) => {
+    try {
+      const response = await mutateAsync(data)
+
+      if (response.success) {
+        return toast.success("Login Success")
+      }
+      if (response.statusCode === 404) {
+        return toast.error("Please Register First")
+      }
+      toast.error("Sometime went wrong")
+    } catch (error) {
+      toast.error("Sometime went wrong")
+    }
+  }
 
   //* Note: Need to add Captcha to prevent bot before log in and sign up
   return (
@@ -40,7 +64,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
             }}
           />
         </div>
-        <form className="mt-6">
+        <form className="mt-6" onSubmit={handleSubmit(onSubmit)} key={"Log_in"}>
           <div>
             <InputCombo
               register={register("email", {
@@ -60,18 +84,20 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
             </div>
 
             <InputCombo
-              register={register("email", {
-                required: { value: true, message: "Email is required " },
+              register={register("password", {
+                required: { value: true, message: "password is required " },
               })}
-              label="Email"
-              error={formState?.errors?.email?.message}
-              placeholder="Enter your email"
+              label="Password"
+              error={formState?.errors?.password?.message}
+              placeholder="Enter your password"
+              type="password"
+              autoComplete="current-password"
             />
           </div>
 
           <div className="mt-6">
             <Button variant={"dark"} className="w-full">
-              Sign In
+              {isPending ? "Loading..." : "Log In"}
             </Button>
           </div>
         </form>

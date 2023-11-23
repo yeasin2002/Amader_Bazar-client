@@ -4,6 +4,7 @@ import React from "react"
 import ReactDOM from "react-dom/client"
 import { BrowserRouter } from "react-router-dom"
 
+import { Toaster } from "sonner"
 import App from "./App.tsx"
 import { AuthProvider } from "./context"
 import "./index.css"
@@ -16,6 +17,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <QueryClientProvider client={queryClient}>
         <ReactQueryDevtools initialIsOpen={false} />
         <AuthProvider>
+          <Toaster richColors position="top-left" />
           <App />
         </AuthProvider>
       </QueryClientProvider>

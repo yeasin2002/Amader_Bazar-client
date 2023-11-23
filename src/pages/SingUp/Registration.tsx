@@ -44,7 +44,7 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
       console.log(postRegister)
       console.log("Result : ", postRegister)
       if (postRegister.success) {
-        console.log("success")
+        toast.success("Registration success")
         setIsConfirmRegistration(true)
       } else {
         console.log("Not success")
