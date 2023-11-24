@@ -31,8 +31,7 @@ export const Avatar: FC<AvatarProps> = ({ register }) => {
         <Image src={selectedImage} alt="avatar" className="h-full w-full rounded-full" />
         <Label
           htmlFor="avatar"
-          className="absolute -bottom-2 -right-2 cursor-pointer rounded-full border border-gray-800/40 bg-gray-100 p-1"
-        >
+          className="absolute -bottom-2 -right-2 cursor-pointer rounded-full border border-gray-800/40 bg-gray-100 p-1">
           <PencilLine size={20} />
 
           <input

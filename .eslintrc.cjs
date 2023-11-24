@@ -21,6 +21,7 @@ module.exports = {
     "@typescript-eslint/no-empty-interface": 0,
     " '@typescript-eslint/no-explicit-any": 0,
     "@typescript-eslint/no-unused-vars": 1,
+    "@typescript-eslint/no-explicit-any": 1,
     "prettier/prettier": 1,
   },
   root: true,

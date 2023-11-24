@@ -24,8 +24,7 @@ export const HeroSlider: FC<HeroSliderProps> = ({ ...rest }) => {
           clickable: true,
         }}
         navigation={true}
-        modules={[Autoplay, Pagination, Navigation]}
-      >
+        modules={[Autoplay, Pagination, Navigation]}>
         {HeroItems.map((items) => {
           // eslint-disable-next-line react-hooks/rules-of-hooks
           const id = useId()

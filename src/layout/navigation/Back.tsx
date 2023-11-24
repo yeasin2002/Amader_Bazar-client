@@ -15,8 +15,7 @@ export const Back: FC<indexProps> = ({ className = "", iconClassName = "", color
     <button
       {...rest}
       onClick={() => navigate(-1)}
-      className={cn("absolute left-3 top-2 inline-block rounded-full bg-blue-800 md:p-2 2xl:p-4", className)}
-    >
+      className={cn("absolute left-3 top-2 inline-block rounded-full bg-blue-800 md:p-2 2xl:p-4", className)}>
       <ChevronLeft color={color} className={cn(iconClassName)} />
     </button>
   )

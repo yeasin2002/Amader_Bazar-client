@@ -1,9 +1,9 @@
+import { useLocalStorageUtils } from "$utils"
 import { useEffect, useState } from "react"
-import { useLocalStorageUtils } from "./useLocalStorageUtils"
 const { setStorage, getStorage, clearStorageItem, clearStorage } = useLocalStorageUtils
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export type StorageKey = "token" | "user"
+export type StorageKey = "token" | "usersToken" | "isLoggedIn"
 
 export const useLocalStorage = (key: StorageKey) => {
   const [value, setValue] = useState(() => {

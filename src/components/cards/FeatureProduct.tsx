@@ -26,8 +26,7 @@ export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
           className="w-1/3 bg-cover"
           style={{
             backgroundImage: `url(${pd})`,
-          }}
-        ></div>
+          }}></div>
 
         <div className="w-2/3 p-4 md:p-4">
           <h1 className="text-xl font-bold text-gray-800 dark:text-white  md:text-2xl">Backpack</h1>

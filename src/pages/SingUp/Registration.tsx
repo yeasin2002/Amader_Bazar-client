@@ -2,6 +2,7 @@ import { useMutation } from "@tanstack/react-query"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
+import { toast } from "sonner"
 
 import { InputCombo } from "$components"
 import { $POST } from "$hooks"
@@ -11,7 +12,6 @@ import { Avatar } from "./Avatar"
 
 import FacebookIcon from "$assets/illustration/3D/facebook.png"
 import googleIcon from "$assets/illustration/3D/google.png"
-import { toast } from "sonner"
 
 interface RegistrationProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   setIsConfirmRegistration: React.Dispatch<React.SetStateAction<boolean>>
@@ -29,19 +29,36 @@ export interface FormValues {
 export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }) => {
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["register"],
-    mutationFn: (body: FormValues) =>
+    mutationFn: (body: FormData) =>
       $POST({
         url: "/auth/register",
         body,
+        contentType: "multipart/form-data",
       }),
   })
 
   // Handle Form
   const { register, formState, handleSubmit } = useForm<FormValues>()
+
   const onSubmit = async (data: FormValues) => {
     try {
-      const postRegister = await mutateAsync(data)
-      console.log(postRegister)
+      const formData = new FormData()
+      // for (const key in data) {
+      //   formData.append(key, data[key as keyof FormValues])
+      // }
+      formData.append("name", data.name)
+      formData.append("email", data.email)
+      formData.append("phone", data.phone)
+      formData.append("password", data.password)
+      formData.append("address", data.address)
+      formData.append("avatar", data.avatar)
+
+      // for (const pair of formData.entries()) {
+      //   console.log(pair[0] + ", " + pair[1])
+      // }
+
+      const postRegister = await mutateAsync(formData)
+      console.log("Response", postRegister)
       console.log("Result : ", postRegister)
       if (!postRegister.success) {
         return toast.error(postRegister.message)
@@ -52,7 +69,8 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
         return setIsConfirmRegistration(true)
       }
     } catch (error: unknown) {
-      if (error instanceof Error) toast.error(error?.message)
+      console.log("Error", error)
+      if (error instanceof Error) toast.error("Something went wrong")
     }
   }
   return (
@@ -132,11 +150,11 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
 
       <div className=" mt-6 flex items-center gap-x-5">
         <Button type="button" variant={"sky"} className="w-full">
-          <Image src={googleIcon} alt="Google" className="h-full " />
+          <Image src={googleIcon} alt="Google" className="h-full w-full " width={30} height={30} />
           <p className="mx-2  "> Google</p>
         </Button>
         <Button type="button" value={"sky"} className=" flex w-full space-x-2">
-          <Image src={FacebookIcon} alt="Google" className="h-full " />
+          <Image src={FacebookIcon} alt="Google" className="h-full w-full" width={30} height={30} />
           <p> Facebook</p>
         </Button>
       </div>
@@ -150,3 +168,6 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
     </Fragment>
   )
 }
+/*
+How to transform my data that i'm getting form the react-hook-form to formData
+*/

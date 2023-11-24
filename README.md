@@ -14,8 +14,6 @@ which provides an interface for store administrators to manage products, view sa
 
 Live Link : [netlify](https://amaderbazar.netlify.app/)
 
-
+<!-- 
 ## [Figma UI](https://www.figma.com/file/Douo9VLnXKBXb6B2cweSQs/Amader-Bazar?type=design&node-id=605%3A344&mode=design&t=Mne6rFKVXNd21MHM-1)
-
-
-
+ -->

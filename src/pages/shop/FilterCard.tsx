@@ -31,8 +31,7 @@ export const FilterCard: FC<FilterCardProps> = ({ className, ...rest }) => {
                         variant: "default",
                       }),
                       "cursor-pointer"
-                    )}
-                  >
+                    )}>
                     {val}
                   </p>
                 )
@@ -65,8 +64,7 @@ export const FilterCard: FC<FilterCardProps> = ({ className, ...rest }) => {
               }),
               "mx-0 cursor-pointer"
             )}
-            onClick={() => setIsShowFullCategory((val) => !val)}
-          >
+            onClick={() => setIsShowFullCategory((val) => !val)}>
             show {!isShowFullCategory ? "more " : "less"}
           </p>
         </div>
@@ -96,8 +94,7 @@ export const FilterCard: FC<FilterCardProps> = ({ className, ...rest }) => {
           className=" "
           onClick={() => {
             filterStore.setResetFilter()
-          }}
-        >
+          }}>
           Rest Filters
         </Button>
       </div>

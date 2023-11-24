@@ -28,16 +28,14 @@ export const FilterByCategoryInMobile: FC<FilterByCategoryInMobileProps> = ({ ..
           },
         }}
         modules={[FreeMode, Pagination]}
-        className="mySwiper !cursor-grab"
-      >
+        className="mySwiper !cursor-grab">
         {category.map((item) => {
           return (
             <SwiperSlide
               key={item.name}
               className={buttonVariants({
                 variant: "default",
-              })}
-            >
+              })}>
               {item.name}
             </SwiperSlide>
           )

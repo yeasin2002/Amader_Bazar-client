@@ -107,8 +107,7 @@ const DisplayCategory = () => {
             },
           }}
           modules={[FreeMode, Pagination]}
-          className="mySwiper !cursor-grab"
-        >
+          className="mySwiper !cursor-grab">
           {categoryDisplay}
         </Swiper>
       </div>

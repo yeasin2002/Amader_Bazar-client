@@ -23,8 +23,7 @@ const Newsletter = () => {
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-      }}
-    >
+      }}>
       <div className="flex items-center gap-x-2">
         <span className="rounded-full bg-brand-900 p-2  2xl:p-4">
           <MailOpen className="2xl:h-10 2xl:w-10" />

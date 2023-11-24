@@ -4,6 +4,7 @@ interface Fetchers {
   url: string
   body?: object
   header?: HeadersInit
+  contentType?: string
 }
 
 export async function $GET({ url, body, header }: Fetchers) {
@@ -19,11 +20,11 @@ export async function $GET({ url, body, header }: Fetchers) {
   return await response.json()
 }
 
-export async function $POST({ url = "", body = {}, header }: Fetchers) {
+export async function $POST({ url = "", body = {}, header, contentType = "application/json" }: Fetchers) {
   const response = await fetch(baseUrl + url, {
     method: "POST",
     headers: {
-      "Content-Type": "application/json",
+      "Content-Type": contentType,
       Authorization: `Bearer ${localStorage.getItem("token")}`,
       ...header,
     },

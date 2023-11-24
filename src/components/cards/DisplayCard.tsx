@@ -21,8 +21,7 @@ export function DisplayCard({ description, url, title, className, dark }: Displa
           className={cn(
             "inline-block text-4xl font-bold transition-all duration-500 hover:text-black md:pr-10 md:text-7xl",
             { "hover:text-white": dark }
-          )}
-        >
+          )}>
           {title}
         </h2>
         <p className="drop-shadow-sm">{description}</p>
@@ -33,8 +32,7 @@ export function DisplayCard({ description, url, title, className, dark }: Displa
             {
               "bg-black text-white hover:bg-white hover:text-black": dark,
             }
-          )}
-        >
+          )}>
           Book Now
         </button>
       </div>

@@ -43,8 +43,7 @@ const CustomBtn = React.forwardRef<HTMLButtonElement, ButtonProps>(
         <Link
           to={"/"}
           // href={href}
-          className={cn(buttonVariants({ variant, size, className }))}
-        >
+          className={cn(buttonVariants({ variant, size, className }))}>
           {children}
         </Link>
       )

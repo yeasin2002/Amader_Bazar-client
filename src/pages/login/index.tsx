@@ -5,6 +5,7 @@ import googleLottie from "$assets/illustration/lottiy/google.json"
 import { InputCombo } from "$components"
 import { Logo } from "$layout"
 
+import { useAuth } from "$hooks/useAuth"
 import { $POST } from "$hooks/useFetchers"
 import { Button } from "$ui/button"
 import { useMutation } from "@tanstack/react-query"
@@ -21,6 +22,8 @@ interface FormValues {
 }
 
 export const Login: FC<LogInProps> = ({ ...rest }) => {
+  const auth = useAuth()
+
   const navigate = useNavigate()
   const { register, formState, handleSubmit } = useForm<FormValues>()
 
@@ -34,6 +37,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
       const response = await mutateAsync(data)
 
       if (response.success) {
+        auth.login(response.data)
         return toast.success("Login Success")
       }
       if (response.statusCode === 404) {
@@ -49,8 +53,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
   return (
     <div
       {...rest}
-      className="flex max-h-full min-h-screen w-full  items-center justify-evenly bg-gradient-to-r  from-brand-300 to-brand-500 px-10 "
-    >
+      className="flex max-h-full min-h-screen w-full  items-center justify-evenly bg-gradient-to-r  from-brand-300 to-brand-500 px-10 ">
       <div className="hidden h-full w-full md:block ">
         <Lottie animationData={delivery} autoPlay={true} />
       </div>

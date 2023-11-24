@@ -2,10 +2,14 @@ import { useId } from "react"
 import { Link, NavLink, useLocation } from "react-router-dom"
 
 import { FavoriteList, SelectedShopping } from "$components"
+import { useAuth } from "$hooks/useAuth"
 import { Logo } from "$layout"
+import { buttonVariants } from "$ui/button"
 import { UserProfileCheck } from "./UserProfileCheck"
 
 export const Nav = () => {
+  const { isLoggedIn } = useAuth()
+
   const location = useLocation()
 
   const navItems = [
@@ -39,8 +43,7 @@ export const Nav = () => {
         boxShadow: `0 4px 30px rgba(0, 0, 0, 0.1)`,
         backdropFilter: `blur(5px)`,
         border: `1px solid rgba(255, 255, 255, 0.3)`,
-      }}
-    >
+      }}>
       <Link to={"/"} className="h-10 w-10 ">
         <Logo className="h-full w-full " />
       </Link>
@@ -67,7 +70,18 @@ export const Nav = () => {
       <div className="flex  items-center gap-x-2">
         <FavoriteList />
         <SelectedShopping />
-        <UserProfileCheck />
+        {isLoggedIn ? (
+          <UserProfileCheck />
+        ) : (
+          <Link
+            to={"/login"}
+            className={buttonVariants({
+              variant: "default",
+              className: " text-gray-700",
+            })}>
+            Log In
+          </Link>
+        )}
       </div>
     </nav>
   )

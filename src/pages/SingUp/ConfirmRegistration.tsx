@@ -28,8 +28,7 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({ setIsConfirm
       <div className="flex ">
         <div
           className=" cursor-pointer rounded-full  bg-gray-300 p-2  "
-          onClick={() => setIsConfirmRegistration(false)}
-        >
+          onClick={() => setIsConfirmRegistration(false)}>
           <ArrowLeft />
         </div>
         <h2 className="flex-1 text-center text-2xl font-bold">Confirm Registration</h2>

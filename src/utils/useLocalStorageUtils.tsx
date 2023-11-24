@@ -1,16 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { StorageKey } from "./useLocalStorage"
-
-const setStorage = (key: StorageKey, value: any) => {
+const setStorage = (key: string, value: any) => {
   localStorage.setItem(key, JSON.stringify(value))
 }
 
-const getStorage = (key: StorageKey) => {
+const getStorage = (key: string) => {
   return localStorage.getItem(key)
 }
 
-const clearStorageItem = (key: StorageKey) => {
+const clearStorageItem = (key: string) => {
   localStorage.removeItem(key)
 }
 const clearStorage = () => {
