@@ -3,9 +3,8 @@ import { CategoriesResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
 import { Tag } from "lucide-react"
 
-import { CategoryItemSkeleton } from "$components/Skeleton"
+import { CategoryItemError, CategoryItemSkeleton } from "$components"
 import { CategoryItem } from "./CategoryItem"
-import { CategoryItemError } from "./CategoryItemError"
 
 // Import Swiper
 import { Fragment } from "react"
@@ -25,12 +24,6 @@ const DisplayCategory = () => {
     queryKey: ["categories", "all"],
     queryFn: async () => $GET({ url: "/category" }) as Promise<CategoriesResponse>,
   })
-  console.table({
-    isError,
-    isLoading,
-  })
-
-  console.log(CategoriesData)
 
   const LoadingComponent = (
     <Fragment>

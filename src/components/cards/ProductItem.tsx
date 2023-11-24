@@ -5,24 +5,35 @@ import { Image } from "$ui"
 import { Button } from "$ui/button"
 import { Link } from "react-router-dom"
 
+import notFound from "$assets/illustration/others/notFound.png"
+import { baseUrl } from "$lib/exportEnv"
+
 interface productsPros {
   img: string
   title: string
   review: string
   category: string
-  price: string
-  discountPrice?: string
+  price: number
+  discountPrice?: number
 }
 
 export const ProductItem: FC<productsPros> = ({ title, category, review, img, price, discountPrice, ...rest }) => {
+  let imgUrl
+  if (!img) {
+    imgUrl = notFound
+  } else {
+    imgUrl = `${baseUrl}/extra/product-img/${img}`
+  }
   return (
     <div {...rest} className="group rounded-lg border   border-gray-500/30 shadow-lg">
       <Link to="/shop/1">
         <div className="w-full   bg-white   ">
           <Image
-            src={img}
+            src={imgUrl}
+            height={300}
             alt="product image"
-            className="aspect-video w-full rounded-lg  rounded-t-md object-cover  object-center  md:aspect-square"
+            className="aspect-video w-full rounded-b-sm rounded-t-lg
+            object-cover  object-center  md:aspect-square"
           />
         </div>
       </Link>
@@ -37,7 +48,9 @@ export const ProductItem: FC<productsPros> = ({ title, category, review, img, pr
           </span>
         </span>
         <span className="flex  items-end  gap-x-1 ">
-          <p className="text-xs  font-normal text-blue-600 line-through xl:text-base 2xl:text-lg">${discountPrice}</p>
+          {discountPrice !== 0 && (
+            <p className="text-xs  font-normal text-blue-600 line-through xl:text-base 2xl:text-lg">{discountPrice}</p>
+          )}
           <p className="text-lg font-semibold text-gray-800 xl:text-xl 2xl:text-2xl">$ {price}</p>
         </span>
 

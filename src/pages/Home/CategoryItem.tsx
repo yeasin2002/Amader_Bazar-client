@@ -15,7 +15,7 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
   } else {
     imgUrl = `${baseUrl}/extra/category-img/${icon}`
   }
-  console.log(imgUrl)
+
   return (
     <div className=" into-center group aspect-square cursor-pointer flex-col " {...rest}>
       <span className="into-center h-28 w-28 rounded-full bg-gray-300/50 ">
