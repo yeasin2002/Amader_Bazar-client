@@ -1,8 +1,6 @@
 import Newsletter from "$components/cards/Newsletter"
 import { Footer } from "$layout/Footer"
 
-import { Toaster } from "sonner"
-
 import DisplayCategory from "./DisplayCategory"
 import Hero from "./Hero"
 
@@ -23,7 +21,6 @@ export const Home = () => {
       <Newsletter />
 
       <Footer />
-      <Toaster richColors />
     </div>
   )
 }

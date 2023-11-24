@@ -1,10 +1,11 @@
 import { $GET } from "$hooks"
-import { CategoiesResponse } from "$types"
+import { CategoriesResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
 import { Tag } from "lucide-react"
+
+import { CategoryItemSkeleton } from "$components/Skeleton"
 import { CategoryItem } from "./CategoryItem"
 import { CategoryItemError } from "./CategoryItemError"
-import { CategoryItemSkeleton } from "./CategoryItemSkeleton"
 
 // Import Swiper
 import { Fragment } from "react"
@@ -22,7 +23,7 @@ const DisplayCategory = () => {
     isLoading,
   } = useQuery({
     queryKey: ["categories", "all"],
-    queryFn: async () => $GET({ url: "/category" }) as Promise<CategoiesResponse>,
+    queryFn: async () => $GET({ url: "/category" }) as Promise<CategoriesResponse>,
   })
   console.table({
     isError,

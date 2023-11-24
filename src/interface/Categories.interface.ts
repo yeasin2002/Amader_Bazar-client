@@ -1,4 +1,4 @@
-export interface CategoiesResponse {
+export interface CategoriesResponse {
   data: categoryData[] | null
   message: string
   success: boolean

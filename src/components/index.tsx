@@ -1,5 +1,6 @@
 export * from "./Drawers/FavoriteList"
 export * from "./Drawers/SelectedShopping"
+export * from "./Skeleton"
 export * from "./cards/ProductItem"
 export * from "./forms/InputCombo"
 export * from "./icon"
