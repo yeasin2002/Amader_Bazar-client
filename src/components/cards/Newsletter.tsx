@@ -1,18 +1,33 @@
 import { MailOpen } from "lucide-react"
-import { FormEventHandler } from "react"
-import { useForm } from "react-hook-form"
+import { SubmitHandler, useForm } from "react-hook-form"
 
 import bg from "$assets/cover/main.jpg"
+import { $POST } from "$hooks/useFetchers"
 import { Button } from "$ui"
-import { InputCombo } from "../index"
+import { useMutation } from "@tanstack/react-query"
+import { Fragment } from "react"
+import { toast } from "sonner"
+import { InputCombo, LoadingSpinner } from "../index"
 interface newsletterElements {
   email: string
 }
 
 const Newsletter = () => {
-  const { register, formState } = useForm<newsletterElements>()
-  const sendMailIntoUs: FormEventHandler = (e) => {
-    e.preventDefault()
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ["newsletter"],
+    mutationFn: (email: string) =>
+      $POST({
+        url: "/extra/newsletter",
+        body: { email },
+      }),
+  })
+  const { register, formState, handleSubmit } = useForm<newsletterElements>()
+  const onSubmit: SubmitHandler<newsletterElements> = async (data) => {
+    const response = await mutateAsync(data.email)
+    if (response.success) {
+      return toast.success("Thank you for subscribing to our newsletter")
+    }
+    return toast.error("Something went wrong, please try again")
   }
   return (
     <div
@@ -34,7 +49,7 @@ const Newsletter = () => {
       <p className="mt-14    font-serif text-lg font-light text-white md:mb-3 md:text-xl   xl:mb-2 2xl:text-2xl">
         Get weekly update
       </p>
-      <form className="flex  w-full gap-x-2  " onSubmit={sendMailIntoUs}>
+      <form className="flex  w-full gap-x-2  " onSubmit={handleSubmit(onSubmit)}>
         <InputCombo
           className="w-full flex-1    md:w-96"
           register={register("email", {
@@ -48,7 +63,14 @@ const Newsletter = () => {
           isLabelHidden={true}
         />
         <Button type="submit" variant={"secondary"} className=" py-7 text-base font-medium md:px-8 xl:px-10">
-          Send
+          {isPending ? (
+            <Fragment>
+              <LoadingSpinner />
+              Sending...
+            </Fragment>
+          ) : (
+            "Send"
+          )}
         </Button>
       </form>
     </div>
