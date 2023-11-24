@@ -7,7 +7,7 @@ import { BrowserRouter } from "react-router-dom"
 import { Toaster } from "sonner"
 import App from "./App.tsx"
 import { AuthProvider } from "./context"
-import "./index.css"
+import "./style/index.css"
 const queryClient = new QueryClient()
 
 // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

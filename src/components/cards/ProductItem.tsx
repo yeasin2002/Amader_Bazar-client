@@ -7,6 +7,9 @@ import { Link } from "react-router-dom"
 
 import notFound from "$assets/illustration/others/notFound.png"
 import { baseUrl } from "$lib/exportEnv"
+import { useFavoriteProductStore } from "$store/favoriteProduct.store"
+import { Product } from "$types"
+import { toast } from "sonner"
 
 interface productsPros {
   img: string
@@ -15,9 +18,20 @@ interface productsPros {
   category: string
   price: number
   discountPrice?: number
+  theProduct?: Product
 }
 
-export const ProductItem: FC<productsPros> = ({ title, category, review, img, price, discountPrice, ...rest }) => {
+export const ProductItem: FC<productsPros> = ({
+  title,
+  category,
+  review,
+  img,
+  price,
+  discountPrice,
+  theProduct,
+  ...rest
+}) => {
+  const { addFavoriteProduct } = useFavoriteProductStore()
   let imgUrl
   if (!img) {
     imgUrl = notFound
@@ -55,7 +69,14 @@ export const ProductItem: FC<productsPros> = ({ title, category, review, img, pr
         </span>
 
         <div className="mt-4 flex items-center gap-x-1">
-          <Button size={"sm"} className="btn-primary   w-full  flex-1">
+          <Button
+            size={"sm"}
+            className="btn-primary   w-full  flex-1"
+            onClick={() => {
+              if (!theProduct) return
+              addFavoriteProduct(theProduct)
+              toast.success("Product added to favorite")
+            }}>
             Add to cart
           </Button>
           <Button size={"sm"} variant={"brandOutline"} className="btn-primary">

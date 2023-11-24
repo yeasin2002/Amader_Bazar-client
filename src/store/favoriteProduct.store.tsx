@@ -20,9 +20,7 @@ export const useFavoriteProductStore = create(
               },
               removeFavoriteProduct: (product: Product) => {
                 set((state) => {
-                  state.favoriteProduct.filter((val) => {
-                    return val._id !== product._id
-                  })
+                  state.favoriteProduct = state.favoriteProduct.filter((item) => item._id !== product._id)
                 })
               },
             }
