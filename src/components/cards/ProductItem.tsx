@@ -12,6 +12,7 @@ import { Product } from "$types"
 import { toast } from "sonner"
 
 interface productsPros {
+  _id: string
   img: string
   title: string
   review: string
@@ -29,6 +30,7 @@ export const ProductItem: FC<productsPros> = ({
   price,
   discountPrice,
   theProduct,
+  _id,
   ...rest
 }) => {
   const { addFavoriteProduct } = useFavoriteProductStore()
@@ -40,7 +42,7 @@ export const ProductItem: FC<productsPros> = ({
   }
   return (
     <div {...rest} className="group rounded-lg border   border-gray-500/30 shadow-lg">
-      <Link to="/shop/1">
+      <Link to={`/shop/${_id}`}>
         <div className="w-full   bg-white   ">
           <Image
             src={imgUrl}

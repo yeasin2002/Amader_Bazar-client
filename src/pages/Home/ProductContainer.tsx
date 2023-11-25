@@ -15,6 +15,7 @@ export const ProductContainer: FC<ProductContainerProps> = ({ heading, data, isL
       {data?.map((item) => {
         return (
           <ProductItem
+            _id={item._id}
             key={item._id}
             title={item.name}
             category={item.category}

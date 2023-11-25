@@ -4,6 +4,12 @@ export interface AllProductResponse {
   statusCode: number
   success: boolean
 }
+export interface SingleProductResponse {
+  data: Product | null
+  message: string
+  statusCode: number
+  success: boolean
+}
 
 export interface Product {
   __v: number
