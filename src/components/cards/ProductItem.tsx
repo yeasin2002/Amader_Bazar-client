@@ -34,7 +34,7 @@ export const ProductItem: FC<productsPros> = ({
   ...rest
 }) => {
   const { toggleFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
-  const { addSelectedProduct, selectedProduct } = useSelectedProduct()
+  const { toggleSelectedProduct, selectedProduct } = useSelectedProduct()
 
   let imgUrl
   if (!img) {
@@ -43,7 +43,25 @@ export const ProductItem: FC<productsPros> = ({
     imgUrl = `${baseUrl}/extra/product-img/${img}`
   }
   const checkLovedProduct = favoriteProduct.filter((item) => item._id === _id)[0]
-  console.log(selectedProduct)
+  const checkSelectedProduct = selectedProduct.filter((item) => item._id === _id)[0]
+
+  const FavoriteAddingHandler = () => {
+    if (!theProduct) return
+    toggleFavoriteProduct(theProduct)
+    if (checkLovedProduct) {
+      toast.warning("Product removed from favorite")
+    } else {
+      toast.success("Product added to favorite")
+    }
+  }
+
+  const SelectedProductHandler = () => {
+    if (!theProduct) return
+    toggleSelectedProduct({
+      ...theProduct,
+      SelectedQuantity: 1,
+    })
+  }
 
   return (
     <div {...rest} className="group rounded-lg border   border-gray-500/30 shadow-lg">
@@ -76,28 +94,10 @@ export const ProductItem: FC<productsPros> = ({
         </span>
 
         <div className="mt-4 flex items-center gap-x-1">
-          <Button
-            size={"sm"}
-            className="btn-primary   w-full  flex-1"
-            onClick={() => {
-              addSelectedProduct({ _id, title, price, img })
-              // emptySelectedProduct()
-            }}>
-            Add to cart
+          <Button size={"sm"} className="btn-primary   w-full  flex-1" onClick={SelectedProductHandler}>
+            {checkSelectedProduct ? "Remove from cart" : "Add to cart"}
           </Button>
-          <Button
-            size={"sm"}
-            variant={"brandOutline"}
-            className="btn-primary"
-            onClick={() => {
-              if (!theProduct) return
-              toggleFavoriteProduct(theProduct)
-              if (checkLovedProduct) {
-                toast.warning("Product removed from favorite")
-              } else {
-                toast.success("Product added to favorite")
-              }
-            }}>
+          <Button size={"sm"} variant={"brandOutline"} className="btn-primary" onClick={FavoriteAddingHandler}>
             <Heart
               className="text-lg text-gray-800"
               fill={`${checkLovedProduct?._id === _id ? "rgb(190 18 60)" : "rgb(255 255 255)"}`}

@@ -37,7 +37,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
       const response = await mutateAsync(data)
 
       if (response.success) {
-        auth.login(response.data)
+        auth.login(response.data, "/")
         return toast.success("Login Success")
       }
       if (response.statusCode === 404) {
