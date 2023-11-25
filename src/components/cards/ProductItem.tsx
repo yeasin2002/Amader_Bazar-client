@@ -7,7 +7,7 @@ import { Link } from "react-router-dom"
 
 import notFound from "$assets/illustration/others/notFound.png"
 import { baseUrl } from "$lib/exportEnv"
-import { useFavoriteProductStore } from "$store/favoriteProduct.store"
+import { useFavoriteProductStore, useSelectedProduct } from "$store"
 import { Product } from "$types"
 import { toast } from "sonner"
 
@@ -33,13 +33,18 @@ export const ProductItem: FC<productsPros> = ({
   _id,
   ...rest
 }) => {
-  const { addFavoriteProduct } = useFavoriteProductStore()
+  const { toggleFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
+  const { addSelectedProduct, selectedProduct } = useSelectedProduct()
+
   let imgUrl
   if (!img) {
     imgUrl = notFound
   } else {
     imgUrl = `${baseUrl}/extra/product-img/${img}`
   }
+  const checkLovedProduct = favoriteProduct.filter((item) => item._id === _id)[0]
+  console.log(selectedProduct)
+
   return (
     <div {...rest} className="group rounded-lg border   border-gray-500/30 shadow-lg">
       <Link to={`/shop/${_id}`}>
@@ -75,14 +80,29 @@ export const ProductItem: FC<productsPros> = ({
             size={"sm"}
             className="btn-primary   w-full  flex-1"
             onClick={() => {
-              if (!theProduct) return
-              addFavoriteProduct(theProduct)
-              toast.success("Product added to favorite")
+              addSelectedProduct({ _id, title, price, img })
+              // emptySelectedProduct()
             }}>
             Add to cart
           </Button>
-          <Button size={"sm"} variant={"brandOutline"} className="btn-primary">
-            <Heart className="text-lg " fill="rgb(248 146 30)" color="" />
+          <Button
+            size={"sm"}
+            variant={"brandOutline"}
+            className="btn-primary"
+            onClick={() => {
+              if (!theProduct) return
+              toggleFavoriteProduct(theProduct)
+              if (checkLovedProduct) {
+                toast.warning("Product removed from favorite")
+              } else {
+                toast.success("Product added to favorite")
+              }
+            }}>
+            <Heart
+              className="text-lg text-gray-800"
+              fill={`${checkLovedProduct?._id === _id ? "rgb(190 18 60)" : "rgb(255 255 255)"}`}
+              color={`${checkLovedProduct?._id === _id ? "rgb(190 18 60)" : "rgb(31 41 55)"}`}
+            />
           </Button>
         </div>
       </div>

@@ -16,7 +16,7 @@ export interface ProductInfoProps {
 }
 
 export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: ProductInfoProps) => {
-  const { addFavoriteProduct } = useFavoriteProductStore()
+  const { addFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
   let imgUrl
   if (!data?.img) {
     imgUrl = notFound
@@ -27,6 +27,7 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
     if (!data) return
     addFavoriteProduct(data)
   }
+  const checkFavoriteProduct = favoriteProduct.filter((item) => item._id === data?._id)[0]
 
   const MainComponent = (
     <Fragment>
@@ -83,7 +84,10 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
                 <Button
                   className="ml-4 inline-flex h-10 w-10 items-center justify-center rounded-full border-0 bg-gray-200 p-0 text-gray-500"
                   onClick={favoriteProductHandler}>
-                  <Heart />
+                  <Heart
+                    className={`${checkFavoriteProduct ? "text-red-500" : "text-gray-500"}`}
+                    fill={`${checkFavoriteProduct ? "rgb(239 68 68)" : "rgb(107 114 128)"}`}
+                  />
                 </Button>
               </div>
             </div>

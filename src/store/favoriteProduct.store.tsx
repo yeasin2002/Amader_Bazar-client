@@ -23,6 +23,16 @@ export const useFavoriteProductStore = create(
                   state.favoriteProduct = state.favoriteProduct.filter((item) => item._id !== product._id)
                 })
               },
+              toggleFavoriteProduct: (product: Product) => {
+                set((state) => {
+                  const isFavorite = state.favoriteProduct.filter((item) => item._id === product._id)[0]
+                  if (isFavorite) {
+                    state.favoriteProduct = state.favoriteProduct.filter((item) => item._id !== product._id)
+                  } else {
+                    state.favoriteProduct.push(product)
+                  }
+                })
+              },
             }
           }
         }

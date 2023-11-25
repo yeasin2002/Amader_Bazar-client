@@ -11,11 +11,6 @@ import Hero from "./Hero"
 import { ProductContainer } from "./ProductContainer"
 
 export const Home = () => {
-  // const allProduct = useQuery({
-  //   queryKey: ["products"],
-  //   queryFn: () => $GET({ url: "/product/all/" }) as Promise<AllProductResponse>,
-  // })
-
   const allQueries = useQueries({
     queries: [
       {
@@ -31,7 +26,6 @@ export const Home = () => {
     ],
   })
 
-  console.log("allQueries", allQueries)
   return (
     <div className="h-full max-h-full w-full bg-chai ">
       <Nav />
