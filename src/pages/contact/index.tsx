@@ -6,10 +6,13 @@ import location from "$assets/illustration/3D/location-pin.png"
 import message from "$assets/illustration/3D/message.png"
 import { InputCombo } from "$components"
 
+import { $POST } from "$hooks/useFetchers"
+import { Button } from "$ui/button"
 import { Textarea } from "$ui/textarea"
+import { useMutation } from "@tanstack/react-query"
 
 interface Inputs {
-  title: string
+  name: string
   email: string
   subject: string
   message: string
@@ -23,8 +26,19 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
     formState: { errors },
   } = useForm<Inputs>()
 
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ["contact"],
+    mutationFn: (data: Inputs) =>
+      $POST({
+        url: "/extra/contact",
+        body: data,
+      }),
+  })
+
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     console.log(data)
+
+    mutateAsync(data)
     return data
   }
 
@@ -37,13 +51,13 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
       <div className=" flex w-full flex-col gap-x-2 p-4 md:flex-row  ">
         <form onSubmit={handleSubmit(onSubmit)} className="h-full flex-1   space-y-3  p-4">
           <InputCombo
-            register={register("title", {
+            register={register("name", {
               required: { value: true, message: "name  is required" },
               minLength: { value: 3, message: "name must be at least 3 characters" },
             })}
-            label="Title"
-            placeholder="Title"
-            error={errors.title?.message}
+            label="name"
+            placeholder="name"
+            error={errors.name?.message}
           />
 
           <InputCombo
@@ -67,14 +81,20 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
             error={errors.subject?.message}
           />
           <Textarea
+            {...register("message", {
+              required: { value: true, message: "message is   required" },
+              minLength: { value: 5, message: "message must be at least 5 characters" },
+            })}
             name="message"
             id="message"
             placeholder="Write your message"
             className="mt-10 h-32 w-full rounded-md border border-slate-600/40 "
           />
+
+          <Button type="submit">{isPending ? " Sending..." : "Send"}</Button>
         </form>
 
-        <div className="order-first ml-3 w-2/6 space-y-8 md:order-last">
+        <div className=" ml-3 w-2/6 space-y-8 ">
           <ContactInfo imgUrl={message} infoOne="mdkawsarislam2002@gmail.com" infoTwo="01632227965" />
           <ContactInfo imgUrl={location} infoOne="Dhaka Cantonment" infoTwo="Dhaka-1206" />
         </div>

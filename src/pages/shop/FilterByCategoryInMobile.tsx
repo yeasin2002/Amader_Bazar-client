@@ -1,6 +1,7 @@
-import { category } from "$data"
-import { buttonVariants } from "$ui/button"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { categoryData } from "$types"
+import { Button, buttonVariants } from "$ui/button"
+import { Skeleton } from "$ui/skeleton"
+import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
 // Import Swiper
 import "swiper/css"
 import "swiper/css/free-mode"
@@ -9,10 +10,49 @@ import { FreeMode, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 interface FilterByCategoryInMobileProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  categories?: number[]
+  categories?: categoryData[] | null | undefined
+  isLoading?: boolean
+  isError?: boolean
 }
 
-export const FilterByCategoryInMobile: FC<FilterByCategoryInMobileProps> = ({ ...rest }) => {
+const LoadingComponent = (
+  <div className="flex gap-x-4">
+    <Skeleton className="h-10 w-full bg-gray-300" />
+    <Skeleton className="h-10 w-full bg-gray-300" />
+    <Skeleton className="h-10 w-full bg-gray-300" />
+    <Skeleton className="h-10 w-full bg-gray-300" />
+  </div>
+)
+const ErrorComponent = <div></div>
+
+export const FilterByCategoryInMobile: FC<FilterByCategoryInMobileProps> = ({
+  categories,
+  isLoading,
+  isError,
+  ...rest
+}) => {
+  const mainComponent = (
+    <Fragment>
+      {categories?.map((item) => {
+        // eslint-disable-next-line react-hooks/rules-of-hooks
+        const [isSelected, setIsSelected] = useState(false)
+        return (
+          <SwiperSlide key={item.name}>
+            <Button
+              key={item.name}
+              onClick={() => setIsSelected(!isSelected)}
+              className={buttonVariants({
+                variant: `${!isSelected ? "default" : "dark"}`,
+                className: "flex   h-full w-full cursor-grab items-center justify-center py-3",
+              })}>
+              {item.name}
+            </Button>
+          </SwiperSlide>
+        )
+      })}
+    </Fragment>
+  )
+
   return (
     <div {...rest} className="my-10 md:hidden">
       <Swiper
@@ -29,17 +69,7 @@ export const FilterByCategoryInMobile: FC<FilterByCategoryInMobileProps> = ({ ..
         }}
         modules={[FreeMode, Pagination]}
         className="mySwiper !cursor-grab">
-        {category.map((item) => {
-          return (
-            <SwiperSlide
-              key={item.name}
-              className={buttonVariants({
-                variant: "default",
-              })}>
-              {item.name}
-            </SwiperSlide>
-          )
-        })}
+        {isError ? ErrorComponent : isLoading ? LoadingComponent : mainComponent}
       </Swiper>
     </div>
   )

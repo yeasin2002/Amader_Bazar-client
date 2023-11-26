@@ -14,7 +14,7 @@ export const Profile: FC<indexProps> = ({ ...rest }) => {
       <Button
         className="mt-10"
         onClick={() => {
-          logOut()
+          logOut("/")
         }}>
         Log out
       </Button>

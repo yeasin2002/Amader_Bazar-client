@@ -1,38 +1,48 @@
-import shoe from "$assets/temp/products/headphones-100.png"
-import { ProductItem } from "$components/index"
+import { $GET } from "$hooks/useFetchers"
+import { AllProductResponse, CategoriesResponse } from "$types"
+import { useQueries } from "@tanstack/react-query"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { FilterByCategoryInMobile } from "./FilterByCategoryInMobile"
 import { FilterCard } from "./FilterCard"
+import { RenderAllSearchedProduct } from "./RenderAllSearchedProduct"
 
 type ShopProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const Shop: FC<ShopProps> = ({ ...rest }) => {
-  const allCategory = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+  const query = useQueries({
+    queries: [
+      {
+        queryKey: ["allProduct"],
+        queryFn: () => $GET({ url: "/product/all" }) as Promise<AllProductResponse>,
+      },
+      {
+        queryKey: ["categories"],
+        queryFn: () => $GET({ url: "/category/" }) as Promise<CategoriesResponse>,
+      },
+    ],
+  })
+
+  console.log(query[1].isLoading)
 
   return (
     <div {...rest} className="container ">
       <div>
         <h1 className="my-4 text-xl font-bold">Search All Product </h1>
       </div>
-      <FilterByCategoryInMobile categories={allCategory} />
+      <FilterByCategoryInMobile
+        categories={query[1].data?.data}
+        isLoading={query[1].isLoading}
+        isError={query[1].isError}
+      />
       <div className="flex gap-x-3">
-        <FilterCard className="hidden w-1/4 md:block" />
+        <FilterCard
+          className="hidden w-1/4 md:block"
+          categories={query[1].data?.data}
+          isLoading={query[1].isLoading}
+          isError={query[1].isError}
+        />
 
-        <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-2   lg:grid-cols-3 ">
-          {allCategory.map((val) => {
-            return (
-              <ProductItem
-                key={val}
-                title="shoe"
-                category="shoe"
-                img={shoe}
-                price="100"
-                discountPrice="90"
-                review="4"
-              />
-            )
-          })}
-        </div>
+        <RenderAllSearchedProduct />
       </div>
     </div>
   )

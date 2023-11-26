@@ -1,5 +1,5 @@
 import pd from "$assets/temp/products/menu-product-img-1.jpg"
-import { useFavoriteProductStore } from "$store/favoriteProduct.store"
+// import { useFavoriteProductStore } from "$store/favoriteProduct.store"
 import { Button } from "$ui"
 import { Star } from "lucide-react"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
@@ -8,12 +8,12 @@ import { toast } from "sonner"
 type FeatureProductProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
-  const { addFavoriteProduct } = useFavoriteProductStore()
+  // const { addFavoriteProduct } = useFavoriteProductStore()
   const clickHandler = () => {
-    addFavoriteProduct({
-      name: "Backpack",
-      _id: "",
-    })
+    // addFavoriteProduct({
+    //   name: "Backpack",
+    //   _id: "",
+    // })
     toast.success("Added to cart", {
       position: "top-left",
     })
