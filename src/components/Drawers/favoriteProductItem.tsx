@@ -1,6 +1,5 @@
-import notFound from "$assets/illustration/3D/warning.png"
-import { baseUrl } from "$lib/exportEnv"
 import { Image } from "$ui/Image"
+import { getImgSrc } from "$utils/getImageSrc"
 import { Fragment } from "react"
 
 export interface Product {
@@ -14,12 +13,8 @@ export interface Product {
 }
 
 export const FavoriteProductItem = ({ name, img, price }: Product) => {
-  let imgUrl
-  if (!img) {
-    imgUrl = notFound
-  } else {
-    imgUrl = `${baseUrl}/extra/product-img/${img}`
-  }
+  const imgUrl = getImgSrc({ img, imgType: "product-img" })
+
   return (
     <Fragment>
       <a

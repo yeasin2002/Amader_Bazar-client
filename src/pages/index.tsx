@@ -10,4 +10,3 @@ export * from "./profile"
 export * from "./protected"
 export * from "./shop"
 export * from "./singleProductInfo"
-

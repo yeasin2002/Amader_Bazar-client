@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { AuthContext } from "$src/context/auth.context"
 import { useContext } from "react"
 

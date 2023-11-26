@@ -9,7 +9,6 @@ import { UserProfileCheck } from "./UserProfileCheck"
 
 export const Nav = () => {
   const { isLoggedIn } = useAuth()
-
   const location = useLocation()
 
   const navItems = [

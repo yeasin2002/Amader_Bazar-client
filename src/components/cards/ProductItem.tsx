@@ -1,15 +1,13 @@
 import { Heart, Star } from "lucide-react"
 import { FC } from "react"
-
-import { Image } from "$ui"
-import { Button } from "$ui/button"
 import { Link } from "react-router-dom"
+import { toast } from "sonner"
 
 import notFound from "$assets/illustration/others/notFound.png"
-import { baseUrl } from "$lib/exportEnv"
 import { useFavoriteProductStore, useSelectedProduct } from "$store"
 import { Product } from "$types"
-import { toast } from "sonner"
+import { Button, Image } from "$ui"
+import { getImgSrc } from "$utils/getImageSrc"
 
 interface productsPros {
   _id: string
@@ -35,13 +33,12 @@ export const ProductItem: FC<productsPros> = ({
 }) => {
   const { toggleFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
   const { toggleSelectedProduct, selectedProduct } = useSelectedProduct()
+  const imgUrl = getImgSrc({
+    img,
+    imgType: "product-img",
+    notFoundImg: notFound,
+  })
 
-  let imgUrl
-  if (!img) {
-    imgUrl = notFound
-  } else {
-    imgUrl = `${baseUrl}/extra/product-img/${img}`
-  }
   const checkLovedProduct = favoriteProduct.filter((item) => item._id === _id)[0]
   const checkSelectedProduct = selectedProduct.filter((item) => item._id === _id)[0]
 
