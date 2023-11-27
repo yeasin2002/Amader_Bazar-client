@@ -6,7 +6,7 @@ export const ProductTable = ({ ...rest }) => {
     <Fragment>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg" {...rest}>
         <div className="flex items-center justify-between px-4">
-          <p className=" text-gray-700">History </p>
+          <p className=" text-xl font-semibold text-gray-700">History </p>
           <SearchInput className="mb-6 w-80" />
         </div>
         <table className="w-full text-left text-sm text-gray-500 rtl:text-right ">
