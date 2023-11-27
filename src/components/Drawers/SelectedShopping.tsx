@@ -6,6 +6,7 @@ import { Image } from "$ui"
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "$ui/sheet"
 import { getImgSrc } from "$utils/getImageSrc"
 import { ShoppingCart } from "lucide-react"
+import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 
 type SelectedShoppingProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
@@ -13,7 +14,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
   const { selectedProduct } = useSelectedProduct()
 
   const mainComponents = (
-    <div className="overflow-y-scroll">
+    <div className="h-full space-y-3 overflow-y-scroll">
       {selectedProduct.map((item) => {
         const imgUrl = getImgSrc({
           img: item.img,
@@ -21,16 +22,14 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
         })
 
         return (
-          <div key={item._id} className="my-7 grid  grid-cols-2">
-            <Image
-              className="h-20  w-full rounded-t-lg object-cover   md:rounded-none md:rounded-s-lg"
-              src={imgUrl}
-              alt={item.name}
+          <div key={item._id}>
+            <FavoriteAndSelectedItem
+              _id={item._id}
+              name={item.name}
+              imgUrl={imgUrl}
+              category={item.category}
+              price={item.price}
             />
-            <div className="flex flex-1 flex-col justify-between p-2 leading-normal">
-              <h5 className="mb-2 text-xl font-bold tracking-tight text-gray-900 ">{item.name}</h5>
-              <p className="mb-3  text-lg font-semibold text-gray-700"> &#2547;{item.price}</p>
-            </div>
           </div>
         )
       })}
