@@ -28,14 +28,15 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
 
-        {/* <Route path="/" element={<Protected />}> */}
-
-        <Route path="/profile" element={<Profile />}>
-          <Route path="order" element={<Order />} />
-          <Route path="setting" element={<Setting />} />
-          <Route path="wishlist" element={<Wishlist />} />
+        <Route path="/" element={<Protected />}>
+          <Route path="/profile" element={<Profile />}>
+            <Route index element={<Default />} />
+            <Route path="orders" element={<Order />} />
+            <Route path="settings" element={<Setting />} />
+            <Route path="wishlist" element={<Wishlist />} />
+          </Route>
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
-        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Fragment>

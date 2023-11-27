@@ -1,7 +1,17 @@
+import { ProductTable } from "../ProductTable"
+import { UserProfileInfo } from "../useProfileInfo"
+
+import { Fragment } from "react"
+
 export const Default = () => {
   return (
-    <div>
-      <h1>Setting</h1>
-    </div>
+    <Fragment>
+      <div className="w-full px-2">
+        <UserProfileInfo />
+        <div>
+          <ProductTable />
+        </div>
+      </div>
+    </Fragment>
   )
 }
