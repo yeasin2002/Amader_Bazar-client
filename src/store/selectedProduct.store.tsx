@@ -24,9 +24,9 @@ export const useSelectedProduct = create(
                   toast.success("Product added to cart")
                 })
               },
-              removeProduct: (product: SelectedProducts) => {
+              removeProduct: (id: string) => {
                 set((state) => {
-                  state.selectedProduct = state.selectedProduct.filter((item) => item._id !== product._id)
+                  state.selectedProduct = state.selectedProduct.filter((item) => item._id !== id)
                   toast.warning("Product removed from cart")
                 })
               },
@@ -41,6 +41,34 @@ export const useSelectedProduct = create(
                   } else {
                     store.selectedProduct.push(product)
                     toast.warning("Product removed from cart")
+                  }
+                })
+              },
+              //
+              increaseQuantity: (id: string) => {
+                set((store) => {
+                  const check = store.selectedProduct.filter((item) => item._id === id)[0]
+                  if (check) {
+                    if (!check.SelectedQuantity) return
+                    check.SelectedQuantity = check?.SelectedQuantity + 1
+                  }
+                })
+              },
+              decreaseQuantity: (id: string) => {
+                set((store) => {
+                  const check = store.selectedProduct.filter((item) => item._id === id)[0]
+                  if (check) {
+                    if (!check.SelectedQuantity) return
+                    check.SelectedQuantity = check?.SelectedQuantity - 1
+                  }
+                })
+              },
+
+              updateQuantity: (id: string, quantity: number) => {
+                set((store) => {
+                  const check = store.selectedProduct.filter((item) => item._id === id)[0]
+                  if (check) {
+                    check.SelectedQuantity = quantity
                   }
                 })
               },

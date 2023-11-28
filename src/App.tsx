@@ -11,7 +11,7 @@ import {
   SingUp,
   SingleProductInfo,
 } from "$pages"
-import { Default, Order, Setting, Wishlist } from "$pages/profile/Pages"
+import { Default, SelectedProduct, Setting, Wishlist } from "$pages/profile/Pages"
 
 import { Fragment } from "react"
 import { Route, Routes } from "react-router-dom"
@@ -31,9 +31,9 @@ const App = () => {
         <Route path="/" element={<Protected />}>
           <Route path="/profile" element={<Profile />}>
             <Route index element={<Default />} />
-            <Route path="orders" element={<Order />} />
-            <Route path="settings" element={<Setting />} />
+            <Route path="orders" element={<SelectedProduct />} />
             <Route path="wishlist" element={<Wishlist />} />
+            <Route path="settings" element={<Setting />} />
           </Route>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>

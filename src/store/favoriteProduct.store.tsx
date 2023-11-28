@@ -33,6 +33,34 @@ export const useFavoriteProductStore = create(
                   }
                 })
               },
+
+              //
+              increaseQuantity: (product: Product) => {
+                set((state) => {
+                  const findProduct = state.favoriteProduct.filter((item) => item._id === product._id)[0]
+                  if (findProduct) {
+                    findProduct.quantity += 1
+                  }
+                })
+              },
+              decreaseQuantity: (product: Product) => {
+                set((state) => {
+                  const findProduct = state.favoriteProduct.filter((item) => item._id === product._id)[0]
+                  if (findProduct) {
+                    findProduct.quantity -= 1
+                  }
+                })
+              },
+
+              updateQuantity: (_id: string, quantity: number) => {
+                set((state) => {
+                  if (quantity < 0) return
+                  const findProduct = state.favoriteProduct.filter((item) => item._id === _id)[0]
+                  if (findProduct) {
+                    findProduct.quantity = quantity
+                  }
+                })
+              },
             }
           }
         }

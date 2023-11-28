@@ -32,6 +32,23 @@
   .btn-primary {
     @apply xl:py-6  2xl:py-8;
   }
+
+  /*  Profile */
+  .profile-product-table-td {
+    @apply px-6 py-4;
+  }
+  .profile-product-table-tr {
+    @apply my-4 border-b bg-white hover:bg-gray-50;
+  }
+  .profile-product-action-btn {
+    @apply me-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white p-1 text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200
+  }
+  .profile-product-quantity-input {
+    @apply block w-14 rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-1 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500
+  }
+  .profile-product-dlt-btn {
+    @apply inline-block cursor-pointer rounded-full bg-gray-100 p-2 hover:bg-gray-200
+  }
 }
 
 @layer base {

@@ -45,7 +45,9 @@ export const ProfileSidebar = ({ menuItem, ...rest }: ProfileSidebarProps) => {
           )
         })}
       </div>
-      <div className="cursor-pointer rounded-full bg-gray-300 p-3" onClick={() => setIsOpen(!isOpen)}>
+      <div
+        className={twMerge("cursor-pointer rounded-full bg-gray-300 p-3", isOpen && "rotate-180")}
+        onClick={() => setIsOpen(!isOpen)}>
         <ChevronRightSquare />
       </div>
     </aside>
