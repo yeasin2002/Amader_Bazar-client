@@ -8,7 +8,7 @@ export const RelatedProduct = () => {
       <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4   ">
         {/* {[1, 2, 3, 4, 5, 6, 7, 8].map((val) => {
           return (
-            <ProductItem key={val} title="shoe" category="shoe" img={shoe} price={100} discountPrice={90} review="4" />
+            <ProductItem key={val} title="shoe" category="sho e" img={shoe} price={100} discountPrice={90} review="4" />
           )
         })} */}
       </div>
