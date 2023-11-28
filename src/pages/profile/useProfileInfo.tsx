@@ -1,8 +1,10 @@
 import avatarImg from "$assets/illustration/others/user.jpg"
+import { useAuth } from "$hooks/index"
 import { Image } from "$ui/Image"
-import { ChangePassword } from "./ChangePassword"
+import { Button } from "$ui/button"
 
 export const UserProfileInfo = () => {
+  const { logOut } = useAuth()
   return (
     <div>
       <div className="my-6 flex items-center justify-between">
@@ -13,7 +15,12 @@ export const UserProfileInfo = () => {
             <p>Dhaka, Bangladesh</p>
           </div>
         </div>
-        <ChangePassword />
+        <Button
+          onClick={() => {
+            logOut("/")
+          }}>
+          Log Out
+        </Button>
       </div>
     </div>
   )

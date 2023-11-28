@@ -18,9 +18,9 @@ export const useFavoriteProductStore = create(
                   state.favoriteProduct.push(product)
                 })
               },
-              removeFavoriteProduct: (product: Product) => {
+              removeFavoriteProduct: (id: string) => {
                 set((state) => {
-                  state.favoriteProduct = state.favoriteProduct.filter((item) => item._id !== product._id)
+                  state.favoriteProduct = state.favoriteProduct.filter((item) => item._id !== id)
                 })
               },
               toggleFavoriteProduct: (product: Product) => {

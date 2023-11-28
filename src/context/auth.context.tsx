@@ -5,6 +5,7 @@ export const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const { value, setLocalStorage, removeLocalStorage, setCustomValue } = useLocalStorage("usersToken")
+  const { value: userInfo, setLocalStorage: serUserinfo } = useLocalStorage("userInfo")
   const { value: isLoggedIn, setLocalStorage: setIsLoggedIn } = useLocalStorage("isLoggedIn")
   const navigate = useNavigate()
 
@@ -28,6 +29,8 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     setCustomValue,
     isLoggedIn,
     setIsLoggedIn,
+    userInfo,
+    serUserinfo,
   }
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>
 }

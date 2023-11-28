@@ -1,11 +1,11 @@
 import { useFavoriteProductStore } from "$store"
 import { Image } from "$ui/Image"
 import { getImgSrc } from "$utils/getImageSrc"
-import { ExternalLink } from "lucide-react"
+import { ExternalLink, Trash2 } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export const Wishlist = () => {
-  const { favoriteProduct } = useFavoriteProductStore()
+  const { favoriteProduct, removeFavoriteProduct } = useFavoriteProductStore()
   return (
     <section className="w-full space-y-10 p-4 py-5">
       <h1 className="text-2xl font-semibold text-gray-500 ">Wishlist</h1>
@@ -49,10 +49,15 @@ export const Wishlist = () => {
                     </th>
                     <td className="px-6 py-4">{item.category}</td>
                     <td className="px-6 py-4">{item.price} </td>
-                    <td className="px-6 py-4 text-right">
-                      <Link to={`/shop/${item._id}`} className="cursor-pointer">
-                        <ExternalLink />
-                      </Link>
+                    <td className=" px-6  py-4 text-right ">
+                      <div className="flex items-center gap-x-2">
+                        <span className="cursor-pointer " onClick={() => removeFavoriteProduct(item._id)}>
+                          <Trash2 color="red" />
+                        </span>
+                        <Link to={`/shop/${item._id}`} className="cursor-pointer">
+                          <ExternalLink />
+                        </Link>
+                      </div>
                     </td>
                   </tr>
                 )
