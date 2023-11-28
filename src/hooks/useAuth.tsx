@@ -3,11 +3,13 @@ import { useContext } from "react"
 
 interface AuthContextValue {
   token: string
-  login: (token: string, redirectTo?: string) => void
-  logOut: (redirectTo?: string) => void
-  setCustomValue: React.Dispatch<boolean>
+  login: (token: string, redirectTo: string) => void
+  logOut: (redirectTo: string) => void
+  setCustomValue: React.Dispatch<string>
   isLoggedIn: boolean
   setIsLoggedIn: (value: boolean) => void
+  userInfo: object
+  serUserinfo: (value: object) => void
 }
 
 export const useAuth = () => useContext(AuthContext) as AuthContextValue

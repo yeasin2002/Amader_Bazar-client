@@ -7,6 +7,7 @@ import { Logo } from "$layout"
 
 import { useAuth } from "$hooks/useAuth"
 import { $POST } from "$hooks/useFetchers"
+import { InputForPassword } from "$ui/InputForPassword"
 import { Button } from "$ui/button"
 import { useMutation } from "@tanstack/react-query"
 import Lottie from "lottie-react"
@@ -86,7 +87,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
               </a>
             </div>
 
-            <InputCombo
+            <InputForPassword
               register={register("password", {
                 required: { value: true, message: "password is required " },
               })}

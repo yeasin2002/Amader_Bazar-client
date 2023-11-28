@@ -1,4 +1,5 @@
 export * from "./Image"
+export * from "./InputForPassword"
 export * from "./alert-dialog"
 export * from "./avatar"
 export * from "./button"
@@ -18,3 +19,4 @@ export * from "./textarea"
 export * from "./toast"
 export * from "./toaster"
 export * from "./use-toast"
+
