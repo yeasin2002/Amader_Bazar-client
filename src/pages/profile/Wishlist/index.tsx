@@ -1,19 +1,27 @@
+import { useFavoriteProductStore } from "$store"
+import { Image } from "$ui/Image"
+import { getImgSrc } from "$utils/getImageSrc"
+import { ExternalLink } from "lucide-react"
+import { Link } from "react-router-dom"
+
 export const Wishlist = () => {
+  const { favoriteProduct } = useFavoriteProductStore()
   return (
-    <section className="w-full p-4">
-      <h1>Wishlist</h1>
+    <section className="w-full space-y-10 p-4 py-5">
+      <h1 className="text-2xl font-semibold text-gray-500 ">Wishlist</h1>
 
       <div>
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-          <table className="w-full text-left text-sm text-gray-500 rtl:text-right dark:text-gray-400">
-            <thead className="bg-gray-50 text-xs uppercase text-gray-700 dark:bg-gray-700 dark:text-gray-400">
+          <table className="w-full text-left text-sm text-gray-500 rtl:text-right  ">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
               <tr>
+                <th scope="col" className="px-6 py-3">
+                  img
+                </th>
                 <th scope="col" className="px-6 py-3">
                   Product name
                 </th>
-                <th scope="col" className="px-6 py-3">
-                  Color
-                </th>
+
                 <th scope="col" className="px-6 py-3">
                   Category
                 </th>
@@ -26,45 +34,29 @@ export const Wishlist = () => {
               </tr>
             </thead>
             <tbody>
-              <tr className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
-                <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-                  Apple MacBook Pro 17"
-                </th>
-                <td className="px-6 py-4">Silver</td>
-                <td className="px-6 py-4">Laptop</td>
-                <td className="px-6 py-4">$2999</td>
-                <td className="px-6 py-4 text-right">
-                  <a href="#" className="font-medium text-blue-600 hover:underline dark:text-blue-500">
-                    Edit
-                  </a>
-                </td>
-              </tr>
-              <tr className="border-b bg-white hover:bg-gray-50 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-600">
-                <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-                  Microsoft Surface Pro
-                </th>
-                <td className="px-6 py-4">White</td>
-                <td className="px-6 py-4">Laptop PC</td>
-                <td className="px-6 py-4">$1999</td>
-                <td className="px-6 py-4 text-right">
-                  <a href="#" className="font-medium text-blue-600 hover:underline dark:text-blue-500">
-                    Edit
-                  </a>
-                </td>
-              </tr>
-              <tr className="bg-white hover:bg-gray-50 dark:bg-gray-800 dark:hover:bg-gray-600">
-                <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-white">
-                  Magic Mouse 2
-                </th>
-                <td className="px-6 py-4">Black</td>
-                <td className="px-6 py-4">Accessories</td>
-                <td className="px-6 py-4">$99</td>
-                <td className="px-6 py-4 text-right">
-                  <a href="#" className="font-medium text-blue-600 hover:underline dark:text-blue-500">
-                    Edit
-                  </a>
-                </td>
-              </tr>
+              {favoriteProduct.map((item) => {
+                const imgSrc = getImgSrc({
+                  img: item.img,
+                  imgType: "product-img",
+                })
+                return (
+                  <tr className="border-b bg-white hover:bg-gray-50 ">
+                    <td className="px-6 py-4">
+                      <Image src={imgSrc} alt={item.name} width={100} height={100} />
+                    </td>
+                    <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
+                      {item.name}
+                    </th>
+                    <td className="px-6 py-4">{item.category}</td>
+                    <td className="px-6 py-4">{item.price} </td>
+                    <td className="px-6 py-4 text-right">
+                      <Link to={`/shop/${item._id}`} className="cursor-pointer">
+                        <ExternalLink />
+                      </Link>
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>

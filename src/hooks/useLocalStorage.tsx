@@ -3,7 +3,7 @@ import { useEffect, useState } from "react"
 const { setStorage, getStorage, clearStorageItem, clearStorage } = useLocalStorageUtils
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export type StorageKey = "token" | "usersToken" | "isLoggedIn"
+export type StorageKey = "token" | "usersToken" | "isLoggedIn" | "sidebar-item"
 
 export const useLocalStorage = (key: StorageKey) => {
   const [value, setValue] = useState(() => {

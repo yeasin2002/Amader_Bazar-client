@@ -11,7 +11,7 @@ export const SelectedProduct = () => {
     <section className="w-full">
       <h1 className="my-4 mb-4 text-2xl font-semibold text-gray-900">Selected Product</h1>
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-        <table className="w-full text-left text-sm text-gray-500 rtl:text-right ">
+        <table className="w-full  text-left text-sm text-gray-500 rtl:text-right ">
           <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
             <tr>
               <th scope="col" className="px-16 py-3">
@@ -41,7 +41,7 @@ export const SelectedProduct = () => {
                 <Fragment key={item._id}>
                   <tr className="profile-product-table-tr ">
                     <td className="p-4">
-                      <Image src={imgSrc} className="h-full w-full" height={100} width={100} alt="Apple Watch" />
+                      <Image src={imgSrc} height={100} width={100} alt="Apple Watch" />
                     </td>
                     <td className="profile-product-table-td font-semibold text-gray-900 ">{item.name}</td>
                     <td className="profile-product-table-td">

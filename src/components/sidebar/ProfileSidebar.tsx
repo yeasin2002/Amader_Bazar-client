@@ -1,4 +1,5 @@
 import homeImg from "$assets/illustration/3D/home.png"
+import { useLocalStorage } from "$hooks/useLocalStorage"
 
 import { ChevronRightSquare } from "lucide-react"
 import { HTMLAttributes, useState } from "react"
@@ -15,7 +16,7 @@ interface ProfileSidebarProps extends React.DetailedHTMLProps<HTMLAttributes<HTM
 
 export const ProfileSidebar = ({ menuItem, ...rest }: ProfileSidebarProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const [activeMenu, setActiveMenu] = useState(menuItem[0].title)
+  const { value: activeMenu, setLocalStorage: setActiveMenu } = useLocalStorage("sidebar-item")
 
   return (
     <aside
