@@ -10,6 +10,8 @@ export const useFilterProduct = create(
           searchValue: "" as string,
           selectedCategory: [] as string[],
           priceRange: 0 as number,
+          minPrice: 0 as number,
+          maxPrice: 10000 as number,
         },
         (set) => ({
           setSelectedCategory: (ct: string) => {
@@ -37,6 +39,16 @@ export const useFilterProduct = create(
               state.searchValue = ""
               state.priceRange = 0
               state.selectedCategory = []
+            })
+          },
+          setMinPrice: (price: number) => {
+            set((state) => {
+              state.minPrice = price
+            })
+          },
+          setMaxPrice: (price: number) => {
+            set((state) => {
+              state.maxPrice = price
             })
           },
         })

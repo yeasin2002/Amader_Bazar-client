@@ -1,7 +1,7 @@
 import { cn } from "$lib/utils"
 import { useFilterProduct } from "$store"
 import { categoryData } from "$types"
-import { Button, Slider, buttonVariants } from "$ui"
+import { Button, buttonVariants } from "$ui"
 
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 import { SelectCategoriesItem } from "./SelectCategorieItem"
@@ -47,18 +47,27 @@ export const FilterCard: FC<FilterCardProps> = ({ className, categories, isLoadi
         <h3 className="product-filter-heading">
           Price Range - <span>{filterStore.priceRange}</span>
         </h3>
-        <div className="flex justify-between">
-          <p className="text-base font-semibold">1K</p>
-          <p className="text-base font-semibold">10K</p>
-        </div>
-        <Slider
-          min={0}
-          max={10000}
-          value={[filterStore.priceRange]}
-          onValueChange={(value) => {
-            filterStore.setPriceRange(value[0])
+
+        <input
+          id="large-range"
+          type="range"
+          value={filterStore.minPrice}
+          onChange={(e) => {
+            filterStore.setMinPrice(parseInt(e.target.value))
+            // filterStore.setPriceRange(parseInt(e.target.value))
           }}
-          className="cursor-pointer"
+          className="range-slider"
+        />
+
+        <input
+          key={"maxPrice"}
+          value={filterStore.maxPrice}
+          onChange={(e) => {
+            filterStore.setMaxPrice(e.target.valueAsNumber)
+          }}
+          id="large-range"
+          type="range"
+          className="range-slider"
         />
       </div>
       <div className="flex w-full justify-end">

@@ -17,8 +17,8 @@ export const Nav = () => {
       url: "/",
     },
     {
-      title: "Shop",
-      url: "/shop",
+      title: "Search",
+      url: "/search",
     },
     {
       title: "login",

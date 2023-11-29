@@ -7,7 +7,7 @@ import {
   NotFound,
   Profile,
   Protected,
-  Shop,
+  Search,
   SingUp,
   SingleProductInfo,
 } from "$pages"
@@ -23,7 +23,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/singup" element={<SingUp />} />
-        <Route path="/shop" element={<Shop />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/shop/:id" element={<SingleProductInfo />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
