@@ -1,8 +1,10 @@
+import { useAuth } from "$hooks/index"
 import { Popover, PopoverContent, PopoverTrigger } from "$ui"
 import { LayoutDashboard, LogOutIcon, User2, User2Icon } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export const UserProfileCheck = () => {
+  const { userInfo } = useAuth()
   return (
     <Popover>
       <PopoverTrigger>
@@ -13,10 +15,12 @@ export const UserProfileCheck = () => {
           <User2Icon />
           Profile
         </Link>
-        <Link to={"/dashboard"} className="flex">
-          <LayoutDashboard />
-          Dashboard
-        </Link>
+        {userInfo.isAdmin && (
+          <Link to={"/dashboard"} className="flex">
+            <LayoutDashboard />
+            Dashboard
+          </Link>
+        )}
         <div className="flex">
           <LogOutIcon />
           Log Out

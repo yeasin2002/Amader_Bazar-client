@@ -1,4 +1,5 @@
 import { AuthContext } from "$src/context/auth.context"
+import { User } from "$types"
 import { useContext } from "react"
 
 interface AuthContextValue {
@@ -8,7 +9,7 @@ interface AuthContextValue {
   setCustomValue: React.Dispatch<string>
   isLoggedIn: boolean
   setIsLoggedIn: (value: boolean) => void
-  userInfo: object
+  userInfo: User
   serUserinfo: (value: object) => void
 }
 

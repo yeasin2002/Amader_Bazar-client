@@ -44,9 +44,12 @@ export const FilterCard: FC<FilterCardProps> = ({ className, categories, isLoadi
       <SelectCategoriesItem categories={categories} isLoading={isLoading} isError={isError} />
 
       <div className="product-filter-container">
-        <h3 className="product-filter-heading">
-          Price Range - <span>{filterStore.priceRange}</span>
-        </h3>
+        <div className="">
+          <h3 className="product-filter-heading">Price Range</h3>
+          <p className="product-filter-heading text-end">
+            {filterStore.minPrice} - {filterStore.maxPrice}
+          </p>
+        </div>
 
         <input
           id="large-range"
@@ -54,13 +57,14 @@ export const FilterCard: FC<FilterCardProps> = ({ className, categories, isLoadi
           value={filterStore.minPrice}
           onChange={(e) => {
             filterStore.setMinPrice(parseInt(e.target.value))
-            // filterStore.setPriceRange(parseInt(e.target.value))
           }}
           className="range-slider"
         />
 
         <input
           key={"maxPrice"}
+          min={0}
+          max={100000}
           value={filterStore.maxPrice}
           onChange={(e) => {
             filterStore.setMaxPrice(e.target.valueAsNumber)
