@@ -37,7 +37,7 @@
     @apply xl:py-6  2xl:py-8;
   }
   .range-slider {
-    @apply  h-3 w-full cursor-pointer appearance-none rounded-lg bg-gray-200 dark:bg-gray-700;
+    @apply  h-3 w-full cursor-pointer appearance-none rounded-lg bg-brand-900 ;
   }
 
 }

@@ -5,4 +5,6 @@ export * from "./Skeleton"
 export * from "./cards/ProductItem"
 export * from "./forms/InputCombo"
 export * from "./icon"
+export * from "./pagination"
 export * from "./sidebar/Filter"
+

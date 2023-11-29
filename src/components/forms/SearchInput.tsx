@@ -1,14 +1,14 @@
 import { Search } from "lucide-react"
-import { DetailedHTMLProps, Fragment, HTMLAttributes } from "react"
+import { DetailedHTMLProps, Fragment } from "react"
 import { twMerge } from "tailwind-merge"
-interface SearchInputProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface SearchInputProps extends DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   inputClassName?: string
 }
 
 export const SearchInput = ({ inputClassName, ...rest }: SearchInputProps) => {
   return (
     <Fragment>
-      <div className="flex items-center" {...rest}>
+      <div className="flex items-center">
         <label htmlFor="simple-search" className="sr-only">
           Search
         </label>
@@ -17,6 +17,7 @@ export const SearchInput = ({ inputClassName, ...rest }: SearchInputProps) => {
             <Search />
           </div>
           <input
+            {...rest}
             type="text"
             id="simple-search"
             className={twMerge(
