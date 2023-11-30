@@ -14,12 +14,12 @@ export const Home = () => {
   const allQueries = useQueries({
     queries: [
       {
-        queryKey: ["allProduct", 1],
+        queryKey: ["allProduct"],
         queryFn: () => $GET({ url: "/product/all" }) as Promise<AllProductResponse>,
         staleTime: 1000,
       },
       {
-        queryKey: ["FeatureProduct", 2],
+        queryKey: ["FeatureProduct"],
         queryFn: () => $GET({ url: "/product/feature" }) as Promise<AllProductResponse>,
         staleTime: 1000,
       },
@@ -32,18 +32,21 @@ export const Home = () => {
       <Hero />
 
       <DisplayCategory />
+
       <ProductContainer
-        heading="All Product"
-        data={allQueries[0]?.data?.data}
-        isLoading={allQueries[0]?.isLoading}
-        isError={allQueries[0]?.isError}
-      />
-      <FeatureProductWrapper />
-      <ProductContainer
-        heading="Feature Product"
+        heading="Feature Products"
         data={allQueries[1]?.data?.data}
         isLoading={allQueries[1]?.isLoading}
         isError={allQueries[1]?.isError}
+      />
+
+      <FeatureProductWrapper />
+
+      <ProductContainer
+        heading="All Products"
+        data={allQueries[0]?.data?.data}
+        isLoading={allQueries[0]?.isLoading}
+        isError={allQueries[0]?.isError}
       />
       <Newsletter />
 

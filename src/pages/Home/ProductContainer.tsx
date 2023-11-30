@@ -8,6 +8,11 @@ interface ProductContainerProps extends DetailedHTMLProps<HTMLAttributes<HTMLEle
   isLoading: boolean
   isError: boolean
 }
+/*
+  
+- Most Popular/Sold Product 
+- discounted Product
+*/
 
 export const ProductContainer: FC<ProductContainerProps> = ({ heading, data, isLoading, isError, ...rest }) => {
   const MainComponents = (

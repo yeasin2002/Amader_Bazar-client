@@ -1,16 +1,5 @@
-import {
-  About,
-  Contact,
-  Dashboard,
-  Home,
-  Login,
-  NotFound,
-  Profile,
-  Protected,
-  Search,
-  SingUp,
-  SingleProductInfo,
-} from "$pages"
+import { About, Contact, Home, Login, NotFound, Profile, Protected, Search, SingUp, SingleProductInfo } from "$pages"
+import { Admin, Dashboard, ManageOrder, Products, User } from "$pages/dashboard"
 import { Default, SelectedProduct, Setting, Wishlist } from "$pages/profile/Pages"
 
 import { Fragment } from "react"
@@ -35,7 +24,12 @@ const App = () => {
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="settings" element={<Setting />} />
           </Route>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard" element={<Dashboard />}>
+            <Route index element={<Admin />} />
+            <Route path="user" element={<User />} />
+            <Route path="products" element={<Products />} />
+            <Route path="order" element={<ManageOrder />} />
+          </Route>
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>
