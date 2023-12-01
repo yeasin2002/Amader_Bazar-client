@@ -1,5 +1,5 @@
 @import './profile/selected_product.css';  
-/* @import './profile/wishlist.css';   */
+@import './lib.css';  
 
 @tailwind base;
 @tailwind components;

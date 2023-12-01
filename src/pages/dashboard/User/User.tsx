@@ -1,14 +1,14 @@
-import { Button } from "$ui/button"
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "$ui/table"
 
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { UserDetails } from "./UserDetails"
 
 interface UserProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 export const User: FC<UserProps> = ({ ...rest }) => {
   return (
-    <div {...rest} className="w-full space-y-10">
-      <h1>User Information</h1>
+    <div {...rest} className="container w-full space-y-10">
+      <h1 className="heading-2">User Information</h1>
 
       <table className="w-full">
         <Table>
@@ -29,7 +29,7 @@ export const User: FC<UserProps> = ({ ...rest }) => {
               <TableCell>Credit Card</TableCell>
               <TableCell className="text-right">$250.00</TableCell>
               <TableCell className="text-right">
-                <Button variant={"dark"}>View Details</Button>
+                <UserDetails />
               </TableCell>
             </TableRow>
           </TableBody>

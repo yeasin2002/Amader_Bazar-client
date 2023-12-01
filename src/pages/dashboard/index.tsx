@@ -1,6 +1,5 @@
-export * from "./Admin"
+export * from "./Admin/Admin"
 export * from "./Dashboard"
-export * from "./ManageOrder"
-export * from "./Products"
-export * from "./User"
-
+export * from "./Order/ManageOrder"
+export * from "./Product/Products"
+export * from "./User/User"
