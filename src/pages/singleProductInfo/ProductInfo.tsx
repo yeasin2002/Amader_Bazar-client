@@ -4,7 +4,7 @@ import { Fragment } from "react"
 import notFound from "$assets/illustration/others/notFound.png"
 import { EachProductErrorSkeleton, EachProductSkeleton } from "$components"
 import { baseUrl } from "$lib/exportEnv"
-import { useFavoriteProductStore } from "$store/favoriteProduct.store"
+import { useFavoriteProductStore, useSelectedProduct } from "$store"
 import { Product } from "$types"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "$ui"
 import { Button } from "$ui/button"
@@ -16,7 +16,8 @@ export interface ProductInfoProps {
 }
 
 export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: ProductInfoProps) => {
-  const { addFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
+  const { favoriteProduct, toggleFavoriteProduct } = useFavoriteProductStore()
+  const { toggleSelectedProduct, selectedProduct } = useSelectedProduct()
   let imgUrl
   if (!data?.img) {
     imgUrl = notFound
@@ -25,9 +26,15 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
   }
   const favoriteProductHandler = () => {
     if (!data) return
-    addFavoriteProduct(data)
+
+    toggleFavoriteProduct(data)
+  }
+  const selectedProductHandler = () => {
+    if (!data) return
+    toggleSelectedProduct(data)
   }
   const checkFavoriteProduct = favoriteProduct.filter((item) => item._id === data?._id)[0]
+  const checkIsSelected = selectedProduct.filter((item) => item._id == data?._id)[0]
 
   const MainComponent = (
     <Fragment>
@@ -56,7 +63,7 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
                 </span>
               </div>
               <p className="leading-relaxed">
-                {data?.desc || <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quod.</p>}
+                {data?.desc || <>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quod.</>}
               </p>
               <div className="mb-5 mt-6 flex items-center border-b-2 border-gray-100 pb-5">
                 <div className="flex">
@@ -80,7 +87,12 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
               </div>
               <div className="flex">
                 <span className="title-font text-2xl font-medium text-gray-900"> &#2547;{data?.price}</span>
-                <Button className="ml-auto flex rounded border-0 px-6 py-2 focus:outline-none">Add to Cart</Button>
+                <Button
+                  variant={!checkIsSelected ? "default" : "dark"}
+                  className="ml-auto flex rounded border-0 px-6 py-2 focus:outline-none"
+                  onClick={selectedProductHandler}>
+                  {checkIsSelected ? "Remove from Cart" : "Add to Cart"}
+                </Button>
                 <Button
                   className="ml-4 inline-flex h-10 w-10 items-center justify-center rounded-full border-0 bg-gray-200 p-0 text-gray-500"
                   onClick={favoriteProductHandler}>

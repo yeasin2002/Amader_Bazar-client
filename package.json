@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "vite ",
-    "dev": "vite --host",
+    "dev": "npx rimraf  dist  &&  vite --host",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
