@@ -3,7 +3,6 @@ import { Footer } from "$layout/Footer"
 import { useQueries } from "@tanstack/react-query"
 
 import { $GET } from "$hooks/useFetchers"
-import { Nav } from "$layout/Nav"
 import { AllProductResponse } from "$types"
 import DisplayCategory from "./DisplayCategory"
 import { FeatureProductWrapper } from "./FeatureProductWrapper"
@@ -28,7 +27,6 @@ export const Home = () => {
 
   return (
     <div className="h-full max-h-full w-full bg-chai ">
-      <Nav />
       <Hero />
 
       <DisplayCategory />

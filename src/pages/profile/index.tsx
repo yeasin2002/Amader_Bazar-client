@@ -29,7 +29,6 @@ const profileMenu = [
 type indexProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const Profile: FC<indexProps> = ({ ...rest }) => {
-  // const { isLoggedIn, logOut } = useAuth()
   return (
     <section {...rest} className=" flex h-full w-full ">
       <ProfileSidebar menuItem={profileMenu} />

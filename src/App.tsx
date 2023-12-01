@@ -4,10 +4,12 @@ import { Default, SelectedProduct, Setting, Wishlist } from "$pages/profile/Page
 
 import { Fragment } from "react"
 import { Route, Routes } from "react-router-dom"
+import { Nav } from "./layout"
 
 const App = () => {
   return (
     <Fragment>
+      <Nav />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
