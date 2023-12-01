@@ -54,7 +54,7 @@ export const Nav = () => {
       {!hiddenRoute.includes(location.pathname) && (
         <Fragment>
           <div
-            className=" fixed left-1 top-1 grid h-8 w-8 cursor-pointer place-items-center   rounded-sm bg-slate-300"
+            className=" fixed left-1 top-1 z-50 grid h-8 w-8 cursor-pointer place-items-center   rounded-sm bg-slate-300"
             onClick={() => setShowNav(!showNav)}>
             <ChevronDown
               className={`transform transition-all duration-300 ease-in-out ${showNav ? "rotate-180" : ""}`}

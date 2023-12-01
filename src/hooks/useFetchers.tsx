@@ -12,7 +12,7 @@ export async function $GET({ url, body, header }: Fetchers) {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("usersToken")}`,
       ...header,
     },
     body: JSON.stringify(body),
@@ -25,7 +25,7 @@ export async function $POST({ url = "", body = {}, header, contentType = "applic
     method: "POST",
     headers: {
       "Content-Type": contentType,
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("usersToken")}`,
       ...header,
     },
     body: JSON.stringify(body),
@@ -37,7 +37,7 @@ export async function $PUT({ url = "", body = {}, header }: Fetchers) {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("usersToken")}`,
       ...header,
     },
     body: JSON.stringify(body),
@@ -50,7 +50,7 @@ export async function $PATCH({ url = "", body = {}, header }: Fetchers) {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("usersToken")}`,
       ...header,
     },
     body: JSON.stringify(body),
@@ -63,7 +63,7 @@ export async function $DELETE({ url = "", header }: Fetchers) {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
+      Authorization: `Bearer ${localStorage.getItem("usersToken")}`,
       ...header,
     },
   })
