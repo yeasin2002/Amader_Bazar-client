@@ -1,37 +1,45 @@
 import emptyCard from "$assets/illustration/others/empty-cart.svg"
 
 import { ProductData, ProductErrorSkeleton, ProductItem, ProductSkeleton } from "$components/index"
-import { $GET } from "$hooks/useFetchers"
+import { $POST } from "$hooks/useFetchers"
 import { useFilterProduct } from "$store/filteredProducts.store"
-import { AllProductResponse } from "$types"
-import { useQuery } from "@tanstack/react-query"
+import { SearchProductResponse } from "$types"
+import { useMutation } from "@tanstack/react-query"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useEffect, useState } from "react"
 
+interface bodyData {
+  search: string
+  category: string[]
+  minPrice: number
+  maxPrice: number
+}
 interface RenderAllSearchedProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 export const RenderAllSearchedProduct: FC<RenderAllSearchedProductProps> = ({ ...rest }) => {
   const { selectedCategory, maxPrice, minPrice, searchValue } = useFilterProduct()
   const [page, setPage] = useState(0)
-  const categoriesQuery = selectedCategory.join("&category=")
-  // const queryBuilder = `/product/search?&minPrice=${minPrice}&maxPrice=${maxPrice}}`
+
   const queryBuilder = `/product/search?minPrice=0&maxPrice=1000&page=${page}`
   const {
     data: products,
     isError,
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["products", queryBuilder],
-    queryFn: () => $GET({ url: queryBuilder }) as Promise<AllProductResponse>,
+    isPending: isLoading,
+    mutateAsync,
+  } = useMutation({
+    mutationKey: ["products", queryBuilder],
+    mutationFn: (body: bodyData) => $POST({ url: queryBuilder, body }) as Promise<SearchProductResponse>,
   })
-  // http://localhost:1011/api/v1/product/search?page=0&limit=10&minPrice=0&maxPrice=1000&category=Education&category=Sports %26 Outdoors
-  // http://localhost:1011/api/v1/product/search?page=0&limit=10&minPrice=0&maxPrice=1000
-  // http://localhost:1011/api/v1/product/search?category=Education&category=Sports %26 Outdoors&category=Health %26 Fitn ess
 
   useEffect(() => {
-    refetch()
-  }, [selectedCategory, maxPrice, minPrice, searchValue, refetch, categoriesQuery])
+    mutateAsync({
+      search: searchValue,
+      category: selectedCategory,
+      minPrice: minPrice,
+      maxPrice: maxPrice,
+    })
+  }, [mutateAsync, searchValue, selectedCategory, minPrice, maxPrice])
 
+  console.log("🚀 ~ file: RenderAllSearchedProduct.tsx:42 ~ products?.data?.length:", products?.data)
   const loadingComponents = (
     <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-2   lg:grid-cols-3 ">
       {Array.from(Array(10).keys()).map((val) => {
@@ -49,7 +57,7 @@ export const RenderAllSearchedProduct: FC<RenderAllSearchedProductProps> = ({ ..
   )
 
   const mainComponents = (
-    <div className=" w-full py-6">
+    <div className=" w-full overflow-x-hidden py-6">
       <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-2   lg:grid-cols-3  " {...rest}>
         {products?.data?.length !== 0 &&
           products?.data?.map((val) => {
@@ -79,7 +87,6 @@ export const RenderAllSearchedProduct: FC<RenderAllSearchedProductProps> = ({ ..
           </h1>
         </div>
       )}
-      <ProductData page={page} setPage={setPage} />
     </div>
   )
 

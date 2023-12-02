@@ -3,7 +3,7 @@ import { Fragment } from "react"
 
 import notFound from "$assets/illustration/others/notFound.png"
 import { EachProductErrorSkeleton, EachProductSkeleton } from "$components"
-import { baseUrl } from "$lib/exportEnv"
+import { baseUrl } from "$lib"
 import { useFavoriteProductStore, useSelectedProduct } from "$store"
 import { Product } from "$types"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "$ui"

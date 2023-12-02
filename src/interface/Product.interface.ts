@@ -10,6 +10,12 @@ export interface SingleProductResponse {
   statusCode: number
   success: boolean
 }
+export interface SearchProductResponse {
+  data: Product[] | null
+  message: string
+  statusCode: number
+  success: boolean
+}
 
 export interface Product {
   __v: number

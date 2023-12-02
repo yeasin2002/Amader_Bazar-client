@@ -9,4 +9,3 @@ export * from "./Ratings.skeleton"
 export * from "./TextGroup.skeleton"
 export * from "./User.skeleton"
 export * from "./horizontal.skeleton"
-

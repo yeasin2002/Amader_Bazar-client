@@ -17,7 +17,7 @@ interface SelectCategoriesItemProps extends DetailedHTMLProps<HTMLAttributes<HTM
 export const SelectCategoriesItem: FC<SelectCategoriesItemProps> = ({ categories, isError, isLoading, ...rest }) => {
   const filterStore = useFilterProduct()
   const [isShowFullCategory, setIsShowFullCategory] = useState(false)
-  const sowableCategory = categories?.slice(0, isShowFullCategory ? 10 : 5)
+  const sowableCategory = categories?.slice(0, isShowFullCategory ? categories?.length : 5)
 
   const LoadingComponent = (
     <Fragment>

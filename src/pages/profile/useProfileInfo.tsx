@@ -1,10 +1,10 @@
 import { useQuery } from "@tanstack/react-query"
 
 import avatarImg from "$assets/illustration/others/user.jpg"
+import { UserSkeleton } from "$components/Skeleton"
 import { $GET, useAuth } from "$hooks"
 import { Image } from "$ui/Image"
 import { Button } from "$ui/button"
-import { Skeleton } from "$ui/skeleton"
 import { Fragment } from "react"
 
 interface UserProfileInfoResponse {
@@ -31,7 +31,7 @@ export const UserProfileInfo = () => {
 
   const loadingComponent = (
     <Fragment>
-      <Skeleton className="h-10 w-10" />
+      <UserSkeleton />
     </Fragment>
   )
   const errorComponent = (

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { cn } from "$lib/utils"
 import { Eye, EyeOff } from "lucide-react"
 import { DetailedHTMLProps, FC, useState } from "react"

@@ -12,8 +12,8 @@
     "lint:fix": "eslint ./src --ext ts,tsx --report-unused-disable-directives --max-warnings 0 --fix",
     "format:fix": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "type-check": "tsc --noEmit",
-    "prepare": "husky install",
     "fix:all": "npm run lint:fix && npm run format:fix && npm run type-check",
+    "prepare": "husky install",
     "pre-commit": "npx husky add .husky/pre-commit \"npm run fix:all\""
   },
   "dependencies": {
@@ -79,6 +79,7 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "npm run  fix:all",
       "git add"
     ]
   }

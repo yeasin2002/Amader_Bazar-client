@@ -1,11 +1,10 @@
-import empty from "$assets/illustration/3D/empty-cart.png"
+import { ShoppingCart } from "lucide-react"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
-import { useSelectedProduct } from "$store/selectedProduct.store"
-import { Image } from "$ui"
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "$ui/sheet"
+import empty from "$assets/illustration/3D/empty-cart.png"
+import { useSelectedProduct } from "$store"
+import { Button, Image, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "$ui"
 import { getImgSrc } from "$utils/getImageSrc"
-import { ShoppingCart } from "lucide-react"
 import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 
 type SelectedShoppingProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
@@ -55,6 +54,10 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
             <SheetTitle>Selected shopping Item</SheetTitle>
             {selectedProduct.length === 0 ? emptyCartComponent : mainComponents}
           </SheetHeader>
+
+          <SheetFooter>
+            <Button className="w-full -translate-y-7">Checkout</Button>
+          </SheetFooter>
         </SheetContent>
       </Sheet>
     </div>
