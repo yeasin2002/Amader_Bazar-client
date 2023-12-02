@@ -19,7 +19,7 @@ export const SingleProductInfo = ({ ...rest }) => {
     <Fragment>
       <section {...rest} className="py contain mx-auto my-32 px-5 lg:w-4/5">
         <DisplayProductInfo data={data?.data} isError={isError} isLoading={isLoading} />
-        <ProductReviews />
+        <ProductReviews id={data?.data?._id} />
         <RelatedProduct />
       </section>
     </Fragment>

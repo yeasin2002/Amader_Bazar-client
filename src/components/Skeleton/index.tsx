@@ -1,9 +1,12 @@
 export * from "./Avatar.skeleton"
 export * from "./CategoryItem.skeleton"
+export * from "./EachProduct.skeleton"
 export * from "./FeatureProduct.skeleton"
 export * from "./Image.skeleton"
 export * from "./List.skeleton"
 export * from "./Product.skeleton"
+export * from "./Ratings.skeleton"
 export * from "./TextGroup.skeleton"
+export * from "./User.skeleton"
 export * from "./horizontal.skeleton"
-export * from "./EachProduct.skeleton"
+

@@ -1,16 +1,27 @@
+import { $GET } from "$hooks/useFetchers"
+import { ReviewsResponse } from "$types"
+import { useQuery } from "@tanstack/react-query"
+import { FC, HTMLAttributes } from "react"
 import { RatingGraph } from "./RatingGraph"
 import { Reviews } from "./ReviewCard"
+interface ProductReviewsProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  id: string | undefined
+}
 
-export const ProductReviews = () => {
+export const ProductReviews: FC<ProductReviewsProps> = ({ id }) => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["ProductInfo", id],
+    queryFn: () =>
+      $GET({
+        url: `/product/rating/${id}`,
+      }) as Promise<ReviewsResponse>,
+  })
   return (
     <div className="space-y-10">
       <h4 className="mt-20 text-lg font-bold">Reviews </h4>
       <RatingGraph />
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
-        {[1, 2, 3, 4, 5, 6, 7, 8].map((rating) => {
-          return <Reviews key={rating} />
-        })}
-      </div>
+
+      <Reviews rating={data?.data?.ratings} isLoading={isLoading} isError={isError} isSuccess={data?.success} />
     </div>
   )
 }
