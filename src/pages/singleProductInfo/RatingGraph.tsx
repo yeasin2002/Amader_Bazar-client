@@ -1,98 +1,58 @@
+import { FullStar, OutlineStar } from "$components/icon"
+import { Data } from "$types"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-type RatingGraphProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+interface RatingGraphProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  Data: Data | undefined
+  isLoading: boolean
+  isError: boolean
+}
 
-export const RatingGraph: FC<RatingGraphProps> = ({ ...rest }) => {
+export const RatingGraph: FC<RatingGraphProps> = ({ Data, isError, isLoading, ...rest }) => {
   return (
     <div {...rest}>
       <div className="mb-2 flex items-center">
-        <svg
-          className="mr-1 h-4 w-4 text-brand-900"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg
-          className="mr-1 h-4 w-4 text-brand-900"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg
-          className="mr-1 h-4 w-4 text-brand-900"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg
-          className="mr-1 h-4 w-4 text-brand-900"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <svg
-          className="mr-1 h-4 w-4 text-gray-300 dark:text-gray-500"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="currentColor"
-          viewBox="0 0 22 20">
-          <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
-        </svg>
-        <p className="ml-2 text-sm font-medium text-gray-900 dark:text-white">4.95 out of 5</p>
+        {Array.from({ length: Data?.totalReviewer || 0 }).map((_, i) => {
+          return <FullStar key={i} />
+        })}
+        <OutlineStar />
+        <p className="ml-2 text-sm font-medium text-gray-900 dark:text-white">{Data?.averageRating || 0} out of 5</p>
       </div>
-      <p className="text-sm font-medium text-gray-500 dark:text-gray-400">1,745 global ratings</p>
+      <p className="text-sm font-medium text-gray-500 dark:text-gray-400">{Data?.totalReviewer} global ratings</p>
       <div className="mt-4 flex items-center">
-        <a href="#" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-          5 star
-        </a>
-        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 dark:bg-gray-700">
+        <p className="text-sm font-medium text-blue-600 hover:underline ">5 star</p>
+        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 ">
           <div className="h-5 w-4/5 rounded bg-brand-900"></div>
         </div>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">70%</span>
+        <span className="text-sm font-medium text-gray-500 ">{Data?.ratingStars?.oneStarRating}</span>
       </div>
       <div className="mt-4 flex items-center">
-        <a href="#" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-          4 star
-        </a>
-        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 dark:bg-gray-700">
+        <p className="text-sm font-medium text-blue-600 hover:underline ">4 star</p>
+        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 ">
           <div className="h-5 w-[17%] rounded bg-brand-900"></div>
         </div>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">17%</span>
+        <span className="text-sm font-medium text-gray-500 ">{Data?.ratingStars?.twoStarRating}</span>
       </div>
       <div className="mt-4 flex items-center">
-        <a href="#" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-          3 star
-        </a>
-        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 dark:bg-gray-700">
+        <p className="text-sm font-medium text-blue-600 hover:underline ">3 star</p>
+        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 ">
           <div className="h-5 w-[8%] rounded bg-brand-900"></div>
         </div>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">8%</span>
+        <span className="text-sm font-medium text-gray-500 ">{Data?.ratingStars?.threeStarRating}</span>
       </div>
       <div className="mt-4 flex items-center">
-        <a href="#" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-          2 star
-        </a>
-        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 dark:bg-gray-700">
+        <p className="text-sm font-medium text-blue-600 hover:underline ">2 star</p>
+        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 ">
           <div className="h-5 w-[4%] rounded bg-brand-900"></div>
         </div>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">4%</span>
+        <span className="text-sm font-medium text-gray-500 ">{Data?.ratingStars?.fourStarRating}</span>
       </div>
       <div className="mt-4 flex items-center">
-        <a href="#" className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">
-          1 star
-        </a>
-        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 dark:bg-gray-700">
+        <p className="text-sm font-medium text-blue-600 hover:underline ">1 star</p>
+        <div className="mx-4 h-5 w-2/4 rounded bg-gray-200 ">
           <div className="h-5 w-[1%] rounded bg-brand-900"></div>
         </div>
-        <span className="text-sm font-medium text-gray-500 dark:text-gray-400">1%</span>
+        <span className="text-sm font-medium text-gray-500 ">{Data?.ratingStars?.fiveStarRating}</span>
       </div>
     </div>
   )

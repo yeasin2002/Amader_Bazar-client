@@ -19,9 +19,9 @@ export const ProductReviews: FC<ProductReviewsProps> = ({ id }) => {
   return (
     <div className="space-y-10">
       <h4 className="mt-20 text-lg font-bold">Reviews </h4>
-      <RatingGraph />
+      <RatingGraph Data={data?.data} isLoading={isLoading} isError={isError} />
 
-      <Reviews rating={data?.data?.ratings} isLoading={isLoading} isError={isError} isSuccess={data?.success} />
+      <Reviews rating={data?.data?.ratings} isLoading={isLoading} isError={isError} />
     </div>
   )
 }

@@ -1,20 +1,19 @@
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 import { Star } from "lucide-react"
+import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
 import exclamationMark from "$assets/illustration/3D/exclamation.png"
 import defaultUser from "$assets/illustration/others/user.jpg"
-import { Rating } from "$types"
 import { RatingsSkeleton } from "$components/Skeleton"
+import { Rating } from "$types"
 import { Image } from "$ui/Image"
 
 interface ReviewsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   rating: Rating[] | null | undefined
   isLoading: boolean
   isError: boolean
-  isSuccess?: boolean
 }
 
-export const Reviews: FC<ReviewsProps> = ({ isError, isLoading, rating, isSuccess, ...rest }) => {
+export const Reviews: FC<ReviewsProps> = ({ isError, isLoading, rating, ...rest }) => {
   const loadingComponents = (
     <div>
       <RatingsSkeleton />
@@ -57,7 +56,7 @@ export const Reviews: FC<ReviewsProps> = ({ isError, isLoading, rating, isSucces
       {rating?.length === 0 && (
         <div className="flex w-full flex-col items-center justify-center ">
           <Image src={exclamationMark} alt="No Review" width={200} height={200} />
-          <p className="text-center">This product has new review</p>
+          <p className="text-center font-medium text-gray-700">This product has no review</p>
         </div>
       )}
     </Fragment>
