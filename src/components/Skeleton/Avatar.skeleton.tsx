@@ -6,7 +6,7 @@ export const AvatarSkeleton: FC<AvatarSkeletonProps> = ({ ...rest }) => {
   return (
     <div className="mt-4 flex items-center justify-center" {...rest}>
       <svg
-        className="me-4 h-8 w-8 text-gray-200 dark:text-gray-700"
+        className="me-4 h-8 w-8 animate-pulse text-gray-200 dark:text-gray-700"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"

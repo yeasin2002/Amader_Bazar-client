@@ -1,7 +1,9 @@
 import notFound from "$assets/illustration/others/notFound.png"
 import { baseUrl } from "$lib/exportEnv"
+import { useFilterProduct } from "$store"
 import { Image } from "$ui"
 import { HTMLAttributes } from "react"
+import { useNavigate } from "react-router-dom"
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
   categoryName: string
   icon: string
@@ -9,6 +11,8 @@ interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: CategoryItemProps) => {
+  const navigate = useNavigate()
+  const { setSelectedCategory, setResetFilter } = useFilterProduct()
   let imgUrl
   if (!icon) {
     imgUrl = notFound
@@ -17,7 +21,14 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
   }
 
   return (
-    <div className=" into-center group aspect-square cursor-pointer flex-col " {...rest}>
+    <div
+      className=" into-center group aspect-square cursor-pointer flex-col "
+      {...rest}
+      onClick={() => {
+        setResetFilter()
+        setSelectedCategory(categoryName)
+        navigate("/search")
+      }}>
       <span className="into-center h-28 w-28 rounded-full bg-gray-300/50 ">
         <Image
           src={imgUrl}

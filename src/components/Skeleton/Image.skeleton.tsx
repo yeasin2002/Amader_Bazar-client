@@ -1,8 +1,10 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-interface ImageSkeletonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+interface ImageSkeletonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  children?: React.ReactNode
+}
 
-export const ImageSkeleton: FC<ImageSkeletonProps> = ({ ...rest }) => {
+export const ImageSkeleton: FC<ImageSkeletonProps> = ({ children, ...rest }) => {
   return (
     <div
       {...rest}
@@ -18,6 +20,7 @@ export const ImageSkeleton: FC<ImageSkeletonProps> = ({ ...rest }) => {
         <path d="M14.066 0H7v5a2 2 0 0 1-2 2H0v11a1.97 1.97 0 0 0 1.934 2h12.132A1.97 1.97 0 0 0 16 18V2a1.97 1.97 0 0 0-1.934-2ZM9 13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2Zm4 .382a1 1 0 0 1-1.447.894L10 13v-2l1.553-1.276a1 1 0 0 1 1.447.894v2.764Z" />
       </svg>
       <span className="sr-only">Loading...</span>
+      {children}
     </div>
   )
 }

@@ -1,52 +1,65 @@
-import pd from "$assets/temp/products/menu-product-img-1.jpg"
-// import { useFavoriteProductStore } from "$store/favoriteProduct.store"
-import { Button } from "$ui"
-import { Star } from "lucide-react"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
-import { toast } from "sonner"
+import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
-type FeatureProductProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+import { FeatureProduct } from "$src/interface/FeatureProduct.interface"
+import { Image } from "$ui"
+import { getImgSrc } from "$utils/getImageSrc"
+import { FeatureProductSkeleton, FeatureProductErrorSkeleton } from "../index"
+import { BdTaka } from ".."
+import { Link } from "react-router-dom"
 
-export const FeatureProduct: FC<FeatureProductProps> = ({ ...rest }) => {
-  // const { addFavoriteProduct } = useFavoriteProductStore()
-  const clickHandler = () => {
-    // addFavoriteProduct({
-    //   name: "Backpack",
-    //   _id: "",
-    // })
-    toast.success("Added to cart", {
-      position: "top-left",
-    })
-  }
+interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  heading: string
+  product: FeatureProduct[] | undefined
+  isLoading?: boolean
+  isError?: boolean
+}
+
+export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isLoading, isError, ...rest }) => {
+  const LoadingComponent = (
+    <div className="space-y-3">
+      {Array.from(Array(3)).map((_, index) => {
+        return <FeatureProductSkeleton key={index} />
+      })}
+    </div>
+  )
+  const ErrorComponent = (
+    <div className="space-y-3">
+      {Array.from(Array(3)).map((_, index) => {
+        return <FeatureProductErrorSkeleton key={index} />
+      })}
+    </div>
+  )
+  const MainComponents = (
+    <Fragment>
+      {product?.map((val) => {
+        const imgSrc = getImgSrc({
+          img: val.img,
+          imgType: "product-img",
+        })
+        return (
+          <Link
+            to={`/shop/${val._id}`}
+            className=" flex gap-x-4  rounded-sm border border-gray-200/40 px-2 py-4"
+            key={val._id}>
+            <div className="mx-2 h-full w-2/5">
+              <Image className="aspect-square h-full  w-full " src={imgSrc} alt={val.name} width={150} height={150} />
+            </div>
+            <div className="flex w-full  flex-1 flex-col gap-y-2">
+              <p className="heading-6"> {val.name} </p>
+              <p className="text-sm font-medium">
+                <BdTaka /> {val.price}
+              </p>
+            </div>
+          </Link>
+        )
+      })}
+    </Fragment>
+  )
 
   return (
     <div {...rest}>
-      <div className="flex w-full overflow-hidden rounded-lg bg-white shadow-lg ">
-        <div
-          className="w-1/3 bg-cover"
-          style={{
-            backgroundImage: `url(${pd})`,
-          }}></div>
-
-        <div className="w-2/3 p-4 md:p-4">
-          <h1 className="text-xl font-bold text-gray-800 dark:text-white  md:text-2xl">Backpack</h1>
-
-          <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit In odit
-          </p>
-
-          <div className="item-center mt-2 flex ">
-            <Star fill="rgb(248 146 30)" color="rgb(248 146 30" />
-          </div>
-
-          <div className="item-center mt-3 flex justify-between">
-            <h1 className="text-lg font-bold text-gray-700 dark:text-gray-200 md:text-xl">$220</h1>
-            <Button onClick={clickHandler} className="xl:text-lg 2xl:px-4 2xl:py-6">
-              Add to Cart
-            </Button>
-          </div>
-        </div>
-      </div>
+      <h4 className="mb-10 text-xl font-bold ">{heading}</h4>
+      {isError ? ErrorComponent : isLoading ? LoadingComponent : MainComponents}
     </div>
   )
 }

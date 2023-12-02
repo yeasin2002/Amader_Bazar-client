@@ -1,23 +1,23 @@
 import { ProductErrorSkeleton, ProductItem, ProductSkeleton } from "$components"
-import { Product } from "$types"
+import { $GET } from "$hooks/useFetchers"
+import { AllProductResponse } from "$types"
+import { useQuery } from "@tanstack/react-query"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
 interface ProductContainerProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   heading: string
-  data: Product[] | null | undefined
-  isLoading: boolean
-  isError: boolean
 }
-/*
-  
-- Most Popular/Sold Product 
-- discounted Product
-*/
 
-export const ProductContainer: FC<ProductContainerProps> = ({ heading, data, isLoading, isError, ...rest }) => {
+export const ProductContainer: FC<ProductContainerProps> = ({ heading, ...rest }) => {
+  const { data, isLoading, isError } = useQuery({
+    queryKey: ["allProduct"],
+    queryFn: () => $GET({ url: "/product/all" }) as Promise<AllProductResponse>,
+    staleTime: 1000,
+  })
+
   const MainComponents = (
     <Fragment>
-      {data?.map((item) => {
+      {data?.data?.map((item) => {
         return (
           <ProductItem
             _id={item._id}
@@ -56,12 +56,7 @@ export const ProductContainer: FC<ProductContainerProps> = ({ heading, data, isL
       <h2 className="text-4xl font-bold   ">{heading}</h2>
 
       <div className="grid grid-cols-1 gap-5 overflow-hidden sm:grid-cols-2 lg:grid-cols-4    ">
-        {isError
-          ? ErrorComponent
-          : //
-          isLoading
-          ? LoadingComponent
-          : MainComponents}
+        {isError ? ErrorComponent : isLoading ? LoadingComponent : MainComponents}
       </div>
     </section>
   )

@@ -12,7 +12,7 @@ interface newsletterElements {
   email: string
 }
 
-const Newsletter = () => {
+export const Newsletter = () => {
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["newsletter"],
     mutationFn: (email: string) =>
@@ -76,5 +76,3 @@ const Newsletter = () => {
     </div>
   )
 }
-
-export default Newsletter
