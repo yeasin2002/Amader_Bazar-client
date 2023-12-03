@@ -4,3 +4,9 @@ export interface User {
   avatar: string
   isAdmin?: boolean
 }
+export interface createUserResponse {
+  message: string
+  statusCode: number
+  success: boolean
+  data: User
+}

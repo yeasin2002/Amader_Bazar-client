@@ -9,6 +9,7 @@ type SingUpProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLD
 
 export const SingUp: FC<SingUpProps> = ({ ...rest }) => {
   const [isConfirmRegistration, setIsConfirmRegistration] = useState(false)
+  const [pendingUserToken, setPendingUserToken] = useState("")
   return (
     <div
       {...rest}
@@ -18,9 +19,12 @@ export const SingUp: FC<SingUpProps> = ({ ...rest }) => {
       </div>
       <div className="m-auto mx-auto w-full  rounded-lg bg-white p-6 shadow-md ">
         {isConfirmRegistration ? (
-          <ConfirmRegistration setIsConfirmRegistration={setIsConfirmRegistration} />
+          <ConfirmRegistration
+            setIsConfirmRegistration={setIsConfirmRegistration}
+            pendingUserToken={pendingUserToken}
+          />
         ) : (
-          <Registration setIsConfirmRegistration={setIsConfirmRegistration} />
+          <Registration setIsConfirmRegistration={setIsConfirmRegistration} setPendingUserToken={setPendingUserToken} />
         )}
       </div>
     </div>

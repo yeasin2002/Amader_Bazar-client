@@ -1,28 +1,42 @@
 import { InputCombo } from "$components/index"
-import { $POST } from "$hooks"
+import { $POST, useAuth } from "$hooks"
+import { confirmRegistration } from "$src/interface"
 import { Button } from "$ui/button"
 import { useMutation } from "@tanstack/react-query"
 import { ArrowLeft } from "lucide-react"
 import { DetailedHTMLProps, FC, Fragment } from "react"
 import { useForm } from "react-hook-form"
+import { toast } from "sonner"
 
 interface ConfirmRegistrationProps
   extends DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {
   setIsConfirmRegistration: React.Dispatch<React.SetStateAction<boolean>>
+  pendingUserToken: string
 }
 export interface ConfirmFormValues {
-  OTP: string
+  otp: string
 }
 
-export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({ setIsConfirmRegistration, ...rest }) => {
+export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
+  setIsConfirmRegistration,
+  pendingUserToken,
+  ...rest
+}) => {
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["confirm-registration"],
-    mutationFn: (body: ConfirmFormValues) =>
-      $POST({ url: "/auth/confirm-registration", body, contentType: "multipart/form-data" }),
+    mutationFn: (body: { token: string; OTP: string }) =>
+      $POST({ url: "/auth/confirm-registration", body: body }) as Promise<confirmRegistration>,
   })
+  const { login } = useAuth()
+
   const { register, formState, handleSubmit } = useForm<ConfirmFormValues>()
   const onSubmit = async (data: ConfirmFormValues) => {
-    await mutateAsync(data)
+    const req = await mutateAsync({ token: pendingUserToken, OTP: data.otp })
+    console.log("🚀 ~ file: ConfirmRegistration.tsx:34 ~ onSubmit ~ req:", req)
+
+    if (!req?.success) return toast.error("Failed to confirm registration")
+    login(req?.data?.token, "/")
+    toast.success("Registration confirmed successfully")
   }
   return (
     <Fragment>
@@ -36,12 +50,12 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({ setIsConfirm
       </div>
       <form onSubmit={handleSubmit(onSubmit)} className="mt-10 space-y-10" {...rest}>
         <InputCombo
-          register={register("OTP", {
+          register={register("otp", {
             required: { value: true, message: "OTP is required " },
           })}
           isRequired={true}
           label="OTP"
-          error={formState?.errors?.OTP?.message}
+          error={formState?.errors?.otp?.message}
           placeholder="Enter your OTP "
         />
         <Button type="submit" className="w-full">

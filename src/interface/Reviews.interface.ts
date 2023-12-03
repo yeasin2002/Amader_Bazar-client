@@ -1,4 +1,4 @@
-import { Product } from "./Product.interface"
+import { Users } from "./userAndProduct.interface"
 
 export interface ReviewsResponse {
   data: Data
@@ -26,21 +26,5 @@ export interface Rating {
   _id: string
   desc: string
   rating: number
-  reviewers: Reviewers
-}
-
-export interface Reviewers {
-  Products: Product[]
-  __v: number
-  _id: string
-  address: string
-  avatar: string
-  createdAt: Date
-  email: string
-  isAdmin: boolean
-  isBanned: boolean
-  name: string
-  password: string
-  phone: string
-  updatedAt: Date
+  reviewers: Users
 }

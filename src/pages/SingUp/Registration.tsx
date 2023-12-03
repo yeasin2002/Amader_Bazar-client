@@ -1,27 +1,26 @@
-import { useMutation } from "@tanstack/react-query"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
 import { useForm } from "react-hook-form"
 import { Link } from "react-router-dom"
 import { toast } from "sonner"
 
 import { InputCombo } from "$components"
-import { $POST } from "$hooks"
+import { baseUrl } from "$lib/exportEnv"
 import { InputForPassword } from "$ui/InputForPassword"
 import { Button } from "$ui/button"
 import { Avatar } from "./Avatar"
 
 interface RegistrationProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   setIsConfirmRegistration: React.Dispatch<React.SetStateAction<boolean>>
+  setPendingUserToken: React.Dispatch<React.SetStateAction<string>>
 }
 
-export interface registerRequest {
-  name: FormDataEntryValue | null
-  email: FormDataEntryValue | null
-  phone: FormDataEntryValue | null
-  password: FormDataEntryValue | null
-  address: FormDataEntryValue | null
-  avatar: FormDataEntryValue | null
+interface registerResponse {
+  success: boolean
+  message: string
+  statusCode: number
+  data: string
 }
+
 export interface FormValues {
   name: string
   email: string
@@ -31,49 +30,37 @@ export interface FormValues {
   avatar: string
 }
 
-export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }) => {
-  const { mutateAsync, isPending } = useMutation({
-    mutationKey: ["register"],
-    mutationFn: (body: registerRequest) =>
-      $POST({
-        url: "/auth/register",
-        body,
-      }),
-  })
-
-  // Handle Form
+export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration, setPendingUserToken }) => {
+  const [isLoading, setIsLoading] = useState(false)
   const { register, formState, handleSubmit } = useForm<FormValues>()
 
   const onSubmit = async (data: FormValues) => {
     try {
+      setIsLoading(true)
       const formData = new FormData()
       formData.append("name", data.name)
       formData.append("email", data.email)
       formData.append("phone", data.phone)
       formData.append("password", data.password)
       formData.append("address", data.address)
-      formData.append("avatar", data.avatar)
+      formData.append("avatar", data.avatar[0])
 
-      const reqObg = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        phone: formData.get("phone"),
-        password: formData.get("password"),
-        address: formData.get("address"),
-        avatar: formData.get("avatar"),
+      const postRegister = await fetch(baseUrl + "/auth/register", {
+        method: "POST",
+        body: formData,
+      })
+      const res = (await postRegister.json()) as registerResponse
+
+      if (!res.success) {
+        return toast.error("Something went wrong")
       }
 
-      const postRegister = await mutateAsync(reqObg)
-
-      if (!postRegister.success) {
-        return toast.error(postRegister.message)
-      }
-
-      if (postRegister.statusCode === 200) {
-        toast.success(" successfully Registered ")
-        return setIsConfirmRegistration(true)
-      }
+      setIsConfirmRegistration(true)
+      setIsLoading(false)
+      toast.success(" successfully Registered ")
+      return setPendingUserToken(res.data)
     } catch (error: unknown) {
+      setIsLoading(false)
       if (error instanceof Error) console.log(error?.message)
       console.log(error)
     }
@@ -138,7 +125,7 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
 
         <div className="my-6">
           <Button variant={"dark"} className="w-full">
-            {isPending ? "Loading..." : "Sign In"}
+            {isLoading ? "Loading...." : "Sign In"}
           </Button>
         </div>
       </form>

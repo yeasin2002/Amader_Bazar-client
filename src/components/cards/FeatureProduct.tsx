@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
-import { FeatureProduct } from "$src/interface/FeatureProduct.interface"
+import { Product } from "$src/interface"
 import { Image } from "$ui"
 import { getImgSrc } from "$utils/getImageSrc"
 import { FeatureProductSkeleton, FeatureProductErrorSkeleton } from "../index"
@@ -9,7 +9,7 @@ import { Link } from "react-router-dom"
 
 interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   heading: string
-  product: FeatureProduct[] | undefined
+  product: Product[] | undefined
   isLoading?: boolean
   isError?: boolean
 }
