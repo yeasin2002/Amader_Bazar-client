@@ -35,17 +35,10 @@ export const Nav = () => {
       title: "Search",
       url: "/search",
     },
-    {
-      title: "login",
-      url: "/login",
-    },
+
     {
       title: "Contact",
       url: "/contact",
-    },
-    {
-      title: "singup",
-      url: "/singup",
     },
   ]
 

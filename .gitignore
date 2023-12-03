@@ -11,8 +11,6 @@ pnpm-lock.yaml
 
 .env
 .env/*
-.env.production
-.env.production/*
 
 
 node_modules

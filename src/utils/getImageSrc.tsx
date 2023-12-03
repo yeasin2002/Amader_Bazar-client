@@ -3,7 +3,7 @@ import notFound from "$assets/illustration/others/notFound.png"
 import { baseUrl } from "$lib/exportEnv"
 
 interface getImgProps {
-  img: string
+  img: string | undefined
   imgType: "user-img" | "product-img" | "category-img" | "pending-user-img"
   notFoundImg?: any
 }

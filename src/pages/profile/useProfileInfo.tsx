@@ -3,8 +3,8 @@ import { useQuery } from "@tanstack/react-query"
 import avatarImg from "$assets/illustration/others/user.jpg"
 import { UserSkeleton } from "$components/Skeleton"
 import { $GET, useAuth } from "$hooks"
-import { Image } from "$ui/Image"
 import { Button } from "$ui/button"
+import { getImgSrc } from "$utils/getImageSrc"
 import { Fragment } from "react"
 
 interface UserProfileInfoResponse {
@@ -12,7 +12,7 @@ interface UserProfileInfoResponse {
   message: string
   data: {
     name: string
-    avatar: string
+    avatar: string | undefined
     city: string | null
     country: string | null
   } | null
@@ -40,13 +40,25 @@ export const UserProfileInfo = () => {
     </div>
   )
 
-  console.log(data?.data)
+  const imgSrc = getImgSrc({
+    img: data?.data?.avatar,
+    imgType: "user-img",
+  })
+  console.log("🚀 ~ file: useProfileInfo.tsx:47 ~ UserProfileInfo ~ imgSrc:", imgSrc)
   const mainComponents = (
     <Fragment>
       <div className="flex items-center gap-x-3">
-        <Image src={avatarImg} alt="avatar" width={50} className="rounded-full" />
+        <img
+          src={imgSrc}
+          alt="avatar"
+          className="h-14 w-14 rounded-full"
+          crossOrigin="anonymous"
+          onError={(e) => {
+            e.currentTarget.src = avatarImg
+          }}
+        />
         <div>
-          <p className="text-2xl font-bold text-gray-800">{data?.data?.name}</p>
+          <p className="lg:heading-4 heading-6  font-bold text-gray-800">{data?.data?.name}</p>
           <p>
             {data?.data?.city} {data?.data?.country}
           </p>
