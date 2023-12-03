@@ -17,7 +17,8 @@ export interface ConfirmFormValues {
 export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({ setIsConfirmRegistration, ...rest }) => {
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["confirm-registration"],
-    mutationFn: (body: ConfirmFormValues) => $POST({ url: "/auth/confirm-registration", body }),
+    mutationFn: (body: ConfirmFormValues) =>
+      $POST({ url: "/auth/confirm-registration", body, contentType: "multipart/form-data" }),
   })
   const { register, formState, handleSubmit } = useForm<ConfirmFormValues>()
   const onSubmit = async (data: ConfirmFormValues) => {

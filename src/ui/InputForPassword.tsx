@@ -52,6 +52,7 @@ export const InputForPassword: FC<InputForPasswordProps> = ({
           )}
         />
         <button
+          type="button"
           className="absolute right-2 top-1/2 -translate-y-1/2 transform text-sm text-gray-500"
           onClick={toggleShowPassword}>
           {showPassword ? <EyeOff /> : <Eye />}

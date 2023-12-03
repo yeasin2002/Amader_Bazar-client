@@ -6,17 +6,22 @@ import { toast } from "sonner"
 
 import { InputCombo } from "$components"
 import { $POST } from "$hooks"
-import { Image } from "$ui/Image"
+import { InputForPassword } from "$ui/InputForPassword"
 import { Button } from "$ui/button"
 import { Avatar } from "./Avatar"
-
-import FacebookIcon from "$assets/illustration/3D/facebook.png"
-import googleIcon from "$assets/illustration/3D/google.png"
 
 interface RegistrationProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   setIsConfirmRegistration: React.Dispatch<React.SetStateAction<boolean>>
 }
 
+export interface registerRequest {
+  name: FormDataEntryValue | null
+  email: FormDataEntryValue | null
+  phone: FormDataEntryValue | null
+  password: FormDataEntryValue | null
+  address: FormDataEntryValue | null
+  avatar: FormDataEntryValue | null
+}
 export interface FormValues {
   name: string
   email: string
@@ -29,11 +34,10 @@ export interface FormValues {
 export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }) => {
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["register"],
-    mutationFn: (body: FormData) =>
+    mutationFn: (body: registerRequest) =>
       $POST({
         url: "/auth/register",
         body,
-        contentType: "multipart/form-data",
       }),
   })
 
@@ -43,9 +47,6 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
   const onSubmit = async (data: FormValues) => {
     try {
       const formData = new FormData()
-      // for (const key in data) {
-      //   formData.append(key, data[key as keyof FormValues])
-      // }
       formData.append("name", data.name)
       formData.append("email", data.email)
       formData.append("phone", data.phone)
@@ -53,13 +54,17 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
       formData.append("address", data.address)
       formData.append("avatar", data.avatar)
 
-      // for (const pair of formData.entries()) {
-      //   console.log(pair[0] + ", " + pair[1])
-      // }
+      const reqObg = {
+        name: formData.get("name"),
+        email: formData.get("email"),
+        phone: formData.get("phone"),
+        password: formData.get("password"),
+        address: formData.get("address"),
+        avatar: formData.get("avatar"),
+      }
 
-      const postRegister = await mutateAsync(formData)
-      console.log("Response", postRegister)
-      console.log("Result : ", postRegister)
+      const postRegister = await mutateAsync(reqObg)
+
       if (!postRegister.success) {
         return toast.error(postRegister.message)
       }
@@ -69,8 +74,8 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
         return setIsConfirmRegistration(true)
       }
     } catch (error: unknown) {
-      console.log("Error", error)
-      if (error instanceof Error) toast.error("Something went wrong")
+      if (error instanceof Error) console.log(error?.message)
+      console.log(error)
     }
   }
   return (
@@ -113,7 +118,7 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
           isRequired={true}
           type="number"
         />
-        <InputCombo
+        <InputForPassword
           register={register("password", {
             required: { value: true, message: "password is required " },
           })}
@@ -131,34 +136,34 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
           placeholder="Enter your address"
         />
 
-        <div className="mt-6">
+        <div className="my-6">
           <Button variant={"dark"} className="w-full">
             {isPending ? "Loading..." : "Sign In"}
           </Button>
         </div>
       </form>
+      {/* <div>
+        <div className="mt-4 flex items-center justify-between">
+          <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-      <div className="mt-4 flex items-center justify-between">
-        <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
+          <p className="text-center text-xs uppercase text-gray-500 hover:underline dark:text-gray-400">
+            or register with Social Media
+          </p>
 
-        <p className="text-center text-xs uppercase text-gray-500 hover:underline dark:text-gray-400">
-          or register with Social Media
-        </p>
+          <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
+        </div>
 
-        <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
-      </div>
-
-      <div className=" mt-6 flex items-center gap-x-5">
-        <Button type="button" variant={"sky"} className="w-full">
-          <Image src={googleIcon} alt="Google" className="h-full w-full " width={30} height={30} />
-          <p className="mx-2  "> Google</p>
-        </Button>
-        <Button type="button" value={"sky"} className=" flex w-full space-x-2">
-          <Image src={FacebookIcon} alt="Google" className="h-full w-full" width={30} height={30} />
-          <p> Facebook</p>
-        </Button>
-      </div>
-
+        <div className=" mt-6 flex items-center gap-x-5">
+          <Button type="button" variant={"sky"} className="w-full">
+            <Image src={googleIcon} alt="Google" className="h-full w-full " width={30} height={30} />
+            <p className="mx-2  "> Google</p>
+          </Button>
+          <Button type="button" value={"sky"} className=" flex w-full space-x-2">
+            <Image src={FacebookIcon} alt="Google" className="h-full w-full" width={30} height={30} />
+            <p> Facebook</p>
+          </Button>
+        </div>
+      </div> */}
       <p className="mt-8 text-center text-xs font-light text-gray-400 ">
         Already have an account?
         <Link to="/login" className="ml-2 font-medium text-gray-700 hover:underline">
@@ -168,6 +173,3 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration }
     </Fragment>
   )
 }
-/*
-How to transform my data that i'm getting form the react-hook-form to formData
-*/
