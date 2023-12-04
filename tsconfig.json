@@ -49,6 +49,7 @@
       "$/*": ["/*"]
     }
   },
-  "include": ["src", "ChangePassword.tsx"],
+  "include": ["src"],
+  "exclude": ["commitlint.config.cjs"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

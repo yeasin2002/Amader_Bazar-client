@@ -1,8 +1,12 @@
 {
   "name": "amader-bazar",
-  "private": true,
   "version": "0.0.1",
   "type": "module",
+  "author": {
+    "name": "md kawsar islam yeasin",
+    "url": "https://github.com/yeasin-2002",
+    "email": "mdkawsarislam2002@gmail.com"
+  },
   "scripts": {
     "start": "vite ",
     "dev": "npx rimraf  dist  &&  vite --host",
@@ -53,6 +57,8 @@
     "zustand": "^4.4.6"
   },
   "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
     "@tanstack/eslint-plugin-query": "^4.36.0",
     "@types/node": "^20.8.8",
     "@types/react": "^18.2.15",
@@ -78,9 +84,10 @@
     "vite": "^4.4.5"
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "npm run  fix:all",
-      "git add"
+    "*.{ts,tsx}": [
+      "npm run  type-check",
+      "eslint --fix",
+      "git add --all"
     ]
   }
 }

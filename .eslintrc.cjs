@@ -11,7 +11,7 @@ module.exports = {
     "plugin:@tanstack/eslint-plugin-query/recommended",
     "plugin:@typescript-eslint/strict",
   ],
-  ignorePatterns: ["dist", ".eslintrc.cjs", "node_modules"],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "node_modules", "commitlint.config.cjs"],
   parser: "@typescript-eslint/parser",
   plugins: ["react-refresh", "@tanstack/query", "perfectionist", "unicorn", "@typescript-eslint", "prettier"],
   rules: {
