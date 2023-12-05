@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="flex flex-col justify-between">
           <div className="flex flex-col place-items-center space-y-8 px-2">
             <h1 className="mb-4 text-center font-kurale text-4xl font-bold text-gray-800">Amader Bazar</h1>
-            <p>{randomDesc()}</p>
+            <p className="font-jost">{randomDesc()}</p>
           </div>
           <div className="my-3 mt-8 flex justify-between gap-x-2 ">
             <Link

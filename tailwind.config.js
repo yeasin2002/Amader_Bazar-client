@@ -25,6 +25,8 @@ module.exports = {
         ptSansNarrow: ["PT Sans Narrow", "sans-serif"],
         quando: ["Quando", "serif"],
         sairaSemiCondensed: ["Saira Semi Condensed", "sans-serif"],
+        texturina: ["Texturina", "serif"],
+        fresca: ["Fresca", "serif"],
       },
       colors: {
         brand: {

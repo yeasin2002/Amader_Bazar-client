@@ -1,4 +1,4 @@
-import { MailOpen } from "lucide-react"
+import { MailOpen, Send } from "lucide-react"
 import { SubmitHandler, useForm } from "react-hook-form"
 
 import bg from "$assets/cover/main.jpg"
@@ -43,10 +43,10 @@ export const Newsletter = () => {
         <span className="rounded-full bg-brand-900 p-2  2xl:p-4">
           <MailOpen className="2xl:h-10 2xl:w-10" />
         </span>
-        <p className="font-serif text-xl font-bold text-white 2xl:text-5xl">Newsletter</p>
+        <p className="font-kurale  text-xl font-bold text-white 2xl:text-5xl">Newsletter</p>
       </div>
 
-      <p className="mt-14    font-serif text-lg font-light text-white md:mb-3 md:text-xl   xl:mb-2 2xl:text-2xl">
+      <p className="mt-14  font-firaSans   text-lg font-light text-white md:mb-3 md:text-xl   xl:mb-2 2xl:text-2xl">
         Get weekly update
       </p>
       <form className="flex  w-full gap-x-2  " onSubmit={handleSubmit(onSubmit)}>
@@ -62,14 +62,17 @@ export const Newsletter = () => {
           error={formState.errors.email?.message}
           isLabelHidden={true}
         />
-        <Button type="submit" variant={"secondary"} className=" py-7 text-base font-medium md:px-8 xl:px-10">
+        <Button type="submit" variant={"secondary"} className=" py-7 font-dhurjati text-lg font-medium md:px-4 ">
           {isPending ? (
             <Fragment>
               <LoadingSpinner />
               Sending...
             </Fragment>
           ) : (
-            "Send"
+            <span className="flex items-center gap-x-2">
+              <Send size={20} />
+              Send
+            </span>
           )}
         </Button>
       </form>

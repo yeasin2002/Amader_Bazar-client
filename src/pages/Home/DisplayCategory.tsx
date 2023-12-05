@@ -78,7 +78,7 @@ const DisplayCategory = () => {
           <span className="grid place-items-center   rounded-full bg-brand-900 p-2  text-white">
             <Tag className="text-gray-700" />
           </span>
-          <p className="font-serif text-xl font-bold text-gray-800">Categories</p>
+          <p className="font-kurale  text-2xl font-bold text-gray-800">Categories</p>
         </div>
       </div>
       <div>

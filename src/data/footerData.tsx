@@ -23,63 +23,55 @@ export const footerItems = [
     heading: "Contact",
     items: [
       {
-        title: "First Link",
-        link: "",
+        title: "Facebook",
+        link: " https://www.facebook.com/yeasin2002.dev/",
       },
       {
-        title: "Second Link",
-        link: "",
+        title: "Linkedin",
+        link: " https://www.linkedin.com/in/yeasin2002/",
       },
       {
-        title: "Third Link",
-        link: "",
+        title: "Github",
+        link: "github.com/yeasin-2002 ",
       },
       {
-        title: "Fourth Link",
-        link: "",
+        title: "twitter",
+        link: "https://twitter.com/yeasin2002_dev",
       },
     ],
   },
   {
-    heading: "support",
+    heading: "Source Code",
     items: [
       {
-        title: "First Link",
-        link: "",
+        title: "Front end",
+        link: "https://github.com/yeasin-2002/Amazer_Bazar-client",
       },
       {
-        title: "Second Link",
-        link: "",
-      },
-      {
-        title: "Third Link",
-        link: "",
-      },
-      {
-        title: "Fourth Link",
-        link: "",
+        title: "Back end",
+        link: "https://github.com/yeasin-2002/Amader_bazar-server",
       },
     ],
   },
-  {
-    heading: "Account",
-    items: [
-      {
-        title: "First Link",
-        link: "",
-      },
-      {
-        title: "Second Link",
-        link: "",
-      },
-      {
-        title: "Third Link",
-        link: "",
-      },
-      {
-        title: "Fourth Link",
-        link: "",
-      },
-    ],
-  },
+  // {
+  //   heading: "Account",
+  //   items: [
+  //     {
+  //       title: "First Link",
+  //       link: "",
+  //     },
+  //     {
+  //       title: "Second Link",
+  //       link: "",
+  //     },
+  //     {
+  //       title: "Third Link",
+  //       link: "",
+  //     },
+  //     {
+  //       title: "Fourth Link",
+  //       link: "",
+  //     },
+  //   ],
+  // },
 ]

@@ -1,12 +1,13 @@
-import { CopyX, Heart, ShoppingCart } from "lucide-react"
+import { Heart, ShoppingCart } from "lucide-react"
 import { FC } from "react"
+import { Link } from "react-router-dom"
 import { toast } from "sonner"
 
 import notFound from "$assets/illustration/others/notFound.png"
-import { useFavoriteProductStore, useSelectedProduct } from "$store"
+import { useFavoriteProductStore } from "$store"
 import { Product } from "$types"
-import { Button, Image } from "$ui"
-import { getImgSrc } from "$utils/getImageSrc"
+import { Button, Image, buttonVariants } from "$ui"
+import { getImgSrc } from "$utils"
 import { BdTaka } from ".."
 
 interface productsPros {
@@ -20,19 +21,9 @@ interface productsPros {
   theProduct?: Product
 }
 
-export const ProductItem: FC<productsPros> = ({
-  title,
-  category,
-  review,
-  img,
-  price,
-  discountPrice = 0,
-  theProduct,
-  _id,
-  ...rest
-}) => {
+export const ProductItem: FC<productsPros> = ({ title, category, img, price, discountPrice = 0, theProduct, _id }) => {
   const { toggleFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
-  const { toggleSelectedProduct, selectedProduct } = useSelectedProduct()
+
   const imgUrl = getImgSrc({
     img,
     imgType: "product-img",
@@ -40,7 +31,6 @@ export const ProductItem: FC<productsPros> = ({
   })
 
   const checkLovedProduct = favoriteProduct.filter((item) => item._id === _id)[0]
-  const checkSelectedProduct = selectedProduct.filter((item) => item._id === _id)[0]
 
   const FavoriteAddingHandler = () => {
     if (!theProduct) return
@@ -52,20 +42,16 @@ export const ProductItem: FC<productsPros> = ({
     }
   }
 
-  const SelectedProductHandler = () => {
-    if (!theProduct) return
-    toggleSelectedProduct({
-      ...theProduct,
-      SelectedQuantity: 1,
-    })
-  }
   const costAfterDiscount = price - (price * discountPrice || 0) / 100
 
   const renderComponent = (
-    <div
-      className="grid h-[28rem] max-h-full  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md "
-      {...rest}>
-      <Image src={imgUrl} alt="product image" className="block  h-full w-full rounded-b-sm rounded-t-lg object-cover" />
+    <div className="grid h-[30rem] max-h-full  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md ">
+      <Image
+        src={imgUrl}
+        alt="product image"
+        className="   h-full w-full cursor-pointer rounded-b-sm rounded-t-lg object-cover"
+      />
+
       <div className=" flex flex-col justify-between p-4 ">
         <div>
           <span className="rounded-full border border-gray-800/40 px-2 py-1 font-playfairDisplay text-xs font-medium text-gray-800">
@@ -85,9 +71,14 @@ export const ProductItem: FC<productsPros> = ({
           </div>
         </div>
         <div className="flex justify-end gap-x-2">
-          <Button size={"sm"} onClick={SelectedProductHandler} className="btn-primary" title="Add To Card">
-            {!checkSelectedProduct ? <ShoppingCart /> : <CopyX />}
-          </Button>
+          <Link
+            className={buttonVariants({
+              className: "btn-primary flex items-center justify-center gap-x-2",
+            })}
+            to={`/shop/${_id}`}>
+            <ShoppingCart />
+            <span>Details</span>
+          </Link>
           <Button size={"sm"} variant={"brandOutline"} className="btn-primary" onClick={FavoriteAddingHandler}>
             <Heart
               className="text-lg text-gray-800"

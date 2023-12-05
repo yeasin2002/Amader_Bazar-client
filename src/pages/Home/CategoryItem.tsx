@@ -39,8 +39,8 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
           }}
         />
       </span>
-      <h2 className="mb-2    mt-4 font-serif text-xl font-bold text-slate-900">{categoryName}</h2>
-      <p className="text-base font-medium text-slate-600">{desc}</p>
+      <h2 className="mb-2    mt-4 font-ptSansNarrow text-xl font-bold text-slate-900">{categoryName}</h2>
+      <p className="font-ptSansNarrow text-base font-medium text-slate-600">{desc}</p>
     </div>
   )
 }
