@@ -11,8 +11,21 @@ module.exports = {
       },
     },
     extend: {
-      // underline-offset-3
-
+      fontFamily: {
+        kurale: ["Kurale", "serif"],
+        dhurjati: ["Dhurjati", "sans-serif"],
+        dosis: ["Dosis", "sans-serif"],
+        exo2: ["Exo 2", "sans-serif"],
+        firaSans: ["Fira Sans", "sans-serif"],
+        hedvigLettersSerif: ["Hedvig Letters Serif", "serif"],
+        jost: ["Jost", "sans-serif"],
+        oswald: ["Oswald", "sans-serif"],
+        playfairDisplay: ["Playfair Display", "serif"],
+        playpenSans: ["Playpen Sans", "cursive"],
+        ptSansNarrow: ["PT Sans Narrow", "sans-serif"],
+        quando: ["Quando", "serif"],
+        sairaSemiCondensed: ["Saira Semi Condensed", "sans-serif"],
+      },
       colors: {
         brand: {
           100: "#fee9d2",

@@ -1,0 +1,23 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    "tailwind.config.js",
+    "package.json",
+    "package.json",
+    "tsconfig.json",
+    "commitlint.config.cjs",
+    ".env",
+    ".env.example",
+    ".vscode",
+    ".eslintrc.cjs",
+    ".gitignore",
+    ".husky/",
+    ".editorconfig",
+    ".prettierrc.json"
+  ],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [],
+  "ignoreWords": [],
+  "import": []
+}
