@@ -11,8 +11,8 @@ export const ContactInfo: FC<ContactInfoProps> = ({ imgUrl = "", infoOne = "", i
   return (
     <div {...rest} className="space-y-1">
       <Image src={imgUrl} alt={infoOne} className="aspect-square h-14    w-14" />
-      <p className="text-lg font-medium text-gray-700">{infoOne}</p>
-      <p className="text-lg font-medium text-gray-700">{infoTwo}</p>
+      <p className="font-hedvigLettersSerif text-lg font-medium text-gray-700">{infoOne}</p>
+      <p className="font-playfairDisplay text-lg font-medium text-gray-700">{infoTwo}</p>
     </div>
   )
 }

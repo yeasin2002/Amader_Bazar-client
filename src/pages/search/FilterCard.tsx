@@ -45,8 +45,8 @@ export const FilterCard: FC<FilterCardProps> = ({ className, categories, isLoadi
 
       <div className="product-filter-container">
         <div className="">
-          <h3 className="product-filter-heading">Price Range</h3>
-          <p className="product-filter-heading text-end">
+          <h3 className="product-filter-heading font-kurale">Price Range</h3>
+          <p className="product-filter-heading text-end font-kurale">
             {filterStore.minPrice} - {filterStore.maxPrice}
           </p>
         </div>
@@ -77,7 +77,7 @@ export const FilterCard: FC<FilterCardProps> = ({ className, categories, isLoadi
       <div className="flex w-full justify-end">
         <Button
           variant={"dark"}
-          className=" "
+          className="font-jost  "
           onClick={() => {
             filterStore.setResetFilter()
           }}>

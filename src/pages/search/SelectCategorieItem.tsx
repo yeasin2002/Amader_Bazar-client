@@ -44,7 +44,7 @@ export const SelectCategoriesItem: FC<SelectCategoriesItemProps> = ({ categories
       <div className="  space-y-4 ">
         {sowableCategory?.map((val) => {
           return (
-            <Label key={val.name} className="flex   cursor-pointer gap-x-2 capitalize">
+            <Label key={val.name} className="flex   cursor-pointer gap-x-2 font-fresca capitalize">
               <Checkbox
                 checked={filterStore.selectedCategory.includes(val.name)}
                 onClick={() => {
@@ -61,7 +61,7 @@ export const SelectCategoriesItem: FC<SelectCategoriesItemProps> = ({ categories
             buttonVariants({
               variant: "link",
             }),
-            "mx-0 cursor-pointer"
+            "mx-0 cursor-pointer font-hedvigLettersSerif"
           )}
           onClick={() => setIsShowFullCategory((val) => !val)}>
           show {!isShowFullCategory ? "more " : "less"}

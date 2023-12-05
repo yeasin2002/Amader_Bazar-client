@@ -10,6 +10,7 @@ const buttonVariants = cva(
     defaultVariants: {
       size: "default",
       variant: "default",
+      font: "default",
     },
     variants: {
       size: {
@@ -17,6 +18,24 @@ const buttonVariants = cva(
         icon: "h-10 w-10",
         lg: "h-11 rounded-md px-8",
         sm: "h-9 rounded-md px-3",
+      },
+      font: {
+        default: "",
+        dosis: "font-dosis",
+        exo2: "font-exo2",
+        firaSans: "font-firaSans",
+        hedvigLettersSerif: "font-hedvigLettersSerif",
+        jost: "font-jost",
+        oswald: "font-oswald",
+        playfairDisplay: "font-playfairDisplay",
+        playpenSans: "font-playpenSans",
+        ptSansNarrow: "font-ptSansNarrow",
+        quando: "font-quando",
+        sairaSemiCondensed: "font-sairaSemiCondensed",
+        texturina: "font-texturina",
+        fresca: "font-fresca",
+        kural: "font-kurale",
+        dhurjati: "font-dhurjati",
       },
       variant: {
         default: "bg-brand-900 text-black  hover:bg-brand-500/80 ",
@@ -40,9 +59,9 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ asChild = false, className, size, variant, ...props }, ref) => {
+  ({ asChild = false, className, size, variant, font, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
-    return <Comp className={cn(buttonVariants({ className, size, variant }))} ref={ref} {...props} />
+    return <Comp className={cn(buttonVariants({ className, size, variant, font }))} ref={ref} {...props} />
   }
 )
 Button.displayName = "Button"

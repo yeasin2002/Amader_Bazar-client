@@ -31,7 +31,9 @@ export const InputCombo: FC<InputComboProps> = ({
   return (
     <div>
       {!isLabelHidden && (
-        <label htmlFor={label} className={twMerge("mb-2   text-sm font-medium text-gray-900", labelClassName)}>
+        <label
+          htmlFor={label}
+          className={twMerge("mb-2  font-fresca text-sm font-medium text-gray-900", labelClassName)}>
           {label} <span className="text-md font-bold text-red-800">{isRequired && "*"}</span>
         </label>
       )}
@@ -44,7 +46,7 @@ export const InputCombo: FC<InputComboProps> = ({
         id={label}
         placeholder={placeholder}
         className={twMerge(
-          "block h-full  w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 ",
+          "block h-full  w-full rounded-lg    border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 ",
           className
         )}
       />
