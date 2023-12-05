@@ -1,6 +1,5 @@
-import { Heart, Star } from "lucide-react"
+import { CopyX, Heart, ShoppingCart } from "lucide-react"
 import { FC } from "react"
-import { Link } from "react-router-dom"
 import { toast } from "sonner"
 
 import notFound from "$assets/illustration/others/notFound.png"
@@ -8,6 +7,7 @@ import { useFavoriteProductStore, useSelectedProduct } from "$store"
 import { Product } from "$types"
 import { Button, Image } from "$ui"
 import { getImgSrc } from "$utils/getImageSrc"
+import { BdTaka } from ".."
 
 interface productsPros {
   _id: string
@@ -26,7 +26,7 @@ export const ProductItem: FC<productsPros> = ({
   review,
   img,
   price,
-  discountPrice,
+  discountPrice = 0,
   theProduct,
   _id,
   ...rest
@@ -59,40 +59,34 @@ export const ProductItem: FC<productsPros> = ({
       SelectedQuantity: 1,
     })
   }
+  const costAfterDiscount = price - (price * discountPrice || 0) / 100
 
-  return (
-    <div {...rest} className="group rounded-lg border   border-gray-500/30 shadow-lg">
-      <Link to={`/shop/${_id}`}>
-        <div className="w-full   bg-white   ">
-          <Image
-            src={imgUrl}
-            height={300}
-            alt="product image"
-            className="aspect-video w-full rounded-b-sm rounded-t-lg
-            object-cover  object-center  md:aspect-square"
-          />
-        </div>
-      </Link>
-      <div className="p-4 ">
-        <p className="text-xs font-semibold text-gray-500 ">{category}</p>
-        <h3 className="text-lg font-semibold text-gray-800 xl:text-2xl 2xl:text-4xl">{title}</h3>
-        <span className="my-3 flex items-center gap-x-1">
-          <Star className="h-4 w-4 text-brand-900" fill="rgb(248 146 30)" />
-          <span className="flex items-center gap-x-1 text-gray-600 md:text-lg">
-            <p>{review}</p>
-            <p> (7 reviews)</p>
+  const renderComponent = (
+    <div
+      className="grid h-[28rem] max-h-full  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md "
+      {...rest}>
+      <Image src={imgUrl} alt="product image" className="block  h-full w-full rounded-b-sm rounded-t-lg object-cover" />
+      <div className=" flex flex-col justify-between p-4 ">
+        <div>
+          <span className="rounded-full border border-gray-800/40 px-2 py-1 font-playfairDisplay text-xs font-medium text-gray-800">
+            {category}
           </span>
-        </span>
-        <span className="flex  items-end  gap-x-1 ">
-          {discountPrice !== 0 && (
-            <p className="text-xs  font-normal text-blue-600 line-through xl:text-base 2xl:text-lg">{discountPrice}</p>
-          )}
-          <p className="text-lg font-semibold text-gray-800 xl:text-xl 2xl:text-2xl">$ {price}</p>
-        </span>
-
-        <div className="mt-4 flex items-center gap-x-1">
-          <Button size={"sm"} className="btn-primary   w-full  flex-1" onClick={SelectedProductHandler}>
-            {checkSelectedProduct ? "Remove from cart" : "Add to cart"}
+          <h2 className="heading-5 mt-2 font-dosis">{title}</h2>
+          <div className="mt-2 space-y-2 ">
+            <p className="mt-4 flex items-center gap-x-1 font-ptSansNarrow text-xl font-bold">
+              <BdTaka /> {costAfterDiscount}
+            </p>
+            {discountPrice !== 0 && (
+              <div className=" flex items-start gap-x-2 ">
+                <p className="text-base text-gray-600 line-through">{price}</p>
+                <p className="text-xs">{discountPrice}%</p>
+              </div>
+            )}
+          </div>
+        </div>
+        <div className="flex justify-end gap-x-2">
+          <Button size={"sm"} onClick={SelectedProductHandler} className="btn-primary" title="Add To Card">
+            {!checkSelectedProduct ? <ShoppingCart /> : <CopyX />}
           </Button>
           <Button size={"sm"} variant={"brandOutline"} className="btn-primary" onClick={FavoriteAddingHandler}>
             <Heart
@@ -105,4 +99,6 @@ export const ProductItem: FC<productsPros> = ({
       </div>
     </div>
   )
+
+  return <div>{renderComponent}</div>
 }
