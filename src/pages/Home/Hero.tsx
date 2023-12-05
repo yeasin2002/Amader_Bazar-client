@@ -12,14 +12,14 @@ import { randomDesc } from "./HeroDesc"
 
 const Hero = () => {
   const { isLoggedIn } = useAuth()
-  // const isLoggedIn = false
+
   return (
     <Fragment>
       <main className="eachSection my-32 grid grid-cols-1 md:grid-cols-3">
         <div className="flex flex-col justify-between">
           <div className="flex flex-col place-items-center space-y-8 px-2">
-            <h1 className="mb-4 text-center text-4xl font-bold text-gray-800">Amader Bazar</h1>
-            <p className="font-kurale">{randomDesc()}</p>
+            <h1 className="mb-4 text-center font-kurale text-4xl font-bold text-gray-800">Amader Bazar</h1>
+            <p>{randomDesc()}</p>
           </div>
           <div className="my-3 mt-8 flex justify-between gap-x-2 ">
             <Link

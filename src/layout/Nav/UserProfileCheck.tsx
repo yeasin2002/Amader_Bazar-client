@@ -4,8 +4,8 @@ import { LayoutDashboard, LogOutIcon, User2, User2Icon } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export const UserProfileCheck = () => {
-  const { logOut } = useAuth()
-  const { userInfo } = useAuth()
+  const { logOut, userInfo } = useAuth()
+
   return (
     <Popover>
       <PopoverTrigger>

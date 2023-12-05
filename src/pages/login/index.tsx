@@ -1,20 +1,19 @@
-import delivery from "$assets/illustration/lottiy/delivery-service.json"
-import Facebook from "$assets/illustration/lottiy/facebookWave.json"
-import googleLottie from "$assets/illustration/lottiy/google.json"
-
-import { InputCombo } from "$components"
-import { Logo } from "$layout"
-
-import { useAuth } from "$hooks/useAuth"
-import { $POST } from "$hooks/useFetchers"
-import { InputForPassword } from "$ui/InputForPassword"
-import { Button } from "$ui/button"
+import { AuthResponse } from "$types"
 import { useMutation } from "@tanstack/react-query"
 import Lottie from "lottie-react"
 import { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from "react-router-dom"
 import { toast } from "sonner"
+
+import { InputCombo } from "$components"
+import { $POST, useAuth } from "$hooks"
+import { Logo } from "$layout"
+import { Button, InputForPassword } from "$ui"
+
+import delivery from "$assets/illustration/lottiy/delivery-service.json"
+import Facebook from "$assets/illustration/lottiy/facebookWave.json"
+import googleLottie from "$assets/illustration/lottiy/google.json"
 
 type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {
@@ -30,7 +29,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
 
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["login"],
-    mutationFn: (body: object) => $POST({ url: "/auth/login", body }),
+    mutationFn: (body: object) => $POST({ url: "/auth/login", body }) as Promise<AuthResponse>,
   })
 
   const onSubmit = async (data: FormValues) => {
@@ -38,7 +37,9 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
       const response = await mutateAsync(data)
 
       if (response.success) {
-        auth.login(response.data, "/")
+        auth.login(response.data.token, "/")
+        auth.serUserinfo(response.data.user)
+
         return toast.success("Login Success")
       }
       if (response.statusCode === 404) {

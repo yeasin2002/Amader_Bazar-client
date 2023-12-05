@@ -4,7 +4,7 @@ import { useContext } from "react"
 
 interface AuthContextValue {
   token: string
-  login: (token: string, redirectTo: string) => void
+  login: (token: string, redirectTo: string, obg?: User) => void
   logOut: (redirectTo: string) => void
   setCustomValue: React.Dispatch<string>
   isLoggedIn: boolean

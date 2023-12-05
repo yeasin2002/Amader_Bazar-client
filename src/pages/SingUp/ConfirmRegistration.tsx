@@ -1,6 +1,6 @@
 import { InputCombo } from "$components/index"
 import { $POST, useAuth } from "$hooks"
-import { confirmRegistration } from "$src/interface"
+import { AuthResponse } from "$types"
 import { Button } from "$ui/button"
 import { useMutation } from "@tanstack/react-query"
 import { ArrowLeft } from "lucide-react"
@@ -25,7 +25,7 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["confirm-registration"],
     mutationFn: (body: { token: string; OTP: string }) =>
-      $POST({ url: "/auth/confirm-registration", body: body }) as Promise<confirmRegistration>,
+      $POST({ url: "/auth/confirm-registration", body: body }) as Promise<AuthResponse>,
   })
   const { login } = useAuth()
 
@@ -35,7 +35,7 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
     console.log("🚀 ~ file: ConfirmRegistration.tsx:34 ~ onSubmit ~ req:", req)
 
     if (!req?.success) return toast.error("Failed to confirm registration")
-    login(req?.data?.token, "/")
+    login(req?.data?.token, "/", req.data?.user)
     toast.success("Registration confirmed successfully")
   }
   return (

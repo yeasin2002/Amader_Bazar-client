@@ -1,24 +1,26 @@
 import { useLocalStorage } from "$hooks"
-import { UserToken } from "$lib/userToken"
+import { UserToken } from "$lib"
+import { User } from "$types"
 import { createContext } from "react"
 import { useNavigate } from "react-router-dom"
 export const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
+  const navigate = useNavigate()
   const { value: userInfo, setLocalStorage: serUserinfo } = useLocalStorage("userInfo")
   const { value: isLoggedIn, setLocalStorage: setIsLoggedIn } = useLocalStorage("isLoggedIn")
-  const navigate = useNavigate()
 
-  const login = (token: string, redirectTo: string) => {
-    // setLocalStorage(token)
+  const login = (token: string, redirectTo: string, obg: User) => {
     UserToken.setUsersToken(token)
     setIsLoggedIn(true)
+    serUserinfo(obg)
     navigate(redirectTo)
   }
 
   const logOut = (redirectTo: string) => {
     UserToken.removeUsersToken()
     setIsLoggedIn(false)
+    serUserinfo({})
     navigate(redirectTo)
   }
 

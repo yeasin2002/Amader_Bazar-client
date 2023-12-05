@@ -1,6 +1,5 @@
+export * from "./Auth.interface"
 export * from "./Categories.interface"
 export * from "./Product.interface"
-export * from "./Registration.interface"
 export * from "./Reviews.interface"
-export * from "./User.interface"
 export * from "./userAndProduct.interface"
