@@ -4,7 +4,7 @@ import { LayoutDashboard, LogOutIcon, User2, User2Icon } from "lucide-react"
 import { Link } from "react-router-dom"
 
 export const UserProfileCheck = () => {
-  const { logOut, userInfo } = useAuth()
+  const { setLoggedOut, userInfo } = useAuth()
 
   return (
     <Popover>
@@ -25,7 +25,7 @@ export const UserProfileCheck = () => {
         <div
           className="flex cursor-pointer items-end gap-x-2  hover:text-gray-500"
           onClick={() => {
-            logOut("/")
+            setLoggedOut()
           }}>
           <LogOutIcon />
           Log Out

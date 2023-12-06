@@ -6,6 +6,7 @@ import { useMutation } from "@tanstack/react-query"
 import { ArrowLeft } from "lucide-react"
 import { DetailedHTMLProps, FC, Fragment } from "react"
 import { useForm } from "react-hook-form"
+import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
 interface ConfirmRegistrationProps
@@ -27,15 +28,17 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
     mutationFn: (body: { token: string; OTP: string }) =>
       $POST({ url: "/auth/confirm-registration", body: body }) as Promise<AuthResponse>,
   })
-  const { login } = useAuth()
+  const { setLoggedIn, setUserInfo } = useAuth()
+  const navigate = useNavigate()
 
   const { register, formState, handleSubmit } = useForm<ConfirmFormValues>()
   const onSubmit = async (data: ConfirmFormValues) => {
     const req = await mutateAsync({ token: pendingUserToken, OTP: data.otp })
-    console.log("🚀 ~ file: ConfirmRegistration.tsx:34 ~ onSubmit ~ req:", req)
 
     if (!req?.success) return toast.error("Failed to confirm registration")
-    login(req?.data?.token, "/", req.data?.user)
+    setLoggedIn(req?.data?.token)
+    setUserInfo(req.data?.user)
+    navigate("/")
     toast.success("Registration confirmed successfully")
   }
   return (

@@ -19,7 +19,7 @@ interface UserProfileInfoResponse {
 }
 
 export const UserProfileInfo = () => {
-  const { logOut } = useAuth()
+  const { setLoggedOut } = useAuth()
 
   const { data, isError, isLoading } = useQuery({
     queryKey: ["userInfo"],
@@ -75,7 +75,7 @@ export const UserProfileInfo = () => {
         {isError ? errorComponent : isLoading ? loadingComponent : mainComponents}
         <Button
           onClick={() => {
-            logOut("/")
+            setLoggedOut()
           }}>
           Log Out
         </Button>

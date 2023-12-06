@@ -37,8 +37,9 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
       const response = await mutateAsync(data)
 
       if (response.success) {
-        auth.login(response.data.token, "/")
-        auth.serUserinfo(response.data.user)
+        auth.setLoggedIn(response.data.token)
+        auth.setUserInfo(response.data.user)
+        navigate("/")
 
         return toast.success("Login Success")
       }
