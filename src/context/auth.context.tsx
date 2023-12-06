@@ -4,10 +4,17 @@ import { User } from "$types"
 import { createContext } from "react"
 import { useNavigate } from "react-router-dom"
 export const AuthContext = createContext({})
+const defaultUser = {
+  avatar: "",
+  email: "",
+  id: "",
+  isAdmin: false,
+  name: "",
+}
 
 export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate()
-  const { value: userInfo, setLocalStorage: serUserinfo } = useLocalStorage("userInfo")
+  const { value: userInfo, setLocalStorage: serUserinfo } = useLocalStorage("userInfo", defaultUser)
   const { value: isLoggedIn, setLocalStorage: setIsLoggedIn } = useLocalStorage("isLoggedIn")
 
   const login = (token: string, redirectTo: string, obg: User) => {

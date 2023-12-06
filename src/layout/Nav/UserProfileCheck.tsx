@@ -16,7 +16,7 @@ export const UserProfileCheck = () => {
           <User2Icon />
           Profile
         </Link>
-        {userInfo.isAdmin && (
+        {userInfo?.isAdmin && (
           <Link to={"/dashboard"} className="flex">
             <LayoutDashboard />
             Dashboard

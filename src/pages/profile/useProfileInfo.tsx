@@ -58,7 +58,9 @@ export const UserProfileInfo = () => {
           }}
         />
         <div>
-          <p className="lg:heading-4 heading-6  font-bold text-gray-800">{data?.data?.name}</p>
+          <p className="lg:heading-4 heading-6 font-ptSansNarrow font-bold  capitalize text-gray-800">
+            {data?.data?.name}
+          </p>
           <p>
             {data?.data?.city} {data?.data?.country}
           </p>

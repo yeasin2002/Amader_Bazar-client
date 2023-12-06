@@ -1,31 +1,18 @@
 import { useLocalStorageUtils } from "$utils"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 const { setStorage, getStorage, clearStorageItem, clearStorage } = useLocalStorageUtils
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export type StorageKey = "token" | "usersToken" | "isLoggedIn" | "sidebar-item" | "userInfo"
 
-export const useLocalStorage = (key: StorageKey) => {
+export const useLocalStorage = (key: StorageKey, defaultValue?: any) => {
   const [value, setValue] = useState(() => {
     const item = getStorage(key)
     return item ? JSON.parse(item) : ""
   })
-  useEffect(() => {
-    const item = getStorage(key)
-    if (item) {
-      setValue(JSON.parse(item))
-    }
-  }, [key])
-
-  window.addEventListener("storage", () => {
-    const item = getStorage(key)
-    if (item) {
-      setValue(JSON.parse(item))
-    }
-  })
 
   const setLocalStorage = (value: any) => {
-    setStorage(key, value)
+    setStorage(key, value || defaultValue)
     setValue(value)
   }
   const removeLocalStorage = () => {
@@ -33,7 +20,7 @@ export const useLocalStorage = (key: StorageKey) => {
     setValue("")
   }
   const getLocalStorage = () => {
-    return getStorage(key)
+    return getStorage(key) || defaultValue
   }
   const clearAllLocalStorage = () => {
     clearStorage()
