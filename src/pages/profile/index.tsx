@@ -11,7 +11,7 @@ const profileMenu = [
   },
   {
     title: "orders",
-    url: "/profile/orders",
+    url: "/profile/checkout",
     icon: <ShoppingCart />,
   },
   {

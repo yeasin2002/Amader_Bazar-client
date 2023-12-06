@@ -12,8 +12,8 @@ import { Logo } from "$layout"
 import { Button, InputForPassword } from "$ui"
 
 import delivery from "$assets/illustration/lottiy/delivery-service.json"
-import Facebook from "$assets/illustration/lottiy/facebookWave.json"
-import googleLottie from "$assets/illustration/lottiy/google.json"
+// import Facebook from "$assets/illustration/lottiy/facebookWave.json"
+// import googleLottie from "$assets/illustration/lottiy/google.json"
 
 type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {
@@ -101,13 +101,13 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
           </div>
 
           <div className="mt-6">
-            <Button variant={"dark"} className="w-full">
+            <Button variant={"dark"} className="w-full" font={"playpenSans"}>
               {isPending ? "Loading..." : "Log In"}
             </Button>
           </div>
         </form>
 
-        <div className="mt-4 flex items-center justify-between">
+        {/* <div className="mt-4 flex items-center justify-between">
           <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
           <a href="#" className="text-center text-xs uppercase text-gray-500 hover:underline dark:text-gray-400">
@@ -138,7 +138,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
             />
             <p className="    text-gray-800"> Facebook</p>
           </Button>
-        </div>
+        </div> */}
 
         <p className="mt-8 text-center text-xs font-light text-gray-400 ">
           Don't have an account?

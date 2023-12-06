@@ -7,10 +7,15 @@ import { Button, Image, Sheet, SheetContent, SheetFooter, SheetTitle, SheetTrigg
 
 import { getImgSrc } from "$utils/getImageSrc"
 import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
+import { toast } from "sonner"
+import { useAuth } from "$hooks/useAuth"
+import { useNavigate } from "react-router-dom"
 
 type FavoriteListProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
   const { favoriteProduct } = useFavoriteProductStore()
+  const { isLoggedIn } = useAuth()
+  const navigate = useNavigate()
 
   const mainComponent = (
     <div className="h-full space-y-3 overflow-y-scroll ">
@@ -50,7 +55,14 @@ export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
           {favoriteProduct.length === 0 ? NoProductComponent : mainComponent}
 
           <SheetFooter>
-            <Button className="w-full -translate-y-14">Checkout</Button>
+            <Button
+              className="w-full -translate-y-14"
+              onClick={() => {
+                if (!isLoggedIn) return toast.warning("Please Log in first to Checkout")
+                navigate("/profile/checkout")
+              }}>
+              Checkout
+            </Button>
           </SheetFooter>
         </SheetContent>
       </Sheet>

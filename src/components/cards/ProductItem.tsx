@@ -57,7 +57,7 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
           <span className="rounded-full border border-gray-800/40 px-2 py-1 font-playfairDisplay text-xs font-medium text-gray-800">
             {category}
           </span>
-          <h2 className="heading-5 mt-2 font-dosis">{title}</h2>
+          <h2 className="heading-5 mt-2 font-dosis capitalize">{title}</h2>
           <div className="mt-2 space-y-2 ">
             <p className="mt-4 flex items-center gap-x-1 font-ptSansNarrow text-xl font-bold">
               <BdTaka /> {costAfterDiscount}

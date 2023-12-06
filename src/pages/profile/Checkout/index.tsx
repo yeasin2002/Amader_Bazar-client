@@ -6,12 +6,12 @@ import { getImgSrc } from "$utils/getImageSrc"
 import { Minus, Plus, Trash2 } from "lucide-react"
 import { Fragment } from "react"
 
-export const SelectedProduct = () => {
+export const Checkout = () => {
   const { selectedProduct, increaseQuantity, decreaseQuantity, updateQuantity, removeProduct } = useSelectedProduct()
 
   return (
     <section className="w-full">
-      <h1 className="my-4 mb-4 text-2xl font-semibold text-gray-900">Selected Product</h1>
+      <h1 className="my-4 mb-4 text-2xl font-semibold text-gray-900">Order Placement</h1>
       {selectedProduct?.length !== 0 && (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full  text-left text-sm text-gray-500 rtl:text-right ">

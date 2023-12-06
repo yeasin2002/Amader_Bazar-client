@@ -60,7 +60,7 @@ export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isL
 
   return (
     <div {...rest}>
-      <h4 className="mb-10 text-xl font-bold ">{heading}</h4>
+      <h4 className="mb-10 font-fresca text-xl  font-bold">{heading}</h4>
       {isError ? ErrorComponent : isLoading ? LoadingComponent : MainComponents}
     </div>
   )

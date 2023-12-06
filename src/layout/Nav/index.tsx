@@ -67,7 +67,7 @@ export const Nav = () => {
                       defaultValue={"/"}
                       key={item.title}
                       className={`group relative flex items-center   `}>
-                      <p className="cursor-pointer font-kurale text-lg font-semibold text-gray-700  hover:text-gray-900 xl:text-xl 2xl:text-2xl">
+                      <p className="  cursor-pointer font-kurale text-lg font-semibold text-gray-700  hover:text-gray-900 xl:text-xl 2xl:text-2xl">
                         {item.title}
                       </p>
                       <span
@@ -90,6 +90,7 @@ export const Nav = () => {
                     className={buttonVariants({
                       variant: "default",
                       className: " text-gray-700",
+                      font: "playpenSans",
                     })}>
                     Log In
                   </Link>

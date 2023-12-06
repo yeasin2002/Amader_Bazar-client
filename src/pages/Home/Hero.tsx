@@ -26,6 +26,7 @@ const Hero = () => {
               to={"/search"}
               className={buttonVariants({
                 variant: "default",
+                font: "playpenSans",
                 className: cn("mr-2  rounded-xl", { "w-full": !isLoggedIn }),
               })}>
               Start Shopping
@@ -36,6 +37,7 @@ const Hero = () => {
                 className={buttonVariants({
                   variant: "dark",
                   className: "mr-2 w-full rounded-xl",
+                  font: "playpenSans",
                 })}>
                 Sing UP
               </Link>

@@ -1,4 +1,4 @@
 export * from "./Settings"
 export * from "./Wishlist"
 export * from "./default"
-export * from "./selected"
+export * from "./Checkout"
