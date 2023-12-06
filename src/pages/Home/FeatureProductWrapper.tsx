@@ -14,7 +14,7 @@ export const FeatureProductWrapper: FC<MicroProductWrapperProps> = ({ ...rest })
   })
 
   return (
-    <div {...rest} className="grid  w-full grid-cols-1  gap-x-4 gap-y-24 px-4 md:grid-cols-2 lg:grid-cols-3 ">
+    <div {...rest} className="mt-10  grid w-full grid-cols-1 gap-x-4 gap-y-24 px-4 md:grid-cols-2 lg:grid-cols-3 ">
       <FeatureProducts
         heading="Featured Product"
         product={data?.data?.FeaturedProduct}

@@ -1,4 +1,6 @@
+import lonely from "$assets/illustration/lottiy/woman-reading-book-under-the-tree.json"
 import { SearchInput } from "$components/forms/SearchInput"
+import Lottie from "lottie-react"
 import { Link } from "react-router-dom"
 import { UserProfileInfo } from "../useProfileInfo"
 
@@ -6,11 +8,14 @@ export const Default = ({ ...rest }) => {
   const isHaveOrder = false
   const notOrder = (
     <div>
-      <p className="text-center text-gray-500">You don't have any orders yet</p>
+      <p className="text-center  font-exo2 text-gray-500">You don't have any orders yet</p>
       <div className="flex justify-center">
         <Link to="/">
-          <a className="text-blue-500 hover:underline">Go to shop</a>
+          <a className="font-hedvigLettersSerif text-blue-500 hover:underline">Go to shop</a>
         </Link>
+      </div>
+      <div className="w-full">
+        <Lottie animationData={lonely} className="h-96 w-full" loop />
       </div>
     </div>
   )

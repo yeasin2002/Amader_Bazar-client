@@ -20,6 +20,9 @@
   .heading-6 {
     @apply text-lg font-bold;
   }
+  .word-sm {
+    @apply font-ptSansNarrow text-xs font-semibold text-gray-500
+  }
 
   .word-gradient {
     @apply mb-4 bg-gradient-to-r from-sky-400 to-emerald-600  bg-clip-text text-3xl font-extrabold text-gray-900 text-transparent md:text-5xl lg:text-6xl;

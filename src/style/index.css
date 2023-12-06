@@ -36,6 +36,9 @@
   .range-slider {
     @apply h-3 w-full cursor-pointer appearance-none rounded-lg bg-brand-900;
   }
+  .profile-route-title {
+    @apply my-4 mb-4 font-ptSansNarrow text-2xl font-semibold  text-gray-900
+  }
 }
 
 @layer base {

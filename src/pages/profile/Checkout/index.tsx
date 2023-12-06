@@ -1,4 +1,4 @@
-import emptyCard from "$assets/illustration/others/empty-cart.svg"
+import emptyCard from "$assets/illustration/3D/empty-shopping-bucket.png"
 
 import { useSelectedProduct } from "$store"
 import { Image } from "$ui/Image"
@@ -11,7 +11,7 @@ export const Checkout = () => {
 
   return (
     <section className="w-full">
-      <h1 className="my-4 mb-4 text-2xl font-semibold text-gray-900">Order Placement</h1>
+      <h1 className="profile-route-title ">Order Placement</h1>
       {selectedProduct?.length !== 0 && (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full  text-left text-sm text-gray-500 rtl:text-right ">
@@ -92,9 +92,9 @@ export const Checkout = () => {
         </div>
       )}
       {selectedProduct?.length === 0 && (
-        <div className="grid  place-items-center">
-          <img src={emptyCard} alt="Empty" className="h-5/6  w-5/6 lg:h-1/2 lg:w-1/2" />
-          <h1 className="text-center text-2xl font-semibold text-gray-900">No Product Selected</h1>
+        <div className="mt-6   grid w-full place-items-center gap-y-1">
+          <img src={emptyCard} alt="Empty" className="aspect-square  h-80 " />
+          <h1 className="text-center font-jost text-2xl font-semibold text-gray-900">No Product Selected</h1>
         </div>
       )}
     </section>
