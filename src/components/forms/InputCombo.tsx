@@ -33,7 +33,7 @@ export const InputCombo: FC<InputComboProps> = ({
       {!isLabelHidden && (
         <label
           htmlFor={label}
-          className={twMerge("mb-2  font-fresca text-sm font-medium text-gray-900", labelClassName)}>
+          className={twMerge("mb-2  font-fresca text-sm font-medium capitalize  text-gray-900", labelClassName)}>
           {label} <span className="text-md font-bold text-red-800">{isRequired && "*"}</span>
         </label>
       )}

@@ -1,10 +1,10 @@
-// import { useMutation } from "@tanstack/react-query"
+import { useMutation } from "@tanstack/react-query"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 
 import { InputCombo } from "$components"
-// import { $POST } from "$hooks"
-// import { useSelectedProduct } from "$store"
+import { $POST } from "$hooks"
+import { useSelectedProduct } from "$store"
 import {
   AlertDialog,
   AlertDialogAction,
@@ -44,7 +44,20 @@ interface confirmOrderForm {
 
 export const ConfirmOrder: FC<ConfirmOrderProps> = ({ ...rest }) => {
   const { register } = useForm<confirmOrderForm>()
+  const { selectedProduct } = useSelectedProduct()
+  const { data } = useMutation({
+    mutationKey: ["order"],
+    mutationFn: (body: OrderRequestBody) =>
+      $POST({
+        url: "/order",
+        body,
+      }),
+  })
+  const totalCost = selectedProduct?.reduce((pre, cur) => {
+    const SelectedQuantity = cur.SelectedQuantity || 1
 
+    return cur.price * SelectedQuantity + pre
+  }, 0)
   return (
     <div {...rest}>
       <AlertDialog>
@@ -59,7 +72,7 @@ export const ConfirmOrder: FC<ConfirmOrderProps> = ({ ...rest }) => {
               <InputCombo register={register("address")} label="Address" placeholder="address" />
               <InputCombo register={register("phone")} label="Contact number" placeholder="contact number" />
             </div>
-            <ConfirmDisplayProduct />
+            <ConfirmDisplayProduct totalCost={totalCost} />
             <div className="flex justify-end gap-x-2">
               <AlertDialogCancel>Cancel</AlertDialogCancel>
               <AlertDialogAction>Continue</AlertDialogAction>
