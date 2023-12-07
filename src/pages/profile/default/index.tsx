@@ -1,4 +1,4 @@
-import lonely from "$assets/illustration/lottiy/woman-reading-book-under-the-tree.json"
+import lonely from "$assets/illustration/lottiy/woman-shopping-online.json"
 import { SearchInput } from "$components/forms/SearchInput"
 import Lottie from "lottie-react"
 import { Link } from "react-router-dom"

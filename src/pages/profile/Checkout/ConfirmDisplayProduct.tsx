@@ -25,7 +25,7 @@ export const ConfirmDisplayProduct: FC<ConfirmDisplayProductProps> = ({ totalCos
               const SelectedQuantity = item?.SelectedQuantity || 1
               const price = item?.price * SelectedQuantity
               return (
-                <TableRow>
+                <TableRow key={item._id}>
                   <TableCell> {item.name} </TableCell>
                   <TableCell> {SelectedQuantity} </TableCell>
                   <TableCell>{price.toLocaleString()}</TableCell>

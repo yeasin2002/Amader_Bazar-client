@@ -30,6 +30,11 @@ export const useSelectedProduct = create(
                   toast.warning("Product removed from cart")
                 })
               },
+              resetProduct: () => {
+                set((state) => {
+                  state.selectedProduct = []
+                })
+              },
 
               toggleSelectedProduct: (product: SelectedProducts) => {
                 set((store) => {

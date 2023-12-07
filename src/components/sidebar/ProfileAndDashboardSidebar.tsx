@@ -57,22 +57,20 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
     <aside className=" glass-effect fixed bottom-3 left-0  right-0 z-10  mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4 md:hidden ">
       {menuItem.map((item) => {
         return (
-          <div>
-            <Link
-              onClick={() => setActiveMenu(item.title)}
-              to={item.url}
-              className={twMerge(
-                `flex  cursor-pointer gap-x-2  border-b-4 border-white p-2 font-semibold
+          <Link
+            key={item.title + item.url}
+            onClick={() => setActiveMenu(item.title)}
+            to={item.url}
+            className={twMerge(
+              `flex  cursor-pointer gap-x-2  border-b-4 border-white p-2 font-semibold
               text-gray-700 hover:text-gray-900 `,
-                activeMenu === item.title && "border-brand-900"
-              )}
-              key={item.title + item.url}>
-              <p className="flex flex-col items-center justify-center gap-y-2 font-fresca capitalize">
-                {item.icon}
-                {item.title}
-              </p>
-            </Link>
-          </div>
+              activeMenu === item.title && "border-brand-900"
+            )}>
+            <p className="flex flex-col items-center justify-center gap-y-2 font-fresca capitalize">
+              {item.icon}
+              {item.title}
+            </p>
+          </Link>
         )
       })}
     </aside>
