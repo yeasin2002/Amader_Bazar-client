@@ -1,17 +1,21 @@
-import emptyCard from "$assets/illustration/3D/empty-shopping-bucket.png"
-
-import { useSelectedProduct } from "$store"
-import { Image } from "$ui/Image"
-import { getImgSrc } from "$utils/getImageSrc"
 import { Minus, Plus, Trash2 } from "lucide-react"
 import { Fragment } from "react"
 
+import emptyCard from "$assets/illustration/3D/empty-shopping-bucket.png"
+import { useSelectedProduct } from "$store"
+import { Image } from "$ui"
+import { getImgSrc } from "$utils"
+import { Link } from "react-router-dom"
+import { ConfirmOrder } from "./ConfirmOrder"
+
 export const Checkout = () => {
   const { selectedProduct, increaseQuantity, decreaseQuantity, updateQuantity, removeProduct } = useSelectedProduct()
-
   return (
-    <section className="w-full px-2 py-4">
-      <h1 className="profile-route-title ">Order Placement</h1>
+    <section className="w-full px-4 py-6">
+      <div className="flex items-center justify-between">
+        <h1 className="profile-route-title ">Order Placement</h1>
+        <ConfirmOrder />
+      </div>
       {selectedProduct?.length !== 0 && (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full  text-left text-sm text-gray-500 rtl:text-right ">
@@ -46,7 +50,11 @@ export const Checkout = () => {
                       <td className="hidden-mobile p-4">
                         <Image src={imgSrc} height={100} width={100} alt="Apple Watch" />
                       </td>
-                      <td className="profile-product-table-td font-semibold text-gray-900 ">{item.name}</td>
+                      <td className="profile-product-table-td font-semibold text-gray-900 ">
+                        <Link to={`/shop/${item._id}`} className="hover:underline">
+                          {item.name}
+                        </Link>
+                      </td>
                       <td className="profile-product-table-td">
                         <div className="flex items-center gap-x-3">
                           <button
