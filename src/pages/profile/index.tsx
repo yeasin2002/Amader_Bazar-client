@@ -1,4 +1,4 @@
-import { ProfileSidebar } from "$components/sidebar/ProfileSidebar"
+import { ProfileAndDashboardSidebar } from "$components/sidebar/ProfileAndDashboardSidebar"
 import { Heart, Settings, ShoppingCart, User } from "lucide-react"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { Outlet } from "react-router-dom"
@@ -30,8 +30,8 @@ type indexProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivEleme
 
 export const Profile: FC<indexProps> = ({ ...rest }) => {
   return (
-    <section {...rest} className=" flex h-full w-full ">
-      <ProfileSidebar menuItem={profileMenu} />
+    <section {...rest} className=" flex h-full w-full    ">
+      <ProfileAndDashboardSidebar menuItem={profileMenu} />
       <Outlet />
     </section>
   )

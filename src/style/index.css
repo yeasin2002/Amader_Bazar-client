@@ -39,6 +39,12 @@
   .profile-route-title {
     @apply my-4 mb-4 font-ptSansNarrow text-2xl font-semibold  text-gray-900
   }
+  .hidden-mobile {
+    @apply  hidden md:block
+  }
+  .only-mobile {
+    @apply  md:hidden block
+  }
 }
 
 @layer base {

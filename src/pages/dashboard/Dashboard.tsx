@@ -1,4 +1,4 @@
-import { ProfileSidebar } from "$components/sidebar/ProfileSidebar"
+import { ProfileAndDashboardSidebar } from "$components/sidebar/ProfileAndDashboardSidebar"
 import { GanttChartSquare, Home, ShoppingCart, User } from "lucide-react"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { Outlet } from "react-router-dom"
@@ -32,7 +32,7 @@ export const Dashboard: FC<indexProps> = ({ ...rest }) => {
   // const { isLoggedIn, logOut } = useAuth()
   return (
     <section {...rest} className=" flex h-full w-full ">
-      <ProfileSidebar menuItem={profileMenu} />
+      <ProfileAndDashboardSidebar menuItem={profileMenu} />
       <Outlet />
     </section>
   )

@@ -4,7 +4,7 @@ export const Setting = () => {
   return (
     <div className="grid w-full place-items-center ">
       <Lottie animationData={maintenance} loop autoplay className="h-96 w-full" />
-      <h1 className="heading-4 text-center font-jost ">This page is under construction</h1>
+      <h1 className="heading-4 text-center font-jost ">This page is under Development</h1>
     </div>
   )
 }

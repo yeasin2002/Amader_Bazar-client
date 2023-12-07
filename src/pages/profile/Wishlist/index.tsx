@@ -17,7 +17,7 @@ export const Wishlist = () => {
           <table className="w-full text-left text-sm text-gray-500 rtl:text-right  ">
             <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
               <tr>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="hidden-mobile px-6 py-3 ">
                   img
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -31,7 +31,7 @@ export const Wishlist = () => {
                   Price
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  <span className="sr-only">Edit</span>
+                  Actions
                 </th>
               </tr>
             </thead>
@@ -43,7 +43,7 @@ export const Wishlist = () => {
                 })
                 return (
                   <tr className="border-b bg-white hover:bg-gray-50 ">
-                    <td className="px-6 py-4">
+                    <td className="hidden-mobile px-6 py-4">
                       <Image src={imgSrc} alt={item.name} width={100} height={100} />
                     </td>
                     <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">

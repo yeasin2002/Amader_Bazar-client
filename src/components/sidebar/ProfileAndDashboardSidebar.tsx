@@ -2,11 +2,12 @@ import homeImg from "$assets/illustration/3D/home.png"
 import { useLocalStorage } from "$hooks/useLocalStorage"
 
 import { ChevronRightSquare } from "lucide-react"
-import { HTMLAttributes, useState } from "react"
+import { Fragment, HTMLAttributes, useState } from "react"
 import { Link } from "react-router-dom"
 import { twMerge } from "tailwind-merge"
 
-interface ProfileSidebarProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface ProfileAndDashboardSidebarProps
+  extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   menuItem: {
     title: string
     url: string
@@ -14,15 +15,14 @@ interface ProfileSidebarProps extends React.DetailedHTMLProps<HTMLAttributes<HTM
   }[]
 }
 
-export const ProfileSidebar = ({ menuItem, ...rest }: ProfileSidebarProps) => {
+export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDashboardSidebarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const { value: activeMenu, setLocalStorage: setActiveMenu } = useLocalStorage("sidebar-item")
-
-  return (
+  const LargeDevice = (
     <aside
       {...rest}
       className={twMerge(
-        "sticky left-0 top-0 flex h-screen   flex-col  items-center justify-between bg-slate-100 px-2 py-10 transition-all ",
+        "sticky left-0 top-0 hidden h-screen   flex-col  items-center justify-between bg-slate-100 px-2 py-10 transition-all  md:flex",
         isOpen ? "w-40" : "w-16"
       )}>
       <Link to={"/"}>
@@ -52,5 +52,36 @@ export const ProfileSidebar = ({ menuItem, ...rest }: ProfileSidebarProps) => {
         <ChevronRightSquare />
       </div>
     </aside>
+  )
+  const MobileNav = (
+    <aside className=" glass-effect fixed bottom-3 left-0  right-0 z-10  mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4 md:hidden ">
+      {menuItem.map((item) => {
+        return (
+          <div>
+            <Link
+              onClick={() => setActiveMenu(item.title)}
+              to={item.url}
+              className={twMerge(
+                `flex  cursor-pointer gap-x-2  border-b-4 border-white p-2 font-semibold
+              text-gray-700 hover:text-gray-900 `,
+                activeMenu === item.title && "border-brand-900"
+              )}
+              key={item.title + item.url}>
+              <p className="flex flex-col items-center justify-center gap-y-2 font-fresca capitalize">
+                {item.icon}
+                {item.title}
+              </p>
+            </Link>
+          </div>
+        )
+      })}
+    </aside>
+  )
+
+  return (
+    <Fragment>
+      {LargeDevice}
+      {MobileNav}
+    </Fragment>
   )
 }
