@@ -4,7 +4,6 @@ import lonely from "$assets/illustration/lottiy/woman-shopping-online.json"
 import { $GET } from "$hooks/useFetchers"
 import { cn } from "$lib/utils"
 import { OrderByUserResponse } from "$types"
-import { Button } from "$ui/button"
 import { useQuery } from "@tanstack/react-query"
 import Lottie from "lottie-react"
 import { Link } from "react-router-dom"
@@ -26,7 +25,7 @@ export const Default = ({ ...rest }) => {
       <Lottie animationData={errorImg} className="h-40 w-full" loop />
       <p className="text-center  font-exo2 text-gray-600">something went wrong</p>
       <button
-        className="mt-5  text-gray-500 underline underline-offset-1 "
+        className="mt-5  text-gray-500 underline decoration-rose-500 underline-offset-1 "
         onClick={() => {
           window.location.reload()
         }}>
@@ -65,26 +64,26 @@ export const Default = ({ ...rest }) => {
             <div className="relative overflow-x-auto shadow-md sm:rounded-lg" {...rest}>
               <div>
                 <div className="flex ">
-                  <span className="h-1 w-full   bg-gray-300 "></span>
-                  <p className="w-full text-center">
+                  <span className="h-1 w-full   bg-gray-300/60 "></span>
+                  <p className="w-full text-center text-slate-600">
                     <span>{fullDate}</span> : <span>{time}</span>
                   </p>
-                  <span className="h-1 w-full  bg-gray-300 "></span>
+                  <span className="h-1 w-full  bg-gray-300/60 "></span>
                 </div>
                 <div className="my-3 flex justify-between">
                   <p className="text-md ml-6  font-normal text-gray-700">
-                    Total Cost: <span className="font-medium ">{items.TotalAmount}</span> TK
+                    Total Cost: <span className="font-medium ">{items?.TotalAmount}</span> TK
                   </p>
                   <p>
                     <span className="text-md font-medium text-gray-600">Status: </span>
                     <span
                       className={cn("text-sm font-semibold", {
-                        "text-yellow-600": items.OrderStatus === "Pending",
-                        "text-blue-600  ": items.OrderStatus === "Processing",
-                        "text-teal-500": items.OrderStatus === "Completed",
-                        "text-rose-600": items.OrderStatus === "Cancelled",
+                        "text-yellow-600": items?.OrderStatus === "Pending",
+                        "text-blue-600  ": items?.OrderStatus === "Processing",
+                        "text-teal-500": items?.OrderStatus === "Completed",
+                        "text-rose-600": items?.OrderStatus === "Cancelled",
                       })}>
-                      {items.OrderStatus}
+                      {items?.OrderStatus}
                     </span>
                   </p>
                 </div>
@@ -108,15 +107,15 @@ export const Default = ({ ...rest }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {items.Products.map((product) => {
+                  {items?.Products?.map((product) => {
                     return (
                       <tr className="border-b bg-white hover:bg-gray-50 ">
                         <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
-                          {product.Product.name}
+                          {product?.Product?.name}
                         </th>
-                        <td className="px-6 py-4">{product.Quantity}</td>
-                        <td className="px-6 py-4">{product.Product.price}</td>
-                        <td className="px-6 py-4">{product.Product.price * product.Quantity}</td>
+                        <td className="px-6 py-4">{product?.Quantity}</td>
+                        <td className="px-6 py-4">{product?.Product?.price}</td>
+                        <td className="px-6 py-4">{product?.Product?.price * product?.Quantity}</td>
                       </tr>
                     )
                   })}

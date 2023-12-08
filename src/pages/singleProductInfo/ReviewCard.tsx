@@ -31,18 +31,18 @@ export const Reviews: FC<ReviewsProps> = ({ isError, isLoading, rating, ...rest 
                   <Star fill="rgb(248 146 30 )" color="rgb(248 146 30 )" size={20} />
                   <Star fill="rgb(248 146 30 )" color="rgb(248 146 30 )" size={20} />
                 </div>
-                <p className="leading-loose text-gray-500 dark:text-gray-400">{item.desc}</p>
+                <p className="leading-loose text-gray-500 dark:text-gray-400">{item?.desc}</p>
                 <div className="-mx-2 mt-8 flex items-center">
                   <img
                     className="mx-2 h-14 w-14 shrink-0 rounded-full object-cover ring-4 ring-gray-300 dark:ring-gray-700"
-                    src={item.reviewers.avatar || defaultUser}
+                    src={item?.reviewers?.avatar || defaultUser}
                     onError={(e) => {
                       e.currentTarget.src = defaultUser
                     }}
                     alt="User Avatar"
                   />
                   <div className="mx-2">
-                    <h1 className="font-semibold text-gray-800 dark:text-white">{item?.reviewers.name}</h1>
+                    <h1 className="font-semibold text-gray-800 dark:text-white">{item?.reviewers?.name}</h1>
                     {/*
                   Role,
                   <span className="text-sm text-gray-500 dark:text-gray-400"></span>

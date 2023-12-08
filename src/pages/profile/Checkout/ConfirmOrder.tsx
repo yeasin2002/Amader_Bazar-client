@@ -51,10 +51,12 @@ export const ConfirmOrder: FC<ConfirmOrderProps> = ({ ...rest }) => {
     mutationKey: ["order"],
     mutationFn: (body: OrderRequestBody) => $POST({ url: "/order", body }) as Promise<orderResponse>,
   })
-  console.log("🚀 ~ file: ConfirmOrder.tsx:54 ~ isSuccess:", isSuccess)
 
   const onSubmit = async (data: confirmOrderForm) => {
     try {
+      if (selectedProduct.length === 0) {
+        return toast.warning("No Product Selected, Please Select any Product")
+      }
       const confirmOrder = await mutateAsync({
         address: data.address,
         phone: data.phone,
@@ -83,9 +85,17 @@ export const ConfirmOrder: FC<ConfirmOrderProps> = ({ ...rest }) => {
           {!isSuccess ? (
             <form className="space-y-3" onSubmit={handleSubmit(onSubmit)}>
               <div className="space-y-4">
-                <InputCombo register={register("address")} label="Address" placeholder="exact address" />
                 <InputCombo
-                  register={register("phone")}
+                  register={register("address", {
+                    required: { value: true, message: "Address Number is required" },
+                  })}
+                  label="Address"
+                  placeholder="exact address"
+                />
+                <InputCombo
+                  register={register("phone", {
+                    required: { value: true, message: "Contact Number is required" },
+                  })}
                   label="Contact number"
                   placeholder="current active phone number"
                 />
