@@ -50,8 +50,8 @@ export const Default = ({ ...rest }) => {
 
   const mainComponents = (
     <div className="space-y-10">
-      {data?.data.length === 0 && noOrderFound}
-      {data?.data.length !== 0 &&
+      {data?.data?.length === 0 && noOrderFound}
+      {data?.data?.length !== 0 &&
         data?.data.map((items) => {
           const date = new Date(items.createdAt)
           const year = date.getFullYear()

@@ -12,6 +12,6 @@ export const heroDesc = [
 ]
 
 export const randomDesc = () => {
-  const randomIndex = Math.round(Math.random() * heroDesc.length - 1)
+  const randomIndex = Math.round(Math.random() * heroDesc?.length - 1)
   return heroDesc[randomIndex]
 }

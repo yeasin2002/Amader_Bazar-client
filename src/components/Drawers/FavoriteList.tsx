@@ -47,7 +47,7 @@ export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
         </SheetTrigger>
         <SheetContent>
           <SheetTitle>Selected shopping Item</SheetTitle>
-          {favoriteProduct.length === 0 ? NoProductComponent : mainComponent}
+          {favoriteProduct?.length === 0 ? NoProductComponent : mainComponent}
         </SheetContent>
       </Sheet>
     </div>

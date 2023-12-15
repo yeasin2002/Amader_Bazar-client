@@ -57,7 +57,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
         <SheetContent>
           <SheetHeader className="h-full w-full ">
             <SheetTitle>Selected shopping Item</SheetTitle>
-            {selectedProduct.length === 0 ? emptyCartComponent : mainComponents}
+            {selectedProduct?.length === 0 ? emptyCartComponent : mainComponents}
           </SheetHeader>
 
           <SheetFooter>

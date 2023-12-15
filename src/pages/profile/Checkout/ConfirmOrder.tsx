@@ -54,7 +54,7 @@ export const ConfirmOrder: FC<ConfirmOrderProps> = ({ ...rest }) => {
 
   const onSubmit = async (data: confirmOrderForm) => {
     try {
-      if (selectedProduct.length === 0) {
+      if (selectedProduct?.length === 0) {
         return toast.warning("No Product Selected, Please Select any Product")
       }
       const confirmOrder = await mutateAsync({
