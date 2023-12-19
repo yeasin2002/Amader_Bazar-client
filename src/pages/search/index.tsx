@@ -21,7 +21,7 @@ export const Search: FC<ShopProps> = ({ ...rest }) => {
     queryFn: () => $GET({ url: "/category/" }) as Promise<CategoriesResponse>,
   })
   return (
-    <div {...rest} className="container ">
+    <div {...rest} className=" upperArea container   ">
       <div className="my-8 flex justify-between">
         <h1 className="my-4 text-xl font-bold">Search All Product </h1>
 

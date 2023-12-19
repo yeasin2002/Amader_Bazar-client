@@ -12,7 +12,7 @@ export const RatingGraph: FC<RatingGraphProps> = ({ Data, isError, isLoading, ..
   return (
     <div {...rest}>
       <div className="mb-2 flex items-center">
-        {Array.from({ length: Data?.totalReviewer || 0 }).map((_, i) => {
+        {Array.from({ length: Data?.totalReviewer || 0 })?.map((_, i) => {
           return <FullStar key={i} />
         })}
         <OutlineStar />

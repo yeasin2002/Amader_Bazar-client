@@ -51,7 +51,7 @@ export const Nav = () => {
               <Logo className="h-full w-full " />
             </Link>
             <div className="hidden gap-x-6  md:flex ">
-              {navItems.map((item) => {
+              {navItems?.map((item) => {
                 const isActive = location.pathname === item.url
                 return (
                   <NavLink

@@ -19,7 +19,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
 
   const mainComponents = (
     <div className="h-full space-y-3 overflow-y-scroll">
-      {selectedProduct.map((item) => {
+      {selectedProduct?.map((item) => {
         const imgUrl = getImgSrc({
           img: item.img,
           imgType: "product-img",

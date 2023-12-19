@@ -7,8 +7,7 @@ import message from "$assets/illustration/3D/message.png"
 import { InputCombo } from "$components"
 
 import { $POST } from "$hooks"
-import { Button } from "$ui"
-import { Textarea } from "$ui"
+import { Button, Textarea } from "$ui"
 import { useMutation } from "@tanstack/react-query"
 
 interface Inputs {
@@ -43,7 +42,7 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
   }
 
   return (
-    <section className="container  w-full" {...rest}>
+    <section className="upperArea container  w-full" {...rest}>
       <div className="my-24 space-y-2 [&>*]:text-center">
         <h1 className="   font-fresca text-2xl font-bold text-slate-800 md:text-4xl ">Keep in touch with us</h1>
         <p className="font-texturina text-xl font-semibold text-slate-600">Sent a message</p>

@@ -14,7 +14,7 @@ export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
 
   const mainComponent = (
     <div className="h-full space-y-3 overflow-y-scroll ">
-      {favoriteProduct.map((item) => {
+      {favoriteProduct?.map((item) => {
         const imgUrl = getImgSrc({
           img: item.img,
           imgType: "product-img",

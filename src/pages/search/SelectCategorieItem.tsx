@@ -21,7 +21,7 @@ export const SelectCategoriesItem: FC<SelectCategoriesItemProps> = ({ categories
 
   const LoadingComponent = (
     <Fragment>
-      {Array.from({ length: 5 }).map((_, index) => {
+      {Array.from({ length: 5 })?.map((_, index) => {
         return (
           <div className="flex items-center gap-x-2" key={index}>
             <Skeleton className="h-5 w-5" />

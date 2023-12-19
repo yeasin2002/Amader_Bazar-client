@@ -15,7 +15,7 @@ const Hero = () => {
 
   return (
     <Fragment>
-      <main className="eachSection my-32 grid grid-cols-1 md:grid-cols-3">
+      <main className="eachSection  grid grid-cols-1 md:grid-cols-3">
         <div className="flex flex-col justify-between">
           <div className="flex flex-col place-items-center space-y-8 px-2">
             <h1 className="mb-4 text-center font-kurale text-4xl font-bold text-gray-800">Amader Bazar</h1>
@@ -58,7 +58,7 @@ const Hero = () => {
             }}
             navigation={true}
             modules={[Autoplay, Pagination, Navigation]}>
-            {HeroItems.map((items) => {
+            {HeroItems?.map((items) => {
               // eslint-disable-next-line react-hooks/rules-of-hooks
               const id = useId()
               return (

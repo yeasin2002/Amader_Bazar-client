@@ -27,7 +27,7 @@ const DisplayCategory = () => {
 
   const LoadingComponent = (
     <Fragment>
-      {Array.from(Array(5)).map((_, index) => {
+      {Array.from(Array(5))?.map((_, index) => {
         return (
           <SwiperSlide key={index}>
             <CategoryItemSkeleton />
@@ -39,7 +39,7 @@ const DisplayCategory = () => {
 
   const ErrorComponent = (
     <Fragment>
-      {Array.from(Array(5)).map((_, index) => {
+      {Array.from(Array(5))?.map((_, index) => {
         return (
           <SwiperSlide key={index}>
             <CategoryItemError />

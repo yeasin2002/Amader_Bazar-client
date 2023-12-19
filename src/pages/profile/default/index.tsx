@@ -10,7 +10,7 @@ import { Link } from "react-router-dom"
 import { UserProfileInfo } from "../useProfileInfo"
 
 export const Default = ({ ...rest }) => {
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["orders-of-user"],
     queryFn: () => $GET({ url: "/order" }) as Promise<OrderByUserResponse>,
   })
@@ -50,9 +50,12 @@ export const Default = ({ ...rest }) => {
 
   const mainComponents = (
     <div className="space-y-10">
-      {data?.data?.length === 0 && noOrderFound}
-      {data?.data?.length !== 0 &&
-        data?.data.map((items) => {
+      {!isLoading && isSuccess && data?.data && data?.data?.length === 0 && noOrderFound}
+      {!isLoading &&
+        isSuccess &&
+        data?.data &&
+        data?.data?.length !== 0 &&
+        data?.data?.map((items) => {
           const date = new Date(items.createdAt)
           const year = date.getFullYear()
           const month = date.getMonth() + 1

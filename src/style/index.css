@@ -6,6 +6,9 @@
 @tailwind utilities;
 
 @layer components {
+  .upperArea {
+    @apply my-28;
+  }
   .eachSection {
     @apply mx-4 my-10;
   }

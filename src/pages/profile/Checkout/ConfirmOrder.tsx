@@ -42,7 +42,7 @@ export const ConfirmOrder: FC<ConfirmOrderProps> = ({ ...rest }) => {
     return cur.price * SelectedQuantity + pre
   }, 0)
 
-  const finalProduct = selectedProduct.map((item) => ({
+  const finalProduct = selectedProduct?.map((item) => ({
     Product: item._id,
     Quantity: item.SelectedQuantity || 1,
   }))

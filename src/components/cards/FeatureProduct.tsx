@@ -17,14 +17,14 @@ interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEl
 export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isLoading, isError, ...rest }) => {
   const LoadingComponent = (
     <div className="space-y-3">
-      {Array.from(Array(3)).map((_, index) => {
+      {Array.from(Array(3))?.map((_, index) => {
         return <FeatureProductSkeleton key={index} />
       })}
     </div>
   )
   const ErrorComponent = (
     <div className="space-y-3">
-      {Array.from(Array(3)).map((_, index) => {
+      {Array.from(Array(3))?.map((_, index) => {
         return <FeatureProductErrorSkeleton key={index} />
       })}
     </div>

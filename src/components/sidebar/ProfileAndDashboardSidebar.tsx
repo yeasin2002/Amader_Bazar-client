@@ -29,7 +29,7 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
         <img src={homeImg} alt="Home" className="h-14 w-14" />
       </Link>
       <div className="my-6 space-y-2">
-        {menuItem.map((items) => {
+        {menuItem?.map((items) => {
           return (
             <Link
               onClick={() => setActiveMenu(items.title)}
@@ -55,7 +55,7 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
   )
   const MobileNav = (
     <aside className=" glass-effect fixed bottom-3 left-0  right-0 z-10  mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4 md:hidden ">
-      {menuItem.map((item) => {
+      {menuItem?.map((item) => {
         return (
           <Link
             key={item.title + item.url}

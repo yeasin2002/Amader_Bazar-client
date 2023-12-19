@@ -37,7 +37,7 @@ export const ProductContainer: FC<ProductContainerProps> = ({ heading, ...rest }
 
   const LoadingComponent = (
     <Fragment>
-      {Array.from(Array(8)).map((_, index) => {
+      {Array.from(Array(8))?.map((_, index) => {
         return <ProductSkeleton key={index} />
       })}
     </Fragment>
@@ -45,7 +45,7 @@ export const ProductContainer: FC<ProductContainerProps> = ({ heading, ...rest }
 
   const ErrorComponent = (
     <Fragment>
-      {Array.from(Array(8)).map((_, index) => {
+      {Array.from(Array(8))?.map((_, index) => {
         return <ProductErrorSkeleton key={index} />
       })}
     </Fragment>

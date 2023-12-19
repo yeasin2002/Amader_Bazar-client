@@ -24,7 +24,7 @@ export const RelatedProduct = ({ id, category, ...rest }: RelatedProductProps) =
 
   const loadingComponents = (
     <div>
-      {Array.from("****").map((_, i) => {
+      {Array.from("****")?.map((_, i) => {
         return <ProductSkeleton key={i} />
       })}
     </div>

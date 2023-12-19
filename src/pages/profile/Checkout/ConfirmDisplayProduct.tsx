@@ -21,7 +21,7 @@ export const ConfirmDisplayProduct: FC<ConfirmDisplayProductProps> = ({ totalCos
             </TableRow>
           </TableHeader>
           <TableBody>
-            {selectedProduct.map((item) => {
+            {selectedProduct?.map((item) => {
               const SelectedQuantity = item?.SelectedQuantity || 1
               const price = item?.price * SelectedQuantity
               return (

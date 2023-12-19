@@ -23,12 +23,12 @@ export const Footer = () => {
             </p>
           </div>
           <div className="-mb-10 mt-10 grid flex-grow grid-cols-2 text-center md:mt-0 md:pl-20 md:text-left">
-            {footerItems.map((val, index) => {
+            {footerItems?.map((val, index) => {
               return (
                 <div className=" w-full px-4" key={val.heading + index}>
                   <h2 className="mb-3 font-exo2 text-sm font-medium tracking-widest text-gray-900">{val.heading}</h2>
                   <div className="mb-10 list-none">
-                    {val.items.map((item) => {
+                    {val.items?.map((item) => {
                       return (
                         <li key={item.link + item.title}>
                           <a className="text-gray-600 hover:text-gray-800" href={item.link} target="_blank">
@@ -48,7 +48,7 @@ export const Footer = () => {
           <div className="container mx-auto flex flex-col flex-wrap px-5 py-4 sm:flex-row">
             <p className="text-center font-kurale text-sm text-gray-500  sm:text-left ">©{currentYear} Amader Bazar</p>
             <span className="mt-2 inline-flex justify-center gap-x-2 sm:ml-auto sm:mt-0 sm:justify-start">
-              {footerContact.map((item, index) => {
+              {footerContact?.map((item, index) => {
                 return (
                   <a className="text-gray-500" href={item.link} key={item.link + index} target="_blank">
                     <item.icon />

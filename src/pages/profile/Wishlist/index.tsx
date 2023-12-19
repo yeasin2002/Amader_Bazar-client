@@ -36,7 +36,7 @@ export const Wishlist = () => {
               </tr>
             </thead>
             <tbody>
-              {favoriteProduct.map((item) => {
+              {favoriteProduct?.map((item) => {
                 const imgSrc = getImgSrc({
                   img: item.img,
                   imgType: "product-img",
