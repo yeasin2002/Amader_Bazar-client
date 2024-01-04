@@ -1,3 +1,5 @@
+"use client"
+
 import { MailOpen, Send } from "lucide-react"
 import { SubmitHandler, useForm } from "react-hook-form"
 

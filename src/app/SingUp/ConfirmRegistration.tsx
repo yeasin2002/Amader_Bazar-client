@@ -1,3 +1,4 @@
+"use client"
 import { InputCombo } from "$components/index"
 import { $POST, useAuth } from "$hooks"
 import { AuthResponse } from "$types"
@@ -6,7 +7,6 @@ import { useMutation } from "@tanstack/react-query"
 import { ArrowLeft } from "lucide-react"
 import { DetailedHTMLProps, FC, Fragment } from "react"
 import { useForm } from "react-hook-form"
-import { useNavigate } from "react-router-dom"
 import { toast } from "sonner"
 
 interface ConfirmRegistrationProps
@@ -29,7 +29,7 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
       $POST({ url: "/auth/confirm-registration", body: body }) as Promise<AuthResponse>,
   })
   const { setLoggedIn, setUserInfo } = useAuth()
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
 
   const { register, formState, handleSubmit } = useForm<ConfirmFormValues>()
   const onSubmit = async (data: ConfirmFormValues) => {
@@ -38,7 +38,7 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
     if (!req?.success) return toast.error("Failed to confirm registration")
     setLoggedIn(req?.data?.token)
     setUserInfo(req.data?.user)
-    navigate("/")
+    // navigate("/")
     toast.success("Registration confirmed successfully")
   }
   return (

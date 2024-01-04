@@ -3,7 +3,7 @@ import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 import { Product } from "$src/interface"
 import { ImageLazy } from "$ui"
 import { getImgSrc } from "$utils/getImageSrc"
-import { Link } from "react-router-dom"
+import Link from "next/link"
 import { BdTaka } from ".."
 import { FeatureProductErrorSkeleton, FeatureProductSkeleton } from "../index"
 
@@ -39,7 +39,7 @@ export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isL
         const costAfterDiscount = val.price - (val.price * val.discount || 0) / 100
         return (
           <Link
-            to={`/shop/${val._id}`}
+            href={`/shop/${val._id}`}
             className="  flex  gap-x-4  rounded-sm border border-gray-200/40 px-2 py-4"
             key={val._id}>
             <div className="mx-2 h-full w-2/5 ">

@@ -1,8 +1,9 @@
+"use client"
+
 import { useLocalStorageUtils } from "$utils"
 import { useState } from "react"
 const { setStorage, getStorage, clearStorageItem, clearStorage } = useLocalStorageUtils
 
-/* eslint-disable @typescript-eslint/no-explicit-any */
 export type StorageKey = "token" | "usersToken" | "isLoggedIn" | "sidebar-item" | "userInfo"
 
 export const useLocalStorage = (key: StorageKey, defaultValue?: any) => {

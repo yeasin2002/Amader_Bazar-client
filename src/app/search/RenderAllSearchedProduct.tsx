@@ -1,3 +1,4 @@
+"use client"
 import emptyCard from "$assets/illustration/others/empty-cart.svg"
 
 import { ProductData, ProductErrorSkeleton, ProductItem, ProductSkeleton } from "$components/index"

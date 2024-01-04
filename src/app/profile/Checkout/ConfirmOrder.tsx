@@ -1,3 +1,5 @@
+"use client"
+
 import { useMutation } from "@tanstack/react-query"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"

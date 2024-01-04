@@ -1,3 +1,4 @@
+"use client"
 import { useId } from "react"
 import "swiper/css"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
@@ -30,7 +31,11 @@ export const HeroSlider: FC<HeroSliderProps> = ({ ...rest }) => {
           const id = useId()
           return (
             <SwiperSlide className="h-2/4  w-2/4 cursor-grab" key={id}>
-              <Image className="h-full w-full   rounded-md  object-cover " src={items.img} alt="apple watch photo" />
+              <Image
+                className="h-full w-full   rounded-md  object-cover "
+                src={items.img.src}
+                alt="apple watch photo"
+              />
             </SwiperSlide>
           )
         })}

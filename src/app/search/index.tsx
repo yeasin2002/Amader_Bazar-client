@@ -1,3 +1,5 @@
+"use client"
+
 import { SearchInput } from "$components/forms/SearchInput"
 import { $GET } from "$hooks/useFetchers"
 import { useFilterProduct } from "$store/filteredProducts.store"

@@ -1,3 +1,5 @@
+"use client"
+
 import { useAuthStore } from "$store"
 import { createContext } from "react"
 export const AuthContext = createContext({})

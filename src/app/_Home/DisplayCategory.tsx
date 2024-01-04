@@ -1,3 +1,5 @@
+"use client"
+
 import { $GET } from "$hooks"
 import { CategoriesResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
@@ -14,7 +16,7 @@ import "swiper/css/pagination"
 import { FreeMode, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
-const DisplayCategory = () => {
+export const DisplayCategory = () => {
   let categoryDisplay
   const {
     data: CategoriesData,
@@ -108,5 +110,3 @@ const DisplayCategory = () => {
     </section>
   )
 }
-
-export default DisplayCategory

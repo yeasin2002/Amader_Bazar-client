@@ -1,8 +1,8 @@
-import { Image } from "$ui"
+import Image, { StaticImageData } from "next/image"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 interface ContactInfoProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  imgUrl: string
+  imgUrl: StaticImageData
   infoOne: string
   infoTwo?: string
 }

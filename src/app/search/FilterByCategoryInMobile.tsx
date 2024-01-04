@@ -1,3 +1,5 @@
+"use client"
+
 import { categoryData } from "$types"
 import { Button, buttonVariants } from "$ui/button"
 import { Skeleton } from "$ui/skeleton"

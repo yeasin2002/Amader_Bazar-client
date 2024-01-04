@@ -1,3 +1,5 @@
+"use client"
+
 import { $GET } from "$hooks/useFetchers"
 import { ReviewsResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"

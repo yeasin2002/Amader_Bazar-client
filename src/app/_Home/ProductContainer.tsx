@@ -1,3 +1,5 @@
+"use client"
+
 import { ProductErrorSkeleton, ProductItem, ProductSkeleton } from "$components"
 import { $GET } from "$hooks/useFetchers"
 import { AllProductResponse } from "$types"

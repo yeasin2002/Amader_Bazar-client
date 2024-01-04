@@ -1,3 +1,5 @@
+"use client"
+
 import { FeatureProducts } from "$components/cards"
 import { $GET } from "$hooks/useFetchers"
 import { FeaturedProductResponse } from "$src/interface/FeatureProduct.interface"
