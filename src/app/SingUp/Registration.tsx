@@ -1,12 +1,12 @@
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
 import { useForm } from "react-hook-form"
-import { Link } from "react-router-dom"
 import { toast } from "sonner"
 
 import { InputCombo } from "$components"
 import { baseUrl } from "$lib/exportEnv"
 import { InputForPassword } from "$ui/InputForPassword"
 import { Button } from "$ui/button"
+import Link from "next/link"
 import { Avatar } from "./Avatar"
 
 interface RegistrationProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -129,31 +129,10 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration, 
           </Button>
         </div>
       </form>
-      {/* <div>
-        <div className="mt-4 flex items-center justify-between">
-          <span className="w-1/5 border-b dark:border-gray-600 lg:w-1/5"></span>
 
-          <p className="text-center text-xs uppercase text-gray-500 hover:underline dark:text-gray-400">
-            or register with Social Media
-          </p>
-
-          <span className="w-1/5 border-b dark:border-gray-400 lg:w-1/5"></span>
-        </div>
-
-        <div className=" mt-6 flex items-center gap-x-5">
-          <Button type="button" variant={"sky"} className="w-full">
-            <Image src={googleIcon} alt="Google" className="h-full w-full " width={30} height={30} />
-            <p className="mx-2  "> Google</p>
-          </Button>
-          <Button type="button" value={"sky"} className=" flex w-full space-x-2">
-            <Image src={FacebookIcon} alt="Google" className="h-full w-full" width={30} height={30} />
-            <p> Facebook</p>
-          </Button>
-        </div>
-      </div> */}
       <p className="mt-8 text-center text-xs font-light text-gray-400 ">
         Already have an account?
-        <Link to="/login" className="ml-2 font-medium text-gray-700 hover:underline">
+        <Link href="/login" className="ml-2 font-medium text-gray-700 hover:underline">
           Login instead
         </Link>
       </p>

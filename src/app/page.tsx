@@ -26,7 +26,7 @@ const Hero = () => {
             <p className="font-jost">{randomDesc()}</p>
           </div>
           <div className="my-3 mt-8 flex justify-between gap-x-2 ">
-            <Link to={"/search"} className={cn("mr-2  rounded-xl", { "w-full": !isLoggedIn })}>
+            <Link href={"/search"} className={cn("mr-2  rounded-xl", { "w-full": !isLoggedIn })}>
               Start Shopping
             </Link>
             {!isLoggedIn && (

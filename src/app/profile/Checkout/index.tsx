@@ -1,11 +1,10 @@
-import { Minus, Plus, Trash2 } from "lucide-react"
-import { Fragment } from "react"
-
 import emptyCard from "$assets/illustration/3D/empty-shopping-bucket.png"
 import { useSelectedProduct } from "$store"
-import { Image } from "$ui"
 import { getImgSrc } from "$utils"
-import { Link } from "react-router-dom"
+import { Minus, Plus, Trash2 } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import { Fragment } from "react"
 import { ConfirmOrder } from "./ConfirmOrder"
 
 export const Checkout = () => {
@@ -51,7 +50,7 @@ export const Checkout = () => {
                         <Image src={imgSrc} height={100} width={100} alt="Apple Watch" />
                       </td>
                       <td className="profile-product-table-td font-semibold text-gray-900 ">
-                        <Link to={`/shop/${item._id}`} className="hover:underline">
+                        <Link href={`/shop/${item._id}`} className="hover:underline">
                           {item.name}
                         </Link>
                       </td>
@@ -101,7 +100,7 @@ export const Checkout = () => {
       )}
       {selectedProduct?.length === 0 && (
         <div className="mt-6   grid w-full place-items-center gap-y-1">
-          <img src={emptyCard} alt="Empty" className="aspect-square  h-80 " />
+          <Image src={emptyCard} alt="Empty" className="aspect-square  h-80 " />
           <h1 className="text-center font-jost text-2xl font-semibold text-gray-900">No Product Selected</h1>
         </div>
       )}

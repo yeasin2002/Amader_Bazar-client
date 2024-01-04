@@ -1,13 +1,12 @@
 import { $GET } from "$hooks/useFetchers"
 import { SingleProductResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
-import { useParams } from "react-router-dom"
 import { DisplayProductInfo } from "./ProductInfo"
 import { ProductReviews } from "./ProductReviews"
 import { RelatedProduct } from "./RelatedProduct"
 
 export const SingleProductInfo = ({ ...rest }) => {
-  const params = useParams()
+  const params = { id: 0 } // need to remove
   const { data, isError, isLoading } = useQuery({
     queryKey: ["product", params.id],
     queryFn: () => $GET({ url: `/product/all/${params.id}` }) as Promise<SingleProductResponse>,
