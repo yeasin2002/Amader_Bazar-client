@@ -1,4 +1,6 @@
 import { useId } from "react"
+import { LazyLoadImage } from "react-lazy-load-image-component"
+import "react-lazy-load-image-component/src/effects/blur.css"
 import { twMerge } from "tailwind-merge"
 
 interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
@@ -9,17 +11,17 @@ interface ImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   width?: number | string
 }
 
-export const Image = ({ src, alt = "", className, height = "%100", width = "%100" }: ImageProps) => {
+export const ImageLazy = ({ src, alt = "", className, height = "%100", width = "%100" }: ImageProps) => {
   const uuid = useId()
   return (
-    <img
-      src={src}
+    <LazyLoadImage
       alt={alt}
-      loading="lazy"
-      key={alt + uuid}
       height={height}
       width={width}
+      effect="blur"
+      src={src}
       className={twMerge("", className)}
+      key={alt + uuid}
       crossOrigin="anonymous"
     />
   )

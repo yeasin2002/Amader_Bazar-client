@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
 import { Product } from "$src/interface"
-import { Image } from "$ui"
+import { ImageLazy } from "$ui"
 import { getImgSrc } from "$utils/getImageSrc"
 import { Link } from "react-router-dom"
 import { BdTaka } from ".."
@@ -43,7 +43,13 @@ export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isL
             className="  flex  gap-x-4  rounded-sm border border-gray-200/40 px-2 py-4"
             key={val._id}>
             <div className="mx-2 h-full w-2/5 ">
-              <Image className="aspect-square h-full  w-full " src={imgSrc} alt={val.name} width={150} height={150} />
+              <ImageLazy
+                className="aspect-square h-full  w-full "
+                src={imgSrc}
+                alt={val.name}
+                width={150}
+                height={150}
+              />
             </div>
             <div className="flex w-full  flex-1 flex-col gap-y-3  ">
               <p className="heading-6 font-dosis"> {val.name} </p>

@@ -53,25 +53,4 @@ export const footerItems = [
       },
     ],
   },
-  // {
-  //   heading: "Account",
-  //   items: [
-  //     {
-  //       title: "First Link",
-  //       link: "",
-  //     },
-  //     {
-  //       title: "Second Link",
-  //       link: "",
-  //     },
-  //     {
-  //       title: "Third Link",
-  //       link: "",
-  //     },
-  //     {
-  //       title: "Fourth Link",
-  //       link: "",
-  //     },
-  //   ],
-  // },
 ]
