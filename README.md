@@ -1,34 +1,36 @@
-<div style="display: flex">
-<img
-      src="./public/amder-bajar-logo.png"
-      style="width: 50px; height: 50px"
-    />
- <h2> আমাদের বাজার <h2/>
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
- </div>
+## Getting Started
 
-The project is an online store that sells a variety of products
-and allows customers to browse, purchase, and track their orders. This repository contains only the code for the dashboard,
-which provides an interface for store administrators to manage products, view sales data, and track orders.
+First, run the development server:
 
-Live Link : [netlify](https://amaderbazar.netlify.app/)
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
 
-<!--
-## [Figma UI](https://www.figma.com/file/Douo9VLnXKBXb6B2cweSQs/Amader-Bazar?type=design&node-id=605%3A344&mode=design&t=Mne6rFKVXNd21MHM-1)
- -->
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-##### Commit lint convention
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-| Commit Type | Description                                                                                                 |
-| ----------- | ----------------------------------------------------------------------------------------------------------- |
-| build       | Changes that affect the build system or external dependencies (example scopes: gulp, broccoli, npm)         |
-| chore       | Changes to the build process or auxiliary tools and libraries such as documentation generation              |
-| ci          | Changes to our CI configuration files and scripts (example scopes: Travis, Circle, BrowserStack, SauceLabs) |
-| docs        | Documentation only changes                                                                                  |
-| feat        | A new feature                                                                                               |
-| fix         | A bug fix                                                                                                   |
-| perf        | A code change that improves performance                                                                     |
-| refactor    | A code change that neither fixes a bug nor adds a feature                                                   |
-| revert      | Reverts a previous commit                                                                                   |
-| style       | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)      |
-| test        | Adding missing tests or correcting existing tests                                                           |
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+
+## Learn More
+
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
