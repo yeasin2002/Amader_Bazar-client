@@ -5,6 +5,7 @@ import { useAuth } from "$hooks/useAuth"
 import { Logo } from "$layout"
 import { buttonVariants } from "$ui/button"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Fragment } from "react"
 import { UserProfileCheck } from "./UserProfileCheck"
 
@@ -41,10 +42,11 @@ export const Nav = () => {
       url: "/contact",
     },
   ]
+  const pathName = usePathname()
 
   return (
     <Fragment>
-      {!hiddenRoute.includes(location.pathname) && (
+      {!hiddenRoute.includes(pathName) && (
         <Fragment>
           <nav className="glass-effect fixed left-0  right-0 top-3  z-10 mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4 xl:py-6 2xl:py-8">
             <Link href={"/"} className="h-10 w-10 ">
@@ -52,7 +54,7 @@ export const Nav = () => {
             </Link>
             <div className="hidden gap-x-6  md:flex ">
               {navItems?.map((item) => {
-                const isActive = location.pathname === item.url
+                const isActive = pathName === item.url
                 return (
                   <Link
                     href={item.url}

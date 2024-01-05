@@ -1,3 +1,5 @@
+"use client"
+
 import delivery from "$assets/illustration/lottiy/delivery-team.json"
 import Lottie from "lottie-react"
 import { FC, HTMLAttributes, useState } from "react"
@@ -7,7 +9,7 @@ import { Registration } from "./Registration"
 
 type SingUpProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export const SingUp: FC<SingUpProps> = ({ ...rest }) => {
+const SingUp: FC<SingUpProps> = ({ ...rest }) => {
   const [isConfirmRegistration, setIsConfirmRegistration] = useState(false)
   const [pendingUserToken, setPendingUserToken] = useState("")
   return (
@@ -30,3 +32,5 @@ export const SingUp: FC<SingUpProps> = ({ ...rest }) => {
     </div>
   )
 }
+
+export default SingUp

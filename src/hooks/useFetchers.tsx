@@ -22,7 +22,7 @@ export async function $GET({ url, body, header }: Fetchers) {
 
 export async function $POST({ url = "", body = {}, header, contentType = "application/json" }: Fetchers) {
   console.log("🚀 ~ file: useFetchers.tsx:25 ~ $POST ~ body:", body)
-  const response = await fetch(baseUrl + url, {
+  const response = await fetch(clientEnv.baseUrl + url, {
     method: "POST",
     headers: {
       "Content-Type": contentType,
@@ -34,7 +34,7 @@ export async function $POST({ url = "", body = {}, header, contentType = "applic
   return await response.json()
 }
 export async function $PUT({ url = "", body = {}, header }: Fetchers) {
-  const response = await fetch(baseUrl + url, {
+  const response = await fetch(clientEnv.baseUrl + url, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export async function $PUT({ url = "", body = {}, header }: Fetchers) {
 }
 
 export async function $PATCH({ url = "", body = {}, header }: Fetchers) {
-  const response = await fetch(baseUrl + url, {
+  const response = await fetch(clientEnv.baseUrl + url, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
@@ -60,7 +60,7 @@ export async function $PATCH({ url = "", body = {}, header }: Fetchers) {
 }
 
 export async function $DELETE({ url = "", header }: Fetchers) {
-  const response = await fetch(baseUrl + url, {
+  const response = await fetch(clientEnv.baseUrl + url, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",

@@ -12,7 +12,7 @@ import { RenderAllSearchedProduct } from "./RenderAllSearchedProduct"
 
 type ShopProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export const Search: FC<ShopProps> = ({ ...rest }) => {
+const Search: FC<ShopProps> = ({ ...rest }) => {
   const { searchValue, setSearchValue } = useFilterProduct()
   const {
     data: categoriesData,
@@ -43,3 +43,4 @@ export const Search: FC<ShopProps> = ({ ...rest }) => {
     </div>
   )
 }
+export default Search

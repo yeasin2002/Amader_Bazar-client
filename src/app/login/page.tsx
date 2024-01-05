@@ -3,6 +3,7 @@
 import { AuthResponse } from "$types"
 import { useMutation } from "@tanstack/react-query"
 import Lottie from "lottie-react"
+import { useRouter } from "next/navigation"
 import { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
@@ -23,10 +24,10 @@ interface FormValues {
   password: string
 }
 
-export const Login: FC<LogInProps> = ({ ...rest }) => {
+const Login: FC<LogInProps> = ({ ...rest }) => {
   const auth = useAuth()
+  const navigate = useRouter()
 
-  // const navigate = useNavigate()
   const { register, formState, handleSubmit } = useForm<FormValues>()
 
   const { mutateAsync, isPending } = useMutation({
@@ -41,7 +42,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
       if (response.success) {
         auth.setLoggedIn(response.data.token)
         auth.setUserInfo(response.data.user)
-        // navigate("/")
+        navigate.push("/")
 
         return toast.success("Login Success")
       }
@@ -65,12 +66,7 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
 
       <div className="m-auto mx-auto w-full  rounded-lg bg-white p-6 shadow-md dark:bg-gray-800 ">
         <div className="mx-auto flex justify-center">
-          <Logo
-            className="h-14 w-14 cursor-pointer"
-            onClick={() => {
-              // navigate(-1)
-            }}
-          />
+          <Logo className="h-14 w-14 cursor-pointer" />
         </div>
         <form className="mt-6" onSubmit={handleSubmit(onSubmit)} key={"Log_in"}>
           <div>
@@ -120,3 +116,4 @@ export const Login: FC<LogInProps> = ({ ...rest }) => {
     </div>
   )
 }
+export default Login

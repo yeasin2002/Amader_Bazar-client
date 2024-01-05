@@ -7,7 +7,7 @@ import { DisplayCategory, FeatureProductWrapper, Hero, ProductContainer } from "
 import "./globals.css"
 
 const Home = () => {
-  return (
+  return ( 
     <div className="upperArea mb-0 h-full max-h-full w-full  bg-chai">
       <Hero />
       <DisplayCategory />

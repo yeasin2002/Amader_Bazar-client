@@ -2,7 +2,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 type NotFoundProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 
-export const NotFound: FC<NotFoundProps> = ({ ...rest }) => {
+const NotFound: FC<NotFoundProps> = ({ ...rest }) => {
   return (
     <section {...rest} className="bg-white dark:bg-gray-900 ">
       <div className="container mx-auto flex min-h-screen items-center px-6 py-12">
@@ -39,3 +39,5 @@ export const NotFound: FC<NotFoundProps> = ({ ...rest }) => {
     </section>
   )
 }
+
+export default NotFound

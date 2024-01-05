@@ -8,6 +8,7 @@ import location from "$assets/illustration/3D/location-pin.png"
 import message from "$assets/illustration/3D/message.png"
 import { InputCombo } from "$components"
 
+
 import { $POST } from "$hooks"
 import { Button, Textarea } from "$ui"
 import { useMutation } from "@tanstack/react-query"
@@ -20,7 +21,7 @@ interface Inputs {
 }
 
 type ContactProps = React.DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
-export const Contact: FC<ContactProps> = ({ ...rest }) => {
+const Contact: FC<ContactProps> = ({ ...rest }) => {
   const {
     register,
     handleSubmit,
@@ -105,3 +106,5 @@ export const Contact: FC<ContactProps> = ({ ...rest }) => {
     </section>
   )
 }
+
+ export default Contact

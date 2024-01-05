@@ -5,6 +5,7 @@ import { AuthResponse } from "$types"
 import { Button } from "$ui/button"
 import { useMutation } from "@tanstack/react-query"
 import { ArrowLeft } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { DetailedHTMLProps, FC, Fragment } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "sonner"
@@ -23,13 +24,14 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
   pendingUserToken,
   ...rest
 }) => {
+  const { setLoggedIn, setUserInfo } = useAuth()
+  const navigate = useRouter()
+
   const { mutateAsync, isPending } = useMutation({
     mutationKey: ["confirm-registration"],
     mutationFn: (body: { token: string; OTP: string }) =>
       $POST({ url: "/auth/confirm-registration", body: body }) as Promise<AuthResponse>,
   })
-  const { setLoggedIn, setUserInfo } = useAuth()
-  // const navigate = useNavigate()
 
   const { register, formState, handleSubmit } = useForm<ConfirmFormValues>()
   const onSubmit = async (data: ConfirmFormValues) => {
@@ -38,9 +40,10 @@ export const ConfirmRegistration: FC<ConfirmRegistrationProps> = ({
     if (!req?.success) return toast.error("Failed to confirm registration")
     setLoggedIn(req?.data?.token)
     setUserInfo(req.data?.user)
-    // navigate("/")
+    navigate.push("/")
     toast.success("Registration confirmed successfully")
   }
+
   return (
     <Fragment>
       <div className="flex ">
