@@ -1,4 +1,5 @@
 import shoe from "$assets/temp/products/shoe5.jpg"
+import Image from "next/image"
 
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
@@ -9,10 +10,12 @@ export const ViewCard: FC<ViewCardProps> = ({ ...rest }) => {
     <div {...rest}>
       <div className="p-4 lg:w-1/2">
         <div className="flex h-full flex-col items-center justify-center text-center sm:flex-row sm:justify-start sm:text-left">
-          <img
+          <Image
             alt="team"
             className="mb-4 h-48 w-48 flex-shrink-0 rounded-lg object-cover object-center sm:mb-0"
             src={shoe}
+            width={500}
+            height={500}
           />
           <div className="flex-grow sm:pl-8">
             <h2 className="title-font text-lg font-medium text-gray-900">Holden Caulfield</h2>

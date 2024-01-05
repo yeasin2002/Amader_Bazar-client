@@ -12,6 +12,7 @@ import Lottie from "lottie-react"
 
 import Link from "next/link"
 import { UserProfileInfo } from "./useProfileInfo"
+import { exo_2 } from "@/font"
 
 const Profile = ({ ...rest }) => {
   const { data, isLoading, isError, isSuccess } = useQuery({
@@ -21,7 +22,7 @@ const Profile = ({ ...rest }) => {
   const loadingComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
       <Lottie animationData={loadingImg} className="h-40 w-full" loop />
-      <p className="text-center  font-exo2 text-gray-500">Please wait for sometime</p>
+      <p className={"text-center   text-gray-500" + exo_2.className}>Please wait for sometime</p>
     </div>
   )
   const ErrorComponents = (
@@ -40,7 +41,7 @@ const Profile = ({ ...rest }) => {
 
   const noOrderFound = (
     <div>
-      <p className="text-center  font-exo2 text-gray-500">You {"don't"} have any orders yet</p>
+      <p className={"text-center   text-gray-500"+ exo_2.className}>You {"don't"} have any orders yet</p>
       <div className="flex justify-center">
         <Link href="/" className="font-hedvigLettersSerif text-blue-500 hover:underline">
           Go to shop

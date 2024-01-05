@@ -1,6 +1,6 @@
 import DefaultAvatar from "$assets/illustration/3D/avatar.webp"
-import { Image } from "$ui"
 import { PencilLine } from "lucide-react"
+import Image, { StaticImageData } from "next/image"
 import { ChangeEvent, FC, Fragment, useState } from "react"
 import { UseFormRegisterReturn } from "react-hook-form"
 
@@ -12,7 +12,7 @@ interface AvatarProps {
 
 export const Avatar: FC<AvatarProps> = ({ register }) => {
   const { ref, onChange, ...registerRest } = register
-  const [selectedImage, setSelectedImage] = useState(DefaultAvatar)
+  const [selectedImage, setSelectedImage] = useState<string | StaticImageData>(DefaultAvatar)
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
     if (event.target.files && event.target.files[0]) {
@@ -49,9 +49,3 @@ export const Avatar: FC<AvatarProps> = ({ register }) => {
     </Fragment>
   )
 }
-
-/*
- In my form i have a input file and if user select any file i want to show it in a img tag 
- and seleceted file should be display in img tag and also i want to show a default image if user not select any file
- I am using react-hook-form. How to do this  
-*/

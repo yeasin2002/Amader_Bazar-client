@@ -6,6 +6,7 @@ import { buttonVariants } from "$ui/button"
 import { Checkbox } from "$ui/checkbox"
 import { Label } from "$ui/label"
 import { Skeleton } from "$ui/skeleton"
+import Image from "next/image"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
 
 interface SelectCategoriesItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -33,7 +34,7 @@ export const SelectCategoriesItem: FC<SelectCategoriesItemProps> = ({ categories
   )
   const ErrorComponent = (
     <div className="flex flex-col items-center justify-center">
-      <img src={notFoundImg} alt="Error" className="w-4/5" />
+      <Image src={notFoundImg.src} alt="Error" className="w-4/5" width={500} height={500} />
       <h3>
         Unable to get categories <br /> Please try again later
       </h3>

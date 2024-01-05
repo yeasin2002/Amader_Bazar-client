@@ -1,7 +1,6 @@
 import notFound from "$assets/illustration/others/notFound.png"
+import { pt_sans_narrow } from "@/font"
 import { clientEnv } from "@/lib"
-
-ImageLazy
 
 import { useFilterProduct } from "@/store"
 import { ImageLazy } from "@/ui"
@@ -45,8 +44,8 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
           className="h-full w-full  object-cover p-4 transition-all group-hover:scale-105"
         />
       </span>
-      <h2 className="mb-2    mt-4 font-ptSansNarrow text-xl font-bold text-slate-900">{categoryName}</h2>
-      <p className="font-ptSansNarrow text-base font-medium text-slate-600">{desc}</p>
+      <h2 className="mb-2    mt-4  text-xl font-bold text-slate-900">{categoryName}</h2>
+      <p className={" text-base font-medium text-slate-600" + pt_sans_narrow.className}>{desc}</p>
     </div>
   )
 }

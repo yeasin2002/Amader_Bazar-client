@@ -1,6 +1,7 @@
 import lottieData from "$assets/illustration/lottiy/fast-shopping-delivery.json"
 import doneICon from "$assets/illustration/lottiy/success.json"
 import { AlertDialogAction } from "$ui/alert-dialog"
+import { pt_sans_narrow } from "@/font"
 import Lottie from "lottie-react"
 import { DetailedHTMLProps, FC, HTMLAttributes, useEffect, useState } from "react"
 
@@ -18,15 +19,17 @@ export const CheckoutSuccess: FC<CheckoutSuccessProps> = ({ ...rest }) => {
   const FirstStep = (
     <div>
       <Lottie animationData={doneICon} className="h-3/5 w-full" />
-      <h2 className="heading-4 text-center font-ptSansNarrow">Order Placed Successfully</h2>
+      <h2 className={"heading-4 text-center " + pt_sans_narrow.className}>Order Placed Successfully</h2>
     </div>
   )
   const SecondStep = (
     <div>
       <Lottie animationData={lottieData} className="h-3/5 w-full" />
-      <h2 className="heading-4 text-center font-ptSansNarrow">Order is on the way</h2>
-      <h3 className="heading-5 px-4 text-center font-ptSansNarrow">Thank you for shopping with us</h3>
-      <p className="heading-6 mt-5 px-16 text-center font-ptSansNarrow">
+      <h2 className={"heading-4 text-center font-ptSansNarrow" + pt_sans_narrow.className}>Order is on the way</h2>
+      <h3 className={"heading-5 px-4 text-center font-ptSansNarrow" + +pt_sans_narrow.className}>
+        Thank you for shopping with us
+      </h3>
+      <p className={"heading-6 mt-5 px-16 text-center font-ptSansNarrow" + +pt_sans_narrow.className}>
         We will contact with you for verification and deliver your order as soon as possible.
       </p>
     </div>

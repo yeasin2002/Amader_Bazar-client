@@ -15,6 +15,7 @@ import "swiper/css/free-mode"
 import "swiper/css/pagination"
 import { FreeMode, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
+import { kurale } from "@/font"
 
 export const DisplayCategory = () => {
   let categoryDisplay
@@ -81,7 +82,7 @@ export const DisplayCategory = () => {
           <span className="grid place-items-center   rounded-full bg-brand-900 p-2  text-white">
             <Tag className="text-gray-700" />
           </span>
-          <p className="font-kurale  text-2xl font-bold text-gray-800">Categories</p>
+          <p className={"  text-2xl font-bold text-gray-800"+ kurale.className}>Categories</p>
         </div>
       </div>
       <div>

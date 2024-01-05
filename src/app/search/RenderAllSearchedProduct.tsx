@@ -6,6 +6,7 @@ import { $POST } from "$hooks/useFetchers"
 import { useFilterProduct } from "$store/filteredProducts.store"
 import { SearchProductResponse } from "$types"
 import { useMutation } from "@tanstack/react-query"
+import Image from "next/image"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useEffect, useState } from "react"
 
 interface bodyData {
@@ -78,7 +79,7 @@ export const RenderAllSearchedProduct: FC<RenderAllSearchedProductProps> = ({ ..
       </div>
       {products?.data?.length === 0 && (
         <div className=" my-8  flex   w-full flex-col items-center justify-center">
-          <img src={emptyCard} alt="No Item Found" className=" h-1/2 w-1/2   " />
+          <Image src={emptyCard} alt="No Item Found" className=" h-1/2 w-1/2" width={500} height={500} />
           <h1
             className="
           text-center text-2xl font-bold text-slate-700

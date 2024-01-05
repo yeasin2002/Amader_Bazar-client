@@ -1,7 +1,8 @@
 import { cn } from "$lib/utils"
+import Image, { StaticImageData } from "next/image"
 
 interface DisplayCardProps {
-  url: string
+  url: StaticImageData
   title: string
   description: string
   className?: string
@@ -11,10 +12,12 @@ interface DisplayCardProps {
 export function DisplayCard({ description, url, title, className, dark }: DisplayCardProps) {
   return (
     <div className="stack group/card isolate overflow-hidden rounded-2xl">
-      <img
+      <Image
         src={url}
         alt="card-image"
         className="-z-10 h-full w-full object-cover object-center transition-transform duration-700 group-hover/card:scale-105"
+        width={500}
+        height={500}
       />
       <div className={cn("flex flex-col gap-4 self-end p-4 text-white md:p-8", className, { "text-black": dark })}>
         <h2

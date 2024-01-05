@@ -5,9 +5,10 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 import { HeroItems } from "$data"
-import { Image } from "$ui"
+
 
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import Image from "next/image"
 interface HeroSliderProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 export const HeroSlider: FC<HeroSliderProps> = ({ ...rest }) => {

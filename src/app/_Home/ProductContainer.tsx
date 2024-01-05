@@ -3,6 +3,7 @@
 import { ProductErrorSkeleton, ProductItem, ProductSkeleton } from "$components"
 import { $GET } from "$hooks/useFetchers"
 import { AllProductResponse } from "$types"
+import { kurale } from "@/font"
 import { useQuery } from "@tanstack/react-query"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
@@ -55,7 +56,7 @@ export const ProductContainer: FC<ProductContainerProps> = ({ heading, ...rest }
 
   return (
     <section {...rest} className="mb-10 mt-32 space-y-10 px-4">
-      <h2 className="font-kurale text-4xl  font-bold  ">{heading}</h2>
+      <h2 className={" text-4xl  font-bold  " + kurale.className}>{heading}</h2>
 
       <div className="grid grid-cols-1 gap-5 overflow-hidden sm:grid-cols-2 lg:grid-cols-4    ">
         {isError ? ErrorComponent : isLoading ? LoadingComponent : MainComponents}

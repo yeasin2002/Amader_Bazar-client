@@ -1,5 +1,5 @@
 import ErrorIcon from "$assets/illustration/3D/alert.png"
-import { Image } from "$ui"
+import Image from "next/image"
 import { HTMLAttributes } from "react"
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {}
 

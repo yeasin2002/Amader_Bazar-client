@@ -1,6 +1,5 @@
 "use client"
 
-export * from "./Image"
 export * from "./ImageLazy"
 export * from "./InputForPassword"
 export * from "./alert-dialog"
