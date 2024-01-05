@@ -1,4 +1,5 @@
 "use client"
+
 import loadingImg from "$assets/illustration/lottiy/loading.json"
 import errorImg from "$assets/illustration/lottiy/warningjson.json"
 import lonely from "$assets/illustration/lottiy/woman-shopping-online.json"
@@ -8,10 +9,11 @@ import { cn } from "$lib/utils"
 import { OrderByUserResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
 import Lottie from "lottie-react"
-import Link from "next/link"
-import { UserProfileInfo } from "../useProfileInfo"
 
-export const Default = ({ ...rest }) => {
+import Link from "next/link"
+import { UserProfileInfo } from "./useProfileInfo"
+
+const Profile = ({ ...rest }) => {
   const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["orders-of-user"],
     queryFn: () => $GET({ url: "/order" }) as Promise<OrderByUserResponse>,
@@ -40,8 +42,8 @@ export const Default = ({ ...rest }) => {
     <div>
       <p className="text-center  font-exo2 text-gray-500">You {"don't"} have any orders yet</p>
       <div className="flex justify-center">
-        <Link href="/">
-          <a className="font-hedvigLettersSerif text-blue-500 hover:underline">Go to shop</a>
+        <Link href="/" className="font-hedvigLettersSerif text-blue-500 hover:underline">
+          Go to shop
         </Link>
       </div>
       <div className="w-full">
@@ -131,6 +133,7 @@ export const Default = ({ ...rest }) => {
         })}
     </div>
   )
+
   return (
     <div className="h-full w-full space-y-14 px-2">
       <UserProfileInfo />
@@ -138,3 +141,5 @@ export const Default = ({ ...rest }) => {
     </div>
   )
 }
+
+export default Profile

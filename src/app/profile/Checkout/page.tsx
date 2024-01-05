@@ -1,3 +1,5 @@
+"use client"
+
 import emptyCard from "$assets/illustration/3D/empty-shopping-bucket.png"
 import { useSelectedProduct } from "$store"
 import { getImgSrc } from "$utils"
@@ -7,7 +9,7 @@ import Link from "next/link"
 import { Fragment } from "react"
 import { ConfirmOrder } from "./ConfirmOrder"
 
-export const Checkout = () => {
+const Checkout = () => {
   const { selectedProduct, increaseQuantity, decreaseQuantity, updateQuantity, removeProduct } = useSelectedProduct()
   return (
     <section className="w-full px-4 py-6">
@@ -107,3 +109,5 @@ export const Checkout = () => {
     </section>
   )
 }
+
+export default Checkout

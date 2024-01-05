@@ -1,6 +1,6 @@
 import { ProfileAndDashboardSidebar } from "$components/sidebar/ProfileAndDashboardSidebar"
 import { Heart, Settings, ShoppingCart, User } from "lucide-react"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { FC } from "react"
 
 const profileMenu = [
   {
@@ -25,12 +25,17 @@ const profileMenu = [
   },
 ]
 
-type indexProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+type indexProps = {
+  children: React.ReactNode
+}
 
-export const Profile: FC<indexProps> = ({ ...rest }) => {
+const ProfileLayout: FC<indexProps> = ({ children }: indexProps) => {
   return (
-    <section {...rest} className=" flex h-full w-full    ">
+    <section className=" flex h-full w-full    ">
       <ProfileAndDashboardSidebar menuItem={profileMenu} />
+      {children}
     </section>
   )
 }
+
+export default ProfileLayout

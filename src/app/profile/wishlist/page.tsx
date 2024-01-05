@@ -1,3 +1,5 @@
+"use client"
+
 import emptyCard from "$assets/illustration/others/empty-cart.svg"
 import { useFavoriteProductStore } from "$store"
 import { getImgSrc } from "$utils/getImageSrc"
@@ -5,7 +7,7 @@ import { ExternalLink, Trash2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
-export const Wishlist = () => {
+const Wishlist = () => {
   const { favoriteProduct, removeFavoriteProduct } = useFavoriteProductStore()
   return (
     <section className="h-full w-full space-y-10 p-4 py-5">
@@ -76,3 +78,5 @@ export const Wishlist = () => {
     </section>
   )
 }
+
+export default Wishlist

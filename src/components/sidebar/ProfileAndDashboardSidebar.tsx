@@ -1,3 +1,5 @@
+"use client"
+
 import homeImg from "$assets/illustration/3D/home.png"
 import { useLocalStorage } from "$hooks/useLocalStorage"
 
