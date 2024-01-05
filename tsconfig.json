@@ -1,27 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
-    "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-    "jsx": "react-jsx",
-
-    /* Bundler mode */
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-
-    /* Linting */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
     "baseUrl": ".",
     "paths": {
-      "$ui/*": ["src/ui/*"],
+      "@/*": ["./src/*"],
+      "$ui/*": ["./src/ui/*"],
       "$ui": ["src/ui"],
       "$style/*": ["src/style/*"],
       "$style": ["src/style"],
@@ -49,7 +49,7 @@
       "$/*": ["/*"]
     }
   },
-  "include": ["src"],
-  "exclude": ["commitlint.config.cjs"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js"],
+  "exclude": ["node_modules", "commitlint.config.cjs", ".next"]
 }

@@ -4,9 +4,10 @@ import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 import empty from "$assets/illustration/3D/empty-cart.png"
 import { useAuth } from "$hooks/index"
 import { useSelectedProduct } from "$store"
-import { Button, Image, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "$ui"
+import { Button, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "$ui"
 import { getImgSrc } from "$utils/getImageSrc"
-import { useNavigate } from "react-router-dom"
+
+import Image from "next/image"
 import { toast } from "sonner"
 import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 
@@ -15,7 +16,6 @@ type SelectedShoppingProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, H
 export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
   const { isLoggedIn } = useAuth()
   const { selectedProduct } = useSelectedProduct()
-  const navigate = useNavigate()
 
   const mainComponents = (
     <div className="h-full space-y-3 overflow-y-scroll">
@@ -63,10 +63,11 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
           <SheetFooter>
             <Button
               className="w-full -translate-y-7"
-              onClick={() => {
-                if (!isLoggedIn) return toast.warning("Please Log in first to Checkout")
-                navigate("/profile/checkout")
-              }}>
+              // onClick={() => {
+              //   if (!isLoggedIn) return toast.warning("Please Log in first to Checkout")
+              //   navigate("/profile/checkout")
+              // }}
+          >
               Checkout
             </Button>
           </SheetFooter>

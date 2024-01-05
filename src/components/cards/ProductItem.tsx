@@ -1,13 +1,15 @@
 import { Heart, ShoppingCart } from "lucide-react"
 import { FC } from "react"
-import { Link } from "react-router-dom"
+
 import { toast } from "sonner"
 
 import notFound from "$assets/illustration/others/notFound.png"
 import { useFavoriteProductStore } from "$store"
 import { Product } from "$types"
-import { Button, Image, buttonVariants } from "$ui"
+import { Button, buttonVariants } from "$ui"
 import { getImgSrc } from "$utils"
+import Image from "next/image"
+import Link from "next/link"
 import { BdTaka } from ".."
 
 interface productsPros {
@@ -75,7 +77,7 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
             className={buttonVariants({
               className: "btn-primary flex items-center justify-center gap-x-2",
             })}
-            to={`/shop/${_id}`}>
+            href={`/shop/${_id}`}>
             <ShoppingCart />
             <span>Details</span>
           </Link>

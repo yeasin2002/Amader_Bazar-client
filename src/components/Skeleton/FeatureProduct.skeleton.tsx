@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { Image } from "lucide-react"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 

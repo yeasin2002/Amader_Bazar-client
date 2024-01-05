@@ -1,15 +1,16 @@
-import { Fragment } from "react"
-import { Link, NavLink, useLocation } from "react-router-dom"
+"use client"
 
 import { FavoriteList, SelectedShopping } from "$components"
 import { useAuth } from "$hooks/useAuth"
 import { Logo } from "$layout"
 import { buttonVariants } from "$ui/button"
+import Link from "next/link"
+import { usePathname } from "next/navigation"
+import { Fragment } from "react"
 import { UserProfileCheck } from "./UserProfileCheck"
 
 export const Nav = () => {
   const { isLoggedIn } = useAuth()
-  const location = useLocation()
   const hiddenRoute = [
     "/dashboard",
     "/dashboard/order",
@@ -41,21 +42,22 @@ export const Nav = () => {
       url: "/contact",
     },
   ]
+  const pathName = usePathname()
 
   return (
     <Fragment>
-      {!hiddenRoute.includes(location.pathname) && (
+      {!hiddenRoute.includes(pathName) && (
         <Fragment>
           <nav className="glass-effect fixed left-0  right-0 top-3  z-10 mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4 xl:py-6 2xl:py-8">
-            <Link to={"/"} className="h-10 w-10 ">
+            <Link href={"/"} className="h-10 w-10 ">
               <Logo className="h-full w-full " />
             </Link>
             <div className="hidden gap-x-6  md:flex ">
               {navItems?.map((item) => {
-                const isActive = location.pathname === item.url
+                const isActive = pathName === item.url
                 return (
-                  <NavLink
-                    to={item.url}
+                  <Link
+                    href={item.url}
                     defaultValue={"/"}
                     key={item.title}
                     className={`group relative flex items-center   `}>
@@ -67,7 +69,7 @@ export const Nav = () => {
                         isActive && "w-full"
                       } `}
                     />
-                  </NavLink>
+                  </Link>
                 )
               })}
             </div>
@@ -78,7 +80,7 @@ export const Nav = () => {
                 <UserProfileCheck />
               ) : (
                 <Link
-                  to={"/login"}
+                  href={"/login"}
                   className={buttonVariants({
                     variant: "default",
                     className: " text-gray-700",

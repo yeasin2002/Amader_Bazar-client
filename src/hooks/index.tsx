@@ -1,3 +1,5 @@
+"use client"
+
 export * from "./useAuth"
 export * from "./useDocumentTitle"
 export * from "./useFetchers"

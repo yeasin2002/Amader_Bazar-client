@@ -3,10 +3,11 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 import empty from "$assets/illustration/3D/empty-cart.png"
 import { useFavoriteProductStore } from "$store"
-import { Image, Sheet, SheetContent, SheetTitle, SheetTrigger } from "$ui"
+import {  Sheet, SheetContent, SheetTitle, SheetTrigger } from "$ui"
 
 import { getImgSrc } from "$utils/getImageSrc"
 import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
+import Image from "next/image"
 
 type FavoriteListProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
@@ -35,7 +36,7 @@ export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
   )
   const NoProductComponent = (
     <div>
-      <Image src={empty} alt="empty card" className="mt-32" />
+      <Image src={empty.src} alt="empty card" className="mt-32" width={100} height={100} />
       <p className="mt-10 text-center text-2xl font-bold">No Item Selected</p>
     </div>
   )

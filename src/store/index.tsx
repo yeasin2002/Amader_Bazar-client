@@ -1,3 +1,5 @@
+"use client"
+
 export * from "./auth.store"
 export * from "./favoriteProduct.store"
 export * from "./filteredProducts.store"

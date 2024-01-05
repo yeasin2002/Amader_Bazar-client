@@ -1,4 +1,6 @@
-export * from "./Image"
+"use client"
+
+export * from "./ImageLazy"
 export * from "./InputForPassword"
 export * from "./alert-dialog"
 export * from "./avatar"
@@ -21,4 +23,3 @@ export * from "./textarea"
 export * from "./toast"
 export * from "./toaster"
 export * from "./use-toast"
-export * from "./ImageLazy"

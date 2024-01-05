@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom"
+import Image from "next/image"
+import Link from "next/link"
 
 interface FavoriteAndSelectedItemProps {
   _id: string
@@ -18,15 +19,17 @@ export const FavoriteAndSelectedItem = ({
 }: FavoriteAndSelectedItemProps) => {
   return (
     <Link
-      to={`/shop/${_id}`}
+      href={`/shop/${_id}`}
       key={_id}
-      className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700 md:max-w-xl md:flex-row"
+      className="flex flex-col items-center rounded-lg border border-gray-200 bg-white shadow hover:bg-gray-100 md:max-w-xl md:flex-row dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700"
       {...rest}>
-      <img
+      <Image
         className="h-16  w-16 rounded-t-lg object-cover md:h-auto  md:rounded-none md:rounded-s-lg"
         src={imgUrl}
         alt="product image"
         crossOrigin="anonymous"
+        width={400}
+        height={400}
       />
       <div className="flex flex-col justify-between p-4 leading-normal">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {name} </h5>
