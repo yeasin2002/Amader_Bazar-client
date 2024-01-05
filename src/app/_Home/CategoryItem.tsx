@@ -1,9 +1,13 @@
 import notFound from "$assets/illustration/others/notFound.png"
+import { clientEnv } from "@/lib"
 
-import { clientEnv } from "$lib"
-import { useFilterProduct } from "$store"
-import { Image } from "$ui"
-import { StaticImageData } from "next/image"
+ImageLazy
+
+import { useFilterProduct } from "@/store"
+import { ImageLazy } from "@/ui"
+import { getImgSrc } from "@/utils"
+import Image, { StaticImageData } from "next/image"
+
 import { HTMLAttributes } from "react"
 
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
@@ -21,6 +25,10 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
     imgUrl = `${clientEnv.baseUrl}/extra/category-img/${icon}`
   }
 
+  const img = getImgSrc({
+    imgType: "category-img",
+    img: icon,
+  })
   return (
     <div
       className=" into-center group aspect-square cursor-pointer flex-col "
@@ -31,11 +39,10 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
         // navigate("/search")
       }}>
       <span className="into-center h-28 w-28 rounded-full bg-gray-300/50 ">
-        <Image
-          // src={imgUrl }
-          src={notFound.src}
+        <ImageLazy
+          src={img}
           alt={categoryName}
-          className="h-full w-full object-cover p-4 transition-all group-hover:scale-105"
+          className="h-full w-full  object-cover p-4 transition-all group-hover:scale-105"
         />
       </span>
       <h2 className="mb-2    mt-4 font-ptSansNarrow text-xl font-bold text-slate-900">{categoryName}</h2>

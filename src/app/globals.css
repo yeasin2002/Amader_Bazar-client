@@ -49,6 +49,67 @@
     @apply  md:hidden block
   }
 }
+/*? Selected Product Style  */
+@layer components {
+  .profile-product-table-td {
+    @apply px-6 py-4;
+  }
+  .profile-product-table-tr {
+    @apply my-4 border-b bg-white hover:bg-gray-50;
+  }
+  .profile-product-action-btn {
+    @apply me-3 inline-flex h-6 w-6 items-center justify-center rounded-full border border-gray-300 bg-white p-1 text-sm font-medium text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-4 focus:ring-gray-200;
+  }
+  .profile-product-quantity-input {
+    @apply block w-14 rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-1 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500;
+  }
+  .profile-product-dlt-btn {
+    @apply inline-block cursor-pointer rounded-full bg-gray-100 p-2 hover:bg-gray-200;
+  }
+}
+/*? Selected Product Style End */
+
+/*! lib style */
+@layer components {
+  .heading-default {
+    @apply mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 dark:text-white md:text-5xl lg:text-6xl;
+  }
+  .heading-1 {
+    @apply text-5xl font-extrabold;
+  }
+  .heading-2 {
+    @apply text-4xl font-bold;
+  }
+  .heading-3 {
+    @apply text-3xl font-bold;
+  }
+  .heading-4 {
+    @apply text-2xl font-bold;
+  }
+  .heading-5 {
+    @apply text-xl font-bold;
+  }
+  .heading-6 {
+    @apply text-lg font-bold;
+  }
+  .word-sm {
+    @apply font-ptSansNarrow text-xs font-semibold text-gray-500
+  }
+
+  .word-gradient {
+    @apply mb-4 bg-gradient-to-r from-sky-400 to-emerald-600  bg-clip-text text-3xl font-extrabold text-gray-900 text-transparent md:text-5xl lg:text-6xl;
+  }
+
+  .word-underline {
+    @apply underline  decoration-blue-400 decoration-8 underline-offset-2;
+  }
+
+  .word-mark {
+    @apply rounded bg-blue-600 px-2 text-white dark:bg-blue-500;
+  }
+}
+/*! lib style End */
+
 
 @layer base {
   :root {
@@ -129,3 +190,6 @@
   backdrop-filter: blur(5px);
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
+
+

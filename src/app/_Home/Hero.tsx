@@ -11,6 +11,8 @@ import { cn } from "$lib/utils"
 
 import Image from "next/image"
 
+
+import { buttonVariants } from "@/ui"
 import Link from "next/link"
 import { randomDesc } from "./HeroDesc"
 
@@ -23,14 +25,25 @@ export const Hero = () => {
         <div className="flex flex-col justify-between">
           <div className="flex flex-col place-items-center space-y-8 px-2">
             <h1 className="mb-4 text-center font-kurale text-4xl font-bold text-gray-800">Amader Bazar</h1>
-            <p className="font-jost">{randomDesc()}</p>
+            <p>{randomDesc()}</p>
           </div>
           <div className="my-3 mt-8 flex justify-between gap-x-2 ">
-            <Link href={"/search"} className={cn("mr-2  rounded-xl", { "w-full": !isLoggedIn })}>
+            <Link
+              href={"/search"}
+              // className={cn("mr-2  rounded-xl", { "w-full": !isLoggedIn })}
+              className={buttonVariants({
+                className: cn("mr-2  rounded-xl", { "w-full": !isLoggedIn }),
+              })}>
               Start Shopping
             </Link>
             {!isLoggedIn && (
-              <Link href={"/singup"} className={"mr-2 w-full rounded-xl"}>
+              <Link
+                href={"/singup"}
+                //  className={"mr-2 w-full rounded-xl "}
+                className={buttonVariants({
+                  className: cn("mr-2  rounded-xl", { "w-full": !isLoggedIn }),
+                  variant: "dark",
+                })}>
                 Sing UP
               </Link>
             )}

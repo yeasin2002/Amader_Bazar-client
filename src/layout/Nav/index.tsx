@@ -1,10 +1,11 @@
-import { Fragment } from "react"
+"use client"
 
 import { FavoriteList, SelectedShopping } from "$components"
 import { useAuth } from "$hooks/useAuth"
 import { Logo } from "$layout"
 import { buttonVariants } from "$ui/button"
 import Link from "next/link"
+import { Fragment } from "react"
 import { UserProfileCheck } from "./UserProfileCheck"
 
 export const Nav = () => {

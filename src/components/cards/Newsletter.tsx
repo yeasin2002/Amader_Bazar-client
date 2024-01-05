@@ -3,13 +3,14 @@
 import { MailOpen, Send } from "lucide-react"
 import { SubmitHandler, useForm } from "react-hook-form"
 
-import bg from "$assets/cover/main.jpg"
 import { $POST } from "$hooks/useFetchers"
 import { Button } from "$ui"
+import bg from "@/assets/cover/main.jpg"
 import { useMutation } from "@tanstack/react-query"
 import { Fragment } from "react"
 import { toast } from "sonner"
 import { InputCombo, LoadingSpinner } from "../index"
+
 interface newsletterElements {
   email: string
 }
@@ -35,7 +36,7 @@ export const Newsletter = () => {
     <div
       className="relative h-full w-full px-10 py-10 sm:px-24 md:py-32 2xl:px-24"
       style={{
-        backgroundImage: `url(${bg})`,
+        backgroundImage: `url(${bg.src})`,
         objectFit: "cover",
         backgroundSize: "cover",
         backgroundPosition: "center",
