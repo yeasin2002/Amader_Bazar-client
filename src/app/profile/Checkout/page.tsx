@@ -49,13 +49,14 @@ const Checkout = () => {
                   <Fragment key={item._id}>
                     <tr className="profile-product-table-tr ">
                       <td className="hidden-mobile p-4">
-                        <Image src={imgSrc} height={100} width={100} alt="Apple Watch" />
+                        <Image src={imgSrc} height={500} width={500} alt="Apple Watch" className="size-20" />
                       </td>
                       <td className="profile-product-table-td font-semibold text-gray-900 ">
                         <Link href={`/shop/${item._id}`} className="hover:underline">
                           {item.name}
                         </Link>
                       </td>
+
                       <td className="profile-product-table-td">
                         <div className="flex items-center gap-x-3">
                           <button
@@ -102,7 +103,7 @@ const Checkout = () => {
       )}
       {selectedProduct?.length === 0 && (
         <div className="mt-6   grid w-full place-items-center gap-y-1">
-          <Image src={emptyCard} alt="Empty" className="aspect-square  h-80 " />
+          <Image src={emptyCard} alt="Empty" className="aspect-square  size-96" />
           <h1 className="text-center font-jost text-2xl font-semibold text-gray-900">No Product Selected</h1>
         </div>
       )}

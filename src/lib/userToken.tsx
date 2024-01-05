@@ -1,3 +1,4 @@
+"use client"
 export const setUsersToken = (token: string) => {
   localStorage.setItem("usersToken", token)
 }

@@ -28,6 +28,8 @@ export const FavoriteAndSelectedItem = ({
         src={imgUrl}
         alt="product image"
         crossOrigin="anonymous"
+        width={400}
+        height={400}
       />
       <div className="flex flex-col justify-between p-4 leading-normal">
         <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"> {name} </h5>

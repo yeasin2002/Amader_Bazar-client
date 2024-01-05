@@ -24,6 +24,7 @@ export const DisplayCategory = () => {
     isLoading,
   } = useQuery({
     queryKey: ["categories", "all"],
+    staleTime: 86400000,
     queryFn: async () => $GET({ url: "/category" }) as Promise<CategoriesResponse>,
   })
 

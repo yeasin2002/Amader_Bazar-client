@@ -2,6 +2,7 @@ import avatarImg from "$assets/illustration/others/user.jpg"
 import { useAuth } from "$hooks"
 import { Button } from "$ui/button"
 import { getImgSrc } from "$utils"
+import Image from "next/image"
 import { Fragment } from "react"
 
 export const UserProfileInfo = () => {
@@ -15,14 +16,13 @@ export const UserProfileInfo = () => {
   const mainComponents = (
     <Fragment>
       <div className="flex items-center gap-x-3">
-        <img
-          src={imgSrc || avatarImg}
+        <Image
+          src={imgSrc || avatarImg.src}
           alt="avatar"
-          className="aspect-square h-14 w-14 rounded-full"
+          className="aspect-square h-14 w-14 rounded-full  object-cover"
           crossOrigin="anonymous"
-          onError={(e) => {
-            e.currentTarget.src = avatarImg
-          }}
+          width={100}
+          height={100}
         />
         <div>
           <p className="lg:heading-4 heading-6 font-ptSansNarrow font-bold  capitalize text-gray-800">

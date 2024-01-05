@@ -1,22 +1,22 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
+"use client"
 
 const setStorage = (key: string, value: any) => {
-  localStorage.setItem(key, JSON.stringify(value))
+  if (typeof window !== "undefined") return localStorage.setItem(key, JSON.stringify(value))
 }
 
 const getStorage = (key: string) => {
-  return localStorage.getItem(key)
+  if (typeof window !== "undefined") return localStorage.getItem(key)
 }
 
 const clearStorageItem = (key: string) => {
-  localStorage.removeItem(key)
+  if (typeof window !== "undefined") localStorage.removeItem(key)
 }
 const clearStorage = () => {
-  localStorage.clear()
+  if (typeof window !== "undefined") localStorage.clear()
 }
 
 const shakeStorage = (cb: EventListener) => {
-  return window.addEventListener("storage", cb)
+  if (typeof window !== "undefined") return window.addEventListener("storage", cb)
 }
 
 export const useLocalStorageUtils = {

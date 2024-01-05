@@ -1,9 +1,10 @@
 import { FacebookIcon, GithubIcon, Heart, LinkedinIcon, Star } from "lucide-react"
+import Image from "next/image"
 import { Fragment } from "react"
 
 import notFound from "$assets/illustration/others/notFound.png"
 import { EachProductErrorSkeleton, EachProductSkeleton } from "$components"
-import { baseUrl } from "$lib"
+import { clientEnv } from "$lib"
 import { useFavoriteProductStore, useSelectedProduct } from "$store"
 import { Product } from "$types"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "$ui"
@@ -22,7 +23,7 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
   if (!data?.img) {
     imgUrl = notFound
   } else {
-    imgUrl = `${baseUrl}/extra/product-img/${data?.img}`
+    imgUrl = `${clientEnv.baseUrl}/extra/product-img/${data?.img}`
   }
   const favoriteProductHandler = () => {
     if (!data) return
@@ -41,11 +42,13 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
       <section className="body-font overflow-hidden text-gray-600" {...rest}>
         <div className="container mx-auto px-5 py-24">
           <div className="mx-auto flex flex-wrap lg:w-4/5">
-            <img
+            <Image
+              src={imgUrl}
               alt="ecommerce"
               className="h-64 w-full rounded object-cover object-center lg:h-auto lg:w-1/2"
-              src={imgUrl}
               crossOrigin="anonymous"
+              width={1000}
+              height={1000}
             />
             <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10">
               <h2 className="title-font text-sm tracking-widest text-gray-500">{data?.category}</h2>
