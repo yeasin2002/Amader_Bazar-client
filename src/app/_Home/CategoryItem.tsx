@@ -1,10 +1,11 @@
 import notFound from "$assets/illustration/others/notFound.png"
 
-import { baseUrl } from "$lib/exportEnv"
+import { clientEnv } from "$lib"
 import { useFilterProduct } from "$store"
 import { Image } from "$ui"
 import { StaticImageData } from "next/image"
 import { HTMLAttributes } from "react"
+
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
   categoryName: string
   icon: string
@@ -17,7 +18,7 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
   if (!icon) {
     imgUrl = notFound
   } else {
-    imgUrl = `${baseUrl}/extra/category-img/${icon}`
+    imgUrl = `${clientEnv.baseUrl}/extra/category-img/${icon}`
   }
 
   return (

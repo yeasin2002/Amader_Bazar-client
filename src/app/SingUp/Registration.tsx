@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 
 import { InputCombo } from "$components"
-import { baseUrl } from "$lib/exportEnv"
+import { clientEnv } from "$lib"
+
 import { InputForPassword } from "$ui/InputForPassword"
 import { Button } from "$ui/button"
 import Link from "next/link"
@@ -45,7 +46,7 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration, 
       formData.append("address", data.address)
       formData.append("avatar", data.avatar[0])
 
-      const postRegister = await fetch(baseUrl + "/auth/register", {
+      const postRegister = await fetch(clientEnv.baseUrl + "/auth/register", {
         method: "POST",
         body: formData,
       })

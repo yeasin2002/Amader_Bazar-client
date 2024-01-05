@@ -9,7 +9,8 @@ export const metadata: Metadata = {
   title: "Amader Bazar",
   description: "Best online shopping site in Bangladesh",
 }
-
+  
+  
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">

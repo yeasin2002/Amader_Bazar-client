@@ -1,6 +1,5 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import notFound from "$assets/illustration/others/notFound.png"
-import { baseUrl } from "$lib/exportEnv"
+import { clientEnv } from "$lib"
 
 interface getImgProps {
   img: string | undefined
@@ -13,7 +12,7 @@ export const getImgSrc = ({ img, imgType, notFoundImg = notFound }: getImgProps)
   if (!img) {
     imgUrl = notFoundImg
   } else {
-    imgUrl = `${baseUrl}/extra/${imgType}/${img}`
+    imgUrl = `${clientEnv.baseUrl}/extra/${imgType}/${img}`
   }
 
   return imgUrl

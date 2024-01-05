@@ -1,4 +1,4 @@
-import { baseUrl, getUsersToken } from "$lib"
+import { clientEnv, getUsersToken } from "$lib"
 
 interface Fetchers {
   url: string
@@ -8,7 +8,7 @@ interface Fetchers {
 }
 
 export async function $GET({ url, body, header }: Fetchers) {
-  const response = await fetch(baseUrl + url, {
+  const response = await fetch(clientEnv.baseUrl + url, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
