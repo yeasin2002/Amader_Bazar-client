@@ -1,10 +1,6 @@
 import { footerContact, footerItems } from "$data/footerData"
 import { Logo } from "$layout/logo"
 
-/**
- * Footer component for the website.
- * Displays the logo, footer items, and contact information.
- */
 export const Footer = () => {
   const currentYear = new Date().getFullYear()
   return (

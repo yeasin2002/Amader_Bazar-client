@@ -1,10 +1,11 @@
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+"use client"
 
 import { Product } from "$src/interface"
-
-import { getImgSrc } from "$utils/getImageSrc"
 import Image from "next/image"
 import Link from "next/link"
+import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+
+import { getImgSrc } from "$utils/getImageSrc"
 import { BdTaka } from ".."
 import { FeatureProductErrorSkeleton, FeatureProductSkeleton } from "../index"
 
@@ -15,7 +16,13 @@ interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEl
   isError?: boolean
 }
 
-export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isLoading, isError, ...rest }) => {
+export const FeatureProducts: FC<FeatureProductProps> = ({
+  heading,
+  product,
+  isLoading = false,
+  isError = false,
+  ...rest
+}) => {
   const LoadingComponent = (
     <div className="space-y-3">
       {Array.from(Array(3))?.map((_, index) => {
@@ -44,13 +51,7 @@ export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isL
             className="  flex  gap-x-4  rounded-sm border border-gray-200/40 px-2 py-4"
             key={val._id}>
             <div className="mx-2 h-full w-2/5 ">
-              <Image
-                className="aspect-square h-full  w-full "
-                src={imgSrc}
-                alt={val.name}
-                width={150}
-                height={150}
-              />
+              <Image className="aspect-square h-full  w-full " src={imgSrc} alt={val.name} width={150} height={150} />
             </div>
             <div className="flex w-full  flex-1 flex-col gap-y-3  ">
               <p className="heading-6 font-dosis"> {val.name} </p>

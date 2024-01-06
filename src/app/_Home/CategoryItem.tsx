@@ -1,12 +1,12 @@
-import notFound from "$assets/illustration/others/notFound.png"
-import { pt_sans_narrow } from "@/font"
-import { clientEnv } from "@/lib"
+import Image from "next/image"
+import { useRouter } from "next/navigation"
+import { HTMLAttributes } from "react"
 
+import { pt_sans_narrow } from "@/font"
 import { useFilterProduct } from "@/store"
 import { getImgSrc } from "@/utils"
-import Image, { StaticImageData } from "next/image"
 
-import { HTMLAttributes } from "react"
+import notFound from "$assets/illustration/others/notFound.png"
 
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
   categoryName: string
@@ -15,18 +15,13 @@ interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: CategoryItemProps) => {
+  const router = useRouter()
   const { setSelectedCategory, setResetFilter } = useFilterProduct()
-  let imgUrl
-  if (!icon) {
-    imgUrl = notFound
-  } else {
-    imgUrl = `${clientEnv.baseUrl}/extra/category-img/${icon}`
-  }
-
   const img = getImgSrc({
     imgType: "category-img",
     img: icon,
   })
+
   return (
     <div
       className=" into-center group aspect-square cursor-pointer flex-col "
@@ -34,15 +29,16 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
       onClick={() => {
         setResetFilter()
         setSelectedCategory(categoryName)
-        // navigate("/search")
+        router.push("/search")
       }}>
       <span className="into-center h-28 w-28 rounded-full bg-gray-300/50 ">
         <Image
-          src={img}
+          src={img || notFound.src}
           alt={categoryName}
           className="h-full w-full  object-cover p-4 transition-all group-hover:scale-105"
           width={500}
           height={500}
+          crossOrigin="anonymous"
         />
       </span>
       <h2 className="mb-2    mt-4  text-xl font-bold text-slate-900">{categoryName}</h2>
