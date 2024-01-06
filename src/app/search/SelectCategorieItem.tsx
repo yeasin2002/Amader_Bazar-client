@@ -1,3 +1,5 @@
+"use client"
+
 import notFoundImg from "$assets/illustration/3D/warning.png"
 import { cn } from "$lib/utils"
 import { useFilterProduct } from "$store/filteredProducts.store"

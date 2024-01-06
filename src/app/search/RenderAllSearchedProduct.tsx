@@ -41,7 +41,6 @@ export const RenderAllSearchedProduct: FC<RenderAllSearchedProductProps> = ({ ..
     })
   }, [mutateAsync, searchValue, selectedCategory, minPrice, maxPrice])
 
-  console.log("🚀 ~ file: RenderAllSearchedProduct.tsx:42 ~ products?.data?.length:", products?.data)
   const loadingComponents = (
     <div className="grid flex-1 grid-cols-1 gap-5 md:grid-cols-2   lg:grid-cols-3 ">
       {Array.from(Array(10).keys())?.map((val) => {

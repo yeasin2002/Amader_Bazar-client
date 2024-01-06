@@ -1,3 +1,5 @@
+"use client"
+
 import { Product } from "$types"
 import { create } from "zustand"
 import { combine, persist } from "zustand/middleware"

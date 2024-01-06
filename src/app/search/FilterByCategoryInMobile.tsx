@@ -29,8 +29,8 @@ const ErrorComponent = <div></div>
 
 export const FilterByCategoryInMobile: FC<FilterByCategoryInMobileProps> = ({
   categories,
-  isLoading,
-  isError,
+  isLoading = false,
+  isError = false,
   ...rest
 }) => {
   const mainComponent = (

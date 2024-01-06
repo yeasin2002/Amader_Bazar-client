@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "$lib/utils"
 import { useFilterProduct } from "$store"
 import { categoryData } from "$types"
@@ -8,11 +10,17 @@ import { SelectCategoriesItem } from "./SelectCategorieItem"
 interface FilterCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   className?: string
   categories: categoryData[] | null | undefined
-  isLoading: boolean
-  isError: boolean
+  isLoading?: boolean
+  isError?: boolean
 }
 
-export const FilterCard: FC<FilterCardProps> = ({ className, categories, isLoading, isError, ...rest }) => {
+export const FilterCard: FC<FilterCardProps> = ({
+  className,
+  categories,
+  isLoading = false,
+  isError = false,
+  ...rest
+}) => {
   const filterStore = useFilterProduct()
 
   return (

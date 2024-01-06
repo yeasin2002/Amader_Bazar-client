@@ -1,13 +1,14 @@
+"use client"
+
 import { Heart, ShoppingCart } from "lucide-react"
 import { FC } from "react"
-
 import { toast } from "sonner"
 
 import notFound from "$assets/illustration/others/notFound.png"
-import { useFavoriteProductStore } from "$store"
-import { Product } from "$types"
-import { Button, buttonVariants } from "$ui"
-import { getImgSrc } from "$utils"
+import { Product } from "@/interface"
+import { useFavoriteProductStore } from "@/store"
+import { Button, buttonVariants } from "@/ui"
+import { getImgSrc } from "@/utils"
 import Image from "next/image"
 import Link from "next/link"
 import { BdTaka } from ".."
@@ -25,6 +26,7 @@ interface productsPros {
 
 export const ProductItem: FC<productsPros> = ({ title, category, img, price, discountPrice = 0, theProduct, _id }) => {
   const { toggleFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
+  const checkLovedProduct = favoriteProduct.filter((item) => item._id === _id)[0]
 
   const imgUrl = getImgSrc({
     img,
@@ -32,11 +34,8 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
     notFoundImg: notFound,
   })
 
-  const checkLovedProduct = favoriteProduct.filter((item) => item._id === _id)[0]
-
   const FavoriteAddingHandler = () => {
-    if (!theProduct) return
-    toggleFavoriteProduct(theProduct)
+    theProduct && toggleFavoriteProduct(theProduct)
     if (checkLovedProduct) {
       toast.warning("Product removed from favorite")
     } else {

@@ -1,3 +1,5 @@
+"use client"
+
 import { FacebookIcon, GithubIcon, Heart, LinkedinIcon, Star } from "lucide-react"
 import Image from "next/image"
 import { Fragment } from "react"
