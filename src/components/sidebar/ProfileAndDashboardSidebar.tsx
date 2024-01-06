@@ -1,13 +1,14 @@
 "use client"
 
-import homeImg from "$assets/illustration/3D/home.png"
-import { useLocalStorage } from "$hooks/useLocalStorage"
-
 import { ChevronRightSquare } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { Fragment, HTMLAttributes, useState } from "react"
 import { twMerge } from "tailwind-merge"
+
+import homeImg from "$assets/illustration/3D/home.png"
+import { useLocalStorage } from "$hooks/useLocalStorage"
 
 interface ProfileAndDashboardSidebarProps
   extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -21,6 +22,8 @@ interface ProfileAndDashboardSidebarProps
 export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDashboardSidebarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const { value: activeMenu, setLocalStorage: setActiveMenu } = useLocalStorage("sidebar-item")
+  const pathname = usePathname()
+
   const LargeDevice = (
     <aside
       {...rest}
@@ -35,12 +38,11 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
         {menuItem?.map((items) => {
           return (
             <Link
-              onClick={() => setActiveMenu(items.title)}
               href={items.url}
               className={twMerge(
                 `flex  cursor-pointer gap-x-2  border-b-4 border-white p-2 font-semibold
               text-gray-700 hover:text-gray-900 `,
-                activeMenu === items.title && "border-brand-900"
+                pathname === items.url && "border-brand-900"
               )}
               key={items.title + items.url}>
               {items.icon}
@@ -62,12 +64,11 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
         return (
           <Link
             key={item.title + item.url}
-            onClick={() => setActiveMenu(item.title)}
             href={item.url}
             className={twMerge(
               `flex  cursor-pointer gap-x-2  border-b-4 border-white p-2 font-semibold
               text-gray-700 hover:text-gray-900 `,
-              activeMenu === item.title && "border-brand-900"
+              pathname === item.url && "border-brand-900"
             )}>
             <p className="flex flex-col items-center justify-center gap-y-2 font-fresca capitalize">
               {item.icon}

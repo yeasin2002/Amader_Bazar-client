@@ -21,7 +21,7 @@ which provides an interface for store administrators to manage products, view sa
 ![Netlify Status](https://api.netlify.com/api/v1/badges/568b6d73-ba9e-4919-bd3a-c7d4593679bd/deploy-status)
 
 
-
+<!-- 
 ##### Commit lint convention
 
 | Commit Type | Description                                                                                                 |
@@ -36,4 +36,4 @@ which provides an interface for store administrators to manage products, view sa
 | refactor    | A code change that neither fixes a bug nor adds a feature                                                   |
 | revert      | Reverts a previous commit                                                                                   |
 | style       | Changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)      |
-| test        | Adding missing tests or correcting existing tests                                                           |
+| test        | Adding missing tests or correcting existing tests                                                           | -->
