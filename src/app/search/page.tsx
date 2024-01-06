@@ -10,7 +10,6 @@ type ShopProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElemen
 
 const Search: FC<ShopProps> = async ({ ...rest }) => {
   const categoriesData = (await $fetch("/category")) as CategoriesResponse
-  console.log("🚀CategoriesData:", categoriesData)
 
   return (
     <div {...rest} className=" upperArea container   ">

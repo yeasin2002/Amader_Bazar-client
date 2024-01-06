@@ -1,3 +1,5 @@
+"use client"
+
 import avatarImg from "$assets/illustration/others/user.jpg"
 import { useAuth } from "$hooks"
 import { Button } from "$ui/button"
@@ -26,16 +28,13 @@ export const UserProfileInfo = () => {
           height={100}
         />
         <div>
-          <p
-            className={
-              "lg:heading-4 heading-6  font-bold  capitalize text-gray-800" + pt_sans_narrow.className
-            }>
+          <p className={"lg:heading-4 heading-6  font-bold  capitalize text-gray-800" + pt_sans_narrow.className}>
             {name}
             {isAdmin && (
               <span className=" ml-2 rounded-md bg-brand-500 p-1 font-kurale text-xs text-slate-800">Admin</span>
             )}
           </p>
-          <p className={" text-xs font-semibold text-gray-500"+ pt_sans_narrow.className}>{email}</p>
+          <p className={" text-xs font-semibold text-gray-500" + pt_sans_narrow.className}>{email}</p>
         </div>
       </div>
     </Fragment>

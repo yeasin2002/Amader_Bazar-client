@@ -30,8 +30,6 @@ export const DisplayCategory = () => {
     staleTime: 86400000,
     queryFn: async () => $GET({ url: "/category" }) as Promise<CategoriesResponse>,
   })
-  console.log("🚀 ~ CategoriesData:", CategoriesData)
-  console.log("🚀 ~ CategoriesData error:", error)
 
   const LoadingComponent = (
     <Fragment>
