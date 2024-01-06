@@ -3,7 +3,6 @@ import { pt_sans_narrow } from "@/font"
 import { clientEnv } from "@/lib"
 
 import { useFilterProduct } from "@/store"
-import { ImageLazy } from "@/ui"
 import { getImgSrc } from "@/utils"
 import Image, { StaticImageData } from "next/image"
 
@@ -38,10 +37,12 @@ export const CategoryItem = ({ categoryName, icon, desc = "", ...rest }: Categor
         // navigate("/search")
       }}>
       <span className="into-center h-28 w-28 rounded-full bg-gray-300/50 ">
-        <ImageLazy
+        <Image
           src={img}
           alt={categoryName}
           className="h-full w-full  object-cover p-4 transition-all group-hover:scale-105"
+          width={500}
+          height={500}
         />
       </span>
       <h2 className="mb-2    mt-4  text-xl font-bold text-slate-900">{categoryName}</h2>

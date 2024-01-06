@@ -1,8 +1,9 @@
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
 import { Product } from "$src/interface"
-import { ImageLazy } from "$ui"
+
 import { getImgSrc } from "$utils/getImageSrc"
+import Image from "next/image"
 import Link from "next/link"
 import { BdTaka } from ".."
 import { FeatureProductErrorSkeleton, FeatureProductSkeleton } from "../index"
@@ -43,7 +44,7 @@ export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, isL
             className="  flex  gap-x-4  rounded-sm border border-gray-200/40 px-2 py-4"
             key={val._id}>
             <div className="mx-2 h-full w-2/5 ">
-              <ImageLazy
+              <Image
                 className="aspect-square h-full  w-full "
                 src={imgSrc}
                 alt={val.name}

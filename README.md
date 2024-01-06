@@ -11,11 +11,16 @@ The project is an online store that sells a variety of products
 and allows customers to browse, purchase, and track their orders. This repository contains only the code for the dashboard,
 which provides an interface for store administrators to manage products, view sales data, and track orders.
 
-Live Link : [netlify](https://amaderbazar.netlify.app/)
+<a href="https://amaderbazar.netlify.app/">
+<img src="https://img.shields.io/badge/Live-blue" alt="" />
+</a>
+<a href="https://github.com/yeasin-2002/Amader_bazar-server">
+<img src="https://img.shields.io/badge/Back_End_source_code-gray" alt="" />
+</a>
 
-<!--
-## [Figma UI](https://www.figma.com/file/Douo9VLnXKBXb6B2cweSQs/Amader-Bazar?type=design&node-id=605%3A344&mode=design&t=Mne6rFKVXNd21MHM-1)
- -->
+![Netlify Status](https://api.netlify.com/api/v1/badges/568b6d73-ba9e-4919-bd3a-c7d4593679bd/deploy-status)
+
+
 
 ##### Commit lint convention
 

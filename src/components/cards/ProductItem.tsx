@@ -52,6 +52,8 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
         src={imgUrl}
         alt="product image"
         className="   h-full w-full cursor-pointer rounded-b-sm rounded-t-lg object-cover"
+        width={500}
+        height={500}
       />
 
       <div className=" flex flex-col justify-between p-4 ">
