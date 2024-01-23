@@ -6,7 +6,7 @@ interface Props {}
 export const UpdateProfileInfo = ({ ...rest }: Props) => {
   return (
     <Dialog>
-      <DialogTrigger>Open</DialogTrigger>
+      <DialogTrigger className="setting-items">Profile Information</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>

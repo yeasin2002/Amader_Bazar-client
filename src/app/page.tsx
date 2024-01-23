@@ -1,7 +1,7 @@
 import { Newsletter } from "@/components"
 import { Footer } from "@/layout"
 import React from "react"
-import { CategoryArea, DisplayCategory, FeatureProductWrapper, Hero, ProductContainer } from "./_Home"
+import { CategoryArea, FeatureProductWrapper, Hero, ProductContainer } from "./_Home"
 import "./globals.css"
 
 const Home = () => {
@@ -19,3 +19,6 @@ const Home = () => {
 }
 
 export default Home
+
+/*
+*/

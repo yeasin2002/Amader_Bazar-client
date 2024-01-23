@@ -48,6 +48,9 @@
   .only-mobile {
     @apply  md:hidden block
   }
+  .setting-items {
+    @apply  w-full cursor-pointer rounded-md p-4 text-left shadow-md hover:bg-gray-200
+  }
 }
 /*? Selected Product Style  */
 @layer components {

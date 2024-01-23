@@ -3,10 +3,10 @@ import { DetailedHTMLProps, HTMLAttributes } from "react"
 
 interface Props {}
 
-export const ChangePassword = ({ ...rest }: Props) => {
+export const UpdateAvatar = ({ ...rest }: Props) => {
   return (
     <Dialog>
-      <DialogTrigger className="setting-items"> Change Password</DialogTrigger>
+      <DialogTrigger className="setting-items">Update Avatar</DialogTrigger>
       <DialogContent>
         <DialogHeader>
           <DialogTitle>Are you absolutely sure?</DialogTitle>

@@ -16,6 +16,7 @@ export const UserProfileInfo = () => {
     img: avatar,
     imgType: "user-img",
   })
+
   const mainComponents = (
     <Fragment>
       <div className="flex items-center gap-x-3">
