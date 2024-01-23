@@ -11,7 +11,7 @@ export const UserProfileCheck = () => {
       <PopoverTrigger>
         <User2 className="ml-4" />
       </PopoverTrigger>
-      <PopoverContent className="space-y-6 ">
+      <PopoverContent className="max-w-44 space-y-6 ">
         <Link href={"/profile"} className="flex">
           <User2Icon />
           Profile

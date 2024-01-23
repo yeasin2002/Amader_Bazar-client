@@ -50,6 +50,15 @@
     }
   },
 
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "tailwind.config.js"],
-  "exclude": ["node_modules", "commitlint.config.cjs", ".next"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "tailwind.config.js",
+    "./global.d.ts",
+    "types/global.d.ts"
+  ],
+  "exclude": ["node_modules", "commitlint.config.cjs", ".next"],
+  "typeRoots": ["./node_modules/@types", "./types"]
 }

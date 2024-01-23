@@ -20,7 +20,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDi
   categoryData: categoryData[] | null
 }
 
-export const ShowCategoryItems = ({ categoryData, ...rest }: Props) => {
+export const ShowCategories = ({ categoryData, ...rest }: Props) => {
   const router = useRouter()
   const { setSelectedCategory, setResetFilter } = useFilterProduct()
   return (
