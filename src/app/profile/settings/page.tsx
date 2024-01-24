@@ -10,7 +10,7 @@ const Setting = () => {
       jsx: UpdateAvatar,
     },
     {
-      title: "Update Profile Info",
+      title: "Update Profile Information",
       jsx: UpdateProfileInfo,
     },
     {

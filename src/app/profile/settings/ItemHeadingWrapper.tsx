@@ -20,7 +20,7 @@ export const ItemHeadingWrapper = ({ children, title, ...rest }: Props) => {
 
       <DialogContent>
         <DialogHeader>
-          <DialogTitle>Update Avatar</DialogTitle>
+          <DialogTitle>{title}</DialogTitle>
           {children}
         </DialogHeader>
       </DialogContent>

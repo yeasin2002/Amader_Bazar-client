@@ -68,6 +68,9 @@ dependencies:
   lottie-react:
     specifier: ^2.4.0
     version: 2.4.0(react-dom@18.2.0)(react@18.2.0)
+  lucide:
+    specifier: ^0.314.0
+    version: 0.314.0
   lucide-react:
     specifier: ^0.288.0
     version: 0.288.0(react@18.2.0)
@@ -4449,6 +4452,10 @@ packages:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0
     dependencies:
       react: 18.2.0
+    dev: false
+
+  /lucide@0.314.0:
+    resolution: {integrity: sha512-MErc+Ku1tZMSUrDNw67jxF/Yj0e+CBFYo43/i4A2Isz6WMHBi+VWZ+9nnK36LOvEZ+GDxHeA4m93OR1hKlPZTg==}
     dev: false
 
   /map-obj@1.0.1:
