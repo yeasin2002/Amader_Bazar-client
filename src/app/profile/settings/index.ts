@@ -1,6 +1,7 @@
 "use client"
 export * from "./ChangePassword"
-export * from "./ItemHeadingWrapper"
+export * from "./DeleteAccount"
+
 export * from "./UpdateAvatar"
 export * from "./UpdateProfileInfo"
 export * from "./UserIntro"

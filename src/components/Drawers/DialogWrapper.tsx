@@ -1,20 +1,18 @@
 "use client"
 
-import { exo_2 } from "@/font"
 import { cn } from "@/lib"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/ui"
 
 interface Props {
   children: React.ReactNode
   title: string
+  className?: string
 }
 
-export const ItemHeadingWrapper = ({ children, title, ...rest }: Props) => {
+export const DialogWrapper = ({ children, title, className, ...rest }: Props) => {
   return (
     <Dialog>
-      <DialogTrigger
-        className={cn("w-full cursor-pointer rounded-md p-4 text-left shadow-md hover:bg-gray-200", exo_2.className)}
-        {...rest}>
+      <DialogTrigger className={cn(className)} {...rest}>
         {title}
       </DialogTrigger>
 

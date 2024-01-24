@@ -24,7 +24,7 @@ export const UpdateProfileInfo = () => {
           required: { value: true, message: "Email is required " },
         })}
         label="Full Name"
-        error={formState?.errors?.email?.message}
+        error={formState?.errors?.name?.message}
         placeholder="Enter your full name"
       />
       <InputCombo
@@ -40,13 +40,13 @@ export const UpdateProfileInfo = () => {
           required: { value: true, message: "address is required " },
         })}
         label="Address"
-        error={formState?.errors?.email?.message}
+        error={formState?.errors?.address?.message}
         placeholder="Enter your address"
       />
       <InputCombo
         register={register("phone")}
         label="Phone"
-        error={formState?.errors?.email?.message}
+        error={formState?.errors?.phone?.message}
         placeholder="Enter your Phone"
       />
       <Button className="mt-3 w-full">Submit</Button>

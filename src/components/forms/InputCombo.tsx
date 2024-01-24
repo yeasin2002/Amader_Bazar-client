@@ -1,6 +1,6 @@
+import { cn } from "@/lib"
 import { DetailedHTMLProps, FC } from "react"
 import { UseFormRegisterReturn } from "react-hook-form"
-import { twMerge } from "tailwind-merge"
 
 interface InputComboProps extends DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   register: UseFormRegisterReturn
@@ -8,6 +8,7 @@ interface InputComboProps extends DetailedHTMLProps<React.InputHTMLAttributes<HT
   label: string
   className?: string
   labelClassName?: string
+  wrapperClassName?: string
   error?: string | undefined
   isLabelHidden?: boolean
 
@@ -23,17 +24,18 @@ export const InputCombo: FC<InputComboProps> = ({
   labelClassName,
   isLabelHidden,
   isRequired = false,
+  wrapperClassName,
 
   ...rest
 }) => {
   const { ref, ...registerRest } = register
 
   return (
-    <div>
+    <div className={cn(wrapperClassName)}>
       {!isLabelHidden && (
         <label
           htmlFor={label}
-          className={twMerge("mb-2  font-fresca text-sm font-medium capitalize  text-gray-900", labelClassName)}>
+          className={cn("font-fresca  mb-2 text-sm font-medium capitalize  text-gray-900", labelClassName)}>
           {label} <span className="text-md font-bold text-red-800">{isRequired && "*"}</span>
         </label>
       )}
@@ -45,7 +47,7 @@ export const InputCombo: FC<InputComboProps> = ({
         type={"text"}
         id={label}
         placeholder={placeholder}
-        className={twMerge(
+        className={cn(
           "block h-full  w-full rounded-lg    border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500 ",
           className
         )}
