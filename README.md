@@ -7,9 +7,7 @@
 
  </div>
 
-The project is an online store that sells a variety of products
-and allows customers to browse, purchase, and track their orders. This repository contains only the code for the dashboard,
-which provides an interface for store administrators to manage products, view sales data, and track orders.
+The project is an online store that sells a variety of products and allows customers to browse, purchase, and track their orders. Which provides an interface for store administrators to manage products, view sales data, and track orders.
 
 <a href="https://amaderbazar.netlify.app/">
 <img src="https://img.shields.io/badge/Live-blue" alt="" />

@@ -40,16 +40,13 @@
     @apply h-3 w-full cursor-pointer appearance-none rounded-lg bg-brand-900;
   }
   .profile-route-title {
-    @apply my-4 mb-4 font-ptSansNarrow text-2xl font-semibold  text-gray-900
+    @apply my-4 mb-4  text-2xl font-semibold  text-gray-900
   }
   .hidden-mobile {
     @apply  hidden md:block
   }
   .only-mobile {
     @apply  md:hidden block
-  }
-  .setting-items {
-    @apply  w-full cursor-pointer rounded-md p-4 text-left shadow-md hover:bg-gray-200
   }
 }
 /*? Selected Product Style  */
@@ -96,7 +93,7 @@
     @apply text-lg font-bold;
   }
   .word-sm {
-    @apply font-ptSansNarrow text-xs font-semibold text-gray-500
+    @apply  text-xs font-semibold text-gray-500
   }
 
   .word-gradient {

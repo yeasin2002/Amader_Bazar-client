@@ -17,7 +17,6 @@ export const UserIntro = ({ className, ...rest }: Props) => {
     img: userInfo.avatar,
     imgType: "user-img",
   })
-  console.log("🚀 ~ UserIntro ~ imgSrc:", imgSrc)
 
   return (
     <div {...rest} className={cn("flex flex-col items-center gap-y-3", exo_2.className, className)}>
@@ -30,7 +29,7 @@ export const UserIntro = ({ className, ...rest }: Props) => {
         alt={`photo of ${userInfo.name}`}
         width={100}
         height={100}
-        className="rounded-full p-1 ring-2 ring-blue-500"
+        className="rounded-full p-1 ring-2 ring-brand-500"
       />
       <h2 className="text-lg  font-bold">{userInfo.name}</h2>
     </div>

@@ -1,21 +1,29 @@
-import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/ui"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import defaultUser from "@/assets/illustration/others/user.jpg"
+import { useAuth } from "@/hooks"
+import { getImgSrc } from "@/utils"
+import Image from "next/image"
 
-interface Props {}
+export const UpdateAvatar = () => {
+  const { userInfo } = useAuth()
 
-export const UpdateAvatar = ({ ...rest }: Props) => {
+  const imgSrc = getImgSrc({
+    img: userInfo.avatar,
+    imgType: "user-img",
+  })
+
   return (
-    <Dialog>
-      <DialogTrigger className="setting-items">Update Avatar</DialogTrigger>
-      <DialogContent>
-        <DialogHeader>
-          <DialogTitle>Are you absolutely sure?</DialogTitle>
-          <DialogDescription>
-            This action cannot be undone. This will permanently delete your account and remove your data from our
-            servers.
-          </DialogDescription>
-        </DialogHeader>
-      </DialogContent>
-    </Dialog>
+    <div className="flex flex-col items-center  justify-center">
+      <Image
+        src={imgSrc || defaultUser}
+        onError={(e) => {
+          e.currentTarget.src = defaultUser.src
+        }}
+        alt={`photo of ${userInfo.name}`}
+        width={100}
+        height={100}
+        className="rounded-full p-1 ring-2 ring-brand-500"
+      />
+      <div>Update Avatar Desc</div>
+    </div>
   )
 }
