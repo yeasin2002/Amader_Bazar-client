@@ -8,3 +8,4 @@ export const $fetch = async (url: string | URL | Request, options?: RequestInit 
     console.log("error", error)
   }
 }
+  

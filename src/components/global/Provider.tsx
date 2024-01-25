@@ -2,6 +2,7 @@
 
 import { AuthProvider } from "@/context"
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
+import { Toaster } from "sonner"
 
 interface Props {
   children: React.ReactNode
@@ -12,7 +13,10 @@ export const Provider = ({ children }: Props) => {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthProvider>
+        {children}
+        <Toaster richColors />
+      </AuthProvider>
     </QueryClientProvider>
   )
 }

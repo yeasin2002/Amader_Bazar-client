@@ -21,15 +21,11 @@ export const UserIntro = ({ className, ...rest }: Props) => {
   return (
     <div {...rest} className={cn("flex flex-col items-center gap-y-3", exo_2.className, className)}>
       <Image
-        // src={defaultUser}
         src={imgSrc || defaultUser}
-        onError={(e) => {
-          e.currentTarget.src = defaultUser.src
-        }}
         alt={`photo of ${userInfo.name}`}
         width={100}
         height={100}
-        className="rounded-full p-1 ring-2 ring-brand-500"
+        className="size-32 rounded-full object-cover p-1 ring-2 ring-brand-500"
       />
       <h2 className="text-lg  font-bold">{userInfo.name}</h2>
     </div>

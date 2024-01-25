@@ -3,23 +3,27 @@
 import defaultUser from "@/assets/illustration/others/user.jpg"
 import { EditPen } from "@/components"
 import { useAuth } from "@/hooks"
+import { getUsersToken } from "@/lib"
 import { Button } from "@/ui"
-import { getImgSrc } from "@/utils"
+import { $fetch, getImgSrc } from "@/utils"
+import { useMutation } from "@tanstack/react-query"
 import Image from "next/image"
 import { useState } from "react"
+import { toast } from "sonner"
 
 export const UpdateAvatar = () => {
-  const { userInfo } = useAuth()
+  const [updatableImg, setUpdatableImg] = useState<File | null>(null)
+  const { userInfo, setUserInfo } = useAuth()
 
   const imgSrc = getImgSrc({
     img: userInfo.avatar,
     imgType: "user-img",
   })
-
   const [dynamicImgUrl, setDynamicImgUrl] = useState(imgSrc)
 
   const handleImg = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return
+    setUpdatableImg(e.target.files[0])
 
     const file = e?.target?.files[0]
     const reader = new FileReader()
@@ -29,6 +33,39 @@ export const UpdateAvatar = () => {
     }
   }
 
+  //update avatar  -> PUT:  user//change-avatar
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ["update-avatar"],
+    mutationFn: (img: File | null) => {
+      const formData = new FormData()
+      formData.append("avatar", img as File)
+      return $fetch("/user/change-avatar", {
+        method: "PUT",
+        body: formData,
+        headers: {
+          Authorization: `Bearer ${getUsersToken()}`,
+        },
+      })
+    },
+  })
+
+  const handleButtonClick = async () => {
+    if (!updatableImg) {
+      return toast.warning("You have to select an image")
+    }
+
+    console.log("File Uploading")
+    const response = await mutateAsync(updatableImg)
+    console.log(response)
+    if (response.success) {
+      console.log("Done")
+      setUserInfo({
+        ...userInfo,
+        avatar: response.data.avatar,
+      })
+      toast.success("Avatar updated successfully")
+    }
+  }
   return (
     <div className="flex flex-col items-center  justify-center gap-y-10">
       <div className="relative">
@@ -49,7 +86,9 @@ export const UpdateAvatar = () => {
         </label>
         <input type="file" id="imgEditor" className="hidden" onChange={handleImg} />
       </div>
-      <Button className="px-10 font-bold">Save</Button>
+      <Button className="px-10 font-bold" onClick={handleButtonClick}>
+        {isPending ? "Saving..." : "Save"}
+      </Button>
     </div>
   )
 }
