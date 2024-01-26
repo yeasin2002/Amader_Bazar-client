@@ -8,7 +8,7 @@ import { ArrowLeft } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { DetailedHTMLProps, FC, Fragment } from "react"
 import { useForm } from "react-hook-form"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 
 interface ConfirmRegistrationProps
   extends DetailedHTMLProps<React.FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {

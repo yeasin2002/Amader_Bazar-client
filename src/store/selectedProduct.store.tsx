@@ -1,5 +1,5 @@
 import { Product } from "$types"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 import { create } from "zustand"
 import { combine, persist } from "zustand/middleware"
 import { immer } from "zustand/middleware/immer"

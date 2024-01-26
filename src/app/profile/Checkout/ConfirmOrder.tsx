@@ -9,7 +9,7 @@ import { $POST } from "$hooks"
 import { useSelectedProduct } from "$store"
 import { orderResponse } from "$types"
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTitle, AlertDialogTrigger, Button } from "$ui"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 import { CheckoutSuccess } from "./CheckoutSuccess"
 import { ConfirmDisplayProduct } from "./ConfirmDisplayProduct"
 

@@ -8,7 +8,7 @@ import { Button } from "$ui"
 import bg from "@/assets/cover/main.jpg"
 import { useMutation } from "@tanstack/react-query"
 import { Fragment } from "react"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 import { InputCombo, LoadingSpinner } from "../index"
 
 interface newsletterElements {

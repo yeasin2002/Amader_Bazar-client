@@ -8,7 +8,7 @@ import { Button, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, Shee
 import { getImgSrc } from "$utils/getImageSrc"
 
 import Image from "next/image"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 
 type SelectedShoppingProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>

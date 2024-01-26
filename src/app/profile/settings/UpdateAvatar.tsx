@@ -9,7 +9,7 @@ import { $fetch, getImgSrc } from "@/utils"
 import { useMutation } from "@tanstack/react-query"
 import Image from "next/image"
 import { useState } from "react"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 
 export const UpdateAvatar = () => {
   const [updatableImg, setUpdatableImg] = useState<File | null>(null)

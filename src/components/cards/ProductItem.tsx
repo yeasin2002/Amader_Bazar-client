@@ -2,7 +2,7 @@
 
 import { Heart, ShoppingCart } from "lucide-react"
 import { FC } from "react"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 
 import notFound from "$assets/illustration/others/notFound.png"
 import { Product } from "@/interface"

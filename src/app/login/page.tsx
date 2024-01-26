@@ -6,7 +6,7 @@ import Lottie from "lottie-react"
 import { useRouter } from "next/navigation"
 import { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
-import { toast } from "sonner"
+import { toast } from "react-hot-toast"
 
 
 import { InputCombo } from "$components"
