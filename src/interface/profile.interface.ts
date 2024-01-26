@@ -31,3 +31,17 @@ export interface ProductElement {
   Quantity: number
   _id: string
 }
+
+
+export interface SingleUserResponse {
+  data: userData
+  message: string
+  statusCode: number
+  success: boolean
+}
+
+export interface userData {
+  avatar: string
+  name: string
+}
+ 

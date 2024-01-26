@@ -1,5 +1,9 @@
-import { InputCombo } from "@/components"
-import { Button } from "@/ui"
+import { InputCombo, LoadingSpinner } from "@/components"
+import { SingleUserFullResponse } from "@/interface"
+import { getUsersToken } from "@/lib"
+import { Button, InputForPassword } from "@/ui"
+import { $fetch } from "@/utils"
+import { useMutation } from "@tanstack/react-query"
 import { SubmitHandler, useForm } from "react-hook-form"
 
 interface FormValues {
@@ -9,16 +13,27 @@ interface FormValues {
 }
 
 export const ChangePassword = () => {
-  const { register, formState, handleSubmit } = useForm<FormValues>({
-    defaultValues: {},
+  const { mutateAsync, isPending } = useMutation({
+    mutationKey: ["change-password"],
+    mutationFn: (value: FormValues) => {
+      return $fetch("/auth/change-password", {
+        method: "PUT",
+        body: JSON.stringify(value),
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${getUsersToken()}` },
+      }) as Promise<SingleUserFullResponse>
+    },
   })
 
-  const onSubmitHandler: SubmitHandler<FormValues> = (data) => {
-    console.log(data)
+  const { register, formState, handleSubmit } = useForm<FormValues>()
+
+  const onSubmitHandler: SubmitHandler<FormValues> = async (data) => {
+    const response = await mutateAsync(data)
+    console.log("🚀  response :", response)
   }
+  //* auth/change-password
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-3 pt-10">
-      <InputCombo
+      <InputForPassword
         register={register("password", {
           required: { value: true, message: "password is required " },
         })}
@@ -26,7 +41,7 @@ export const ChangePassword = () => {
         error={formState?.errors?.password?.message}
         placeholder="Enter your current password"
       />
-      <InputCombo
+      <InputForPassword
         register={register("newPassword", {
           required: { value: true, message: "New Password is required " },
         })}
@@ -34,7 +49,7 @@ export const ChangePassword = () => {
         error={formState?.errors?.newPassword?.message}
         placeholder="Enter your new password"
       />
-      <InputCombo
+      <InputForPassword
         register={register("confirmPassword", {
           required: { value: true, message: "Confirm Password is required " },
         })}
@@ -42,7 +57,15 @@ export const ChangePassword = () => {
         error={formState?.errors?.confirmPassword?.message}
         placeholder="Confirm  your new password"
       />
-      <Button className="w-full ">Change Password</Button>
+      <Button className="w-full ">
+        {isPending ? (
+          <span>
+            <LoadingSpinner />
+          </span>
+        ) : (
+          "Change Password"
+        )}
+      </Button>
     </form>
   )
 }

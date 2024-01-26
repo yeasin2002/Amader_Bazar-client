@@ -31,3 +31,12 @@ export interface Users {
   phone: string
   updatedAt: Date
 }
+
+
+export interface SingleUserFullResponse {
+  data: Users
+  message: string
+  statusCode: number
+  success: boolean
+}
+ 
