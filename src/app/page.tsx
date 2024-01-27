@@ -8,7 +8,6 @@ const Home = () => {
   return (
     <div className="upperArea mb-0 h-full max-h-full w-full  bg-chai">
       <Hero />
-      {/* <DisplayCategory /> */}
       <CategoryArea />
       <FeatureProductWrapper />
       <ProductContainer heading="All Products" />
@@ -21,4 +20,4 @@ const Home = () => {
 export default Home
 
 /*
-*/
+ */

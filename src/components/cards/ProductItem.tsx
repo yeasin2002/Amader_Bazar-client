@@ -37,7 +37,7 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
   const FavoriteAddingHandler = () => {
     theProduct && toggleFavoriteProduct(theProduct)
     if (checkLovedProduct) {
-      toast.warning("Product removed from favorite")
+      toast.success("Product removed from favorite")
     } else {
       toast.success("Product added to favorite")
     }

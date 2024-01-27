@@ -1,4 +1,5 @@
 import { ShoppingCart } from "lucide-react"
+import { useRouter } from "next/navigation"
 import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 
 import empty from "$assets/illustration/3D/empty-cart.png"
@@ -16,6 +17,7 @@ type SelectedShoppingProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, H
 export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
   const { isLoggedIn } = useAuth()
   const { selectedProduct } = useSelectedProduct()
+  const navigate = useRouter()
 
   const mainComponents = (
     <div className="h-full space-y-3 overflow-y-scroll">
@@ -63,11 +65,13 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
           <SheetFooter>
             <Button
               className="w-full -translate-y-7"
-              // onClick={() => {
-              //   if (!isLoggedIn) return toast.warning("Please Log in first to Checkout")
-              //   navigate("/profile/checkout")
-              // }}
-          >
+              onClick={() => {
+                if (!isLoggedIn)
+                  return toast.error("Please Log in first to Checkout", {
+                    position: "top-left",
+                  })
+                navigate.push("/profile/checkout")
+              }}>
               Checkout
             </Button>
           </SheetFooter>

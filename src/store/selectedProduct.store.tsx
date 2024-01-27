@@ -27,7 +27,8 @@ export const useSelectedProduct = create(
               removeProduct: (id: string) => {
                 set((state) => {
                   state.selectedProduct = state.selectedProduct.filter((item) => item._id !== id)
-                  toast.warning("Product removed from cart")
+                  // toast.warning("Product removed from cart")
+                  toast.success("Product removed from cart")
                 })
               },
               resetProduct: () => {
@@ -45,7 +46,7 @@ export const useSelectedProduct = create(
                     toast.success("Product added to cart")
                   } else {
                     store.selectedProduct.push(product)
-                    toast.warning("Product removed from cart")
+                    toast.success("Product removed from cart")
                   }
                 })
               },
