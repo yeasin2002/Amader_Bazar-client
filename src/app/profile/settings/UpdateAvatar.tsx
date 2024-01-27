@@ -51,7 +51,11 @@ export const UpdateAvatar = () => {
 
   const handleButtonClick = async () => {
     if (!updatableImg) {
-      return toast.warning("You have to select an image")
+      return toast("You have to select an image", {
+        className: "bg-brand-500 text-white font-bold",
+        icon: "⚠️",
+        position: "top-right",
+      })
     }
 
     console.log("File Uploading")

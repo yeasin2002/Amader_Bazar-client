@@ -1,10 +1,11 @@
-import { InputCombo, LoadingSpinner } from "@/components"
+import { LoadingSpinner } from "@/components"
 import { SingleUserFullResponse } from "@/interface"
 import { getUsersToken } from "@/lib"
 import { Button, InputForPassword } from "@/ui"
 import { $fetch } from "@/utils"
 import { useMutation } from "@tanstack/react-query"
 import { SubmitHandler, useForm } from "react-hook-form"
+import toast from "react-hot-toast"
 
 interface FormValues {
   password: string
@@ -24,13 +25,23 @@ export const ChangePassword = () => {
     },
   })
 
-  const { register, formState, handleSubmit } = useForm<FormValues>()
+  const { register, formState, handleSubmit, getValues } = useForm<FormValues>()
 
   const onSubmitHandler: SubmitHandler<FormValues> = async (data) => {
     const response = await mutateAsync(data)
     console.log("🚀  response :", response)
+
+    if (response.success) {
+      return toast.success("Password Changed Successfully", {
+        position: "top-right",
+      })
+    } else {
+      return toast.error("Unable To Change Password", {
+        position: "top-right",
+      })
+    }
   }
-  //* auth/change-password
+
   return (
     <form onSubmit={handleSubmit(onSubmitHandler)} className="space-y-3 pt-10">
       <InputForPassword
@@ -51,7 +62,13 @@ export const ChangePassword = () => {
       />
       <InputForPassword
         register={register("confirmPassword", {
-          required: { value: true, message: "Confirm Password is required " },
+          required: {
+            value: true,
+            message: "Confirm Password is required ",
+          },
+          validate: (value) => {
+            return value === getValues("newPassword") ? true : "Confirm Password din't match with new password"
+          },
         })}
         label="Confirm Password"
         error={formState?.errors?.confirmPassword?.message}

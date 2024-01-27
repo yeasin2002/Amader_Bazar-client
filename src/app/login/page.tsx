@@ -16,8 +16,7 @@ import { Button, InputForPassword } from "$ui"
 
 import delivery from "$assets/illustration/lottiy/delivery-service.json"
 import Link from "next/link"
-// import Facebook from "$assets/illustration/lottiy/facebookWave.json"
-// import googleLottie from "$assets/illustration/lottiy/google.json"
+
 
 type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {

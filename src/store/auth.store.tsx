@@ -16,6 +16,9 @@ export const useAuthStore = create(
             id: "",
             isAdmin: false,
             name: "",
+
+            address: "",
+            phone: "",
           } as User,
         },
         (set) => {

@@ -15,7 +15,7 @@ export const Provider = ({ children }: Props) => {
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
         {children}
-        <Toaster />
+        <Toaster position="top-right" />
       </AuthProvider>
     </QueryClientProvider>
   )

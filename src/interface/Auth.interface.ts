@@ -16,4 +16,6 @@ export interface User {
   name: string
   avatar: string
   isAdmin: boolean | null
+  address: string
+  phone: string
 }
