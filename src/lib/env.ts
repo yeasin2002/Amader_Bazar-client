@@ -1,4 +1,3 @@
-const baseUrl = process.env.NEXT_PUBLIC_LOCAL_SERVER_URL || "" // dev
-// const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || "" // production
+const baseUrl = process.env.NEXT_PUBLIC_SERVER_URL || "" // dev
 
 export const clientEnv = { baseUrl }
