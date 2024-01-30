@@ -12,13 +12,9 @@ const Home = () => {
       <FeatureProductWrapper />
       <ProductContainer heading="All Products" />
       <Newsletter />
-
       <Footer />
     </div>
   )
 }
 
 export default Home
-
-import { DetailedHTMLProps, HTMLAttributes } from "react"
-

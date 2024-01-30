@@ -4,6 +4,8 @@ import { FavoriteList, SelectedShopping } from "$components"
 import { useAuth } from "$hooks/useAuth"
 import { Logo } from "$layout"
 import { buttonVariants } from "$ui/button"
+import { ThemeSwitch } from "@/components/global"
+import { hiddenInMobileRoute as hiddenRoute, navItems } from "@/data/routes"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Fragment } from "react"
@@ -11,37 +13,6 @@ import { UserProfileCheck } from "./UserProfileCheck"
 
 export const Nav = () => {
   const { isLoggedIn } = useAuth()
-  const hiddenRoute = [
-    "/dashboard",
-    "/dashboard/order",
-    "/dashboard/user",
-    "/dashboard/wishlist",
-    "/dashboard/products",
-    "/dashboard/products",
-    "/dashboard/settings",
-    "/profile",
-    "/profile/wishlist",
-    "/profile/orders",
-    "/profile/checkout",
-    "/profile/products",
-    "/profile/settings",
-  ]
-
-  const navItems = [
-    {
-      title: "Home",
-      url: "/",
-    },
-    {
-      title: "Search",
-      url: "/search",
-    },
-
-    {
-      title: "Contact",
-      url: "/contact",
-    },
-  ]
   const pathName = usePathname()
 
   return (
@@ -61,7 +32,7 @@ export const Nav = () => {
                     defaultValue={"/"}
                     key={item.title}
                     className={`group relative flex items-center   `}>
-                    <p className="  cursor-pointer font-kurale text-lg font-semibold text-gray-700  hover:text-gray-900 xl:text-xl 2xl:text-2xl">
+                    <p className="  font-kurale cursor-pointer text-lg font-semibold text-gray-700  hover:text-gray-900 dark:text-gray-200 xl:text-xl 2xl:text-2xl">
                       {item.title}
                     </p>
                     <span
@@ -74,6 +45,7 @@ export const Nav = () => {
               })}
             </div>
             <div className="flex  items-center gap-x-2">
+              <ThemeSwitch className="block  size-7 rounded-full md:hidden " />
               <FavoriteList />
               <SelectedShopping />
               {isLoggedIn ? (

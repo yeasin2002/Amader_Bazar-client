@@ -82,8 +82,9 @@ export const ShowCategories = ({ categoryData, ...rest }: Props) => {
                         crossOrigin="anonymous"
                       />
                     </span>
-                    <h2 className="mb-2    mt-4  text-xl font-bold text-slate-900">{val.name}</h2>
-                    <p className={" text-base font-medium text-slate-600" + pt_sans_narrow.className}>{val.name}</p>
+                    <h2 className={"mb-2 mt-4 text-lg font-bold text-slate-900" + pt_sans_narrow.className}>
+                      {val.name}
+                    </h2>
                   </div>
                 </SwiperSlide>
               )

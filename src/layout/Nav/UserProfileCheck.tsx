@@ -1,10 +1,13 @@
 import { useAuth } from "$hooks/index"
-import { Popover, PopoverContent, PopoverTrigger } from "$ui"
+import { navItems } from "@/data/routes"
+import { Popover, PopoverContent, PopoverTrigger } from "@/ui"
 import { LayoutDashboard, LogOutIcon, User2, User2Icon } from "lucide-react"
+import { useTheme } from "next-themes"
 import Link from "next/link"
 
 export const UserProfileCheck = () => {
   const { setLoggedOut, userInfo } = useAuth()
+  const { resolvedTheme } = useTheme()
 
   return (
     <Popover>
@@ -22,6 +25,19 @@ export const UserProfileCheck = () => {
             Dashboard
           </Link>
         )}
+        <div className="flex flex-col gap-y-2 md:hidden">
+          {navItems.map((menu) => {
+            return (
+              <Link
+                href={menu.url}
+                key={menu.title + menu.url}
+                className="flex items-center gap-x-1 text-gray-200 hover:text-gray-300">
+                {menu.icons}
+                <span className="text-sm font-medium ">{menu.title}</span>
+              </Link>
+            )
+          })}
+        </div>
         <div
           className="flex cursor-pointer items-end gap-x-2  hover:text-gray-500"
           onClick={() => {
