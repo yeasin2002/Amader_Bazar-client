@@ -1,4 +1,7 @@
-import { ProfileAndDashboardSidebar } from "$components/sidebar/ProfileAndDashboardSidebar"
+"use client"
+
+import { ThemeSwitcher } from "@/components/global"
+import { ProfileAndDashboardSidebar } from "@/components/sidebar/ProfileAndDashboardSidebar"
 import { GanttChartSquare, Home, ShoppingCart, User } from "lucide-react"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
@@ -27,11 +30,18 @@ const profileMenu = [
 
 type indexProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export const Dashboard: FC<indexProps> = ({ ...rest }) => {
+const Dashboard: FC<indexProps> = ({ ...rest }) => {
   // const { isLoggedIn, logOut } = useAuth()
   return (
     <section {...rest} className=" flex h-full w-full ">
       <ProfileAndDashboardSidebar menuItem={profileMenu} />
+      <div>
+        <h1>Dashboard</h1>
+      </div>
+
+      <ThemeSwitcher />
     </section>
   )
 }
+
+export default Dashboard

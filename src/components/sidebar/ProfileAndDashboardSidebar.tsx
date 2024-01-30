@@ -9,6 +9,7 @@ import { twMerge } from "tailwind-merge"
 
 import homeImg from "$assets/illustration/3D/home.png"
 import { useLocalStorage } from "$hooks/useLocalStorage"
+import ThemeSwitcher from "../global/ThemeSwitcher"
 
 interface ProfileAndDashboardSidebarProps
   extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -70,7 +71,7 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
               text-gray-700 hover:text-gray-900 `,
               pathname === item.url && "border-brand-900"
             )}>
-            <p className="flex flex-col items-center justify-center gap-y-2 font-fresca capitalize">
+            <p className="font-fresca flex flex-col items-center justify-center gap-y-2 capitalize">
               {item.icon}
               {item.title}
             </p>
