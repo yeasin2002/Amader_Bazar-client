@@ -4,7 +4,7 @@ import { FavoriteList, SelectedShopping } from "$components"
 import { useAuth } from "$hooks/useAuth"
 import { Logo } from "$layout"
 import { buttonVariants } from "$ui/button"
-import { ThemeSwitch } from "@/components/global"
+import { ThemeSwitch, ThemeSwitcher } from "@/components/global"
 import { hiddenInMobileRoute as hiddenRoute, navItems } from "@/data/routes"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
@@ -45,7 +45,7 @@ export const Nav = () => {
               })}
             </div>
             <div className="flex  items-center gap-x-2">
-              <ThemeSwitch className="block  size-7 rounded-full md:hidden " />
+              <ThemeSwitcher />
               <FavoriteList />
               <SelectedShopping />
               {isLoggedIn ? (

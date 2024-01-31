@@ -27,7 +27,7 @@ export const UserIntro = ({ className, ...rest }: Props) => {
         height={100}
         className="size-32 rounded-full object-cover p-1 ring-2 ring-brand-500"
       />
-      <h2 className="text-lg  font-bold">{userInfo.name}</h2>
+      <h2 className="text-lg  font-bold dark:text-gray-800">{userInfo.name}</h2>
     </div>
   )
 }

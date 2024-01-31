@@ -104,7 +104,9 @@ const Checkout = () => {
       {selectedProduct?.length === 0 && (
         <div className="mt-6   grid w-full place-items-center gap-y-1">
           <Image src={emptyCard} alt="Empty" className="aspect-square  size-96" />
-          <h1 className="text-center font-jost text-2xl font-semibold text-gray-900">No Product Selected</h1>
+          <h1 className="font-jost text-center text-2xl font-semibold text-gray-900 dark:text-gray-300">
+            No Product Selected
+          </h1>
         </div>
       )}
     </section>

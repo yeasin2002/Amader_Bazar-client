@@ -51,6 +51,7 @@ export const ChangePassword = () => {
         label="Current Password"
         error={formState?.errors?.password?.message}
         placeholder="Enter your current password"
+        className="*: dark:placeholder:text-gray-900 "
       />
       <InputForPassword
         register={register("newPassword", {
@@ -59,6 +60,7 @@ export const ChangePassword = () => {
         label="New Password"
         error={formState?.errors?.newPassword?.message}
         placeholder="Enter your new password"
+        className="*: dark:placeholder:text-gray-900 "
       />
       <InputForPassword
         register={register("confirmPassword", {
@@ -73,6 +75,7 @@ export const ChangePassword = () => {
         label="Confirm Password"
         error={formState?.errors?.confirmPassword?.message}
         placeholder="Confirm  your new password"
+        className="*: dark:placeholder:text-gray-900 "
       />
       <Button className="w-full ">
         {isPending ? (

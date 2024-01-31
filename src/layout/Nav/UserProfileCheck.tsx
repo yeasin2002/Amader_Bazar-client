@@ -1,4 +1,5 @@
 import { useAuth } from "$hooks/index"
+import { ThemeSwitcher } from "@/components/global"
 import { navItems } from "@/data/routes"
 import { Popover, PopoverContent, PopoverTrigger } from "@/ui"
 import { LayoutDashboard, LogOutIcon, User2, User2Icon } from "lucide-react"
@@ -7,7 +8,6 @@ import Link from "next/link"
 
 export const UserProfileCheck = () => {
   const { setLoggedOut, userInfo } = useAuth()
-  const { resolvedTheme } = useTheme()
 
   return (
     <Popover>

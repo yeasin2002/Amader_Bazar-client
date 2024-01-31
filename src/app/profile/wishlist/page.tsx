@@ -16,7 +16,7 @@ const Wishlist = () => {
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
         {favoriteProduct?.length !== 0 && (
           <table className="w-full text-left text-sm text-gray-500 rtl:text-right  ">
-            <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
+            <thead className="bg-gray-50 text-xs uppercase text-gray-700  dark:bg-gray-700 dark:text-gray-200">
               <tr>
                 <th scope="col" className="hidden-mobile px-6 py-3 ">
                   img
@@ -43,11 +43,15 @@ const Wishlist = () => {
                   imgType: "product-img",
                 })
                 return (
-                  <tr className="border-b bg-white hover:bg-gray-50 " key={item._id}>
+                  <tr
+                    className="border-b bg-white hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 "
+                    key={item._id}>
                     <td className="hidden-mobile px-6 py-4">
-                      <Image src={imgSrc} alt={item.name} width={100} height={100} />
+                      <Image src={imgSrc} alt={item.name} width={100} height={100} className="rounded-sm" />
                     </td>
-                    <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
+                    <th
+                      scope="row"
+                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-gray-100">
                       {item.name}
                     </th>
                     <td className="px-6 py-4">{item.category}</td>
@@ -72,7 +76,7 @@ const Wishlist = () => {
       {favoriteProduct?.length === 0 && (
         <div className=" grid h-full w-full place-items-center">
           <Image src={emptyCard} alt="Empty" className="  h-5/6  w-5/6 lg:h-1/2 lg:w-1/2" />
-          <h1 className="text-center font-jost text-2xl font-semibold text-gray-900">Wishlist is empty</h1>
+          <h1 className="font-jost text-center text-2xl font-semibold text-gray-900">Wishlist is empty</h1>
         </div>
       )}
     </section>

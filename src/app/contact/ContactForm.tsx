@@ -50,6 +50,7 @@ export const ContactForm = ({ ...rest }: Props) => {
         label="name"
         placeholder="name"
         error={errors.name?.message}
+        className="input-dark"
       />
       <InputCombo
         register={register("email", {
@@ -60,6 +61,7 @@ export const ContactForm = ({ ...rest }: Props) => {
         placeholder="Enter your email"
         type="email"
         error={errors.email?.message}
+        className="input-dark"
       />
       <InputCombo
         register={register("subject", {
@@ -69,6 +71,7 @@ export const ContactForm = ({ ...rest }: Props) => {
         placeholder="Subject "
         type="Write your subject"
         error={errors.subject?.message}
+        className="input-dark"
       />
       <Textarea
         {...register("message", {
@@ -78,7 +81,7 @@ export const ContactForm = ({ ...rest }: Props) => {
         name="message"
         id="message"
         placeholder="Write your message"
-        className="mt-10 h-32 w-full rounded-md border border-slate-600/40 "
+        className="input-dark mt-10 h-32 w-full rounded-md border border-slate-600/40"
       />
 
       {errors.message && <p className="animate-pulse font-normal text-rose-400">{errors.message.message}</p>}

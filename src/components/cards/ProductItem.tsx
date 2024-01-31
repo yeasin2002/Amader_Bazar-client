@@ -46,7 +46,7 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
   const costAfterDiscount = price - (price * discountPrice || 0) / 100
 
   const renderComponent = (
-    <div className="grid h-[30rem] max-h-full  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md ">
+    <div className="grid h-[30rem] max-h-full  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md dark:border-gray-500/20 ">
       <Image
         src={imgUrl}
         alt="product image"
@@ -57,13 +57,13 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
 
       <div className=" flex flex-col justify-between p-4 ">
         <div>
-          <span className="rounded-full border border-gray-800/40 px-2 py-1 font-playfairDisplay text-xs font-medium text-gray-800">
+          <span className="font-playfairDisplay rounded-full border border-gray-800/40 px-2 py-1 text-xs font-medium text-gray-800 dark:border-gray-400/40 dark:text-gray-200">
             {category}
           </span>
-          <h2 className="heading-5 mt-2 font-dosis capitalize">{title}</h2>
+          <h2 className="heading-5 font-dosis mt-2 capitalize">{title}</h2>
           <div className="mt-2 space-y-2 ">
-            <p className="mt-4 flex items-center gap-x-1 font-ptSansNarrow text-xl font-bold">
-              <BdTaka /> {costAfterDiscount}
+            <p className="font-ptSansNarrow mt-4 flex items-center gap-x-1 text-xl font-bold dark:text-white">
+              <BdTaka className="dark:fill-slate-50" /> {costAfterDiscount}
             </p>
             {discountPrice !== 0 && (
               <div className=" flex items-start gap-x-2 ">

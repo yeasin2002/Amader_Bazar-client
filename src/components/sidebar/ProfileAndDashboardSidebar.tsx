@@ -1,15 +1,12 @@
 "use client"
 
+import homeImg from "@/assets/illustration/3D/home.png"
 import { ChevronRightSquare } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Fragment, HTMLAttributes, useState } from "react"
 import { twMerge } from "tailwind-merge"
-
-import homeImg from "$assets/illustration/3D/home.png"
-import { useLocalStorage } from "$hooks/useLocalStorage"
-import ThemeSwitcher from "../global/ThemeSwitcher"
 
 interface ProfileAndDashboardSidebarProps
   extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -22,14 +19,14 @@ interface ProfileAndDashboardSidebarProps
 
 export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDashboardSidebarProps) => {
   const [isOpen, setIsOpen] = useState(false)
-  const { value: activeMenu, setLocalStorage: setActiveMenu } = useLocalStorage("sidebar-item")
   const pathname = usePathname()
 
   const LargeDevice = (
     <aside
       {...rest}
       className={twMerge(
-        "sticky left-0 top-0 hidden h-screen   flex-col  items-center justify-between bg-slate-100 px-2 py-10 transition-all  md:flex",
+        "sticky left-0 top-0 hidden h-screen   flex-col  items-center justify-between bg-slate-100 px-2 py-10 transition-all  md:flex ",
+        "dark:bg-gray-600",
         isOpen ? "w-40" : "w-16"
       )}>
       <Link href={"/"}>
@@ -42,7 +39,7 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
               href={items.url}
               className={twMerge(
                 `flex  cursor-pointer gap-x-2  border-b-4 border-white p-2 font-semibold
-              text-gray-700 hover:text-gray-900 `,
+              text-gray-700 hover:text-gray-900 dark:text-gray-100 `,
                 pathname === items.url && "border-brand-900"
               )}
               key={items.title + items.url}>
@@ -53,7 +50,7 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
         })}
       </div>
       <div
-        className={twMerge("cursor-pointer rounded-full bg-gray-300 p-3", isOpen && "rotate-180")}
+        className={twMerge("cursor-pointer rounded-full bg-gray-300 p-3 dark:bg-gray-950", isOpen && "rotate-180")}
         onClick={() => setIsOpen(!isOpen)}>
         <ChevronRightSquare />
       </div>

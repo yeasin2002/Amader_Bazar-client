@@ -6,22 +6,22 @@ const profileMenu = [
   {
     title: "Profile",
     url: "/profile",
-    icon: <User />,
+    icon: <User className="dark:text-slate-100 " />,
   },
   {
     title: "orders",
     url: "/profile/checkout",
-    icon: <ShoppingCart />,
+    icon: <ShoppingCart className="dark:text-slate-100 " />,
   },
   {
     title: "wishlist",
     url: "/profile/wishlist",
-    icon: <Heart />,
+    icon: <Heart className="dark:text-slate-100 " />,
   },
   {
     title: "settings",
     url: "/profile/settings",
-    icon: <Settings />,
+    icon: <Settings className="dark:text-slate-100 " />,
   },
 ]
 

@@ -1,24 +1,28 @@
 "use client"
 
-import { $GET } from "$hooks/useFetchers"
 import { cn } from "$lib/utils"
 import { OrderByUserResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
 import Lottie from "lottie-react"
 
 import { exo_2 } from "@/font"
+import { $fetch } from "@/utils"
 import Link from "next/link"
 import { UserProfileInfo } from "./UserProfileInfo"
 
 import loadingImg from "$assets/illustration/lottiy/loading.json"
 import errorImg from "$assets/illustration/lottiy/warningjson.json"
 import lonely from "$assets/illustration/lottiy/woman-shopping-online.json"
-
+import { getUsersToken } from "@/lib"
 
 const Profile = ({ ...rest }) => {
   const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["orders-of-user"],
-    queryFn: () => $GET({ url: "/order" }) as Promise<OrderByUserResponse>,
+    queryFn: () => {
+      return $fetch("/order", {
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${getUsersToken()}` },
+      }) as Promise<OrderByUserResponse>
+    },
   })
   const loadingComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
@@ -29,7 +33,7 @@ const Profile = ({ ...rest }) => {
   const ErrorComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
       <Lottie animationData={errorImg} className="h-40 w-full" loop />
-      <p className="text-center  font-exo2 text-gray-600">something went wrong</p>
+      <p className="font-exo2  text-center text-gray-600">something went wrong</p>
       <button
         className="mt-5  text-gray-500 underline decoration-rose-500 underline-offset-1 "
         onClick={() => {
@@ -42,7 +46,7 @@ const Profile = ({ ...rest }) => {
 
   const noOrderFound = (
     <div>
-      <p className={"text-center   text-gray-500"+ exo_2.className}>You {"don't"} have any orders yet</p>
+      <p className={"text-center   text-gray-500" + exo_2.className}>You {"don't"} have any orders yet</p>
       <div className="flex justify-center">
         <Link href="/" className="font-hedvigLettersSerif text-blue-500 hover:underline">
           Go to shop

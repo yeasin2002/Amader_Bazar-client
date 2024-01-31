@@ -24,7 +24,7 @@ export const FilterCard: FC<FilterCardProps> = ({
   const filterStore = useFilterProduct()
 
   return (
-    <aside {...rest} className={cn("sticky top-2 h-full space-y-10 rounded-r-lg bg-brand-200 px-4 py-4", className)}>
+    <aside {...rest} className={cn("sticky top-2 h-full space-y-10 rounded-r-lg bg-brand-200 px-4 py-4 ", className)}>
       {filterStore.selectedCategory?.length > 0 && (
         <Fragment>
           <div className="product-filter-container">
@@ -39,7 +39,7 @@ export const FilterCard: FC<FilterCardProps> = ({
                       buttonVariants({
                         variant: "default",
                       }),
-                      "cursor-pointer"
+                      "cursor-pointer "
                     )}>
                     {val}
                   </p>
@@ -54,7 +54,7 @@ export const FilterCard: FC<FilterCardProps> = ({
       <div className="product-filter-container">
         <div className="">
           <h3 className="product-filter-heading font-kurale">Price Range</h3>
-          <p className="product-filter-heading text-end font-kurale">
+          <p className="product-filter-heading font-kurale text-end">
             {filterStore.minPrice} - {filterStore.maxPrice}
           </p>
         </div>

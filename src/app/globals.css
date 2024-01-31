@@ -27,7 +27,7 @@
         -z-10 h-0 w-0 bg-blue-800 transition-all group-hover:h-10 group-hover:w-10;
   }
   .product-filter-heading {
-    @apply text-lg font-semibold;
+    @apply text-lg font-semibold dark:text-gray-800;
   }
   .product-filter-container {
     @apply space-y-5;
@@ -40,13 +40,16 @@
     @apply h-3 w-full cursor-pointer appearance-none rounded-lg bg-brand-900;
   }
   .profile-route-title {
-    @apply my-4 mb-4  text-2xl font-semibold  text-gray-900
+    @apply my-4 mb-4  text-2xl font-semibold  text-gray-900 dark:text-gray-100
   }
   .hidden-mobile {
     @apply  hidden md:block
   }
   .only-mobile {
     @apply  md:hidden block
+  }
+  .input-dark {
+    @apply  dark:placeholder:text-gray-300 dark:bg-gray-500 dark:text-gray-700
   }
 }
 /*? Selected Product Style  */

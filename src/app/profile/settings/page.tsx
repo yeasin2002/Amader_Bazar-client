@@ -19,7 +19,6 @@ const Setting = () => {
     },
   ]
 
-
   return (
     <div className="grid h-full w-full  translate-y-1/4 place-items-center ">
       <div className="into-center  flex-col rounded-xl  bg-gray-100 p-5 shadow-lg  ring-2 ring-blue-400/40  sm:w-1/3  ">
@@ -31,10 +30,11 @@ const Setting = () => {
               <DialogWrapper
                 key={Item.title}
                 title={Item.title}
-                className={
-                  "w-full cursor-pointer rounded-md bg-gray-200 p-4 text-left shadow-md hover:bg-gray-200" +
+                className={cn(
+                  "w-full cursor-pointer rounded-md bg-gray-200 p-4 text-left shadow-md hover:bg-gray-200 ",
+                  "dark:bg-gray-900",
                   exo_2.className
-                }>
+                )}>
                 <Item.jsx />
               </DialogWrapper>
             )
