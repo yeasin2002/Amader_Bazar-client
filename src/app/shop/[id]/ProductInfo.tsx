@@ -14,11 +14,18 @@ import { Button } from "$ui/button"
 
 export interface ProductInfoProps {
   data: Product | null | undefined
-  isLoading: boolean
-  isError: boolean
+  isLoading?: boolean
+  isError?: boolean
+  totalReviews: number
 }
 
-export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: ProductInfoProps) => {
+export const DisplayProductInfo = ({
+  data,
+  isError = false,
+  isLoading = false,
+  totalReviews,
+  ...rest
+}: ProductInfoProps) => {
   const { favoriteProduct, toggleFavoriteProduct } = useFavoriteProductStore()
   const { toggleSelectedProduct, selectedProduct } = useSelectedProduct()
   let imgUrl
@@ -46,29 +53,21 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
           <div className="mx-auto flex flex-wrap lg:w-4/5">
             <Image
               src={imgUrl}
-              alt="ecommerce"
+              alt={`${data?.name}'s image`}
               className="h-64 w-full rounded object-cover object-center lg:h-auto lg:w-1/2"
               crossOrigin="anonymous"
               width={1000}
               height={1000}
             />
-            <div className="mt-6 w-full lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10">
-              <h2 className="title-font text-sm tracking-widest text-gray-500">{data?.category}</h2>
-              <h1 className="title-font mb-1 text-3xl font-medium text-gray-900">{data?.name}</h1>
-              <div className="mb-4 flex">
-                <span className="flex items-center">
-                  <Star className="text-yellow-500" fill="rgb(234 179 8 )" />
-
-                  <span className="ml-3 text-gray-600">4 Reviews</span>
-                </span>
-                <span className="space-x-2s ml-3 flex border-l-2 border-gray-200 py-2 pl-3">
-                  <FacebookIcon />
-                  <GithubIcon />
-                  <LinkedinIcon />
-                </span>
+            <div className="mt-6 w-full dark:text-gray-200 lg:mt-0 lg:w-1/2 lg:py-6 lg:pl-10">
+              <h2 className="title-font dark:text-gray- 300 text-sm tracking-widest text-gray-500">{data?.category}</h2>
+              <h1 className="title-font mb-1 text-3xl font-medium text-gray-900 dark:text-gray-200">{data?.name}</h1>
+              <div className="my-4 flex items-center ">
+                <Star className="text-yellow-500" fill="rgb(234 179 8 )" />
+                <span className="ml-3 text-gray-600 dark:text-gray-300">{totalReviews} Reviews</span>
               </div>
               <p className="leading-relaxed">
-                {data?.desc || <>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, quod.</>}
+                {data?.desc || <span className="animate-pulse">No description found</span>}
               </p>
               <div className="mb-5 mt-6 flex items-center border-b-2 border-gray-100 pb-5">
                 <div className="flex">
@@ -91,7 +90,10 @@ export const DisplayProductInfo = ({ data, isError, isLoading, ...rest }: Produc
                 </Select>
               </div>
               <div className="flex">
-                <span className="title-font text-2xl font-medium text-gray-900"> &#2547;{data?.price}</span>
+                <span className="title-font text-2xl font-medium text-gray-900 dark:text-gray-300">
+                  {" "}
+                  &#2547;{data?.price}
+                </span>
                 <Button
                   variant={!checkIsSelected ? "default" : "dark"}
                   className="ml-auto flex rounded border-0 px-6 py-2 focus:outline-none"

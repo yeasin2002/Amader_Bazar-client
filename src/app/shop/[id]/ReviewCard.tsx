@@ -9,11 +9,11 @@ import Image from "next/image"
 
 interface ReviewsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   rating: Rating[] | null | undefined
-  isLoading: boolean
-  isError: boolean
+  isLoading?: boolean
+  isError?: boolean
 }
 
-export const Reviews: FC<ReviewsProps> = ({ isError, isLoading, rating, ...rest }) => {
+export const Reviews: FC<ReviewsProps> = ({ isError = false, isLoading = false, rating, ...rest }) => {
   const loadingComponents = (
     <div>
       <RatingsSkeleton />

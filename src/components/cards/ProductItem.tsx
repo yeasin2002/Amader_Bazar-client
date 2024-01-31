@@ -1,17 +1,10 @@
-"use client"
-
-import { Heart, ShoppingCart } from "lucide-react"
-import { FC } from "react"
-import { toast } from "react-hot-toast"
-
-import notFound from "$assets/illustration/others/notFound.png"
+import notFound from "@/assets/illustration/others/notFound.png"
 import { Product } from "@/interface"
-import { useFavoriteProductStore } from "@/store"
-import { Button, buttonVariants } from "@/ui"
 import { getImgSrc } from "@/utils"
 import Image from "next/image"
-import Link from "next/link"
+import { FC } from "react"
 import { BdTaka } from ".."
+import { ProductItemActions } from "./ProductItemActions"
 
 interface productsPros {
   _id: string
@@ -25,28 +18,16 @@ interface productsPros {
 }
 
 export const ProductItem: FC<productsPros> = ({ title, category, img, price, discountPrice = 0, theProduct, _id }) => {
-  const { toggleFavoriteProduct, favoriteProduct } = useFavoriteProductStore()
-  const checkLovedProduct = favoriteProduct.filter((item) => item._id === _id)[0]
-
   const imgUrl = getImgSrc({
     img,
     imgType: "product-img",
     notFoundImg: notFound,
   })
 
-  const FavoriteAddingHandler = () => {
-    theProduct && toggleFavoriteProduct(theProduct)
-    if (checkLovedProduct) {
-      toast.success("Product removed from favorite")
-    } else {
-      toast.success("Product added to favorite")
-    }
-  }
-
   const costAfterDiscount = price - (price * discountPrice || 0) / 100
 
-  const renderComponent = (
-    <div className="grid h-[30rem] max-h-full  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md dark:border-gray-500/20 ">
+  return (
+    <div className="grid max-h-full min-h-[30rem]  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md dark:border-gray-500/20 ">
       <Image
         src={imgUrl}
         alt="product image"
@@ -73,26 +54,9 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
             )}
           </div>
         </div>
-        <div className="flex justify-end gap-x-2">
-          <Link
-            className={buttonVariants({
-              className: "btn-primary flex items-center justify-center gap-x-2",
-            })}
-            href={`/shop/${_id}`}>
-            <ShoppingCart />
-            <span>Details</span>
-          </Link>
-          <Button size={"sm"} variant={"brandOutline"} className="btn-primary" onClick={FavoriteAddingHandler}>
-            <Heart
-              className="text-lg text-gray-800"
-              fill={`${checkLovedProduct?._id === _id ? "rgb(190 18 60)" : "rgb(255 255 255)"}`}
-              color={`${checkLovedProduct?._id === _id ? "rgb(190 18 60)" : "rgb(31 41 55)"}`}
-            />
-          </Button>
-        </div>
+
+        <ProductItemActions id={_id} theProduct={theProduct} />
       </div>
     </div>
   )
-
-  return <div>{renderComponent}</div>
 }

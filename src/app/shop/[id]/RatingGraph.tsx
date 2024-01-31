@@ -4,11 +4,11 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 interface RatingGraphProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   Data: Data | undefined
-  isLoading: boolean
-  isError: boolean
+  isLoading?: boolean
+  isError?: boolean
 }
 
-export const RatingGraph: FC<RatingGraphProps> = ({ Data, isError, isLoading, ...rest }) => {
+export const RatingGraph: FC<RatingGraphProps> = ({ Data, isError = false, isLoading = false, ...rest }) => {
   return (
     <div {...rest}>
       <div className="mb-2 flex items-center">

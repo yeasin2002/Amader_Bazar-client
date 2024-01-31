@@ -86,7 +86,7 @@ export const UpdateAvatar = () => {
         <label
           htmlFor="imgEditor"
           className="absolute -bottom-2 -right-1 rounded-full bg-brand-400 p-2 transition-all hover:bg-brand-500">
-          <EditPen className="size-5" />
+          <EditPen className="size-5 dark:text-gray-900" />
         </label>
         <input type="file" id="imgEditor" className="hidden" onChange={handleImg} />
       </div>

@@ -122,7 +122,7 @@ const Profile = ({ ...rest }) => {
                 <tbody>
                   {items?.Products?.map((product) => {
                     return (
-                      <tr className="border-b bg-white hover:bg-gray-50 " key={product?._id}>
+                      <tr className="border-b bg-white hover:bg-gray-50 dark:border-b-gray-100 " key={product?._id}>
                         <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
                           {product?.Product?.name}
                         </th>
