@@ -7,5 +7,7 @@ type logProps = {
 }
 
 export const Logo = ({ className }: logProps) => {
-  return <Image src={logo.src} alt="logo" width={100} height={100} className={cn(className)} />
+  return (
+    <Image src={logo.src} alt="logo" width={256} height={288} className={cn("aspect-auto h-auto w-24", className)} />
+  )
 }

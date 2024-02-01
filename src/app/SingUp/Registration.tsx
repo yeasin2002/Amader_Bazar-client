@@ -125,15 +125,15 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration, 
         />
 
         <div className="my-6">
-          <Button variant={"dark"} className="w-full">
+          <Button variant={"dark"} className="w-full dark:bg-brand-500">
             {isLoading ? "Loading...." : "Sign In"}
           </Button>
         </div>
       </form>
 
-      <p className="mt-8 text-center text-xs font-light text-gray-400 ">
+      <p className="mt-8 text-center text-xs font-light text-gray-400 dark:text-gray-300  ">
         Already have an account?
-        <Link href="/login" className="ml-2 font-medium text-gray-700 hover:underline">
+        <Link href="/login" className="ml-2 font-medium text-gray-700 hover:underline dark:text-gray-400 ">
           Login instead
         </Link>
       </p>

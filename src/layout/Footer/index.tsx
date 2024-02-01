@@ -30,7 +30,8 @@ export const Footer = () => {
                       return (
                         <li key={item.link + item.title}>
                           <a
-                            className="min-h-12 min-w-12 text-gray-600 hover:text-gray-800 dark:text-gray-300"
+                            className=" text-gray-600 hover:text-gray-800 dark:text-gray-300"
+                            style={{ minWidth: "48px", minHeight: "48px" }}
                             href={item.link}
                             target="_blank"
                             aria-label={`Link to ${item.title}`}>

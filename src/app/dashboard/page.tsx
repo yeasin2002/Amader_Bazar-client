@@ -1,45 +1,9 @@
-"use client"
-
-import { ThemeSwitcher } from "@/components/global"
-import { ProfileAndDashboardSidebar } from "@/components/sidebar/ProfileAndDashboardSidebar"
-import { GanttChartSquare, Home, ShoppingCart, User } from "lucide-react"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
-
-const profileMenu = [
-  {
-    title: "Home",
-    url: "/dashboard",
-    icon: <Home />,
-  },
-  {
-    title: "User",
-    url: "/dashboard/user",
-    icon: <User />,
-  },
-  {
-    title: "Product",
-    url: "/dashboard/products",
-    icon: <ShoppingCart />,
-  },
-  {
-    title: "Orders",
-    url: "/dashboard/order",
-    icon: <GanttChartSquare />,
-  },
-]
-
-type indexProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
-
-const Dashboard: FC<indexProps> = ({ ...rest }) => {
-  // const { isLoggedIn, logOut } = useAuth()
+const Dashboard = () => {
   return (
-    <section {...rest} className=" flex h-full w-full ">
-      <ProfileAndDashboardSidebar menuItem={profileMenu} />
+    <section>
       <div>
         <h1>Dashboard</h1>
       </div>
-
-      <ThemeSwitcher />
     </section>
   )
 }

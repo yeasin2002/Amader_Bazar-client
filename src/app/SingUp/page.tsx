@@ -19,7 +19,7 @@ const SingUp: FC<SingUpProps> = ({ ...rest }) => {
       <div className="  hidden w-full md:block  ">
         <Lottie animationData={delivery} autoPlay={true} loop={false} />
       </div>
-      <div className="m-auto mx-auto w-full  rounded-lg bg-white p-6 shadow-md ">
+      <div className="m-auto mx-auto w-full  rounded-lg bg-white p-6 shadow-md  dark:bg-gray-900  ">
         {isConfirmRegistration ? (
           <ConfirmRegistration
             setIsConfirmRegistration={setIsConfirmRegistration}

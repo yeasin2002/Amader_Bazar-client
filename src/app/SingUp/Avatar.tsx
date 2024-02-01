@@ -32,7 +32,7 @@ export const Avatar: FC<AvatarProps> = ({ register }) => {
         <label
           htmlFor="avatar"
           className="curseor-pointer absolute -bottom-2 -right-2 rounded-full border border-gray-800/40 bg-gray-100 p-1">
-          <PencilLine size={20} />
+          <PencilLine size={20} className="dark:text-gray-950" />
 
           <input
             type="file"
