@@ -40,7 +40,7 @@ export const Hero = () => {
             </Link>
             {!isLoggedIn && (
               <Link
-                href={"/singup"}
+                href={"/registration"}
                 //  className={"mr-2 w-full rounded-xl "}
                 className={buttonVariants({
                   className: cn("mr-2  rounded-xl", { "w-full": !isLoggedIn }),

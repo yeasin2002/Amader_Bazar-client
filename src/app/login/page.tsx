@@ -106,7 +106,7 @@ const Login: FC<LogInProps> = ({ ...rest }) => {
 
         <p className="mt-8 text-center text-xs font-light text-gray-400 ">
           {"Don't"} have an account?
-          <Link href="/singup" className="ml-2 font-medium text-gray-700 hover:underline">
+          <Link href="/registration" className="ml-2 font-medium text-gray-700 hover:underline">
             Create One
           </Link>
         </p>
