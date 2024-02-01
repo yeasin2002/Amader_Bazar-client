@@ -5,29 +5,29 @@ import "swiper/css"
 import { Autoplay, Navigation, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
-import { HeroItems } from "$data"
-import { useAuth } from "$hooks/index"
-import { cn } from "$lib/utils"
+import { HeroItems } from "@/data"
+import { useAuth } from "@/hooks"
+import { cn } from "@/lib/utils"
 
 import Image from "next/image"
 
-import { kurale } from "@/font"
 import { buttonVariants } from "@/ui"
 import Link from "next/link"
 import { randomDesc } from "./HeroDesc"
 
 export const Hero = () => {
   const { isLoggedIn } = useAuth()
-  const randomText = randomDesc()
 
   return (
     <Fragment>
       <main className="eachSection  grid grid-cols-1 md:grid-cols-3">
         <div className="flex flex-col justify-between">
           <div className="flex flex-col place-items-center space-y-8 px-2">
-            <h1 className={"mb-4 text-center  text-4xl font-bold text-gray-800" + kurale.className}>Amader Bazar</h1>
+            <h1 className={"font-kurale mb-4  text-center text-4xl font-bold  text-gray-800 dark:text-gray-300"}>
+              Amader Bazar
+            </h1>
             <Suspense fallback={"..."}>
-              <p>{randomText}</p>
+              <p className=" font-jost font-medium  text-gray-600  dark:text-gray-400 ">{randomDesc()}</p>
             </Suspense>
           </div>
           <div className="my-3 mt-8 flex justify-between gap-x-2 ">

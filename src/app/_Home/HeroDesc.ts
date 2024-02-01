@@ -1,5 +1,8 @@
+const defaultDesc =
+  "Elevate your fitness journey with our Smart Fitness Tracker! This sleek and stylish device seamlessly tracks your steps, monitors your heart rate, and analyzes your sleep patterns. Stay motivated with real-time notifications and personalized fitness goals. Embrace a healthier lifestyle with cutting-edge technology at your fingertips."
+
 export const heroDesc = [
-  "Elevate your fitness journey with our Smart Fitness Tracker! This sleek and stylish device seamlessly tracks your steps, monitors your heart rate, and analyzes your sleep patterns. Stay motivated with real-time notifications and personalized fitness goals. Embrace a healthier lifestyle with cutting-edge technology at your fingertips.",
+  defaultDesc,
   "Experience timeless elegance with our handcrafted leather wallet. Meticulously crafted by skilled artisans, each wallet exudes sophistication and durability. With ample card slots, a secure coin pocket, and a slim design, it's the perfect blend of style and functionality. Elevate your everyday carry with this luxurious accessory.  ",
   "Transform your space into a haven of relaxation with our Aromatherapy Essential Oil Diffuser. Immerse yourself in soothing aromas that promote stress relief and tranquility. With customizable LED lights and a whisper-quiet operation, this diffuser is a must-have for creating a serene atmosphere at home.",
   "Unleash your culinary prowess with our Professional Chef's Knife Set. Precision meets perfection in every blade, ensuring effortless chopping, slicing, and dicing. Crafted from high-quality stainless steel, these knives are a chef's dream. Elevate your kitchen skills and create culinary masterpieces with this essential set.",
@@ -13,5 +16,5 @@ export const heroDesc = [
 
 export const randomDesc = () => {
   const randomIndex = Math.round(Math.random() * heroDesc?.length - 1)
-  return heroDesc[randomIndex]
+  return heroDesc[randomIndex] || defaultDesc
 }

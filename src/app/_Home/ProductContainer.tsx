@@ -15,7 +15,7 @@ export const ProductContainer: FC<ProductContainerProps> = async ({ heading, ...
 
   return (
     <section {...rest} className="mb-10 mt-32 space-y-10 px-4">
-      <h2 className={cn(" text-4xl  font-bold  ", kurale.className)}>{heading}</h2>
+      <h2 className={cn(" font-kurale  text-4xl   font-bold")}>{heading}</h2>
 
       <div className="grid grid-cols-1 gap-5 overflow-hidden sm:grid-cols-2 lg:grid-cols-4    ">
         <Fragment>

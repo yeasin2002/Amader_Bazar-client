@@ -18,7 +18,7 @@ The project is an online store that sells a variety of products and allows custo
 
 ![Netlify Status](https://api.netlify.com/api/v1/badges/568b6d73-ba9e-4919-bd3a-c7d4593679bd/deploy-status)
 
-### Project's Snapshot
+## Project's Snapshot
 
 <table>
   <tr>
@@ -32,7 +32,7 @@ The project is an online store that sells a variety of products and allows custo
 </table>
 
 
-#### Home Page
+### Home Page
 
 <table>
   <tr>
@@ -51,7 +51,7 @@ The project is an online store that sells a variety of products and allows custo
   </tr>
 </table>
 
-#### Search & Contact Page
+### Search & Contact Page
 
 <table>
   <tr>
@@ -65,7 +65,7 @@ The project is an online store that sells a variety of products and allows custo
   </tr>
 </table>
 
-#### Profile Page
+### Profile Page
 
 <table>
   <tr>

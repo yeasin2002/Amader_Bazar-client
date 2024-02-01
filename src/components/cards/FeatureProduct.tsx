@@ -25,7 +25,7 @@ export const FeatureProducts: FC<FeatureProductProps> = ({
 }) => {
   return (
     <div {...rest}>
-      <h2 className="font-fresca mb-10 text-xl  font-bold">{heading}</h2>
+      <h2 className="font-fresca mb-10 text-xl  font-bold ">{heading}</h2>
       <Fragment>
         {product?.map((val) => {
           const imgSrc = getImgSrc({

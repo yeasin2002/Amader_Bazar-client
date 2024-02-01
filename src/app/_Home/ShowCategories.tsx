@@ -5,7 +5,6 @@ import Image from "next/image"
 import { useRouter } from "next/navigation"
 import { DetailedHTMLProps, Fragment, HTMLAttributes } from "react"
 
-import { kurale, pt_sans_narrow } from "@/font"
 import { categoryData } from "@/interface"
 import { useFilterProduct } from "@/store"
 import { getImgSrc } from "@/utils"
@@ -31,7 +30,7 @@ export const ShowCategories = ({ categoryData, ...rest }: Props) => {
             <span className="grid place-items-center   rounded-full bg-brand-900 p-2  text-white">
               <Tag className="text-gray-700" />
             </span>
-            <p className={"  text-2xl font-bold text-gray-800" + kurale.className}>Categories</p>
+            <p className={"  font-kurale text-2xl font-bold text-gray-800  dark:text-gray-200"}>Categories</p>
           </div>
         </div>
         <div>
@@ -82,7 +81,7 @@ export const ShowCategories = ({ categoryData, ...rest }: Props) => {
                         crossOrigin="anonymous"
                       />
                     </span>
-                    <h2 className={"mb-2 mt-4 text-lg font-bold text-slate-900" + pt_sans_narrow.className}>
+                    <h2 className={"font-ptSansNarrow mb-2 mt-4 text-lg font-bold text-slate-900 dark:text-gray-400"}>
                       {val.name}
                     </h2>
                   </div>
