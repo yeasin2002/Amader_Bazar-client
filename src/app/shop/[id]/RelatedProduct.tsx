@@ -10,7 +10,6 @@ interface RelatedProductProps extends React.DetailedHTMLProps<HTMLAttributes<HTM
 export const RelatedProduct = async ({ id, category, ...rest }: RelatedProductProps) => {
   const data = (await $fetch(`/product/related-product`)) as AllProductResponse
 
-  console.log("🚀 ~ RelatedProduct ~ data:", data)
   return (
     <Fragment>
       {data?.data?.length === 0 || !data?.success || (

@@ -7,10 +7,10 @@ export const Footer = () => {
     <footer className="body-font text-gray-600">
       <div className="   mx-auto flex flex-col flex-wrap px-5 py-24 md:flex-row md:flex-nowrap md:items-center lg:items-start">
         <div className="mx-auto w-64 flex-grow text-center md:mx-0 md:text-left">
-          <a className="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
+          <div className="title-font flex items-center justify-center font-medium text-gray-900 md:justify-start">
             <Logo className="h-14 w-14" />
             <span className="font-kurale ml-3 text-xl font-bold dark:text-gray-100 lg:text-2xl">Amader Bazar</span>
-          </a>
+          </div>
           <p className="font-ptSansNarrow mt-2 text-sm  text-gray-500  dark:text-gray-200">
             Best online shop in Bangladesh.
             <br />
@@ -25,18 +25,21 @@ export const Footer = () => {
                   {val.heading}
                 </h2>
                 <div className="mb-10 list-none">
-                  {val.items?.map((item) => {
-                    return (
-                      <li key={item.link + item.title}>
-                        <a
-                          className="text-gray-600 hover:text-gray-800 dark:text-gray-300"
-                          href={item.link}
-                          target="_blank">
-                          {item.title}
-                        </a>
-                      </li>
-                    )
-                  })}
+                  <ul>
+                    {val.items?.map((item) => {
+                      return (
+                        <li key={item.link + item.title}>
+                          <a
+                            className="min-h-12 min-w-12 text-gray-600 hover:text-gray-800 dark:text-gray-300"
+                            href={item.link}
+                            target="_blank"
+                            aria-label={`Link to ${item.title}`}>
+                            {item.title}
+                          </a>
+                        </li>
+                      )
+                    })}
+                  </ul>
                 </div>
               </div>
             )

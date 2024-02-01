@@ -54,7 +54,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
     <div {...rest}>
       <Sheet>
         <SheetTrigger>
-          <ShoppingCart />
+          <ShoppingCart aria-label="shopping cart" />
         </SheetTrigger>
         <SheetContent>
           <SheetHeader className="h-full w-full ">
@@ -64,6 +64,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
 
           <SheetFooter>
             <Button
+              aria-label="checkout"
               className="w-full -translate-y-7"
               onClick={() => {
                 if (!isLoggedIn)

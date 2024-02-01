@@ -78,20 +78,20 @@ const Profile = ({ ...rest }) => {
               <div>
                 <div className="flex ">
                   <span className="h-1 w-full   bg-gray-300/60 "></span>
-                  <p className="w-full text-center text-slate-600">
+                  <p className="w-full text-center text-slate-600  dark:text-gray-300">
                     <span>{fullDate}</span> : <span>{time}</span>
                   </p>
                   <span className="h-1 w-full  bg-gray-300/60 "></span>
                 </div>
                 <div className="my-3 flex justify-between">
-                  <p className="text-md ml-6  font-normal text-gray-700">
+                  <p className="text-md ml-6  font-normal text-gray-700 dark:text-gray-300">
                     Total Cost: <span className="font-medium ">{items?.TotalAmount}</span> TK
                   </p>
                   <p>
-                    <span className="text-md font-medium text-gray-600">Status: </span>
+                    <span className="text-md font-medium text-gray-600 dark:text-gray-300 ">Status: </span>
                     <span
                       className={cn("text-sm font-semibold", {
-                        "text-yellow-600": items?.OrderStatus === "Pending",
+                        "text-yellow-600 dark:text-brand-500": items?.OrderStatus === "Pending",
                         "text-blue-600  ": items?.OrderStatus === "Processing",
                         "text-teal-500": items?.OrderStatus === "Completed",
                         "text-rose-600": items?.OrderStatus === "Cancelled",

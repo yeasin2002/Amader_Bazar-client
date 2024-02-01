@@ -8,7 +8,6 @@ import { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
 
-
 import { InputCombo } from "$components"
 import { $POST, useAuth } from "$hooks"
 import { Logo } from "$layout"
@@ -16,7 +15,6 @@ import { Button, InputForPassword } from "$ui"
 
 import delivery from "$assets/illustration/lottiy/delivery-service.json"
 import Link from "next/link"
-
 
 type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {
@@ -100,14 +98,14 @@ const Login: FC<LogInProps> = ({ ...rest }) => {
           </div>
 
           <div className="mt-6">
-            <Button variant={"dark"} className="w-full" font={"playpenSans"}>
+            <Button variant={"dark"} className="w-full  dark:bg-brand-500 dark:text-gray-950" font={"playpenSans"}>
               {isPending ? "Loading..." : "Log In"}
             </Button>
           </div>
         </form>
 
         <p className="mt-8 text-center text-xs font-light text-gray-400 ">
-          {"    Don't"} have an account?
+          {"Don't"} have an account?
           <Link href="/singup" className="ml-2 font-medium text-gray-700 hover:underline">
             Create One
           </Link>

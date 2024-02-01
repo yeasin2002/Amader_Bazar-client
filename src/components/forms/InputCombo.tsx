@@ -35,8 +35,12 @@ export const InputCombo: FC<InputComboProps> = ({
       {!isLabelHidden && (
         <label
           htmlFor={label}
-          className={cn("font-fresca  mb-2 text-sm font-medium capitalize  text-gray-900", labelClassName)}>
-          {label} <span className="text-md font-bold text-red-800">{isRequired && "*"}</span>
+          className={cn(
+            "font-fresca  mb-2 text-sm font-medium capitalize  text-gray-900 dark:text-gray-200 ",
+            labelClassName
+          )}>
+          {label}
+          <span className="text-md font-bold text-red-800">{isRequired && "*"}</span>
         </label>
       )}
 

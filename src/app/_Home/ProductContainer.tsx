@@ -3,8 +3,8 @@ import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
 import { ProductItem } from "@/components"
 import { kurale } from "@/font"
 import { AllProductResponse } from "@/interface"
-import { $fetch } from "@/utils"
 import { cn } from "@/lib"
+import { $fetch } from "@/utils"
 
 interface ProductContainerProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   heading: string

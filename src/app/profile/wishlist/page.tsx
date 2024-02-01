@@ -3,6 +3,7 @@
 import emptyCard from "$assets/illustration/others/empty-cart.svg"
 import { useFavoriteProductStore } from "$store"
 import { getImgSrc } from "$utils/getImageSrc"
+import { jost } from "@/font"
 import { ExternalLink, Trash2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -76,7 +77,9 @@ const Wishlist = () => {
       {favoriteProduct?.length === 0 && (
         <div className=" grid h-full w-full place-items-center">
           <Image src={emptyCard} alt="Empty" className="  h-5/6  w-5/6 lg:h-1/2 lg:w-1/2" />
-          <h1 className="font-jost text-center text-2xl font-semibold text-gray-900">Wishlist is empty</h1>
+          <h1 className={"text-center text-2xl font-semibold text-gray-900 dark:text-gray-300 " + jost.className}>
+            Wishlist is empty
+          </h1>
         </div>
       )}
     </section>

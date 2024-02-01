@@ -38,7 +38,7 @@ const buttonVariants = cva(
         dhurjati: "font-dhurjati",
       },
       variant: {
-        default: "bg-brand-900 text-black  hover:bg-brand-500/80 ",
+        default: "bg-brand-900 text-black  hover:bg-brand-500/80  ",
         brandOutline: "border border-brand-900 hover:text-accent-foreground",
         sky: "bg-blue-700 text-gray-100  hover:bg-blue-700/90 ",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",

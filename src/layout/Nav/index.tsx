@@ -55,7 +55,7 @@ export const Nav = () => {
                   href={"/login"}
                   className={buttonVariants({
                     variant: "default",
-                    className: " text-gray-700",
+                    className: " text-gray-900",
                     font: "playpenSans",
                   })}>
                   Log In

@@ -37,7 +37,9 @@ export const InputForPassword: FC<InputForPasswordProps> = ({
   return (
     <div>
       {!isLabelHidden && (
-        <label htmlFor={label} className={cn("mb-2   text-sm font-medium text-gray-900", labelClassName)}>
+        <label
+          htmlFor={label}
+          className={cn("mb-2   text-sm font-medium text-gray-900 dark:text-gray-200", labelClassName)}>
           {label} <span className="text-md font-bold text-red-800">{isRequired && "*"}</span>
         </label>
       )}

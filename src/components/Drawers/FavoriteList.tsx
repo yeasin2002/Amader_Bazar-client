@@ -5,11 +5,11 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 import empty from "$assets/illustration/3D/empty-cart.png"
 import { useFavoriteProductStore } from "$store"
-import {  Sheet, SheetContent, SheetTitle, SheetTrigger } from "$ui"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "$ui"
 
 import { getImgSrc } from "$utils/getImageSrc"
-import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 import Image from "next/image"
+import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 
 type FavoriteListProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
@@ -46,7 +46,7 @@ export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
     <div {...rest}>
       <Sheet>
         <SheetTrigger className="group relative">
-          <Heart />
+          <Heart aria-label="favorite list" />
         </SheetTrigger>
         <SheetContent>
           <SheetTitle>Selected shopping Item</SheetTitle>

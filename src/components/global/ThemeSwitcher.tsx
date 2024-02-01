@@ -59,19 +59,21 @@ export const ThemeSwitcher = ({ children, ...rest }: { children?: React.ReactNod
         )}
       </PopoverTrigger>
       <PopoverContent className="w-36  p-0">
-        <div
+        <button
           className="flex  h-full w-full cursor-pointer items-center gap-x-1 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-800 "
+          aria-label="Switch to light theme"
           onClick={() => setTheme("light")}>
           <LightSun className="size-5" />
           <p>Light</p>
-        </div>
+        </button>
 
-        <div
+        <button
           className="flex  h-full w-full cursor-pointer items-center gap-x-1 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-800 "
+          aria-label="Switch to dark theme"
           onClick={() => setTheme("dark")}>
           <DarkMoon className="size-5" />
           <p>Dark</p>
-        </div>
+        </button>
       </PopoverContent>
     </Popover>
   )
