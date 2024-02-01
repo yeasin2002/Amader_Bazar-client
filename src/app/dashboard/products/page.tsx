@@ -4,7 +4,7 @@ import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 interface ProductsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const Products: FC<ProductsProps> = ({ ...rest }) => {
+const Products: FC<ProductsProps> = ({ ...rest }) => {
   return (
     <div {...rest} className="w-full">
       product
@@ -34,3 +34,5 @@ export const Products: FC<ProductsProps> = ({ ...rest }) => {
     </div>
   )
 }
+
+export default Products

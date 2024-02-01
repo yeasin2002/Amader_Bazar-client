@@ -5,7 +5,7 @@ import { UserDetails } from "./UserDetails"
 
 interface UserProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const User: FC<UserProps> = ({ ...rest }) => {
+const User: FC<UserProps> = ({ ...rest }) => {
   return (
     <div {...rest} className="container w-full space-y-10">
       <h1 className="heading-2">User Information</h1>
@@ -38,3 +38,5 @@ export const User: FC<UserProps> = ({ ...rest }) => {
     </div>
   )
 }
+
+export default User

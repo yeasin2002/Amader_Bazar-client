@@ -6,7 +6,7 @@ import { DashboardNotifications } from "./DashboardNotifications"
 
 interface AdminProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
-export const Admin: FC<AdminProps> = ({ ...rest }) => {
+const Admin: FC<AdminProps> = ({ ...rest }) => {
   return (
     <div {...rest} className="container w-full [&>]:w-full">
       <div className="flex  justify-between py-4  ">
@@ -25,3 +25,5 @@ export const Admin: FC<AdminProps> = ({ ...rest }) => {
     </div>
   )
 }
+
+export default Admin
