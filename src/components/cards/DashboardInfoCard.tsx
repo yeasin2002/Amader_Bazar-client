@@ -5,10 +5,11 @@ import React, { DetailedHTMLProps, HTMLAttributes } from "react"
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   className?: string
   icon?: any
-  children: React.ReactNode
+  children?: React.ReactNode
+  title: string
 }
 
-export const DashboardInfoCard = ({ className, icon, children, ...rest }: Props) => {
+export const DashboardInfoCard = ({ className, icon, children, title, ...rest }: Props) => {
   return (
     <div
       {...rest}
@@ -21,7 +22,7 @@ export const DashboardInfoCard = ({ className, icon, children, ...rest }: Props)
         <User className="text-gray-900" />
       </div>
       <div>
-        <h5>Title</h5>
+        <h5>{title}</h5>
         {children}
       </div>
     </div>

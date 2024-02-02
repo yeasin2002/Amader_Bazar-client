@@ -18,7 +18,6 @@ export interface Product {
 
 export interface Users {
   Products: Product[]
-  __v: number
   _id: string
   address: string
   avatar: string
@@ -29,9 +28,7 @@ export interface Users {
   name: string
   password: string
   phone: string
-  updatedAt: Date
 }
-
 
 export interface SingleUserFullResponse {
   data: Users
@@ -39,4 +36,10 @@ export interface SingleUserFullResponse {
   statusCode: number
   success: boolean
 }
- 
+
+export interface AllUsersResponse {
+  data: Users[]
+  message: string
+  statusCode: number
+  success: boolean
+}
