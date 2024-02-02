@@ -1,3 +1,4 @@
+export * from "./DashboardInfoCard"
 export * from "./DetailsCardWithIcon"
 export * from "./DisplayCard"
 export * from "./FeatureProduct"

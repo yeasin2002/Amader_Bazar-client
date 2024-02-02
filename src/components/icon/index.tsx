@@ -1,5 +1,5 @@
 import { FC, SVGProps } from "react"
-interface SVGProp extends SVGProps<SVGSVGElement> {}
+export interface SVGProp extends SVGProps<SVGSVGElement> {}
 
 export function People(props: SVGProp) {
   return (
@@ -97,8 +97,6 @@ export const ArrowBack = ({ ...rest }: SVGProp) => {
   )
 }
 
-
-
 export function EditPen(props: SVGProp) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
@@ -135,3 +133,7 @@ export function LoadingDownload(props: SVGProp) {
     </svg>
   )
 }
+
+export * from "./ThemeIcons"
+export * from "./dashboard"
+

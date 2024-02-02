@@ -7,6 +7,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Fragment, HTMLAttributes, useState } from "react"
 import { twMerge } from "tailwind-merge"
+import { ThemeSwitcherLegacy } from "../global"
 
 interface ProfileAndDashboardSidebarProps
   extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -49,10 +50,14 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
           )
         })}
       </div>
-      <div
-        className={twMerge("cursor-pointer rounded-full bg-gray-300 p-3 dark:bg-gray-950", isOpen && "rotate-180")}
-        onClick={() => setIsOpen(!isOpen)}>
-        <ChevronRightSquare />
+
+      <div className="flex flex-col items-end justify-center gap-y-2 ">
+        <ThemeSwitcherLegacy className="p-4" />
+        <div
+          className={twMerge("cursor-pointer rounded-full bg-gray-300 p-3  dark:bg-gray-950", isOpen && "rotate-180")}
+          onClick={() => setIsOpen(!isOpen)}>
+          <ChevronRightSquare />
+        </div>
       </div>
     </aside>
   )
@@ -68,7 +73,7 @@ export const ProfileAndDashboardSidebar = ({ menuItem, ...rest }: ProfileAndDash
               text-gray-700 hover:text-gray-900 `,
               pathname === item.url && "border-brand-900"
             )}>
-            <p className="font-fresca flex flex-col items-center justify-center gap-y-2 capitalize">
+            <p className="flex flex-col items-center justify-center gap-y-2 font-fresca capitalize">
               {item.icon}
               {item.title}
             </p>
