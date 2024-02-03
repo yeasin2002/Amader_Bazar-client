@@ -1,11 +1,5 @@
 import { Users } from "./userAndProduct.interface"
 
-export interface ReviewsResponse {
-  data: Data
-  message: string
-  statusCode: number
-  success: boolean
-}
 
 export interface Data {
   averageRating: number

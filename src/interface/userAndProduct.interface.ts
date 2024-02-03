@@ -1,19 +1,18 @@
 export interface Product {
-  __v: number
   _id: string
   category: string
-  color: string
-  createdAt: Date
   desc: string
   discount: number
   img: string
-  isFeature: boolean
+  isFeature?: boolean
   name: string
   price: number
   quantity: number
-  size: "S" | "M" | "L" | "XL" | "XXL" | "2XL" | "3XL" | "4XL" | "5XL" | "NA"
   totalSold: number
-  updatedAt: Date
+  size?: "S" | "M" | "L" | "XL" | "XXL" | "2XL" | "3XL" | "4XL" | "5XL" | "NA"
+  color?: string
+  createdAt?: Date
+  updatedAt?: Date
 }
 
 export interface Users {
@@ -28,18 +27,4 @@ export interface Users {
   name: string
   password: string
   phone: string
-}
-
-export interface SingleUserFullResponse {
-  data: Users
-  message: string
-  statusCode: number
-  success: boolean
-}
-
-export interface AllUsersResponse {
-  data: Users[]
-  message: string
-  statusCode: number
-  success: boolean
 }

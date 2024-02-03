@@ -1,9 +1,3 @@
-export interface CategoriesResponse {
-  data: categoryData[] | null
-  message: string
-  success: boolean
-}
-
 export interface categoryData {
   __v: number
   _id: string

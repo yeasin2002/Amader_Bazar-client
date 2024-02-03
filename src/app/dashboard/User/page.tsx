@@ -1,16 +1,19 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "$ui/table"
 
 import { AllUsersResponse } from "@/interface"
+import { getUsersToken } from "@/lib"
 import { Button } from "@/ui"
 import { $fetch } from "@/utils"
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
-import { UserDetails } from "./UserDetails"
 import { Refetch } from "./Refetch"
+import { UserDetails } from "./UserDetails"
 
 interface UserProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 
 const User: FC<UserProps> = async ({ ...rest }) => {
-  const data = (await $fetch("/user")) as AllUsersResponse
+  const data = (await $fetch("/user", {
+    next: { revalidate: 60 * 60 },
+  })) as AllUsersResponse
 
   return (
     <div {...rest} className="container w-full space-y-10">
@@ -52,6 +55,5 @@ const User: FC<UserProps> = async ({ ...rest }) => {
     </div>
   )
 }
-console.log("🚀 ~ constUser:FC<UserProps>= ~ Button:", Button)
 
 export default User

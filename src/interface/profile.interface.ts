@@ -1,16 +1,5 @@
 import { Product } from "./userAndProduct.interface"
 
-export interface orderResponse {
-  message: string
-  success: boolean
-}
-
-export interface OrderByUserResponse {
-  data: OrderData[] | null
-  message: string
-  statusCode: number
-  success: boolean
-}
 
 export interface OrderData {
   OrderAddress: string

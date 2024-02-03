@@ -1,4 +1,4 @@
-import { clientEnv } from "@/lib"
+import { clientEnv, getUsersToken } from "@/lib"
 
 export const $fetch = async (url: string | URL | Request, options?: RequestInit | undefined) => {
   try {

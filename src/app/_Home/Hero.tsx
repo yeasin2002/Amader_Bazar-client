@@ -23,7 +23,7 @@ export const Hero = () => {
       <main className="eachSection  grid grid-cols-1 md:grid-cols-3">
         <div className="flex flex-col justify-between">
           <div className="flex flex-col place-items-center space-y-8 px-2">
-            <h1 className={"font-kurale mb-4  text-center text-4xl font-bold  text-gray-800 dark:text-gray-300"}>
+            <h1 className={"mb-4 text-center  font-kurale text-4xl font-bold  text-gray-800 dark:text-gray-300"}>
               Amader Bazar
             </h1>
             <Suspense fallback={"..."}>
@@ -70,7 +70,14 @@ export const Hero = () => {
               const id = useId()
               return (
                 <SwiperSlide className=" cursor-grab" key={id}>
-                  <Image className="h-full w-full rounded-sm    " src={items.img} alt="apple watch photo" />
+                  <Image
+                    id={id}
+                    className="h-full w-full rounded-sm    "
+                    src={items.img}
+                    alt="Banner"
+                    placeholder="blur"
+                    priority
+                  />
                 </SwiperSlide>
               )
             })}
