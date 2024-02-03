@@ -66,11 +66,13 @@ export const ProductsDetailsForAdmin = ({ product, ...rest }: Props) => {
             <p className="dashboard-popover-items">TotalSold: {product.totalSold}</p>
           </div>
 
-          <div>
+          {/* <div>
             <h5 className="dashboard-popover-heading">Additional Information</h5>
-            <p className="dashboard-popover-items">Created At: {new Date(product.createdAt).toLocaleDateString()}</p>
-            <p className="dashboard-popover-items">Last Updated : {new Date(product.updatedAt).toLocaleDateString()}</p>
-          </div>
+            <p className="dashboard-popover-items">Created At: {new Date(product?.createdAt).toLocaleDateString()}</p>
+            <p className="dashboard-popover-items">
+              Last Updated : {new Date(product?.updatedAt).toLocaleDateString()}
+            </p>
+          </div> */}
 
           <div>
             <h5 className="dashboard-popover-heading">Actions</h5>
