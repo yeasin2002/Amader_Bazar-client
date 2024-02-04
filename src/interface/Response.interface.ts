@@ -48,6 +48,13 @@ export interface allOrdersResponse {
   success: boolean
 }
 
+export interface SingleOrdersResponse {
+  data: allOrdersData
+  message: string
+  statusCode: number
+  success: boolean
+}
+
 export interface allOrdersData {
   OrderAddress: string
   OrderDateAndTime: Date

@@ -2,6 +2,7 @@ import { Provider } from "@/components/global/Provider"
 import { Nav } from "@/layout"
 import type { Metadata } from "next"
 import { Inter } from "next/font/google"
+import NextTopLoader from "nextjs-toploader"
 
 import "../styles/globals.css"
 import "../styles/styles.css"
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className + "dark:text-gray-200"}>
+        <NextTopLoader />
         <Provider>
           <Nav />
           {children}
