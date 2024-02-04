@@ -43,10 +43,10 @@ export const useSelectedProduct = create(
 
                   if (check) {
                     store.selectedProduct = store.selectedProduct.filter((item) => item._id !== product._id)
-                    toast.success("Product added to cart")
+                    toast.success("Product removed from cart")
                   } else {
                     store.selectedProduct.push(product)
-                    toast.success("Product removed from cart")
+                    toast.success("Product added to cart")
                   }
                 })
               },

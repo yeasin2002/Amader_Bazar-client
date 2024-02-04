@@ -1,6 +1,6 @@
 import notFound from "@/assets/illustration/others/notFound.png"
 import { Product } from "@/interface"
-import { getImgSrc } from "@/utils"
+import { calculateDiscount, getImgSrc } from "@/utils"
 import Image from "next/image"
 import { FC } from "react"
 import { BdTaka } from ".."
@@ -24,7 +24,7 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
     notFoundImg: notFound,
   })
 
-  const costAfterDiscount = price - (price * discountPrice || 0) / 100
+  const costAfterDiscount = calculateDiscount(price, discountPrice)
 
   return (
     <div className="grid max-h-full min-h-[30rem]  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md dark:border-gray-500/20 ">
@@ -38,12 +38,12 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
 
       <div className=" flex flex-col justify-between p-4 ">
         <div>
-          <span className="font-playfairDisplay rounded-full border border-gray-800/40 px-2 py-1 text-xs font-medium text-gray-800 dark:border-gray-400/40 dark:text-gray-200">
+          <span className="rounded-full border border-gray-800/40 px-2 py-1 font-playfairDisplay text-xs font-medium text-gray-800 dark:border-gray-400/40 dark:text-gray-200">
             {category}
           </span>
-          <h2 className="heading-5 font-dosis mt-2 capitalize">{title}</h2>
+          <h2 className="heading-5 mt-2 font-dosis capitalize">{title}</h2>
           <div className="mt-2 space-y-2 ">
-            <p className="font-ptSansNarrow mt-4 flex items-center gap-x-1 text-xl font-bold dark:text-white">
+            <p className="mt-4 flex items-center gap-x-1 font-ptSansNarrow text-xl font-bold dark:text-white">
               <BdTaka className="dark:fill-slate-50" /> {costAfterDiscount}
             </p>
             {discountPrice !== 0 && (

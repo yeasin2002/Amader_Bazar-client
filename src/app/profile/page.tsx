@@ -18,6 +18,7 @@ import { getUsersToken } from "@/lib"
 const Profile = ({ ...rest }) => {
   const { data, isLoading, isError, isSuccess } = useQuery({
     queryKey: ["orders-of-user"],
+
     queryFn: () => {
       return $fetch("/order", {
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${getUsersToken()}` },
@@ -33,7 +34,7 @@ const Profile = ({ ...rest }) => {
   const ErrorComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
       <Lottie animationData={errorImg} className="h-40 w-full" loop />
-      <p className="font-exo2  text-center text-gray-600">something went wrong</p>
+      <p className="text-center  font-exo2 text-gray-600">something went wrong</p>
       <button
         className="mt-5  text-gray-500 underline decoration-rose-500 underline-offset-1 "
         onClick={() => {

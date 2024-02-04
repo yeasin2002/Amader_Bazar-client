@@ -2,16 +2,16 @@ import { OrderOverview } from "@/components/cards/OrderOverview"
 import { allOrdersResponse } from "@/interface"
 import { Button } from "@/ui"
 import { $fetch } from "@/utils"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
-interface ManageOrderProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
+import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+interface ManageOrderProps {}
 
-const ManageOrder: FC<ManageOrderProps> = async ({ ...rest }) => {
+const ManageOrder: FC<ManageOrderProps> = async () => {
   const data = (await $fetch("/dashboard/order", {
     next: { revalidate: 60 * 60 },
   })) as allOrdersResponse
 
   return (
-    <section {...rest} className="size-full  p-2">
+    <Fragment>
       <div className="size-full space-y-10">
         <div className="flex items-center justify-between">
           <h1 className="profile-route-title">User Information</h1>
@@ -39,7 +39,7 @@ const ManageOrder: FC<ManageOrderProps> = async ({ ...rest }) => {
           })}
         </div>
       </div>
-    </section>
+    </Fragment>
   )
 }
 
