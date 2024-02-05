@@ -12,7 +12,7 @@ interface UserProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HT
 
 const User: FC<UserProps> = async ({ ...rest }) => {
   const data = (await $fetch("/user", {
-    next: { revalidate: 60 * 60 },
+    next: { revalidate: 60 * 60, tags: ["users"] },
   })) as AllUsersResponse
 
   return (

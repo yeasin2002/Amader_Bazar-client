@@ -32,11 +32,11 @@ export const Nav = () => {
                     defaultValue={"/"}
                     key={item.title}
                     className={`group relative flex items-center   `}>
-                    <p className="  font-kurale cursor-pointer text-lg font-semibold text-gray-700  hover:text-gray-900 dark:text-gray-200 xl:text-xl 2xl:text-2xl">
+                    <p className="  cursor-pointer font-kurale text-lg font-semibold text-gray-700  hover:text-gray-900 dark:text-gray-200 xl:text-xl 2xl:text-2xl">
                       {item.title}
                     </p>
                     <span
-                      className={`absolute bottom-0 left-0 h-[0.15rem] w-0 bg-gray-900 transition-all duration-300 ease-in-out group-hover:w-full ${
+                      className={`absolute bottom-0 left-0 h-[0.15rem] w-0 bg-gray-900 transition-all duration-300 ease-in-out group-hover:w-full dark:bg-brand-500 ${
                         isActive && "w-full"
                       } `}
                     />
@@ -48,16 +48,11 @@ export const Nav = () => {
               <ThemeSwitcher />
               <FavoriteList />
               <SelectedShopping />
-              {isLoggedIn ? (
-                <UserProfileCheck />
-              ) : (
+              {isLoggedIn && <UserProfileCheck />}
+              {isLoggedIn || (
                 <Link
                   href={"/login"}
-                  className={buttonVariants({
-                    variant: "default",
-                    className: " text-gray-900",
-                    font: "playpenSans",
-                  })}>
+                  className={buttonVariants({ variant: "default", className: " text-gray-900", font: "playpenSans" })}>
                   Log In
                 </Link>
               )}

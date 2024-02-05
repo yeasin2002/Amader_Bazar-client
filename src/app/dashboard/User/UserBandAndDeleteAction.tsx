@@ -49,7 +49,7 @@ export const UserBandAndDeleteAction = ({ isBanned, userId, ...rest }: Props) =>
     const response = await deleteUser.mutateAsync(userId)
     if (response.success) {
       toast.success("User Deleted Successfully")
-      return revalidatePath("/dashboard/users")
+      return revalidatePath("users")
     } else {
       toast.error("Failed to delete user")
     }

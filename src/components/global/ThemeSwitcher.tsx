@@ -39,7 +39,7 @@ export const ThemeSwitcher = ({ children, ...rest }: { children?: React.ReactNod
     <Popover>
       <PopoverTrigger {...rest}>
         {children || (
-          <div>{resolvedTheme === "light" ? <LightSun className="size-8" /> : <DarkMoon className="size-8" />}</div>
+          <div>{resolvedTheme === "light" ? <LightSun className="size-7" /> : <DarkMoon className="size-7 " />}</div>
         )}
       </PopoverTrigger>
       <PopoverContent className="w-36  p-0">
