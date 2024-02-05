@@ -40,13 +40,17 @@ const buttonVariants = cva(
       variant: {
         default: "bg-brand-900 text-black  hover:bg-brand-500/80  ",
         brandOutline: "border border-brand-900 hover:text-accent-foreground",
-        sky: "bg-blue-700 text-gray-100  hover:bg-blue-700/90 ",
+        sky: "text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 ",
         destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         outline: "border border-gray-400/60 bg-background hover:bg-accent hover:text-accent-foreground",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         dark: "bg-slate-800 text-gray-100 hover:bg-slate-800/80",
+        danger:
+          "focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300  dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900",
+        success:
+          "focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300  dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800",
       },
     },
   }
@@ -67,3 +71,4 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 Button.displayName = "Button"
 
 export { Button, buttonVariants }
+

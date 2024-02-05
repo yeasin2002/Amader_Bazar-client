@@ -6,6 +6,7 @@ import { DetailedHTMLProps, HTMLAttributes } from "react"
 
 import defaultImg from "@/assets/illustration/others/user.jpg"
 import Image from "next/image"
+import { SingleOrderActions } from "./SingleOrderActions"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   params: { id: string }
@@ -48,8 +49,11 @@ const OrderDetails = async ({ params, ...rest }: Props) => {
           <p className="text-sm font-medium text-gray-800 dark:text-gray-400">{user?.address}</p>
         </div>
       </div>
+      <SingleOrderActions id={params.id} />
       <hr />
-      <Table className="w-full ">
+
+      <p className="mb-2 mt-4 text-xl font-bold ">Ordered Products</p>
+      <Table className="  w-full">
         <TableHeader>
           <TableRow className="rounded-lg bg-gray-100 text-sm font-semibold uppercase text-gray-600 dark:bg-gray-800 dark:text-gray-500">
             <TableHead>img</TableHead>

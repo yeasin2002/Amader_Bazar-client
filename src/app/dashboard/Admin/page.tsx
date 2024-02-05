@@ -1,14 +1,10 @@
-import { Home, LayoutGrid } from "lucide-react"
-
 import { DetailsCardWithIcon } from "$components/cards"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { Home, LayoutGrid } from "lucide-react"
 import { DashboardNotifications } from "./DashboardNotifications"
 
-interface AdminProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
-
-const Admin: FC<AdminProps> = ({ ...rest }) => {
+const Admin = () => {
   return (
-    <div {...rest} className="container w-full [&>]:w-full">
+    <div className="container w-full [&>]:w-full">
       <div className="flex  justify-between py-4  ">
         <p className="flex items-center gap-x-1">
           <LayoutGrid />

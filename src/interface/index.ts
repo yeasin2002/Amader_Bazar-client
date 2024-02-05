@@ -6,4 +6,5 @@ export * from "./Response.interface"
 export * from "./Reviews.interface"
 export * from "./profile.interface"
 export * from "./userAndProduct.interface"
+export * from "./utils.interface"
 

@@ -1,4 +1,4 @@
-import { Data, OrderData, Product, Users, categoryData } from "."
+import { Data, OrderData, OrderStatus, Product, Users, categoryData } from "."
 
 export interface SingleUserFullResponse {
   data: Users
@@ -59,7 +59,7 @@ export interface allOrdersData {
   OrderAddress: string
   OrderDateAndTime: Date
   OrderPaymentMethod: "cash" | "card"
-  OrderStatus: ["Pending", "Processing", "Completed", "Cancelled"]
+  OrderStatus: OrderStatus
   Products: {
     Product: Product
     Quantity: number
@@ -70,4 +70,11 @@ export interface allOrdersData {
   _id: string
   createdAt: Date
   updatedAt: Date
+}
+
+export interface UpdateOrderResponse {
+  data: Product
+  message: string
+  statusCode: number
+  success: boolean
 }

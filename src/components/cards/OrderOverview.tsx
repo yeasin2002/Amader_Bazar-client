@@ -6,6 +6,7 @@ import { DetailedHTMLProps, HTMLAttributes } from "react"
 // Icons
 import backIcon from "@/assets/illustration/3D/bank.svg"
 import moneyIcon from "@/assets/illustration/3D/money.png"
+import { RenderOrderStatus } from ".."
 import { Redirect } from "../Client"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -13,7 +14,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDi
 }
 
 export const OrderOverview = ({ OrdersData, ...rest }: Props) => {
-  const { User, Products } = OrdersData
+  const { User } = OrdersData
   const avatar = getImgSrc({
     img: User?.avatar,
     imgType: "user-img",
@@ -52,7 +53,10 @@ export const OrderOverview = ({ OrdersData, ...rest }: Props) => {
               <span>{isPayedByCard ? "Card" : "Cash"}</span>
             </p>
           </div>
-          <p>Order Status: Pending</p>
+          <p className="space-x-2">
+            <span>Order Status:</span>
+            <RenderOrderStatus status={OrdersData.OrderStatus} />
+          </p>
         </div>
 
         <div className="mt-4 flex items-center  justify-between">
