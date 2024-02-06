@@ -36,7 +36,7 @@ export const Nav = () => {
                       {item.title}
                     </p>
                     <span
-                      className={`absolute bottom-0 left-0 h-[0.15rem] w-0 bg-gray-900 transition-all duration-300 ease-in-out group-hover:w-full dark:bg-brand-500 ${
+                      className={`absolute bottom-0   left-0 h-[0.15rem] w-0 bg-gray-900 transition-all duration-300 ease-in-out group-hover:w-full dark:bg-brand-500 ${
                         isActive && "w-full"
                       } `}
                     />

@@ -1,16 +1,15 @@
 "use client"
 
-import { FacebookIcon, GithubIcon, Heart, LinkedinIcon, Star } from "lucide-react"
+import { Heart, Star } from "lucide-react"
 import Image from "next/image"
 import { Fragment } from "react"
 
-import notFound from "$assets/illustration/others/notFound.png"
 import { EachProductErrorSkeleton, EachProductSkeleton } from "$components"
-import { clientEnv } from "$lib"
 import { useFavoriteProductStore, useSelectedProduct } from "$store"
 import { Product } from "$types"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "$ui"
 import { Button } from "$ui/button"
+import { getImgSrc } from "@/utils"
 
 export interface ProductInfoProps {
   data: Product | null | undefined
@@ -23,26 +22,26 @@ export const DisplayProductInfo = ({
   data,
   isError = false,
   isLoading = false,
-  totalReviews,
+  totalReviews = 0,
   ...rest
 }: ProductInfoProps) => {
   const { favoriteProduct, toggleFavoriteProduct } = useFavoriteProductStore()
   const { toggleSelectedProduct, selectedProduct } = useSelectedProduct()
-  let imgUrl
-  if (!data?.img) {
-    imgUrl = notFound
-  } else {
-    imgUrl = `${clientEnv.baseUrl}/extra/product-img/${data?.img}`
-  }
+  const imgUrl = getImgSrc({
+    img: data?.img,
+    imgType: "product-img",
+  })
+
   const favoriteProductHandler = () => {
     if (!data) return
-
     toggleFavoriteProduct(data)
   }
+
   const selectedProductHandler = () => {
     if (!data) return
     toggleSelectedProduct(data)
   }
+
   const checkFavoriteProduct = favoriteProduct.filter((item) => item._id === data?._id)[0]
   const checkIsSelected = selectedProduct.filter((item) => item._id == data?._id)[0]
 
@@ -91,11 +90,10 @@ export const DisplayProductInfo = ({
               </div>
               <div className="flex">
                 <span className="title-font text-2xl font-medium text-gray-900 dark:text-gray-300">
-                  {" "}
                   &#2547;{data?.price}
                 </span>
                 <Button
-                  variant={!checkIsSelected ? "default" : "dark"}
+                  variant={checkIsSelected ? "danger" : "default"}
                   className="ml-auto flex rounded border-0 px-6 py-2 focus:outline-none"
                   onClick={selectedProductHandler}>
                   {checkIsSelected ? "Remove from Cart" : "Add to Cart"}
