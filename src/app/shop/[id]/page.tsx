@@ -1,6 +1,5 @@
 import { ReviewsResponse, SingleProductResponse } from "$types"
 import { $fetch } from "@/utils"
-import { AddReviews } from "./AddReviews"
 import { DisplayProductInfo } from "./ProductInfo"
 import { ProductReviews } from "./ProductReviews"
 import { RelatedProduct } from "./RelatedProduct"
@@ -18,7 +17,6 @@ const SingleProductInfo = async ({ params }: Props) => {
   return (
     <section className="py contain mx-auto my-32 px-5 lg:w-4/5">
       <DisplayProductInfo data={data?.data} totalReviews={ratingData?.data?.totalReviewer} />
-
       <ProductReviews data={ratingData} id={params.id} />
       <RelatedProduct id={data?.data?._id} category={data?.data?.category} />
     </section>

@@ -18,6 +18,9 @@ module.exports = {
       },
     },
     extend: {
+      screen: {
+        macro: "400px",
+      },
       fontFamily: {
         kurale: ["Kurale", "serif"],
         dhurjati: ["Dhurjati", "sans-serif"],

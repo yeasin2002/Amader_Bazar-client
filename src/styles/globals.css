@@ -48,11 +48,17 @@
   .input-dark {
     @apply dark:bg-gray-500 dark:text-gray-700 dark:placeholder:text-gray-300;
   }
+  .small-hide {
+    @apply hidden sm:block;
+  }
+  .mobile-show {
+    @apply block sm:hidden;
+  }
 }
 /*? Selected Product Style  */
 @layer components {
   .profile-product-table-td {
-    @apply px-6 py-4;
+    @apply px-1 py-2 sm:px-6 sm:py-4;
   }
   .profile-product-table-tr {
     @apply my-4 border-b bg-white hover:bg-gray-50;
@@ -64,7 +70,7 @@
     @apply block w-14 rounded-lg border border-gray-300 bg-gray-50 px-2.5 py-1 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500;
   }
   .profile-product-dlt-btn {
-    @apply inline-block cursor-pointer rounded-full bg-gray-100 p-2 hover:bg-gray-200;
+    @apply inline-block cursor-pointer rounded-full bg-gray-100  p-2 hover:bg-gray-200;
   }
 }
 /*? Selected Product Style End */

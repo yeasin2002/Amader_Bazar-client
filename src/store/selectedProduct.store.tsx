@@ -27,7 +27,6 @@ export const useSelectedProduct = create(
               removeProduct: (id: string) => {
                 set((state) => {
                   state.selectedProduct = state.selectedProduct.filter((item) => item._id !== id)
-                  // toast.warning("Product removed from cart")
                   toast.success("Product removed from cart")
                 })
               },
@@ -39,9 +38,8 @@ export const useSelectedProduct = create(
 
               toggleSelectedProduct: (product: SelectedProducts) => {
                 set((store) => {
-                  const check = store.selectedProduct.filter((item) => item._id === product._id)[0]
-
-                  if (check) {
+                  const checkIfIsExist = store.selectedProduct.filter((item) => item._id === product._id)[0]
+                  if (checkIfIsExist) {
                     store.selectedProduct = store.selectedProduct.filter((item) => item._id !== product._id)
                     toast.success("Product removed from cart")
                   } else {
@@ -50,10 +48,10 @@ export const useSelectedProduct = create(
                   }
                 })
               },
-              //
+
               increaseQuantity: (id: string) => {
                 set((store) => {
-                  const check = store.selectedProduct.filter((item) => item._id === id)[0]
+                  const check = store.selectedProduct.find((item) => item._id === id)
                   if (check) {
                     if (!check.SelectedQuantity) return
                     check.SelectedQuantity = check?.SelectedQuantity + 1

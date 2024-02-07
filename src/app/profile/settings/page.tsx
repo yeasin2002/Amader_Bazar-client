@@ -20,8 +20,8 @@ const Setting = () => {
   ]
 
   return (
-    <div className="grid h-full w-full  translate-y-1/4 place-items-center ">
-      <div className="into-center  flex-col rounded-xl  bg-gray-100 p-5 shadow-lg  ring-2 ring-blue-400/40  sm:w-1/3  ">
+    <div className="grid h-full w-full  translate-y-1/4 place-items-center  ">
+      <div className="into-center  -translate-y-24 flex-col  rounded-xl bg-gray-100 p-5  shadow-lg ring-2  ring-blue-400/40  sm:w-1/3 ">
         <UserIntro />
 
         <div className={cn("mt-5 flex w-full   flex-col gap-y-4 bg-gray-100 p-5")}>

@@ -6,8 +6,8 @@ import { DetailedHTMLProps, HTMLAttributes } from "react"
 // Icons
 import backIcon from "@/assets/illustration/3D/bank.svg"
 import moneyIcon from "@/assets/illustration/3D/money.png"
+import Link from "next/link"
 import { RenderOrderStatus } from ".."
-import { Redirect } from "../Client"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   OrdersData: allOrdersData
@@ -28,11 +28,11 @@ export const OrderOverview = ({ OrdersData, ...rest }: Props) => {
         <div className="flex items-center justify-between">
           <span className="text-sm font-light text-gray-600 dark:text-gray-400">{orderData}</span>
 
-          <Redirect
+          <Link
             className="flex transform cursor-pointer items-center gap-x-2 rounded bg-gray-600 px-3 py-1 text-sm font-bold text-gray-100 transition-colors duration-300 hover:bg-gray-500"
-            link={`/dashboard/order/${OrdersData._id}`}>
+            href={`/dashboard/order/${OrdersData._id}`}>
             Details
-          </Redirect>
+          </Link>
         </div>
 
         <div className="mt-2">

@@ -28,10 +28,7 @@ export const UserProfileCheck = () => {
         <div className="flex flex-col gap-y-2 md:hidden">
           {navItems.map((menu) => {
             return (
-              <Link
-                href={menu.url}
-                key={menu.title + menu.url}
-                className="flex items-center gap-x-1 text-gray-200 hover:text-gray-300">
+              <Link href={menu.url} key={menu.title + menu.url} className="flex items-center gap-x-1 text-gray-800">
                 {menu.icons}
                 <span className="text-sm font-medium ">{menu.title}</span>
               </Link>

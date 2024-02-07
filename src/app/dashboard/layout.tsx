@@ -32,7 +32,7 @@ const Dashboardlayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <section className=" flex h-full w-full ">
-      <ProfileAndDashboardSidebar menuItem={profileMenu} />
+      <ProfileAndDashboardSidebar menuItem={profileMenu} containerStyle="glass-effect" />
       {children}
     </section>
   )

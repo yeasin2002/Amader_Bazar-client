@@ -11,7 +11,7 @@ import Link from "next/link"
 const Wishlist = () => {
   const { favoriteProduct, removeFavoriteProduct } = useFavoriteProductStore()
   return (
-    <section className="h-full w-full space-y-10 p-4 py-5">
+    <section className="h-full w-full space-y-10 p-4 py-5 pb-32 sm:pb-0">
       <h1 className="profile-route-title">Wishlist</h1>
 
       <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
@@ -22,14 +22,16 @@ const Wishlist = () => {
                 <th scope="col" className="hidden-mobile px-6 py-3 ">
                   img
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6 py-3 ">
                   Product name
+                  <br />&<br />
+                  <span className="  sm:hidden"> Category</span>
                 </th>
 
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className=" hidden px-6 py-3 sm:block ">
                   Category
                 </th>
-                <th scope="col" className="px-6 py-3">
+                <th scope="col" className="px-6   py-3 ">
                   Price
                 </th>
                 <th scope="col" className="px-6 py-3">
@@ -43,6 +45,7 @@ const Wishlist = () => {
                   img: item.img,
                   imgType: "product-img",
                 })
+
                 return (
                   <tr
                     className="border-b bg-white hover:bg-gray-50 dark:bg-gray-800 dark:text-gray-100 "
@@ -50,12 +53,10 @@ const Wishlist = () => {
                     <td className="hidden-mobile px-6 py-4">
                       <Image src={imgSrc} alt={item.name} width={100} height={100} className="rounded-sm" />
                     </td>
-                    <th
-                      scope="row"
-                      className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 dark:text-gray-100">
+                    <td scope="row" className=" px-6 py-4 font-medium text-gray-900 dark:text-gray-100">
                       {item.name}
-                    </th>
-                    <td className="px-6 py-4">{item.category}</td>
+                    </td>
+                    <td className="hidden px-6  py-4 sm:table-cell ">{item.category}</td>
                     <td className="px-6 py-4">{item.price} </td>
                     <td className=" px-6  py-4 text-right ">
                       <div className="flex items-center gap-x-2">

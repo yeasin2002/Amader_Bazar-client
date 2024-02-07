@@ -76,8 +76,8 @@ const Profile = ({ ...rest }) => {
 
           const time = date.toLocaleTimeString()
           return (
-            <div className="relative overflow-x-auto shadow-md sm:rounded-lg" {...rest} key={items._id}>
-              <div>
+            <div className="relative overflow-x-auto   shadow-md sm:rounded-lg md:pb-0" {...rest} key={items._id}>
+              <div className="dark:bg-text-200 ">
                 <div className="flex ">
                   <span className="h-1 w-full   bg-gray-300/60 "></span>
                   <p className="w-full text-center text-slate-600  dark:text-gray-300">
@@ -96,19 +96,19 @@ const Profile = ({ ...rest }) => {
                 </div>
               </div>
 
-              <table className="w-full text-left text-sm text-gray-500 rtl:text-right ">
-                <thead className="bg-gray-50 text-xs uppercase text-gray-700 ">
+              <table className="w-full text-left text-sm text-gray-500 rtl:text-right  ">
+                <thead className="bg-gray-50 text-xs uppercase text-gray-700   dark:bg-gray-400">
                   <tr>
                     <th scope="col" className="px-6 py-3">
                       Product name
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="px-6 py-3 ">
                       Quantity
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className=" px-6 py-3">
                       Per Price
                     </th>
-                    <th scope="col" className="px-6 py-3">
+                    <th scope="col" className="small-hide px-6 py-3">
                       Total Price
                     </th>
                   </tr>
@@ -116,13 +116,15 @@ const Profile = ({ ...rest }) => {
                 <tbody>
                   {items?.Products?.map((product) => {
                     return (
-                      <tr className="border-b bg-white hover:bg-gray-50 dark:border-b-gray-100 " key={product?._id}>
-                        <th scope="row" className="whitespace-nowrap px-6 py-4 font-medium text-gray-900 ">
+                      <tr
+                        className="border-b bg-white transition-all hover:bg-gray-50 dark:border-b-gray-100 dark:bg-gray-200 dark:hover:bg-gray-300 "
+                        key={product?._id}>
+                        <th scope="row" className="  px-2 py-1 font-medium text-gray-900 sm:px-6 sm:py-4 ">
                           {product?.Product?.name}
                         </th>
                         <td className="px-6 py-4">{product?.Quantity}</td>
-                        <td className="px-6 py-4">{product?.Product?.price}</td>
-                        <td className="px-6 py-4">{product?.Product?.price * product?.Quantity}</td>
+                        <td className=" px-6 py-4">{product?.Product?.price}</td>
+                        <td className="small-hide px-6 py-4">{product?.Product?.price * product?.Quantity}</td>
                       </tr>
                     )
                   })}
@@ -135,7 +137,7 @@ const Profile = ({ ...rest }) => {
   )
 
   return (
-    <div className="h-full w-full space-y-14 px-2">
+    <div className="h-full w-full space-y-14 px-2 pb-28 md:pb-0">
       <UserProfileInfo />
       {isError ? ErrorComponents : isLoading ? loadingComponents : mainComponents}
     </div>

@@ -54,7 +54,7 @@ export const AddReviews = ({ children, className, id, ...rest }: Props) => {
     if (response.success) {
       return toast.success("Review added successfully")
     } else {
-      return toast.error("Failed to add review")
+      return toast.error(response.message)
     }
   }
 
