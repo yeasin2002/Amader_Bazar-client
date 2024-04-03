@@ -173,8 +173,8 @@ devDependencies:
     specifier: ^0.4.3
     version: 0.4.5(eslint@8.56.0)
   eslint-plugin-unicorn:
-    specifier: ^48.0.1
-    version: 48.0.1(eslint@8.56.0)
+    specifier: ^51.0.1
+    version: 51.0.1(eslint@8.56.0)
   husky:
     specifier: ^8.0.3
     version: 8.0.3
@@ -2638,6 +2638,17 @@ packages:
       update-browserslist-db: 1.0.13(browserslist@4.22.3)
     dev: true
 
+  /browserslist@4.23.0:
+    resolution: {integrity: sha512-QW8HiM1shhT2GuzkvklfjcKDiWFXHOeFCIA/huJPwHsslwcydgk7X+z2zXpEijP98UCY7HbubZt5J2Zgvf0CaQ==}
+    engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
+    hasBin: true
+    dependencies:
+      caniuse-lite: 1.0.30001605
+      electron-to-chromium: 1.4.724
+      node-releases: 2.0.14
+      update-browserslist-db: 1.0.13(browserslist@4.23.0)
+    dev: true
+
   /builtin-modules@3.3.0:
     resolution: {integrity: sha512-zhaCDicdLuWN5UbN5IMnFqNMhNfo919sH85y2/ea+5Yg9TsTkeZxpL+JLbp6cgYFS4sRLp3YV4S6yDuqVWHYOw==}
     engines: {node: '>=6'}
@@ -2684,6 +2695,10 @@ packages:
   /caniuse-lite@1.0.30001581:
     resolution: {integrity: sha512-whlTkwhqV2tUmP3oYhtNfaWGYHDdS3JYFQBKXxcUR9qqPWsRhFHhoISO2Xnl/g0xyKzht9mI1LZpiNWfMzHixQ==}
 
+  /caniuse-lite@1.0.30001605:
+    resolution: {integrity: sha512-nXwGlFWo34uliI9z3n6Qc0wZaf7zaZWA1CPZ169La5mV3I/gem7bst0vr5XQH5TJXZIMfDeZyOrZnSlVzKxxHQ==}
+    dev: true
+
   /chalk@2.4.2:
     resolution: {integrity: sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==}
     engines: {node: '>=4'}
@@ -2727,8 +2742,8 @@ packages:
     optionalDependencies:
       fsevents: 2.3.3
 
-  /ci-info@3.9.0:
-    resolution: {integrity: sha512-NIxF55hv4nSqQswkAeiOi1r83xy8JldOFDTWiug55KBu9Jnblncd2U6ViHmYgHf01TPZS77NJBhBMKdWj9HQMQ==}
+  /ci-info@4.0.0:
+    resolution: {integrity: sha512-TdHqgGf9odd8SXNuxtUBVx8Nv+qZOejE6qyqiy5NtbYYQOeFa6zmHkxlPzmaLxWWHsU6nJmB7AETdVPi+2NBUg==}
     engines: {node: '>=8'}
     dev: true
 
@@ -2864,6 +2879,12 @@ packages:
       is-text-path: 2.0.0
       meow: 12.1.1
       split2: 4.2.0
+    dev: true
+
+  /core-js-compat@3.36.1:
+    resolution: {integrity: sha512-Dk997v9ZCt3X/npqzyGdTlq6t7lDBhZwGvV94PKzDArjp7BTRm7WlDAXYd/OWdeFHO8OChQYRJNJvUCqCbrtKA==}
+    dependencies:
+      browserslist: 4.23.0
     dev: true
 
   /cosmiconfig-typescript-loader@5.0.0(@types/node@20.11.9)(cosmiconfig@8.3.6)(typescript@5.3.3):
@@ -3032,6 +3053,10 @@ packages:
 
   /electron-to-chromium@1.4.648:
     resolution: {integrity: sha512-EmFMarXeqJp9cUKu/QEciEApn0S/xRcpZWuAm32U7NgoZCimjsilKXHRO9saeEW55eHZagIDg6XTUOv32w9pjg==}
+    dev: true
+
+  /electron-to-chromium@1.4.724:
+    resolution: {integrity: sha512-RTRvkmRkGhNBPPpdrgtDKvmOEYTrPlXDfc0J/Nfq5s29tEahAwhiX4mmhNzj6febWMleulxVYPh7QwCSL/EldA==}
     dev: true
 
   /emoji-regex@10.3.0:
@@ -3439,28 +3464,31 @@ packages:
       string.prototype.matchall: 4.0.10
     dev: true
 
-  /eslint-plugin-unicorn@48.0.1(eslint@8.56.0):
-    resolution: {integrity: sha512-FW+4r20myG/DqFcCSzoumaddKBicIPeFnTrifon2mWIzlfyvzwyqZjqVP7m4Cqr/ZYisS2aiLghkUWaPg6vtCw==}
+  /eslint-plugin-unicorn@51.0.1(eslint@8.56.0):
+    resolution: {integrity: sha512-MuR/+9VuB0fydoI0nIn2RDA5WISRn4AsJyNSaNKLVwie9/ONvQhxOBbkfSICBPnzKrB77Fh6CZZXjgTt/4Latw==}
     engines: {node: '>=16'}
     peerDependencies:
-      eslint: '>=8.44.0'
+      eslint: '>=8.56.0'
     dependencies:
       '@babel/helper-validator-identifier': 7.22.20
       '@eslint-community/eslint-utils': 4.4.0(eslint@8.56.0)
-      ci-info: 3.9.0
+      '@eslint/eslintrc': 2.1.4
+      ci-info: 4.0.0
       clean-regexp: 1.0.0
+      core-js-compat: 3.36.1
       eslint: 8.56.0
       esquery: 1.5.0
       indent-string: 4.0.0
       is-builtin-module: 3.2.1
       jsesc: 3.0.2
-      lodash: 4.17.21
       pluralize: 8.0.0
       read-pkg-up: 7.0.1
       regexp-tree: 0.1.27
       regjsparser: 0.10.0
       semver: 7.5.4
       strip-indent: 3.0.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /eslint-scope@7.2.2:
@@ -5977,6 +6005,17 @@ packages:
       browserslist: '>= 4.21.0'
     dependencies:
       browserslist: 4.22.3
+      escalade: 3.1.1
+      picocolors: 1.0.0
+    dev: true
+
+  /update-browserslist-db@1.0.13(browserslist@4.23.0):
+    resolution: {integrity: sha512-xebP81SNcPuNpPP3uzeW1NYXxI3rxyJzF3pD6sH4jE7o/IX+WtSpwnVU+qIsDPyk0d3hmFQ7mjqc6AtV604hbg==}
+    hasBin: true
+    peerDependencies:
+      browserslist: '>= 4.21.0'
+    dependencies:
+      browserslist: 4.23.0
       escalade: 3.1.1
       picocolors: 1.0.0
     dev: true
