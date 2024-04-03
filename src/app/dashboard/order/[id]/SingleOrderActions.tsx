@@ -1,6 +1,6 @@
 "use client"
 
-import { LoadingSpinner, PulseRingsMultiple } from "@/components"
+import { LoadingSpinner } from "@/components"
 import { OrderStatus, UpdateOrderResponse } from "@/interface"
 import { Button } from "@/ui"
 import { $fetch } from "@/utils"

@@ -1,9 +1,7 @@
 "use client"
 
-import { cn } from "$lib/utils"
 import { OrderByUserResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
-import Lottie from "lottie-react"
 
 import { exo_2 } from "@/font"
 import { $fetch } from "@/utils"
@@ -15,6 +13,7 @@ import errorImg from "$assets/illustration/lottiy/warningjson.json"
 import lonely from "$assets/illustration/lottiy/woman-shopping-online.json"
 import { RenderOrderStatus } from "@/components"
 import { getUsersToken } from "@/lib"
+import { AnimateLottie } from "@/utils/AnimateLottie"
 
 const Profile = ({ ...rest }) => {
   const { data, isLoading, isError, isSuccess } = useQuery({
@@ -28,13 +27,13 @@ const Profile = ({ ...rest }) => {
   })
   const loadingComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
-      <Lottie animationData={loadingImg} className="h-40 w-full" loop />
+      <AnimateLottie data={loadingImg} className="h-40 w-full" />
       <p className={"text-center   text-gray-500" + exo_2.className}>Please wait for sometime</p>
     </div>
   )
   const ErrorComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
-      <Lottie animationData={errorImg} className="h-40 w-full" loop />
+      <AnimateLottie data={errorImg} className="h-40 w-full" loop />
       <p className="text-center  font-exo2 text-gray-600">something went wrong</p>
       <button
         className="mt-5  text-gray-500 underline decoration-rose-500 underline-offset-1 "
@@ -55,7 +54,7 @@ const Profile = ({ ...rest }) => {
         </Link>
       </div>
       <div className="w-full">
-        <Lottie animationData={lonely} className="h-96 w-full" loop />
+        <AnimateLottie data={lonely} className="h-96 w-full" loop />
       </div>
     </div>
   )

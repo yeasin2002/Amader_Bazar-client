@@ -45,6 +45,7 @@
     "react-dom": "^18",
     "react-hook-form": "^7.47.0",
     "react-hot-toast": "^2.4.1",
+    "react-lottie-player": "^2.0.0",
     "sharp": "^0.33.1",
     "swiper": "^11.0.3",
     "tailwind-merge": "^1.14.0",

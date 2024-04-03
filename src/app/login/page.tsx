@@ -2,20 +2,21 @@
 
 import { AuthResponse } from "$types"
 import { useMutation } from "@tanstack/react-query"
-import Lottie from "lottie-react"
+
 import { useRouter } from "next/navigation"
+
+import { InputCombo } from "$components"
 import { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
 
-import { InputCombo } from "$components"
+import delivery from "$assets/illustration/lottiy/delivery-service.json"
 import { $POST, useAuth } from "$hooks"
 import { Logo } from "$layout"
 import { Button, InputForPassword } from "$ui"
 
-import delivery from "$assets/illustration/lottiy/delivery-service.json"
+import { AnimateLottie } from "@/utils/AnimateLottie"
 import Link from "next/link"
-
 type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {
   email: string
@@ -59,7 +60,7 @@ const Login: FC<LogInProps> = ({ ...rest }) => {
       {...rest}
       className="flex max-h-full min-h-screen w-full  items-center justify-evenly bg-gradient-to-r  from-brand-300 to-brand-500 px-10 ">
       <div className="hidden h-full w-full md:block ">
-        <Lottie animationData={delivery} autoPlay={true} />
+        <AnimateLottie data={delivery} />
       </div>
 
       <div className="m-auto mx-auto w-full  rounded-lg bg-white p-6 shadow-md dark:bg-gray-800 ">

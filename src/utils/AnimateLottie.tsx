@@ -1,19 +1,23 @@
 "use client"
 
 import { cn } from "@/lib"
-import Lottie, { LottieComponentProps } from "lottie-react"
 import { Fragment } from "react"
+import Lottie, { LottieProps } from "react-lottie-player"
 
 interface Props {
-  data: unknown
+  data: object | { default: object } | undefined
   className?: string
   loop?: boolean
+  autoplay?: boolean
+  [key: string]: any
 }
 
-export const AnimateLottie = ({ data, className, loop = false, ...rest }: Props) => {
+export const AnimateLottie = ({ data, className, loop = true, autoplay = true, ...rest }: Props) => {
   return (
     <Fragment>
-      <Lottie {...rest} animationData={data} className={cn(className)} loop />
+      {typeof window !== "undefined" && (
+        <Lottie {...rest} animationData={data} className={cn(className)} loop={loop} play={autoplay} />
+      )}
     </Fragment>
   )
 }
