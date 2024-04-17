@@ -50,7 +50,7 @@
     "swiper": "^11.0.3",
     "tailwind-merge": "^1.14.0",
     "tailwindcss-animate": "^1.0.7",
-    "zustand": "^4.4.6"
+    "zustand": "^4.5.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.3",
@@ -70,7 +70,7 @@
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
-    "eslint-plugin-unicorn": "^48.0.1",
+    "eslint-plugin-unicorn": "^52.0.0",
     "husky": "^8.0.3",
     "lint-staged": "^15.2.2",
     "postcss": "^8.4.33",
