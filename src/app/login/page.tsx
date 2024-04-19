@@ -1,22 +1,20 @@
 "use client"
 
-import { AuthResponse } from "$types"
 import { useMutation } from "@tanstack/react-query"
-
+import Image from "next/image"
+import Link from "next/link"
 import { useRouter } from "next/navigation"
-
-import { InputCombo } from "$components"
-import { FC, HTMLAttributes } from "react"
+import type { FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
 
-import delivery from "$assets/illustration/lottiy/delivery-service.json"
-import { $POST, useAuth } from "$hooks"
-import { Logo } from "$layout"
-import { Button, InputForPassword } from "$ui"
+import type { AuthResponse } from "$types"
+import delivery from "@/assets/illustration/gif/Delivery Service.gif"
+import { InputCombo } from "@/components"
+import { $POST, useAuth } from "@/hooks"
+import { Logo } from "@/layout"
+import { Button, InputForPassword } from "@/ui"
 
-import { AnimateLottie } from "@/utils/AnimateLottie"
-import Link from "next/link"
 type LogInProps = React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 interface FormValues {
   email: string
@@ -60,7 +58,7 @@ const Login: FC<LogInProps> = ({ ...rest }) => {
       {...rest}
       className="flex max-h-full min-h-screen w-full  items-center justify-evenly bg-gradient-to-r  from-brand-300 to-brand-500 px-10 ">
       <div className="hidden h-full w-full md:block ">
-        <AnimateLottie data={delivery} />
+        <Image src={delivery} alt="delivery" layout="responsive" width={500} height={500} objectFit="contain" />
       </div>
 
       <div className="m-auto mx-auto w-full  rounded-lg bg-white p-6 shadow-md dark:bg-gray-800 ">
@@ -81,7 +79,7 @@ const Login: FC<LogInProps> = ({ ...rest }) => {
 
           <div className="mt-4">
             <div className="my-4 flex items-center justify-end">
-              <a href="#" className="text-xs text-gray-600 hover:underline dark:text-gray-400">
+              <a href="#forgot" className="text-xs text-gray-600 hover:underline dark:text-gray-400">
                 Forget Password?
               </a>
             </div>
@@ -105,9 +103,9 @@ const Login: FC<LogInProps> = ({ ...rest }) => {
           </div>
         </form>
 
-        <p className="mt-8 text-center text-xs font-light text-gray-400 ">
+        <p className="mt-8 text-center text-xs font-light text-gray-300 ">
           {"Don't"} have an account?
-          <Link href="/registration" className="ml-2 font-medium text-gray-700 hover:underline">
+          <Link href="/registration" className="ml-2 font-medium text-gray-400 hover:underline">
             Create One
           </Link>
         </p>

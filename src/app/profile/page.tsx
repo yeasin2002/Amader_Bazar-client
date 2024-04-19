@@ -1,19 +1,19 @@
 "use client"
 
-import { OrderByUserResponse } from "$types"
+import type { OrderByUserResponse } from "@/interface"
 import { useQuery } from "@tanstack/react-query"
-
-import { exo_2 } from "@/font"
-import { $fetch } from "@/utils"
+import Image from "next/image"
 import Link from "next/link"
+
+import { RenderOrderStatus } from "@/components"
+import { exo_2 } from "@/font"
+import { getUsersToken } from "@/lib"
+import { $fetch } from "@/utils"
 import { UserProfileInfo } from "./UserProfileInfo"
 
-import loadingImg from "$assets/illustration/lottiy/loading.json"
-import errorImg from "$assets/illustration/lottiy/warningjson.json"
-import lonely from "$assets/illustration/lottiy/woman-shopping-online.json"
-import { RenderOrderStatus } from "@/components"
-import { getUsersToken } from "@/lib"
-import { AnimateLottie } from "@/utils/AnimateLottie"
+import loadingImg from "@/assets/illustration/gif/Loading.gif"
+import errorImg from "@/assets/illustration/gif/warning.gif"
+import lonely from "@/assets/illustration/gif/Woman Shopping Online.gif"
 
 const Profile = ({ ...rest }) => {
   const { data, isLoading, isError, isSuccess } = useQuery({
@@ -27,15 +27,16 @@ const Profile = ({ ...rest }) => {
   })
   const loadingComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
-      <AnimateLottie data={loadingImg} className="h-40 w-full" />
+      <Image src={loadingImg} alt="loading" width={160} height={160} />
       <p className={"text-center   text-gray-500" + exo_2.className}>Please wait for sometime</p>
     </div>
   )
   const ErrorComponents = (
     <div className="flex h-full w-full flex-col place-items-center ">
-      <AnimateLottie data={errorImg} className="h-40 w-full" loop />
+      <Image src={errorImg} className="h-40 w-full" alt="error" width={160} height={160} />
       <p className="text-center  font-exo2 text-gray-600">something went wrong</p>
       <button
+        type="button"
         className="mt-5  text-gray-500 underline decoration-rose-500 underline-offset-1 "
         onClick={() => {
           window.location.reload()
@@ -54,7 +55,7 @@ const Profile = ({ ...rest }) => {
         </Link>
       </div>
       <div className="w-full">
-        <AnimateLottie data={lonely} className="h-96 w-full" loop />
+        <Image src={lonely} className="h-96 w-full" width={400} height={800} alt="Shopping" />
       </div>
     </div>
   )
@@ -78,11 +79,11 @@ const Profile = ({ ...rest }) => {
             <div className="relative overflow-x-auto   shadow-md sm:rounded-lg md:pb-0" {...rest} key={items._id}>
               <div className="dark:bg-text-200 ">
                 <div className="flex ">
-                  <span className="h-1 w-full   bg-gray-300/60 "></span>
+                  <span className="h-1 w-full   bg-gray-300/60 " />
                   <p className="w-full text-center text-slate-600  dark:text-gray-300">
                     <span>{fullDate}</span> : <span>{time}</span>
                   </p>
-                  <span className="h-1 w-full  bg-gray-300/60 "></span>
+                  <span className="h-1 w-full  bg-gray-300/60 " />
                 </div>
                 <div className="my-3 flex justify-between">
                   <p className="text-md ml-6  font-normal text-gray-700 dark:text-gray-300">

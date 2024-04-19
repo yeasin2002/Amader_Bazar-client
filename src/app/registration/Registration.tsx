@@ -1,13 +1,12 @@
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
+import Link from "next/link"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { Fragment, useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast } from "react-hot-toast"
 
-import { InputCombo } from "$components"
-import { clientEnv } from "$lib"
-
-import { InputForPassword } from "$ui/InputForPassword"
-import { Button } from "$ui/button"
-import Link from "next/link"
+import { InputCombo } from "@/components"
+import { clientEnv } from "@/lib"
+import { Button, InputForPassword } from "@/ui"
 import { Avatar } from "./Avatar"
 
 interface RegistrationProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
@@ -46,7 +45,7 @@ export const Registration: FC<RegistrationProps> = ({ setIsConfirmRegistration, 
       formData.append("address", data.address)
       formData.append("avatar", data.avatar[0])
 
-      const postRegister = await fetch(clientEnv.baseUrl + "/auth/register", {
+      const postRegister = await fetch(`${clientEnv.baseUrl}/auth/register`, {
         method: "POST",
         body: formData,
       })

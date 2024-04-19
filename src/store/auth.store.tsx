@@ -1,4 +1,4 @@
-import { User } from "$types"
+import type { User } from "@/interface"
 import { create } from "zustand"
 import { combine, persist } from "zustand/middleware"
 import { immer } from "zustand/middleware/immer"
