@@ -43,7 +43,7 @@ export const DisplayProductInfo = ({
   }
 
   const checkFavoriteProduct = favoriteProduct.filter((item) => item._id === data?._id)[0]
-  const checkIsSelected = selectedProduct.filter((item) => item._id == data?._id)[0]
+  const checkIsSelected = selectedProduct.filter((item) => item._id === data?._id)[0]
 
   const MainComponent = (
     <Fragment>
@@ -114,7 +114,7 @@ export const DisplayProductInfo = ({
     </Fragment>
   )
 
-  let renderedComponent
+  let renderedComponent: JSX.Element
   if (isError) {
     renderedComponent = <EachProductErrorSkeleton />
   } else {
@@ -125,5 +125,5 @@ export const DisplayProductInfo = ({
     }
   }
 
-  return <Fragment>{renderedComponent}</Fragment>
+  return renderedComponent
 }

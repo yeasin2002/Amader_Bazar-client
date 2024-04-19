@@ -14,7 +14,6 @@ export const ProductContainer: FC<ProductContainerProps> = async ({ heading, ...
   const data = (await $fetch("/product/all", {
     next: {
       tags: ["AllProduct"],
-      revalidate: 86400000,
     },
   })) as AllProductResponse
 

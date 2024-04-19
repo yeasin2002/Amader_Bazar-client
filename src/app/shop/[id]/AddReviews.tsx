@@ -51,11 +51,8 @@ export const AddReviews = ({ children, className, id, ...rest }: Props) => {
     console.table({ id, rating, desc: description })
 
     const response = await mutateAsync({ id, rating, desc: description })
-    if (response.success) {
-      return toast.success("Review added successfully")
-    } else {
-      return toast.error(response.message)
-    }
+    if (response.success) return toast.success("Review added successfully")
+    return toast.error(response.message)
   }
 
   const mailElement = (

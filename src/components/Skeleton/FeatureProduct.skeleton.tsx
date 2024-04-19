@@ -17,7 +17,7 @@ export const FeatureProductSkeleton: FC<FeatureProductSkeletonProps> = ({ childr
         </div>
 
         <div className="w-2/3 p-4 md:p-4">
-          <h1 className="h-2 w-40 rounded-lg bg-gray-200 dark:bg-gray-700"></h1>
+          <div className="h-2 w-40 rounded-lg bg-gray-200 dark:bg-gray-700"></div>
 
           <p className="mt-4 h-2 w-48 rounded-lg bg-gray-200 dark:bg-gray-700"></p>
 
@@ -30,7 +30,7 @@ export const FeatureProductSkeleton: FC<FeatureProductSkeletonProps> = ({ childr
           </div>
 
           <div className="item-center mt-6 flex justify-between">
-            <h1 className="h-2 w-10 rounded-lg bg-gray-200 dark:bg-gray-700"></h1>
+            <div className="h-2 w-10 rounded-lg bg-gray-200 dark:bg-gray-700"></div>
 
             <div className="h-4 w-28 rounded-lg bg-gray-200 dark:bg-gray-700"></div>
           </div>

@@ -50,19 +50,21 @@ export const UserBandAndDeleteAction = ({ isBanned, userId, ...rest }: Props) =>
     if (response.success) {
       toast.success("User Deleted Successfully")
       return revalidatePath("users")
-    } else {
-      toast.error("Failed to delete user")
     }
+    return toast.error("Failed to delete user")
   }
 
   return (
     <div {...rest}>
       <h5 className="mb-2 mt-4 text-lg font-bold text-gray-950 dark:text-gray-300 ">Actions</h5>
       <div className="flex items-center  gap-x-3">
-        <button onClick={handleUserDelete} className="rounded-md bg-red-500 px-4 py-2 text-white">
+        <button type="button" onClick={handleUserDelete} className="rounded-md bg-red-500 px-4 py-2 text-white">
           {deleteUser.isPending ? "Deleting...." : "Delete User"}
         </button>
-        <button onClick={handleBannedOrUnbanned} className={cn("rounded-md bg-rose-500 px-4 py-2 text-white")}>
+        <button
+          type="button"
+          onClick={handleBannedOrUnbanned}
+          className={cn("rounded-md bg-rose-500 px-4 py-2 text-white")}>
           {banAndUnbanned.isPending ? "Loading..........." : "Ban User"}
         </button>
       </div>

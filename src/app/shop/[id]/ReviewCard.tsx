@@ -35,8 +35,8 @@ export const Reviews: FC<ReviewsProps> = ({ isError = false, isLoading = false, 
             return (
               <div className="rounded-lg   border p-8 " {...rest} key={item?._id}>
                 <div className="my-5 flex items-center gap-x-2">
-                  {Array.from({ length: item.rating }).map((rate, i) => (
-                    <Star key={i} fill="rgb(248 146 30 )" color="rgb(248 146 30 )" size={20} />
+                  {Array.from({ length: item.rating }).map(() => (
+                    <Star key={crypto.randomUUID()} fill="rgb(248 146 30 )" color="rgb(248 146 30 )" size={20} />
                   ))}
                 </div>
                 <p className="leading-loose text-gray-500 dark:text-gray-400">{item?.desc}</p>
@@ -64,5 +64,5 @@ export const Reviews: FC<ReviewsProps> = ({ isError = false, isLoading = false, 
       )}
     </Fragment>
   )
-  return <Fragment>{isError ? errorComponents : isLoading ? loadingComponents : MainComponent}</Fragment>
+  return isError ? errorComponents : isLoading ? loadingComponents : MainComponent
 }

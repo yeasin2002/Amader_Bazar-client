@@ -19,7 +19,7 @@ export const FeatureProductErrorSkeleton: FC<FeatureProductErrorSkeletonProps> =
           <h1 className=" font-medium text-rose-800 ">Something Went Wrong </h1>
 
           <div className="item-center mt-6 flex justify-between">
-            <h1 className="h-2 w-10 rounded-lg bg-gray-200 "></h1>
+            <div className="h-2 w-10 rounded-lg bg-gray-200 "></div>
 
             <div className="h-4 w-28 rounded-lg bg-gray-200 "></div>
           </div>

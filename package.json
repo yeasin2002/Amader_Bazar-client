@@ -11,7 +11,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "lint:biome": "biome lint --apply   ./src "
+    "lint:biome": "biome lint    ./src "
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "3.5.3",

@@ -91,7 +91,7 @@ export const RenderAllSearchedProduct: FC<RenderAllSearchedProductProps> = ({ ..
     </div>
   )
 
-  let renderComponents
+  let renderComponents: JSX.Element
   if (isError || products?.success === false) {
     renderComponents = ErrorComponents
   } else if (isLoading) {
@@ -100,5 +100,5 @@ export const RenderAllSearchedProduct: FC<RenderAllSearchedProductProps> = ({ ..
     renderComponents = mainComponents
   }
 
-  return <Fragment>{renderComponents}</Fragment>
+  return renderComponents
 }

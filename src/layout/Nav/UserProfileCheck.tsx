@@ -14,12 +14,12 @@ export const UserProfileCheck = () => {
       </PopoverTrigger>
       <PopoverContent className="max-w-44 space-y-6 ">
         <Link href={"/profile"} className="flex">
-          <User2Icon />
+          <User2Icon className="navIcons" />
           Profile
         </Link>
         {userInfo?.isAdmin && (
           <Link href={"/dashboard"} className="flex">
-            <LayoutDashboard />
+            <LayoutDashboard className="navIcons" />
             Dashboard
           </Link>
         )}
@@ -34,7 +34,7 @@ export const UserProfileCheck = () => {
           })}
         </div>
         <div className="flex cursor-pointer items-end gap-x-2  hover:text-gray-500" onClick={() => setLoggedOut()}>
-          <LogOutIcon />
+          <LogOutIcon className="navIcons" />
           Log Out
         </div>
       </PopoverContent>

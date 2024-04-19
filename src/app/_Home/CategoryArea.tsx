@@ -6,7 +6,7 @@ interface Props extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElem
 
 export const CategoryArea = async ({ ...rest }: Props) => {
   const data = (await $fetch("/category", {
-    next: { tags: ["category"], revalidate: 86400000 },
+    next: { tags: ["category"] },
   })) as CategoriesResponse
   return <ShowCategories categoryData={data?.data} {...rest} />
 }

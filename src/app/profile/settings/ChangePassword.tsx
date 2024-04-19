@@ -31,15 +31,8 @@ export const ChangePassword = () => {
     const response = await mutateAsync(data)
     console.log("🚀  response :", response)
 
-    if (response.success) {
-      return toast.success("Password Changed Successfully", {
-        position: "top-right",
-      })
-    } else {
-      return toast.error("Unable To Change Password", {
-        position: "top-right",
-      })
-    }
+    if (response.success) return toast.success("Password Changed Successfully", { position: "top-right" })
+    return toast.error("Unable To Change Password", { position: "top-right" })
   }
 
   return (

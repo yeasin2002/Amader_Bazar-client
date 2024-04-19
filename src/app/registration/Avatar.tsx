@@ -15,7 +15,7 @@ export const Avatar: FC<AvatarProps> = ({ register }) => {
   const [selectedImage, setSelectedImage] = useState<string | StaticImageData>(DefaultAvatar)
 
   const handleFileChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (event.target.files && event.target.files[0]) {
+    if (event.target.files?.[0]) {
       setSelectedImage(URL.createObjectURL(event.target.files[0]))
     }
   }

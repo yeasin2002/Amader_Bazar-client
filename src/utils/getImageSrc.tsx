@@ -8,7 +8,7 @@ interface getImgProps {
 }
 
 export const getImgSrc = ({ img, imgType, notFoundImg = notFound }: getImgProps) => {
-  let imgUrl
+  let imgUrl: string
   if (!img) {
     imgUrl = notFoundImg
   } else {

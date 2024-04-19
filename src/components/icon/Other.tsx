@@ -3,7 +3,14 @@ import type { SVGProp } from "."
 
 export function People(props: SVGProp) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 32 32" {...props}>
+    <svg
+      role="img"
+      aria-label="People Icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 32 32"
+      {...props}>
       <path fill="currentColor" d="M16 8a5 5 0 1 0 5 5a5 5 0 0 0-5-5Z"></path>
       <path
         fill="currentColor"
@@ -15,6 +22,8 @@ export function People(props: SVGProp) {
 export const Facebook = () => {
   return (
     <svg
+      role="img"
+      aria-label="Facebook Icon"
       fill="currentColor"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -28,7 +37,14 @@ export const Facebook = () => {
 
 export function LoadingSpinner(props: SVGProp) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      role="img"
+      aria-label="Loading Spinner Icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}>
       <path
         fill="currentColor"
         d="M12 2A10 10 0 1 0 22 12A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 8-8A8 8 0 0 1 12 20Z"
@@ -77,7 +93,14 @@ export const OutlineStar: FC<OutlineStarProps> = ({ ...rest }) => {
 
 export const BdTaka: FC<SVGProp> = ({ ...rest }) => {
   return (
-    <svg {...rest} xmlns="http://www.w3.org/2000/svg" height="16" width="12" viewBox="0 0 384 512">
+    <svg
+      role="img"
+      aria-label="Bangladeshi Taka Icon"
+      {...rest}
+      xmlns="http://www.w3.org/2000/svg"
+      height="16"
+      width="12"
+      viewBox="0 0 384 512">
       <path d="M36 32.2C18.4 30.1 2.4 42.5 .2 60S10.5 93.6 28 95.8l7.9 1c16 2 28 15.6 28 31.8V160H32c-17.7 0-32 14.3-32 32s14.3 32 32 32H64V384c0 53 43 96 96 96h32c106 0 192-86 192-192V256c0-53-43-96-96-96H272c-17.7 0-32 14.3-32 32s14.3 32 32 32h16c17.7 0 32 14.3 32 32v32c0 70.7-57.3 128-128 128H160c-17.7 0-32-14.3-32-32V224h32c17.7 0 32-14.3 32-32s-14.3-32-32-32H128V128.5c0-48.4-36.1-89.3-84.1-95.3l-7.9-1z" />
     </svg>
   )
@@ -91,6 +114,8 @@ export const ArrowBack = ({ ...rest }: SVGProp) => {
       viewBox="0 0 24 24"
       strokeWidth="1.5"
       stroke="currentColor"
+      role="img"
+      aria-label="Arrow Back Icon"
       className="h-5 w-5 rtl:rotate-180">
       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18" />
     </svg>
@@ -99,7 +124,14 @@ export const ArrowBack = ({ ...rest }: SVGProp) => {
 
 export function EditPen(props: SVGProp) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      role="img"
+      aria-label="Edit Pen Icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}>
       <path
         fill="currentColor"
         d="M5 21q-.825 0-1.412-.587T3 19V5q0-.825.588-1.412T5 3h8.925l-2 2H5v14h14v-6.95l2-2V19q0 .825-.587 1.413T19 21zm4-6v-4.25l9.175-9.175q.3-.3.675-.45t.75-.15q.4 0 .763.15t.662.45L22.425 3q.275.3.425.663T23 4.4q0 .375-.137.738t-.438.662L13.25 15zM21.025 4.4l-1.4-1.4zM11 13h1.4l5.8-5.8l-.7-.7l-.725-.7L11 11.575zm6.5-6.5l-.725-.7zl.7.7z"></path>
@@ -109,7 +141,14 @@ export function EditPen(props: SVGProp) {
 
 export function LoadingDownload(props: SVGProp) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24" {...props}>
+    <svg
+      role="img"
+      aria-label="Loading Download Icon"
+      xmlns="http://www.w3.org/2000/svg"
+      width="1em"
+      height="1em"
+      viewBox="0 0 24 24"
+      {...props}>
       <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
         <path
           stroke-dasharray="2 4"

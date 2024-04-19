@@ -10,7 +10,6 @@ export const FeatureProductWrapper: FC<MicroProductWrapperProps> = async ({ ...r
   const data = (await $fetch("/product/feature", {
     next: {
       tags: ["FeaturedProduct", "MostPopular", "DiscountedProduct"],
-      revalidate: 86400000,
     },
   })) as FeaturedProductResponse
 

@@ -48,8 +48,10 @@ export const Nav = () => {
               <ThemeSwitcher />
               <FavoriteList />
               <SelectedShopping />
-              {isLoggedIn && <UserProfileCheck />}
-              {isLoggedIn || (
+
+              {isLoggedIn ? (
+                <UserProfileCheck />
+              ) : (
                 <Link
                   href={"/login"}
                   className={buttonVariants({ variant: "default", className: " text-gray-900", font: "playpenSans" })}>

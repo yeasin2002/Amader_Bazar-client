@@ -49,9 +49,8 @@ export const UpdateProfileInfo = ({ ...rest }: Props) => {
     if (response.success && response.statusCode === 200) {
       toast.success("Profile updated successfully")
       return setUserInfo(response.data)
-    } else {
-      return toast.error("Something went wrong")
     }
+    return toast.error("Something went wrong")
   }
 
   return (

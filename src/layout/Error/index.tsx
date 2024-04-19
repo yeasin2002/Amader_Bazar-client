@@ -1,6 +1,4 @@
-import type { FC } from "react"
-
-export const Error: FC = ({ ...rest }) => {
+export const ErrorPage = ({ ...rest }) => {
   return (
     <div {...rest}>
       <h1>And Error Occur</h1>

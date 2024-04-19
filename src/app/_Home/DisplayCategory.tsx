@@ -19,7 +19,7 @@ import { FreeMode, Pagination } from "swiper/modules"
 import { Swiper, SwiperSlide } from "swiper/react"
 
 export const DisplayCategory = () => {
-  let categoryDisplay
+  let categoryDisplay = null
   const {
     data: CategoriesData,
     isError,
@@ -33,9 +33,9 @@ export const DisplayCategory = () => {
 
   const LoadingComponent = (
     <Fragment>
-      {Array.from(Array(5))?.map((_, index) => {
+      {Array.from(Array(5))?.map(() => {
         return (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={crypto.randomUUID()}>
             <CategoryItemSkeleton />
           </SwiperSlide>
         )
@@ -47,7 +47,7 @@ export const DisplayCategory = () => {
     <Fragment>
       {Array.from(Array(5))?.map((_, index) => {
         return (
-          <SwiperSlide key={index}>
+          <SwiperSlide key={crypto.randomUUID()}>
             <CategoryItemError />
           </SwiperSlide>
         )
