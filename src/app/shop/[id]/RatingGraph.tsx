@@ -1,6 +1,6 @@
 import { FullStar, OutlineStar } from "$components/icon"
-import { Data } from "$types"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { Data } from "$types"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { RatingGraphItems } from "./RatingGraphItems"
 
 interface RatingGraphProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

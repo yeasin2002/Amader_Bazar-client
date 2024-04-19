@@ -1,4 +1,4 @@
-import { Product } from "./userAndProduct.interface"
+import type { Product } from "./userAndProduct.interface"
 
 export interface FeaturedProductResponse {
   data: FeaturedProductData | null

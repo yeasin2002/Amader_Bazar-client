@@ -7,7 +7,7 @@ import { Swiper, SwiperSlide } from "swiper/react"
 import { HeroItems } from "$data"
 
 
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import Image from "next/image"
 interface HeroSliderProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}
 

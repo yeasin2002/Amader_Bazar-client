@@ -1,5 +1,5 @@
-import { FC } from "react"
-import { SVGProp } from "."
+import type { FC } from "react"
+import type { SVGProp } from "."
 
 export function People(props: SVGProp) {
   return (

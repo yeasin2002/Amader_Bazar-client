@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 interface ProductDataProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   page: number

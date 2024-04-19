@@ -3,13 +3,13 @@
 import notFoundImg from "$assets/illustration/3D/warning.png"
 import { cn } from "$lib/utils"
 import { useFilterProduct } from "$store/filteredProducts.store"
-import { categoryData } from "$types"
+import type { categoryData } from "$types"
 import { buttonVariants } from "$ui/button"
 import { Checkbox } from "$ui/checkbox"
 import { Label } from "$ui/label"
 import { Skeleton } from "$ui/skeleton"
 import Image from "next/image"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
+import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes, useState } from "react"
 
 interface SelectCategoriesItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   categories: categoryData[] | null | undefined

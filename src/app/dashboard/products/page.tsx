@@ -1,8 +1,8 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "$ui"
 import { ProductTableItems } from "@/components"
-import { AllProductResponse } from "@/interface"
+import type { AllProductResponse } from "@/interface"
 import { $fetch } from "@/utils"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { ProductHeading } from "./ProductHeading"
 
 interface ProductsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

@@ -15,7 +15,7 @@ import { useMutation } from "@tanstack/react-query"
 import { X } from "lucide-react"
 import { useState } from "react"
 
-import { CommonResponse } from "@/interface"
+import type { CommonResponse } from "@/interface"
 import toast from "react-hot-toast"
 
 import { Rating } from "@smastrom/react-rating"

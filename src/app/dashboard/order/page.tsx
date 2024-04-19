@@ -1,5 +1,5 @@
 import { OrderOverview } from "@/components/cards/OrderOverview"
-import { allOrdersResponse } from "@/interface"
+import type { allOrdersResponse } from "@/interface"
 import { Button } from "@/ui"
 import { $fetch } from "@/utils"
 import { Fragment } from "react"

@@ -1,5 +1,5 @@
 import { Star } from "lucide-react"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { TextGroupSkeleton, UserSkeleton } from "."
 
 interface RatingsSkeletonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

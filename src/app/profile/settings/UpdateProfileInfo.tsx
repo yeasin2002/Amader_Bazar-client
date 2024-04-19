@@ -4,8 +4,8 @@ import { getUsersToken } from "@/lib"
 import { Button } from "@/ui"
 import { $fetch } from "@/utils"
 import { useMutation } from "@tanstack/react-query"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
+import { type SubmitHandler, useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {}

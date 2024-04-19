@@ -1,5 +1,5 @@
 import { Button, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "$ui"
-import { Product } from "@/interface"
+import type { Product } from "@/interface"
 
 import { ManageEditProduct } from "@/app/dashboard/products/ManageEditProduct"
 import { ProductsDetailsForAdmin } from "@/app/dashboard/products/ProductsDetailsForAdmin"

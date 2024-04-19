@@ -1,10 +1,10 @@
 "use client"
+import { useTheme } from "next-themes"
+import { Fragment, type HTMLAttributes } from "react"
 
 import { DarkMoon, LightSun } from "@/components/icon/ThemeIcons"
 import { cn } from "@/lib"
 import { Popover, PopoverContent, PopoverTrigger } from "@/ui"
-import { useTheme } from "next-themes"
-import { HTMLAttributes } from "react"
 
 interface ThemeSwitcherProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   className?: string
@@ -17,10 +17,7 @@ export const ThemeSwitcherLegacy = ({ className, iconsStyle, ...rest }: ThemeSwi
   return (
     <div
       {...rest}
-      className={cn(
-        "flex    cursor-pointer items-start justify-center rounded-full bg-blue-950    *:size-full ",
-        className
-      )}
+      className={cn("flex    cursor-pointer items-start justify-center rounded-full bg-blue-950     ", className)}
       onClick={() => {
         resolvedTheme === "light" ? setTheme("dark") : setTheme("light")
       }}>
@@ -38,24 +35,25 @@ export const ThemeSwitcher = ({ children, ...rest }: { children?: React.ReactNod
   return (
     <Popover>
       <PopoverTrigger {...rest}>
-        {children || (
-          <div>{resolvedTheme === "light" ? <LightSun className="size-7" /> : <DarkMoon className="size-7 " />}</div>
-        )}
+        {children ||
+          (resolvedTheme === "light" ? <LightSun className="navIcons" /> : <DarkMoon className="navIcons " />)}
       </PopoverTrigger>
       <PopoverContent className="w-36  p-0">
         <button
-          className="flex  h-full w-full cursor-pointer items-center gap-x-1 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-800 "
+          type="button"
+          className=" flex  h-full w-full cursor-pointer items-center gap-x-1 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-800 "
           aria-label="Switch to light theme"
           onClick={() => setTheme("light")}>
-          <LightSun className="size-5" />
+          <LightSun className=" navIcons" />
           <p>Light</p>
         </button>
 
         <button
-          className="flex  h-full w-full cursor-pointer items-center gap-x-1 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-800 "
+          type="button"
+          className=" flex  h-full w-full cursor-pointer items-center gap-x-1 px-4 py-2 hover:bg-gray-300 dark:hover:bg-gray-800 "
           aria-label="Switch to dark theme"
           onClick={() => setTheme("dark")}>
-          <DarkMoon className="size-5" />
+          <DarkMoon className=" navIcons" />
           <p>Dark</p>
         </button>
       </PopoverContent>

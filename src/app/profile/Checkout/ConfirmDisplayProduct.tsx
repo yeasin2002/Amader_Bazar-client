@@ -1,6 +1,6 @@
 import { useSelectedProduct } from "$store"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "$ui"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 interface ConfirmDisplayProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   totalCost: number

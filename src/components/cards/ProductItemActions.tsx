@@ -1,11 +1,11 @@
 "use client"
 
-import { Product } from "@/interface"
+import type { Product } from "@/interface"
 import { useFavoriteProductStore } from "@/store"
 import { Button, buttonVariants } from "@/ui"
 import { Heart, ShoppingCart } from "lucide-react"
 import Link from "next/link"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 import { toast } from "react-hot-toast"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

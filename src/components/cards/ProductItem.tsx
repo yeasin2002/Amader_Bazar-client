@@ -1,8 +1,8 @@
 import notFound from "@/assets/illustration/others/notFound.png"
-import { Product } from "@/interface"
+import type { Product } from "@/interface"
 import { calculateDiscount, getImgSrc } from "@/utils"
 import Image from "next/image"
-import { FC } from "react"
+import type { FC } from "react"
 import { BdTaka } from ".."
 import { ProductItemActions } from "./ProductItemActions"
 

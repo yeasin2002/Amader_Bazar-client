@@ -4,7 +4,7 @@ import { useAuth } from "@/hooks"
 import { cn } from "@/lib"
 import { getImgSrc } from "@/utils"
 import Image from "next/image"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   className?: string

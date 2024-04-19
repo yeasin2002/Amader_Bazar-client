@@ -10,7 +10,8 @@
     "turbo": "next dev --turbo",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:biome": "biome lint --apply   ./src "
   },
   "dependencies": {
     "@lottiefiles/react-lottie-player": "3.5.3",

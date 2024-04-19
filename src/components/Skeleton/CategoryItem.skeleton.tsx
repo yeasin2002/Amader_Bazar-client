@@ -1,5 +1,5 @@
 import { Skeleton } from "$ui"
-import { HTMLAttributes } from "react"
+import type { HTMLAttributes } from "react"
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const CategoryItemSkeleton = ({ ...rest }: CategoryItemProps) => {

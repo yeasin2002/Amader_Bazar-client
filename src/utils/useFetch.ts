@@ -6,5 +6,6 @@ export const $fetch = async (url: string | URL | Request, options?: RequestInit 
     return await req.json()
   } catch (error) {
     console.log("error", error)
+    return undefined
   }
 }

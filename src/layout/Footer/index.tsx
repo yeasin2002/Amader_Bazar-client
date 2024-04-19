@@ -34,7 +34,7 @@ export const Footer = () => {
                             style={{ minWidth: "48px", minHeight: "48px" }}
                             href={item.link}
                             target="_blank"
-                            aria-label={`Link to ${item.title}`}>
+                            aria-label={`Link to ${item.title}`} rel="noreferrer">
                             {item.title}
                           </a>
                         </li>
@@ -54,7 +54,7 @@ export const Footer = () => {
           <span className="mt-2 inline-flex justify-center gap-x-2 sm:ml-auto sm:mt-0 sm:justify-start">
             {footerContact?.map((item, index) => {
               return (
-                <a className="text-gray-500" href={item.link} key={item.link + index} target="_blank">
+                <a className="text-gray-500" href={item.link} key={item.link + index} target="_blank" rel="noreferrer">
                   <item.icon />
                 </a>
               )

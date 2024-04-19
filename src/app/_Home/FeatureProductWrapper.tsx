@@ -1,12 +1,18 @@
 import { FeatureProducts } from "$components/cards"
-import { FeaturedProductResponse } from "@/interface"
 import { $fetch } from "@/utils"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+
+import type { FeaturedProductResponse } from "@/interface"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 type MicroProductWrapperProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export const FeatureProductWrapper: FC<MicroProductWrapperProps> = async ({ ...rest }) => {
-  const data = (await $fetch("/product/feature")) as FeaturedProductResponse
+  const data = (await $fetch("/product/feature", {
+    next: {
+      tags: ["FeaturedProduct", "MostPopular", "DiscountedProduct"],
+      revalidate: 86400000,
+    },
+  })) as FeaturedProductResponse
 
   return (
     <div {...rest} className="mt-10  grid w-full grid-cols-1 gap-x-4 gap-y-24 px-4 md:grid-cols-2 lg:grid-cols-3  ">

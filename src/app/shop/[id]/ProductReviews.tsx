@@ -1,6 +1,6 @@
-import { ReviewsResponse } from "$types"
+import type { ReviewsResponse } from "$types"
 import { Plus } from "lucide-react"
-import { FC, HTMLAttributes } from "react"
+import type { FC, HTMLAttributes } from "react"
 import { AddReviews } from "./AddReviews"
 import { RatingGraph } from "./RatingGraph"
 import { Reviews } from "./ReviewCard"

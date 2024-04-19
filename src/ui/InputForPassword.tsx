@@ -1,7 +1,7 @@
 import { cn } from "$lib/utils"
 import { Eye, EyeOff } from "lucide-react"
-import { DetailedHTMLProps, FC, useState } from "react"
-import { UseFormRegisterReturn } from "react-hook-form"
+import { type DetailedHTMLProps, type FC, useState } from "react"
+import type { UseFormRegisterReturn } from "react-hook-form"
 
 interface InputForPasswordProps
   extends DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {

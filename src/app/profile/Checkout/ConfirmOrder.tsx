@@ -1,13 +1,13 @@
 "use client"
 
 import { useMutation } from "@tanstack/react-query"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { useForm } from "react-hook-form"
 
 import { InputCombo, LoadingSpinner } from "$components"
 import { $POST } from "$hooks"
 import { useSelectedProduct } from "$store"
-import { orderResponse } from "$types"
+import type { orderResponse } from "$types"
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTitle, AlertDialogTrigger, Button } from "$ui"
 import { toast } from "react-hot-toast"
 import { CheckoutSuccess } from "./CheckoutSuccess"

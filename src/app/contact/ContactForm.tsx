@@ -1,12 +1,12 @@
 "use client"
 
 import { useMutation } from "@tanstack/react-query"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 import { InputCombo } from "$components"
 import { $POST } from "$hooks"
 import { Button, Textarea } from "$ui"
-import { DetailedHTMLProps, FormHTMLAttributes } from "react"
+import type { DetailedHTMLProps, FormHTMLAttributes } from "react"
 
 interface Props extends DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement> {}
 

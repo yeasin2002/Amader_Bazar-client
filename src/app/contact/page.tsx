@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from "react"
+import type { FC, HTMLAttributes } from "react"
 import { ContactInfo } from "./ContactInfo"
 
 import location from "$assets/illustration/3D/location-pin.png"

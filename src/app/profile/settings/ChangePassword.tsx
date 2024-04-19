@@ -1,10 +1,10 @@
 import { LoadingSpinner } from "@/components"
-import { SingleUserFullResponse } from "@/interface"
+import type { SingleUserFullResponse } from "@/interface"
 import { getUsersToken } from "@/lib"
 import { Button, InputForPassword } from "@/ui"
 import { $fetch } from "@/utils"
 import { useMutation } from "@tanstack/react-query"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
 import toast from "react-hot-toast"
 
 interface FormValues {

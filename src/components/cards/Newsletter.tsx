@@ -1,7 +1,7 @@
 "use client"
 
 import { MailOpen, Send } from "lucide-react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 import { $POST } from "$hooks/useFetchers"
 import { Button } from "$ui"

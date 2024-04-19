@@ -1,8 +1,8 @@
-import { Product } from "@/interface"
+import type { Product } from "@/interface"
 import { cn } from "@/lib"
 import { useSelectedProduct } from "@/store"
 import { Minus, Plus } from "lucide-react"
-import React from "react"
+import type React from "react"
 
 interface SelectedProducts extends Product {
   SelectedQuantity?: number

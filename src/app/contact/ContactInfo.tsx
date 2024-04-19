@@ -1,6 +1,6 @@
 import { hedvig_letters_serif, playfair_display } from "@/font"
-import Image, { StaticImageData } from "next/image"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import Image, { type StaticImageData } from "next/image"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 interface ContactInfoProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   imgUrl: StaticImageData

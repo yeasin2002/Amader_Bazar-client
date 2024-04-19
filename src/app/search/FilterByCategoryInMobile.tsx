@@ -1,9 +1,9 @@
 "use client"
 
-import { categoryData } from "$types"
+import type { categoryData } from "$types"
 import { Button, buttonVariants } from "$ui/button"
 import { Skeleton } from "$ui/skeleton"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useState } from "react"
+import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes, useState } from "react"
 // Import Swiper
 import "swiper/css"
 import "swiper/css/free-mode"

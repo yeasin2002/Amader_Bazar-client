@@ -1,7 +1,7 @@
 "use client"
 
 import { LoadingSpinner } from "@/components"
-import { OrderStatus, UpdateOrderResponse } from "@/interface"
+import type { OrderStatus, UpdateOrderResponse } from "@/interface"
 import { Button } from "@/ui"
 import { $fetch } from "@/utils"
 import { useMutation } from "@tanstack/react-query"

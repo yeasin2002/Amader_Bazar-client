@@ -1,4 +1,4 @@
-import { Data, OrderData, OrderStatus, Product, Users, categoryData } from "."
+import type { Data, OrderData, OrderStatus, Product, Users, categoryData } from "."
 
 export interface SingleUserFullResponse {
   data: Users

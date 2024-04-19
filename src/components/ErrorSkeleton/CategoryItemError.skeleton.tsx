@@ -1,6 +1,6 @@
 import ErrorIcon from "$assets/illustration/3D/alert.png"
 import Image from "next/image"
-import { HTMLAttributes } from "react"
+import type { HTMLAttributes } from "react"
 interface CategoryItemProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const CategoryItemError = ({ ...rest }: CategoryItemProps) => {

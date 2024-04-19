@@ -1,7 +1,7 @@
 "use client"
 
 import { InputCombo } from "@/components"
-import { Product } from "@/interface"
+import type { Product } from "@/interface"
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -12,7 +12,7 @@ import {
   Button,
 } from "@/ui"
 import { X } from "lucide-react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 type Props = {
   defaultProduct?: Product

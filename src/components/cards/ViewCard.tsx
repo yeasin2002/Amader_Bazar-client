@@ -1,7 +1,7 @@
 import shoe from "$assets/temp/products/shoe5.jpg"
 import Image from "next/image"
 
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 type ViewCardProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 

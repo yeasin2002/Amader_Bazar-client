@@ -1,6 +1,6 @@
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { HTMLAttributes } from "react"
+import type { HTMLAttributes } from "react"
 
 import { pt_sans_narrow } from "@/font"
 import { useFilterProduct } from "@/store"

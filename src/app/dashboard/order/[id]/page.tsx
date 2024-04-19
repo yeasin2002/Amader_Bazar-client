@@ -1,8 +1,8 @@
 import { Table, TableBody, TableHead, TableHeader, TableRow } from "$ui"
 import { ProductTableItems } from "@/components"
-import { SingleOrdersResponse } from "@/interface"
+import type { SingleOrdersResponse } from "@/interface"
 import { $fetch, getImgSrc } from "@/utils"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 
 import defaultImg from "@/assets/illustration/others/user.jpg"
 import Image from "next/image"

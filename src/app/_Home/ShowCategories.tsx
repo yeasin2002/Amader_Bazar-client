@@ -3,9 +3,9 @@
 import { Tag } from "lucide-react"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
-import { DetailedHTMLProps, Fragment, HTMLAttributes } from "react"
+import { type DetailedHTMLProps, Fragment, type HTMLAttributes } from "react"
 
-import { categoryData } from "@/interface"
+import type { categoryData } from "@/interface"
 import { useFilterProduct } from "@/store"
 import { getImgSrc } from "@/utils"
 

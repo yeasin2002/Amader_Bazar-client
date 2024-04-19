@@ -1,4 +1,4 @@
-import { OrderStatus } from "@/interface"
+import type { OrderStatus } from "@/interface"
 import { cn } from "@/lib"
 
 interface Props extends React.ComponentProps<"span"> {

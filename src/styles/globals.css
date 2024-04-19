@@ -3,6 +3,9 @@
 @tailwind utilities;
 
 @layer components {
+  .navIcons {
+    @apply size-7;
+  }
   .upperArea {
     @apply my-28;
   }

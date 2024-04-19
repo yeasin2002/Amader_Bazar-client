@@ -1,7 +1,7 @@
 import { ProductItem } from "$components/index"
-import { AllProductResponse } from "$types"
+import type { AllProductResponse } from "$types"
 import { $fetch } from "@/utils"
-import { Fragment, HTMLAttributes } from "react"
+import { Fragment, type HTMLAttributes } from "react"
 interface RelatedProductProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   id: string | undefined
   category: string | undefined

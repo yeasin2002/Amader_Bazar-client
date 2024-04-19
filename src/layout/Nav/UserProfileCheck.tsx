@@ -1,9 +1,7 @@
-import { useAuth } from "$hooks/index"
-import { ThemeSwitcher } from "@/components/global"
 import { navItems } from "@/data/routes"
+import { useAuth } from "@/hooks/"
 import { Popover, PopoverContent, PopoverTrigger } from "@/ui"
 import { LayoutDashboard, LogOutIcon, User2, User2Icon } from "lucide-react"
-import { useTheme } from "next-themes"
 import Link from "next/link"
 
 export const UserProfileCheck = () => {
@@ -12,7 +10,7 @@ export const UserProfileCheck = () => {
   return (
     <Popover>
       <PopoverTrigger>
-        <User2 className="ml-4" />
+        <User2 className="navIcons" aria-label="user profile" />
       </PopoverTrigger>
       <PopoverContent className="max-w-44 space-y-6 ">
         <Link href={"/profile"} className="flex">
@@ -35,11 +33,7 @@ export const UserProfileCheck = () => {
             )
           })}
         </div>
-        <div
-          className="flex cursor-pointer items-end gap-x-2  hover:text-gray-500"
-          onClick={() => {
-            setLoggedOut()
-          }}>
+        <div className="flex cursor-pointer items-end gap-x-2  hover:text-gray-500" onClick={() => setLoggedOut()}>
           <LogOutIcon />
           Log Out
         </div>

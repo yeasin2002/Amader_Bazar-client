@@ -1,10 +1,10 @@
 import { FullStar } from "@/components"
-import { Product } from "@/interface"
+import type { Product } from "@/interface"
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger, Button } from "@/ui"
 import { calculateDiscount, getImgSrc } from "@/utils"
 import { X } from "lucide-react"
 import Image from "next/image"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   product: Product

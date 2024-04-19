@@ -1,11 +1,11 @@
 import { AlertDialog, AlertDialogCancel, AlertDialogContent, AlertDialogTrigger, Button } from "$ui"
 import defaultImg from "@/assets/illustration/others/user.jpg"
-import { Users } from "@/interface"
+import type { Users } from "@/interface"
 import { getImgSrc } from "@/utils"
 import { X } from "lucide-react"
 import Image from "next/image"
 
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { UserBandAndDeleteAction } from "./UserBandAndDeleteAction"
 
 interface UserDetailsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

@@ -3,7 +3,7 @@
 import { Button } from "@/ui"
 import { revalidatePath } from "next/cache"
 
-interface Props {}
+type Props = {}
 
 export const Refetch = ({ ...rest }: Props) => {
   return (

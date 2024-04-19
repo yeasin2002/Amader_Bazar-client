@@ -1,9 +1,9 @@
 "use client"
 
-import { Product } from "$src/interface"
+import type { Product } from "$src/interface"
 import Image from "next/image"
 import Link from "next/link"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes } from "react"
 
 import { getImgSrc } from "$utils/getImageSrc"
 import { BdTaka } from ".."

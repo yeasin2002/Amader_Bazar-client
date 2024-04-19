@@ -1,5 +1,5 @@
 import { cn } from "$lib/utils"
-import Image, { StaticImageData } from "next/image"
+import Image, { type StaticImageData } from "next/image"
 
 interface DisplayCardProps {
   url: StaticImageData

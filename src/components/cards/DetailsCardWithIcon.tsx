@@ -1,5 +1,5 @@
-import { LucideIcon } from "lucide-react"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { LucideIcon } from "lucide-react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 interface DetailsCardWithIconProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   Icon: LucideIcon

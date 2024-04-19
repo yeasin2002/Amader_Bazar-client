@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation"
 
 import { Home } from "lucide-react"
 import Image from "next/image"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 type NotFoundProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 const NotFound: FC<NotFoundProps> = ({ ...rest }) => {

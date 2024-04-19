@@ -1,4 +1,4 @@
-import { ReviewsResponse, SingleProductResponse } from "$types"
+import type { ReviewsResponse, SingleProductResponse } from "$types"
 import { $fetch } from "@/utils"
 import { DisplayProductInfo } from "./ProductInfo"
 import { ProductReviews } from "./ProductReviews"

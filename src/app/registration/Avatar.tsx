@@ -1,8 +1,8 @@
 import DefaultAvatar from "$assets/illustration/3D/avatar.webp"
 import { PencilLine } from "lucide-react"
-import Image, { StaticImageData } from "next/image"
-import { ChangeEvent, FC, Fragment, useState } from "react"
-import { UseFormRegisterReturn } from "react-hook-form"
+import Image, { type StaticImageData } from "next/image"
+import { type ChangeEvent, type FC, Fragment, useState } from "react"
+import type { UseFormRegisterReturn } from "react-hook-form"
 
 interface AvatarProps {
   register: UseFormRegisterReturn

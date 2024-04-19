@@ -1,6 +1,7 @@
 import { User } from "@/components/icon"
 import { cn } from "@/lib"
-import React, { DetailedHTMLProps, HTMLAttributes } from "react"
+import type React from "react"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   className?: string

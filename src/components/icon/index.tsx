@@ -1,4 +1,4 @@
-import { FC, SVGProps } from "react"
+import { FC, type SVGProps } from "react"
 export interface SVGProp extends SVGProps<SVGSVGElement> {}
 
 export * from "./Loader"

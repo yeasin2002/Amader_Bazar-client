@@ -1,5 +1,5 @@
 import { ImageOff } from "lucide-react"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes } from "react"
 
 interface FeatureProductErrorSkeletonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   children?: React.ReactNode

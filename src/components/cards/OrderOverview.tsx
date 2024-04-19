@@ -1,7 +1,7 @@
-import { allOrdersData } from "@/interface"
+import type { allOrdersData } from "@/interface"
 import { getImgSrc } from "@/utils"
 import Image from "next/image"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 
 // Icons
 import backIcon from "@/assets/illustration/3D/bank.svg"

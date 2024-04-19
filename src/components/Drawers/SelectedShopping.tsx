@@ -1,15 +1,15 @@
 import { ShoppingCart } from "lucide-react"
-import { useRouter } from "next/navigation"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
-
-import empty from "$assets/illustration/3D/empty-cart.png"
-import { useAuth } from "$hooks/index"
-import { useSelectedProduct } from "$store"
-import { Button, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "$ui"
-import { getImgSrc } from "$utils/getImageSrc"
-
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { Fragment } from "react"
 import { toast } from "react-hot-toast"
+
+import empty from "@/assets/illustration/3D/empty-cart.png"
+import { useAuth } from "@/hooks"
+import { useSelectedProduct } from "@/store"
+import { Button, Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle, SheetTrigger } from "@/ui"
+import { getImgSrc } from "@/utils/getImageSrc"
 import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 
 type SelectedShoppingProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
@@ -54,7 +54,7 @@ export const SelectedShopping: FC<SelectedShoppingProps> = ({ ...rest }) => {
     <div {...rest}>
       <Sheet>
         <SheetTrigger>
-          <ShoppingCart aria-label="shopping cart" />
+          <ShoppingCart aria-label="shopping cart" className="navIcons" />
         </SheetTrigger>
         <SheetContent>
           <SheetHeader className="h-full w-full ">

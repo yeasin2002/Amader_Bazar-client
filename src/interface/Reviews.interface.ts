@@ -1,4 +1,4 @@
-import { Users } from "./userAndProduct.interface"
+import type { Users } from "./userAndProduct.interface"
 
 
 export interface Data {

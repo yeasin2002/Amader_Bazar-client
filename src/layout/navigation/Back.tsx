@@ -1,6 +1,6 @@
 import { cn } from "$lib/utils"
 import { ChevronLeft } from "lucide-react"
-import { DetailedHTMLProps, FC } from "react"
+import type { DetailedHTMLProps, FC } from "react"
 
 
 interface indexProps extends DetailedHTMLProps<React.ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {

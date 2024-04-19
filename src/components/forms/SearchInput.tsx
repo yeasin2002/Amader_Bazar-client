@@ -1,5 +1,5 @@
 import { Search } from "lucide-react"
-import { DetailedHTMLProps, Fragment } from "react"
+import { type DetailedHTMLProps, Fragment } from "react"
 import { twMerge } from "tailwind-merge"
 interface SearchInputProps extends DetailedHTMLProps<React.InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {
   inputClassName?: string

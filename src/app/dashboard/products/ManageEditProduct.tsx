@@ -1,7 +1,7 @@
 "use client"
 
-import { Product } from "@/interface"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import type { Product } from "@/interface"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 import { EditAndAddProduct } from "./EditAndAddProduct"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

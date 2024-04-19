@@ -11,7 +11,11 @@
 				"noExplicitAny": "off"
 			},
 			"style": {
-				"useTemplate": "off"
+				"useTemplate": "off",
+				"noUnusedTemplateLiteral": "off"
+			},
+			"a11y": {
+				"useKeyWithClickEvents": "off"
 			}
 		}
 	}

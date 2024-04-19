@@ -2,10 +2,10 @@
 
 import { cn } from "$lib/utils"
 import { useFilterProduct } from "$store"
-import { categoryData } from "$types"
+import type { categoryData } from "$types"
 import { Button, buttonVariants } from "$ui"
 
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes } from "react"
 import { SelectCategoriesItem } from "./SelectCategorieItem"
 interface FilterCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement> {
   className?: string
@@ -64,7 +64,7 @@ export const FilterCard: FC<FilterCardProps> = ({
           type="range"
           value={filterStore.minPrice}
           onChange={(e) => {
-            filterStore.setMinPrice(parseInt(e.target.value))
+            filterStore.setMinPrice(Number.parseInt(e.target.value))
           }}
           className="range-slider"
         />

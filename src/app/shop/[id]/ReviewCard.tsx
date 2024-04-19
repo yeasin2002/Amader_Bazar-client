@@ -1,10 +1,10 @@
 import { Star } from "lucide-react"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes } from "react"
 
 import exclamationMark from "$assets/illustration/3D/exclamation.png"
 import defaultUser from "$assets/illustration/others/user.jpg"
 import { RatingsSkeleton } from "$components/Skeleton"
-import { Rating } from "$types"
+import type { Rating } from "$types"
 import { getImgSrc } from "@/utils"
 import Image from "next/image"
 

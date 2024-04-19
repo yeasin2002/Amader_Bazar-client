@@ -1,8 +1,8 @@
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes } from "react"
+import type { AllProductResponse } from "@/interface"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import { Fragment } from "react"
 
 import { ProductItem } from "@/components"
-import { kurale } from "@/font"
-import { AllProductResponse } from "@/interface"
 import { cn } from "@/lib"
 import { $fetch } from "@/utils"
 
@@ -11,7 +11,12 @@ interface ProductContainerProps extends DetailedHTMLProps<HTMLAttributes<HTMLEle
 }
 
 export const ProductContainer: FC<ProductContainerProps> = async ({ heading, ...rest }) => {
-  const data = (await $fetch("/product/all")) as AllProductResponse
+  const data = (await $fetch("/product/all", {
+    next: {
+      tags: ["AllProduct"],
+      revalidate: 86400000,
+    },
+  })) as AllProductResponse
 
   return (
     <section {...rest} className="mb-10 mt-32 space-y-10 px-4">

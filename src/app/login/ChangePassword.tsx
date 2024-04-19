@@ -7,8 +7,8 @@ import {
   AlertDialogTrigger,
 } from "$ui/alert-dialog"
 import { Button, buttonVariants } from "$ui/button"
-import { FC } from "react"
-import { SubmitHandler, useForm } from "react-hook-form"
+import type { FC } from "react"
+import { type SubmitHandler, useForm } from "react-hook-form"
 
 interface ChangePasswordInputs {
   currentPassword: string

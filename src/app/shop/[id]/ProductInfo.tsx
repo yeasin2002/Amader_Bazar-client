@@ -6,7 +6,7 @@ import { Fragment } from "react"
 
 import { EachProductErrorSkeleton, EachProductSkeleton } from "$components"
 import { useFavoriteProductStore, useSelectedProduct } from "$store"
-import { Product } from "$types"
+import type { Product } from "$types"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "$ui"
 import { Button } from "$ui/button"
 import { getImgSrc } from "@/utils"

@@ -1,4 +1,4 @@
-import { SVGProp } from ".";
+import type { SVGProp } from ".";
 
 export function PulseRingsMultiple(props: SVGProp) {
     return (

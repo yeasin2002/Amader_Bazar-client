@@ -1,13 +1,13 @@
 "use client"
 
 import { Heart } from "lucide-react"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
-import empty from "$assets/illustration/3D/empty-cart.png"
-import { useFavoriteProductStore } from "$store"
-import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "$ui"
+import empty from "@/assets/illustration/3D/empty-cart.png"
+import { useFavoriteProductStore } from "@/store"
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/ui"
 
-import { getImgSrc } from "$utils/getImageSrc"
+import { getImgSrc } from "@/utils/getImageSrc"
 import Image from "next/image"
 import { FavoriteAndSelectedItem } from "./FavAndSelectedProduct"
 
@@ -46,7 +46,7 @@ export const FavoriteList: FC<FavoriteListProps> = ({ ...rest }) => {
     <div {...rest}>
       <Sheet>
         <SheetTrigger className="group relative">
-          <Heart aria-label="favorite list" />
+          <Heart aria-label="favorite list" className="navIcons" />
         </SheetTrigger>
         <SheetContent>
           <SheetTitle>Selected shopping Item</SheetTitle>

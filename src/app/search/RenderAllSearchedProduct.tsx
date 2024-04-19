@@ -4,10 +4,10 @@ import emptyCard from "$assets/illustration/others/empty-cart.svg"
 import { ProductData, ProductErrorSkeleton, ProductItem, ProductSkeleton } from "$components/index"
 import { $POST } from "$hooks/useFetchers"
 import { useFilterProduct } from "$store/filteredProducts.store"
-import { SearchProductResponse } from "$types"
+import type { SearchProductResponse } from "$types"
 import { useMutation } from "@tanstack/react-query"
 import Image from "next/image"
-import { DetailedHTMLProps, FC, Fragment, HTMLAttributes, useEffect, useState } from "react"
+import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes, useEffect, useState } from "react"
 
 interface bodyData {
   search: string

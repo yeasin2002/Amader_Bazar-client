@@ -1,11 +1,11 @@
 "use client"
 
-import { SingleUserFullResponse } from "@/interface"
+import type { SingleUserFullResponse } from "@/interface"
 import { cn, getUsersToken } from "@/lib"
 import { $fetch } from "@/utils"
 import { useMutation } from "@tanstack/react-query"
 import { revalidatePath } from "next/cache"
-import { DetailedHTMLProps, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, HTMLAttributes } from "react"
 import toast from "react-hot-toast"
 
 interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {

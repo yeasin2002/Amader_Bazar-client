@@ -2,7 +2,7 @@
 
 
 import { $GET } from "$hooks"
-import { CategoriesResponse } from "$types"
+import type { CategoriesResponse } from "$types"
 import { useQuery } from "@tanstack/react-query"
 import { Tag } from "lucide-react"
 

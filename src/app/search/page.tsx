@@ -1,6 +1,6 @@
-import { CategoriesResponse } from "$types"
+import type { CategoriesResponse } from "$types"
 import { $fetch } from "@/utils"
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react"
+import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { FilterByCategoryInMobile } from "./FilterByCategoryInMobile"
 import { FilterCard } from "./FilterCard"
 import { RenderAllSearchedProduct } from "./RenderAllSearchedProduct"
