@@ -31,7 +31,6 @@ The project is an online store that sells a variety of products and allows custo
   </tr>
 </table>
 
-
 ### Home Page
 
 <table>

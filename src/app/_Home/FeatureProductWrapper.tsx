@@ -16,7 +16,7 @@ export const FeatureProductWrapper: FC<MicroProductWrapperProps> = async ({ ...r
   return (
     <div {...rest} className="mt-10  grid w-full grid-cols-1 gap-x-4 gap-y-24 px-4 md:grid-cols-2 lg:grid-cols-3  ">
       <FeatureProducts heading="Featured Product" product={data?.data?.FeaturedProduct} />
-      <FeatureProducts heading="Most  Popular" product={data?.data?.MostPopular} isLoading={false} isError={false} />
+      <FeatureProducts heading="Most  Popular" product={data?.data?.MostPopular} />
       <FeatureProducts heading="Discounted Product" product={data?.data?.DiscountedProduct} />
     </div>
   )

@@ -21,6 +21,7 @@ const Profile = ({ ...rest }) => {
       }) as Promise<OrderByUserResponse>
     },
   })
+  console.log("🚀 ~ Profile ~ data:", data)
 
   const noOrderFound = (
     <div className="flex  h-full max-h-screen w-full flex-col items-center justify-center text-center text-gray-500">

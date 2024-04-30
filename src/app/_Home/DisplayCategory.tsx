@@ -24,7 +24,7 @@ export const DisplayCategory = () => {
     data: CategoriesData,
     isError,
     isLoading,
-    error,
+    
   } = useQuery({
     queryKey: ["categories", "all"],
     staleTime: 86400000,

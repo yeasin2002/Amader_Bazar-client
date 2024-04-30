@@ -8,22 +8,15 @@ import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes } from "
 import { getImgSrc } from "$utils/getImageSrc"
 import { BdTaka } from ".."
 
-
 interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   heading: string
   product: Product[] | undefined
-  isLoading?: boolean
-  isError?: boolean
 }
 
-export const FeatureProducts: FC<FeatureProductProps> = ({
-  heading,
-  product,
-  ...rest
-}) => {
+export const FeatureProducts: FC<FeatureProductProps> = ({ heading, product, ...rest }) => {
   return (
     <div {...rest}>
-      <h2 className="font-fresca mb-10 text-xl  font-bold ">{heading}</h2>
+      <h2 className="mb-10 font-fresca text-xl  font-bold ">{heading}</h2>
       <Fragment>
         {product?.map((val) => {
           const imgSrc = getImgSrc({
@@ -41,7 +34,7 @@ export const FeatureProducts: FC<FeatureProductProps> = ({
               </div>
               <div className="flex w-full  flex-1 flex-col gap-y-3  ">
                 <p className="heading-6 font-dosis"> {val.name} </p>
-                <p className="font-quando flex items-center gap-x-1 text-sm font-medium ">
+                <p className="flex items-center gap-x-1 font-quando text-sm font-medium ">
                   <BdTaka /> {costAfterDiscount}
                   {val.discount !== 0 && <span className="text-xs text-gray-600 line-through"> {val.price} </span>}
                 </p>
