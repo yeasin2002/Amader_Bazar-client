@@ -6,6 +6,7 @@ import { Logo } from "$layout"
 import { buttonVariants } from "$ui/button"
 import { ThemeSwitcher } from "@/components/global"
 import { hiddenInMobileRoute as hiddenRoute, navItems } from "@/data/routes"
+import { useFilterProduct } from "@/store"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { Fragment } from "react"
@@ -14,6 +15,7 @@ import { UserProfileCheck } from "./UserProfileCheck"
 export const Nav = () => {
   const { isLoggedIn } = useAuth()
   const pathName = usePathname()
+  const { setResetFilter } = useFilterProduct()
 
   return (
     <Fragment>
@@ -28,6 +30,9 @@ export const Nav = () => {
                 const isActive = pathName === item.url
                 return (
                   <Link
+                    onClick={() => {
+                      if (item.title === "Search") setResetFilter()
+                    }}
                     href={item.url}
                     defaultValue={"/"}
                     key={item.title}
