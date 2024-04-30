@@ -62,7 +62,6 @@ export const ShowCategories = ({ categoryData, ...rest }: Props) => {
 
               return (
                 <SwiperSlide key={val._id}>
-                  {/* <CategoryItem categoryName={val.name} icon={val.icon} key={val._id} /> */}
                   <div
                     className=" into-center group aspect-square cursor-pointer flex-col "
                     {...rest}
@@ -79,9 +78,10 @@ export const ShowCategories = ({ categoryData, ...rest }: Props) => {
                         width={500}
                         height={500}
                         crossOrigin="anonymous"
+                        priority
                       />
                     </span>
-                    <h2 className={"font-ptSansNarrow mb-2 mt-4 text-lg font-bold text-slate-900 dark:text-gray-400"}>
+                    <h2 className={"mb-2 mt-4 font-ptSansNarrow text-lg font-bold text-slate-900 dark:text-gray-400"}>
                       {val.name}
                     </h2>
                   </div>

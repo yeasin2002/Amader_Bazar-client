@@ -1,9 +1,12 @@
-import type { ReviewsResponse } from "$types"
 import { Plus } from "lucide-react"
-import type { FC, HTMLAttributes } from "react"
+
 import { AddReviews } from "./AddReviews"
 import { RatingGraph } from "./RatingGraph"
 import { Reviews } from "./ReviewCard"
+
+import type { ReviewsResponse } from "@/interface"
+import type { FC, HTMLAttributes } from "react"
+
 interface ProductReviewsProps extends React.DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   data: ReviewsResponse
   id: string

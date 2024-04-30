@@ -6,7 +6,7 @@ interface FeatureProductSkeletonProps extends DetailedHTMLProps<HTMLAttributes<H
   children?: React.ReactNode
 }
 
-export const FeatureProductSkeleton: FC<FeatureProductSkeletonProps> = ({ children, ...rest }) => {
+export const FeatureProductSkeleton: FC<FeatureProductSkeletonProps> = ({  ...rest }) => {
   return (
     <Fragment>
       <div

@@ -54,7 +54,7 @@ export const ProfileAndDashboardSidebar = ({ menuItem, containerStyle, ...rest }
       </div>
 
       <div className="flex flex-col items-end justify-center gap-y-2 ">
-        <ThemeSwitcherLegacy className="p-4" />
+        <ThemeSwitcherLegacy />
         <div
           className={twMerge("cursor-pointer rounded-full bg-gray-300 p-3  dark:bg-gray-950", isOpen && "rotate-180")}
           onClick={() => setIsOpen(!isOpen)}>

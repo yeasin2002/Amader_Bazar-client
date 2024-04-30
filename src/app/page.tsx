@@ -12,7 +12,7 @@ const Home = () => {
       <ProductContainer heading="All Products" />
       <Newsletter />
       <Footer />
-    </div>  
+    </div>
   )
 }
 

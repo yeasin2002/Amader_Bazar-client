@@ -1,5 +1,13 @@
 "use client"
 
+import { Rating } from "@smastrom/react-rating"
+
+import { useMutation } from "@tanstack/react-query"
+import { X } from "lucide-react"
+import { useState } from "react"
+import toast from "react-hot-toast"
+
+import { revalidateProductReview } from "@/actions"
 import { useAuth } from "@/hooks"
 import { cn, getUsersToken } from "@/lib"
 import { Button, Textarea } from "@/ui"
@@ -11,14 +19,8 @@ import {
   AlertDialogTrigger,
 } from "@/ui/alert-dialog"
 import { $fetch } from "@/utils"
-import { useMutation } from "@tanstack/react-query"
-import { X } from "lucide-react"
-import { useState } from "react"
 
 import type { CommonResponse } from "@/interface"
-import toast from "react-hot-toast"
-
-import { Rating } from "@smastrom/react-rating"
 import "@smastrom/react-rating/style.css"
 
 interface Props {
@@ -48,15 +50,15 @@ export const AddReviews = ({ children, className, id, ...rest }: Props) => {
     if (!description || rating === 0) {
       return toast.error("provide  description and rating", { position: "bottom-right" })
     }
-    console.table({ id, rating, desc: description })
 
     const response = await mutateAsync({ id, rating, desc: description })
-    if (response.success) return toast.success("Review added successfully")
-    return toast.error(response.message)
+    if (!response.success) return toast.error(response.message)
+    revalidateProductReview()
+    return toast.success("Review added successfully")
   }
 
   const mailElement = (
-    <div>
+    <div {...rest}>
       <AlertDialog>
         <AlertDialogTrigger className={cn(className)}>{children}</AlertDialogTrigger>
 

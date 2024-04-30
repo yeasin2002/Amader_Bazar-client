@@ -10,7 +10,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDi
   title: string
 }
 
-export const DashboardInfoCard = ({ className, icon, children, title, ...rest }: Props) => {
+export const DashboardInfoCard = ({ className, children, title, ...rest }: Props) => {
   return (
     <div
       {...rest}

@@ -1,8 +1,6 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "$ui/table"
 
 import type { AllUsersResponse } from "@/interface"
-import { getUsersToken } from "@/lib"
-import { Button } from "@/ui"
 import { $fetch } from "@/utils"
 import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 import { Refetch } from "./Refetch"

@@ -9,11 +9,11 @@ interface RatingGraphProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEleme
   isError?: boolean
 }
 
-export const RatingGraph: FC<RatingGraphProps> = ({ Data, isError = false, isLoading = false, ...rest }) => {
+export const RatingGraph: FC<RatingGraphProps> = ({ Data,  ...rest }) => {
   return (
     <div {...rest}>
       <div className="mb-2 flex items-center">
-        {Array.from({ length: Data?.totalReviewer || 0 })?.map((_, i) => <FullStar key={crypto.randomUUID()} />)}
+        {Array.from({ length: Data?.totalReviewer || 0 })?.map(() => <FullStar key={crypto.randomUUID()} />)}
         <OutlineStar />
         <p className="ml-2 text-sm font-medium text-gray-900 dark:text-white">{Data?.averageRating || 0} out of 5</p>
       </div>

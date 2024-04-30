@@ -1,5 +1,5 @@
 {
-  "extends": ["next/core-web-vitals"],
+  "extends": ["next/core-web-vitals", "next"],
   "ignorePatterns": ["dist", ".eslintrc.cjs", "node_modules", ".next"],
   "plugins": ["@tanstack/query"],
   "rules": {

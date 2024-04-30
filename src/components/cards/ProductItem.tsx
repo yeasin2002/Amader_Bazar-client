@@ -27,7 +27,7 @@ export const ProductItem: FC<productsPros> = ({ title, category, img, price, dis
   const costAfterDiscount = calculateDiscount(price, discountPrice)
 
   return (
-    <div className="grid max-h-full min-h-[30rem]  grid-rows-2   space-y-4 rounded-lg  border border-gray-700/20 shadow-md dark:border-gray-500/20 ">
+    <div className="grid    max-h-[30rem]   grid-rows-2 space-y-4  rounded-lg border border-gray-700/20 shadow-md dark:border-gray-500/20">
       <Image
         src={imgUrl}
         alt="product image"

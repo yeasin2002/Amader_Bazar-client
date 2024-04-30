@@ -7,7 +7,7 @@ import { useFilterProduct } from "$store/filteredProducts.store"
 import type { SearchProductResponse } from "$types"
 import { useMutation } from "@tanstack/react-query"
 import Image from "next/image"
-import { type DetailedHTMLProps, type FC, Fragment, type HTMLAttributes, useEffect, useState } from "react"
+import { type DetailedHTMLProps, type FC, type HTMLAttributes, useEffect, useState } from "react"
 
 interface bodyData {
   search: string

@@ -45,7 +45,7 @@ export const DisplayCategory = () => {
 
   const ErrorComponent = (
     <Fragment>
-      {Array.from(Array(5))?.map((_, index) => {
+      {Array.from(Array(5))?.map(() => {
         return (
           <SwiperSlide key={crypto.randomUUID()}>
             <CategoryItemError />

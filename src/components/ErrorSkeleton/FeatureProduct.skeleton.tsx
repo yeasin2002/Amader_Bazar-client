@@ -5,7 +5,7 @@ interface FeatureProductErrorSkeletonProps extends DetailedHTMLProps<HTMLAttribu
   children?: React.ReactNode
 }
 
-export const FeatureProductErrorSkeleton: FC<FeatureProductErrorSkeletonProps> = ({ children, ...rest }) => {
+export const FeatureProductErrorSkeleton: FC<FeatureProductErrorSkeletonProps> = ({ ...rest }) => {
   return (
     <Fragment>
       <div

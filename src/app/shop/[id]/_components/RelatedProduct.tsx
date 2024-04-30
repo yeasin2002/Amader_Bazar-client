@@ -7,7 +7,7 @@ interface RelatedProductProps extends React.DetailedHTMLProps<HTMLAttributes<HTM
   category: string | undefined
 }
 
-export const RelatedProduct = async ({ id, category, ...rest }: RelatedProductProps) => {
+export const RelatedProduct = async ({ ...rest }: RelatedProductProps) => {
   const data = (await $fetch(`/product/related-product`)) as AllProductResponse
 
   return (

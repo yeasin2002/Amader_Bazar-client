@@ -1,12 +1,10 @@
-import { Button, Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "$ui"
+import { Button, TableCell, TableRow } from "$ui"
 import type { Product } from "@/interface"
 
 import { ManageEditProduct } from "@/app/dashboard/products/ManageEditProduct"
-import { ProductsDetailsForAdmin } from "@/app/dashboard/products/ProductsDetailsForAdmin"
 import { FullStar } from "@/components"
-import { AllProductResponse } from "@/interface"
 import { cn } from "@/lib"
-import { $fetch, calculateDiscount, getImgSrc } from "@/utils"
+import { calculateDiscount, getImgSrc } from "@/utils"
 import Image from "next/image"
 
 interface Props {
@@ -14,7 +12,7 @@ interface Props {
   isAllowEdit?: boolean
 }
 
-export const ProductTableItems = ({ product, isAllowEdit = false, ...rest }: Props) => {
+export const ProductTableItems = ({ product, isAllowEdit = false }: Props) => {
   const imgSrc = getImgSrc({
     img: product?.img,
     imgType: "product-img",

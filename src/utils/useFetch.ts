@@ -1,4 +1,4 @@
-import { clientEnv, getUsersToken } from "@/lib"
+import { clientEnv } from "@/lib"
 
 export const $fetch = async (url: string | URL | Request, options?: RequestInit | undefined) => {
   try {
@@ -6,6 +6,5 @@ export const $fetch = async (url: string | URL | Request, options?: RequestInit 
     return await req.json()
   } catch (error) {
     console.log("error", error)
-    return undefined
   }
 }

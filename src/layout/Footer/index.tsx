@@ -53,7 +53,7 @@ export const Footer = () => {
         <div className="container mx-auto flex flex-col flex-wrap px-5 py-4 sm:flex-row">
           <p className="text-center font-kurale text-sm text-gray-500  sm:text-left ">©{currentYear} Amader Bazar</p>
           <span className="mt-2 inline-flex justify-center gap-x-2 sm:ml-auto sm:mt-0 sm:justify-start">
-            {footerContact?.map((item, index) => {
+            {footerContact?.map((item) => {
               return (
                 <a className="text-gray-500" href={item.link} key={item.link} target="_blank" rel="noreferrer">
                   <item.icon />

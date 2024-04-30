@@ -1,18 +1,30 @@
-import type { ReviewsResponse, SingleProductResponse } from "$types"
+import type { AllProductResponse, ReviewsResponse, SingleProductResponse } from "$types"
 import { $fetch } from "@/utils"
-import { DisplayProductInfo } from "./ProductInfo"
-import { ProductReviews } from "./ProductReviews"
-import { RelatedProduct } from "./RelatedProduct"
+import { DisplayProductInfo } from "./_components/ProductInfo"
+import { ProductReviews } from "./_components/ProductReviews"
+import { RelatedProduct } from "./_components/RelatedProduct"
 
 interface Props {
   params: { id: string }
 }
 
+export const generateStaticParams = async () => {
+  const data = (await $fetch("/product/all")) as AllProductResponse
+  return data?.data?.map((product) => ({ params: { id: product._id } }))
+}
+
 const SingleProductInfo = async ({ params }: Props) => {
-  const data = (await $fetch(`/product/all/${params.id}`)) as SingleProductResponse
-  const ratingData = (await $fetch(`/product/rating/${params.id}`, {
-    next: { revalidate: 60 },
-  })) as ReviewsResponse
+  const dataPromise = $fetch(`/product/all/${params.id}`, {
+    next: {
+      tags: ["single-product", params.id],
+    },
+  }) as Promise<SingleProductResponse>
+
+  const ratingDataPromise = $fetch(`/product/rating/${params.id}`, {
+    next: { tags: ["product-review", params.id] },
+  }) as Promise<ReviewsResponse>
+
+  const [data, ratingData] = await Promise.all([dataPromise, ratingDataPromise])
 
   return (
     <section className="py contain mx-auto my-32 px-5 lg:w-4/5">

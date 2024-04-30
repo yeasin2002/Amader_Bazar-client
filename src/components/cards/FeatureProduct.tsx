@@ -19,8 +19,6 @@ interface FeatureProductProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivEl
 export const FeatureProducts: FC<FeatureProductProps> = ({
   heading,
   product,
-  isLoading = false,
-  isError = false,
   ...rest
 }) => {
   return (

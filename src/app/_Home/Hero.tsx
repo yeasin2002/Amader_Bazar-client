@@ -26,16 +26,12 @@ export const Hero = () => {
             <h1 className={"mb-4 text-center  font-kurale text-4xl font-bold  text-gray-800 dark:text-gray-300"}>
               Amader Bazar
             </h1>
-            <Suspense fallback={"..."}>
-              <p className=" font-jost font-medium  text-gray-600  dark:text-gray-400 ">{randomDesc()}</p>
-            </Suspense>
+            <p className=" font-jost font-medium  text-gray-600  dark:text-gray-400 ">{randomDesc()}</p>
           </div>
           <div className="my-3 mt-8 flex justify-between gap-x-2 ">
             <Link
               href={"/search"}
-              className={buttonVariants({
-                className: cn("mr-2  rounded-xl", { "w-full": !isLoggedIn }),
-              })}>
+              className={buttonVariants({ className: cn("mr-2  rounded-xl", { "w-full": !isLoggedIn }) })}>
               Start Shopping
             </Link>
             {!isLoggedIn && (

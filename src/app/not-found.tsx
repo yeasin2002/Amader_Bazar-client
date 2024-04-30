@@ -1,17 +1,13 @@
-"use client"
-
 import notfoundImg from "@/assets/illustration/others/404_Page.svg"
-import { ArrowBack } from "@/components"
-import { useRouter } from "next/navigation"
+import { ArrowBack, GoBack } from "@/components"
 
 import { Home } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 import type { DetailedHTMLProps, FC, HTMLAttributes } from "react"
 
 type NotFoundProps = DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>
 const NotFound: FC<NotFoundProps> = ({ ...rest }) => {
-  const router = useRouter()
-
   return (
     <section
       {...rest}
@@ -26,21 +22,18 @@ const NotFound: FC<NotFoundProps> = ({ ...rest }) => {
         </p>
 
         <div className="mt-6 flex items-center gap-x-3">
-          <button
-            type="button"
-            className="flex w-1/2 items-center justify-center gap-x-2 rounded-lg border bg-gray-200 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 sm:w-auto"
-            onClick={() => router.back()}>
+          <GoBack className="flex w-1/2 items-center justify-center gap-x-2 rounded-lg border bg-gray-200 px-5 py-2 text-sm text-gray-700 transition-colors duration-200 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-200 dark:hover:bg-gray-800 sm:w-auto">
             <ArrowBack />
             <span>Go back</span>
-          </button>
+          </GoBack>
 
-          <button
+          <Link
             type="button"
             className="flex  w-1/2 shrink-0 items-center gap-x-2 rounded-lg bg-blue-500 px-5 py-2 text-sm tracking-wide text-white transition-colors duration-200 hover:bg-blue-600 dark:bg-blue-600 dark:hover:bg-blue-500 sm:w-auto"
-            onClick={() => router.push("/")}>
+            href={`/`}>
             <Home className="size-4" />
             Take Me Home
-          </button>
+          </Link>
         </div>
       </div>
       <div>

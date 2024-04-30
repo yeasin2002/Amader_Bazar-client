@@ -25,7 +25,7 @@ const Setting = () => {
         <UserIntro />
 
         <div className={cn("mt-5 flex w-full   flex-col gap-y-4 bg-gray-100 p-5")}>
-          {allComponents.map((Item, i) => {
+          {allComponents.map((Item) => {
             return (
               <DialogWrapper
                 key={Item.title}

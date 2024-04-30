@@ -25,7 +25,7 @@ export const InputForPassword: FC<InputForPasswordProps> = ({
   labelClassName,
   isLabelHidden,
   isRequired = false,
-  type = "text",
+
   ...rest
 }) => {
   const [showPassword, setShowPassword] = useState(false)

@@ -3,7 +3,7 @@
 import emptyCard from "@/assets/illustration/3D/empty-shopping-bucket.png"
 import { useSelectedProduct } from "@/store"
 import { getImgSrc } from "@/utils"
-import { Minus, Plus, Trash2 } from "lucide-react"
+import { Trash2 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { Fragment } from "react"
@@ -11,7 +11,7 @@ import { ConfirmOrder } from "./ConfirmOrder"
 import { QTY_manage } from "./QTY_manage"
 
 const Checkout = () => {
-  const { selectedProduct, increaseQuantity, decreaseQuantity, updateQuantity, removeProduct } = useSelectedProduct()
+  const { selectedProduct, removeProduct } = useSelectedProduct()
 
   return (
     <section className="w-full px-4 py-6">

@@ -1,4 +1,4 @@
-import { Contact, Home, Search, icons } from "lucide-react"
+import { Contact, Home, Search } from "lucide-react"
 
 export const hiddenInMobileRoute = [
   "/dashboard",
