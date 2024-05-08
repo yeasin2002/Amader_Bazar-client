@@ -34,10 +34,10 @@ export const UserProfileInfo = () => {
           <p className={"lg:heading-4 heading-6  font-bold  capitalize text-gray-800" + pt_sans_narrow.className}>
             {name}
             {isAdmin && (
-              <span className=" font-kurale ml-2 rounded-md bg-brand-500 p-1 text-xs text-slate-800">Admin</span>
+              <span className=" ml-2 rounded-md bg-brand-500 p-1 font-kurale text-xs text-slate-800">Admin</span>
             )}
           </p>
-          <p className={" text-xs font-semibold text-gray-500" + pt_sans_narrow.className}>{email}</p>
+          <p className={" text-xs font-semibold text-gray-500" + pt_sans_narrow?.className}>{email}</p>
         </div>
       </div>
     </Fragment>

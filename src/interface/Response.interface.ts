@@ -32,7 +32,7 @@ export interface orderResponse {
 }
 
 export interface OrderByUserResponse {
-  data: OrderData[] | null
+  data?: OrderData[] | null
   message: string
   statusCode: number
   success: boolean

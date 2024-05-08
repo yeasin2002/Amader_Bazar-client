@@ -21,11 +21,10 @@ const Profile = ({ ...rest }) => {
       }) as Promise<OrderByUserResponse>
     },
   })
-  console.log("🚀 ~ Profile ~ data:", data)
 
   const noOrderFound = (
     <div className="flex  h-full max-h-screen w-full flex-col items-center justify-center text-center text-gray-500">
-      <p className={exo_2.className}>You {"don't"} have any orders yet</p>
+      <p className={exo_2?.className}>You {"don't"} have any orders yet</p>
       <div className="flex justify-center">
         <Link href="/" className="font-hedvigLettersSerif text-blue-500 hover:underline">
           Go to shop
@@ -39,9 +38,9 @@ const Profile = ({ ...rest }) => {
     <div>
       {data?.data?.map((items) => {
         const date = new Date(items.createdAt)
-        const year = date.getFullYear()
-        const month = date.getMonth() + 1
-        const day = date.getDate()
+        const year = date?.getFullYear()
+        const month = date?.getMonth() + 1
+        const day = date?.getDate()
         const fullDate = `${day}-${month}-${year}`
 
         const time = date.toLocaleTimeString()

@@ -5,7 +5,7 @@ import { isWindowAvailable } from "@/utils"
 import Image from "next/image"
 import React from "react"
 
-const error = () => {
+const ProfileError = () => {
   return (
     <div className="flex h-full w-full flex-col place-items-center ">
       <Image src={errorImg} width={200} height={200} alt="error" className="size-1/2" />
@@ -20,4 +20,4 @@ const error = () => {
   )
 }
 
-export default error
+export default ProfileError
