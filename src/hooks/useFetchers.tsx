@@ -21,7 +21,7 @@ export async function $GET({ url, body, header }: Fetchers) {
 }
 
 export async function $POST({ url = "", body = {}, header, contentType = "application/json" }: Fetchers) {
-  console.log("🚀 ~ file: useFetchers.tsx:25 ~ $POST ~ body:", body)
+
   const response = await fetch(clientEnv.baseUrl + url, {
     method: "POST",
     headers: {

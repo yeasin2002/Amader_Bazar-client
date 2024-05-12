@@ -29,7 +29,7 @@ export const ChangePassword = () => {
 
   const onSubmitHandler: SubmitHandler<FormValues> = async (data) => {
     const response = await mutateAsync(data)
-    console.log("🚀  response :", response)
+    
 
     if (response.success) return toast.success("Password Changed Successfully", { position: "top-right" })
     return toast.error("Unable To Change Password", { position: "top-right" })

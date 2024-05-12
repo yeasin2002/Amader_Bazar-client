@@ -43,7 +43,7 @@ export const UserBandAndDeleteAction = ({ isBanned, userId, ...rest }: Props) =>
 
   const handleBannedOrUnbanned = async () => {
     const response = await banAndUnbanned.mutateAsync(isBanned)
-    console.log("🚀 ~ BannedOrUnbanned ~ response:", response)
+    
   }
   const handleUserDelete = async () => {
     const response = await deleteUser.mutateAsync(userId)

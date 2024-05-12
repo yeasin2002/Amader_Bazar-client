@@ -91,7 +91,6 @@ const Login: FC<LogInProps> = ({ ...rest }) => {
               label="Password"
               error={formState?.errors?.password?.message}
               placeholder="Enter your password"
-              type="password"
               autoComplete="current-password"
             />
           </div>

@@ -9,7 +9,7 @@ export const Refetch = ({ ...rest }) => {
       {...rest}
       onClick={() => {
         revalidatePath("/dashboard/users")
-        console.log("Revalidating")
+        
       }}>
       Refetch
     </Button>

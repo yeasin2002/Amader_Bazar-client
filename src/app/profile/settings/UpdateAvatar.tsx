@@ -58,11 +58,11 @@ export const UpdateAvatar = () => {
       })
     }
 
-    console.log("File Uploading")
+    
     const response = await mutateAsync(updatableImg)
-    console.log(response)
+    
     if (response.success) {
-      console.log("Done")
+    
       setUserInfo({
         ...userInfo,
         avatar: response.data.avatar,

@@ -31,7 +31,7 @@ export const DeleteAccount = () => {
 
   const onSubmitHandler: SubmitHandler<FormValues> = async (data) => {
     const response = await mutateAsync(data)
-    console.log("🚀Delete Response:", response)
+    
     if (!response?.success) {
       toast.error("Unable To  Deleted  Account")
       return setLoggedOut()

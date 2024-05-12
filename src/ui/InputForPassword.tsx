@@ -1,3 +1,4 @@
+"use client"
 import { cn } from "$lib/utils"
 import { Eye, EyeOff } from "lucide-react"
 import { type DetailedHTMLProps, type FC, useState } from "react"
@@ -29,9 +30,10 @@ export const InputForPassword: FC<InputForPasswordProps> = ({
   ...rest
 }) => {
   const [showPassword, setShowPassword] = useState(false)
+  
 
   const toggleShowPassword = () => {
-    setShowPassword(!showPassword)
+    setShowPassword((pre) => !pre)
   }
 
   return (
@@ -46,7 +48,8 @@ export const InputForPassword: FC<InputForPasswordProps> = ({
       <div className="relative">
         <input
           type={showPassword ? "text" : "password"}
-          {...rest}
+      
+          {...rest} 
           {...register}
           className={cn(
             "block h-full  w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500",

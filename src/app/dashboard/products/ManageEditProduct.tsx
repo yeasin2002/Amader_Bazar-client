@@ -10,7 +10,7 @@ interface Props extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDi
 
 export const ManageEditProduct = ({ product, ...rest }: Props) => {
   const handleEditSave = (latestProduct: Product) => {
-    console.log("EDIT", latestProduct)
+    
   }
   return (
     <div {...rest}>

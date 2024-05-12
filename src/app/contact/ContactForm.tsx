@@ -34,7 +34,7 @@ export const ContactForm = ({ ...rest }: Props) => {
   })
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    console.log(data)
+    
 
     mutateAsync(data)
     return data
