@@ -21,7 +21,7 @@ export const Nav = () => {
     <Fragment>
       {!hiddenRoute.includes(pathName) && (
         <Fragment>
-          <nav className="glass-effect fixed left-0  right-0 top-3  z-10 mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4 xl:py-6 2xl:py-8">
+          <nav className="glass-effect fixed left-0  right-0 top-3  z-10 mx-auto flex w-10/12 items-center justify-between rounded-lg px-6 py-4  ">
             <Link href={"/"} className="h-10 w-10 ">
               <Logo className="h-full w-full " />
             </Link>
